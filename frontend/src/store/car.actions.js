@@ -1,4 +1,4 @@
-import { carService } from '../services/car'
+import { carService } from '../services/car/car.service.local'
 import { store } from '../store/store'
 import { ADD_CAR, REMOVE_CAR, SET_CARS, SET_CAR, UPDATE_CAR, ADD_CAR_MSG } from './car.reducer'
 
