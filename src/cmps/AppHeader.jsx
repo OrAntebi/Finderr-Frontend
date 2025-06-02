@@ -1,12 +1,19 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user/user.actions'
+import { useScreenSize } from '../customHooks/useScreenSize'
+import { DynamicHeader } from './dynamicCmps/DynamicHeader.jsx'
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
+    const screenWidth = useScreenSize()
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const [avatarMenuIsOpen, setAvatarMenuIsOpen] = useState(false)
     const navigate = useNavigate()
+    const currentPage = useLocation().pathname
 
     async function onLogout() {
         try {
@@ -18,30 +25,28 @@ export function AppHeader() {
         }
     }
 
-    return (
-        <header className="app-header main-container full">
-            <nav className=''>
-                <NavLink to="/" className="/logo">
-                    E2E Demo
-                </NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/gig">Gigs</NavLink>
-                <NavLink to="/chat">Chat</NavLink>
-                <NavLink to="/review">Review</NavLink>
-                {user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
+    function onMenuClick() {
+        setMenuIsOpen(prev => !prev)
+        document.querySelector('.app-header').classList.toggle('menu-shown', !menuIsOpen)
 
-                {!user && <NavLink to="login" className="login-link">Login</NavLink>}
-                {user && (
-                    <div className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        {/* <span className="score">{user.score?.toLocaleString()}</span> */}
-                        <button onClick={onLogout}>logout</button>
-                    </div>
-                )}
-            </nav>
-        </header >
+        setTimeout(() => {
+            document.querySelector('.app-header').classList.toggle('menu-shown', !menuIsOpen)
+        }, 0)
+    }
+
+    function onAvatarClick() {
+        setAvatarMenuIsOpen(prev => !prev)
+    }
+    console.log(currentPage)
+    return (
+        <DynamicHeader
+            screenSize={screenWidth}
+            user={user}
+            onLogout={onLogout}
+            onMenuClick={onMenuClick}
+            onAvatarClick={onAvatarClick}
+            avatarMenuIsOpen={avatarMenuIsOpen}
+            currentPage={currentPage}
+        />
     )
 }

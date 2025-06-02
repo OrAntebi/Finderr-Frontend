@@ -25,6 +25,13 @@
     &.align-center {
         align-items: center;
     }
+    &.justify-between {
+        justify-content: space-between;
+    }
+
+    &.gap1rem {
+        gap: 1rem;
+    }
 }
 
 // Media helpers

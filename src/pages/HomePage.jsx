@@ -12,7 +12,7 @@ export function HomePage() {
                 itaque natus soluta fuga! Deserunt in hic harum magnam quos. Expedita, quis corrupti quia esse excepturi
                 alias aperiam repudiandae soluta animi modi temporibus veniam vero eveniet nemo ipsa?
             </p>
-            <Link to='/gig' >Check Our Gigs!</Link>
+            <Link to='/explore' >Check Our Gigs!</Link>
         </section >
     )
 }

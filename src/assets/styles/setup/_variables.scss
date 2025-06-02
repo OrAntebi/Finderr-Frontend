@@ -1,11 +1,11 @@
 // Colors
-$clr1: #ce2e6c;
+$clr1: #000000;
 $clr2: #4f3a65;
 $clr3: #574f7d;
 $clr4: #95adbe;
 $clr5: #dff0ea;
 $clr6: #fff;
-$clr7: #222;
+$clr7: #ce2e6c;
 
 $gray1: #ddd;
 $gray2: #aaa;
@@ -13,6 +13,36 @@ $gray3: #777;
 $gray4: #333;
 
 // Breakpoints
-$mobile-breakpoint: 460px;
-$narrow-breakpoint: 720px;
-$normal-breakpoint: 960px;
+$mobile-breakpoint: 600px;
+$narrow-breakpoint: 900px;
+$normal-breakpoint: 1200px;
+
+$mobile-padding: 16px;
+$narrow-padding: 16px;
+$normal-padding: 16px;
+$wide-padding: 16px;
+
+/***** HOME PAGE *****/
+
+// MAIN NAV-BAR
+$nav-link-clr: #62646a;
+$nav-link-clr-hover: #1dbf73;
+
+// HERO
+$hero-primary-clr: #ffffff;
+$hero-btn-border-radius: 8px;
+$hero-search-border-radius: 12px;
+
+// CATEGORIES
+$caregories-clr: #222325;
+$caregories-btn-border-radius: 16px;
+$categories-shadow: 0 0 .880517px rgba(0,0,0,.029),0 0 2.29197px rgba(0,0,0,.03),0 0 5.52px rgba(0,0,0,.054),0 0 11px rgba(0,0,0,.09);
+$categories-bg-hover: radial-gradient(63.44% 63.44% at 50% 50%, #c2ffe2 0, #fff 100%), #fff;
+
+// SERVICES
+$services-title-clr: #404145;
+$services-txt-clr: #ffffff;
+$services-bg-clr: #003912;
+$services-shadow: 0 3px 10px 0 rgba(0, 0, 0, .13);
+$services-bg-hover-opacity: .88;
+$services-btn-border-radius: 16px;

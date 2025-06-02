@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 
 import { userService } from './services/user'
@@ -21,6 +20,7 @@ import { Signup } from './pages/Signup.jsx'
 
 
 export function RootCmp() {
+
     return (
         <div className="main-container">
             <AppHeader />
@@ -33,8 +33,8 @@ export function RootCmp() {
                         <Route path="team" element={<AboutTeam />} />
                         <Route path="vision" element={<AboutVision />} />
                     </Route>
-                    <Route path="gig" element={<GigIndex />} />
-                    <Route path="gig/:gigId" element={<GigDetails />} />
+                    <Route path="explore" element={<GigIndex />} />
+                    <Route path="explore/:gigId" element={<GigDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />
@@ -53,9 +53,6 @@ export function RootCmp() {
         </div>
     )
 }
-
-
-
 
 function AuthGuard({ children, checkAdmin = false }) {
     const user = userService.getLoggedinUser()
