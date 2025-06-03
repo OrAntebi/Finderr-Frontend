@@ -74,13 +74,15 @@ function SiteLogo() {
     )
 }
 
-function SearchInput() {
+function SearchInput({ submitBtn = true }) {
     return (
-        <form className="search-bar-container flex">
-            <input type="search" className="search-bar" placeholder="What service are you looking for today?" />
-            <button type="submit" className="search-btn">
-                <img src={submitIcon} alt="search icon" />
-            </button>
+        <form className="search-bar-container flex justify-between">
+            <input type="search" className={`search-bar ${!submitBtn ? "no-submit-btn" : ""}`} placeholder="What service are you looking for today?" />
+            {submitBtn && (
+                <button type="submit" className="search-btn">
+                    <img src={submitIcon} alt="search icon" />
+                </button>
+            )}
         </form>
     )
 }
@@ -101,20 +103,16 @@ function MobileHeader({ user, onLogout, onAvatarClick, avatarMenuIsOpen, onMenuC
                 <SideMenuButton user={user} onMenuClick={onMenuClick} onAvatarClick={onAvatarClick} />
                 <SiteLogo />
 
-                {user ? (
-                    <>
-                        {currentPage === "/explore" && <SearchInput />}
-                        <nav>
-                            <UserAvatar imgUrl={user.imgUrl} userName={user.fullname} onAvatarClick={onAvatarClick} />
-                            <AvatarMenu user={user} avatarMenuIsOpen={avatarMenuIsOpen} onLogout={onLogout} />
-                        </nav>
-                    </>
-                ) : (
+                {!user ? (
                     <nav>
                         <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink>
                     </nav>
+                ) : (
+                    <nav class="spacer"></nav>
                 )}
             </section>
+
+            {currentPage === "/explore" && <SearchInput submitBtn={false} />}
         </header>
     )
 }
@@ -128,7 +126,7 @@ function NarrowHeader({ user, onLogout, onAvatarClick, avatarMenuIsOpen, onMenuC
                     <SiteLogo />
                 </section>
 
-                {currentPage === "/explore" && <SearchInput />}
+                {currentPage === "/explore" && <SearchInput submitBtn={false} />}
 
                 <nav>
                     {user ? (

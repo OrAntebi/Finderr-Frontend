@@ -1,10 +1,14 @@
 .app-header {
-    min-height: 5rem;
+    min-height: rem(130px);
 
     background-color: $clr6;
     font-family: Macan-Medium, Helvetica, Arial, sans-serif;
     border-block-end: 1px solid #dadbdd;
     white-space: nowrap;
+
+    @include for-narrow-layout {
+        min-height: rem(80px);
+    }
 
     .app-header-container {
         column-gap: em(32px);
@@ -115,12 +119,16 @@
         opacity: 0;
         overflow: hidden;
         transition: all .2s ease;
-        z-index: 1;
+        z-index: 10;
     }
 
     nav {
         display: flex;
         align-items: center;
+
+        &.spacer {
+            width: 34px;
+        }
 
         a {
             color: $nav-link-clr;
