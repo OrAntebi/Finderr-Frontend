@@ -1,13 +1,12 @@
 .app-footer {
     min-height: 5rem;
-    background-color: $clr4;
+    border-block-start: 1px solid #dadbdd;
 
-    > section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        p {
-            margin: 0;
-        }
+    section>* {
+        gap: 1rem;
+    }
+
+    img {
+        max-width: none;
     }
 }

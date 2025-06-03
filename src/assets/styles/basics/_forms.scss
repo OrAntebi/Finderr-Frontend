@@ -1,16 +1,14 @@
 button {
 	border: 0;
-	background-color: $clr1;
-	color: whitesmoke;
+	background-color: transparent;
 	padding: 5px 10px;
-	margin: 5px;
+	margin: 0;
 	cursor: pointer;
 }
 
 form > * {
 	display: block;
 	// width: 200px;
-	margin: 10px 0px;
 }
 
 .btn-link {

@@ -3,7 +3,7 @@ import { storageService } from '../async-storage.service'
 import { getRandomIntInclusive, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
-// const STORAGE_KEY = 'gig'
+// const GIG_KEY = 'gig'
 const GIG_KEY = 'gigDB'
 
 
@@ -85,12 +85,12 @@ async function query(filterBy = { txt: '', price: 0 }) {
 }
 
 function getById(gigId) {
-    return storageService.get(STORAGE_KEY, gigId)
+    return storageService.get(GIG_KEY, gigId)
 }
 
 async function remove(gigId) {
     // throw new Error('Nope')
-    await storageService.remove(STORAGE_KEY, gigId)
+    await storageService.remove(GIG_KEY, gigId)
 }
 
 async function save(gig) {
@@ -101,7 +101,7 @@ async function save(gig) {
             price: gig.price,
             speed: gig.speed,
         }
-        savedGig = await storageService.put(STORAGE_KEY, gigToSave)
+        savedGig = await storageService.put(GIG_KEY, gigToSave)
     } else {
         const gigToSave = {
             vendor: gig.vendor,
@@ -111,7 +111,7 @@ async function save(gig) {
             owner: userService.getLoggedinUser(),
             msgs: []
         }
-        savedGig = await storageService.post(STORAGE_KEY, gigToSave)
+        savedGig = await storageService.post(GIG_KEY, gigToSave)
     }
     return savedGig
 }
@@ -206,7 +206,7 @@ async function addGigMsg(gigId, txt) {
         txt
     }
     gig.msgs.push(msg)
-    await storageService.put(STORAGE_KEY, gig)
+    await storageService.put(GIG_KEY, gig)
 
     return msg
 }
