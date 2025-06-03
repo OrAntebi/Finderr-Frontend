@@ -37,6 +37,7 @@ export function AppHeader() {
     function onAvatarClick() {
         setAvatarMenuIsOpen(prev => !prev)
     }
+
     console.log(currentPage)
     return (
         <DynamicHeader

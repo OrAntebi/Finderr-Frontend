@@ -38,7 +38,7 @@ export function randomPastTime() {
 export function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
-        clearTimeout(timer) 
+        clearTimeout(timer)
         timer = setTimeout(() => {
             func.apply(this, args)
         }, timeout)
@@ -52,4 +52,14 @@ export function saveToStorage(key, value) {
 export function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+export function getInitials(fullName) {
+    if (!fullName) return '';
+
+    const words = fullName.trim().split(/\s+/);
+    const first = words[0]?.[0] || '';
+    const second = words[1]?.[0] || '';
+
+    return (first + second).toUpperCase();
 }

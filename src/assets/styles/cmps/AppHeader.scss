@@ -55,6 +55,7 @@
                     width: 100%;
 
                     border-radius: 8px;
+                    cursor: pointer;
 
                     &:hover {
                         background-color: #f5f5f5;
@@ -85,6 +86,7 @@
                 }
 
             }
+
         }
     }
 
@@ -153,33 +155,21 @@
         }
     }
 
-    .user-info {
-        display: flex;
-        align-items: center;
-        margin-inline-start: auto;
-        color: $clr1;
-
-        .score {
-            padding: 8px;
-            background-color: $clr2;
-            border-radius: 50%;
-            margin: 10px;
-
-            color: $clr6;
-        }
-
-        img {
-            width: 32px;
-            aspect-ratio: 1;
-            border-radius: 50%;
-        }
-
-        .btn-link {
-            color: $clr2;
-        }
-    }
-
     .active {
         font-weight: 600;
+    }
+
+    .user-info {
+        gap: rem(15px);
+        margin: 0 em(12px) em(20px);
+
+        .user-avatar {
+            cursor: pointer;
+        }
+
+        .user-full-name {
+            font-size: rem(16px);
+            cursor: pointer;
+        }
     }
 }
