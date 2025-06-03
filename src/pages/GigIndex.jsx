@@ -12,7 +12,9 @@ import { GigFilter } from '../cmps/GigFilter'
 
 export function GigIndex() {
 
-    const [filterBy, setFilterBy] = useState(gigservice.getDefaultFilter())
+    // const [filterBy, setFilterBy] = useState(gigservice.getDefaultFilter())
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+    
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     useEffect(() => {

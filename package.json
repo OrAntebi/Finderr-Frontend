@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "dev:local": "set VITE_LOCAL=true && vite",
+        "dev:local": "set VITE_LOCAL=true&&vite",
         "dev:local:mac": "export VITE_LOCAL=true && vite",
         "build": "vite build",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
