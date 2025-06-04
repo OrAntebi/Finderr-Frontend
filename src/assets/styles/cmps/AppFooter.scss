@@ -2,7 +2,11 @@
     min-height: 5rem;
     border-block-start: 1px solid #dadbdd;
 
-    section > * {
+    section>* {
         gap: 1rem;
+    }
+
+    img {
+        max-width: none;
     }
 }

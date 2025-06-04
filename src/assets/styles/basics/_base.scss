@@ -6,7 +6,7 @@
 
 html {
     max-width: 100vw;
-    
+
     color: $clr1;
     overflow-x: hidden;
 }
@@ -29,9 +29,10 @@ h6 {
     margin: 0 0 0.6em;
 }
 
-img {
+img, video {
     display: block;
     max-width: 100%;
+    object-fit: cover;
 }
 
 a {
@@ -48,6 +49,7 @@ ul {
 
 input {
     max-width: 100%;
+    max-height: fit-content;
 }
 
 

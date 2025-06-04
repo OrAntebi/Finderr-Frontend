@@ -7,14 +7,17 @@
         width: 100%;
 
         border: 1px solid #dadbdd;
-        border-inline-end: none;
-        border-radius: 4px 0 0 4px;
+        border-radius: 4px;
+        
+        &:not(.no-submit-btn) {
+            border-inline-end: none;
+            border-radius: 4px 0 0 4px;
+        }
 
         &:focus {
             outline: none;
             border-color: $clr1;
         }
-
     }
 
     .search-btn {
