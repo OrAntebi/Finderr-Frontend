@@ -67,7 +67,7 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
         <h3>services</h3>
         <div className="tag-list">
             {tagList.map(tag =>
-                <button key={tag} onClick={() => handleTagClick(tag)}>
+                <button className="tag-button" key={tag} onClick={() => handleTagClick(tag)}>
                     {tag}
                 </button>
             )}
