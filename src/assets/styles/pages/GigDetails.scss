@@ -1,0 +1,57 @@
+.gig-details {
+    padding: 2rem;
+
+    .gig-title {
+        font-size: rem(28px);
+        line-height: lh(38px, 28px);
+        font-family: Macan-Bold, sans-serif;
+        color: $caregories-clr;
+        margin: 0;
+        padding-bottom: 1rem;
+    }
+
+    .owner-details {
+        margin-bottom: rem(24px);
+
+        img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+
+        .owner-info {
+            color: $caregories-clr;
+            font-family: Macan-Bold, sans-serif;
+
+            .name-and-level {
+                gap: .5rem;
+
+                h3 {
+                    margin: 0;
+                    font-size: rem(18px);
+                    color: $services-title-clr;
+                    line-height: lh(26px);
+                }
+
+                .level {
+                    font-size: rem(14px);
+                }
+            }
+
+            .rate {
+                line-height: lh(24px);
+
+                .star:not(:first-child) {
+                    padding-left: .25rem;
+                }
+
+                .rating {
+                    padding-left: .25rem;
+                    color: $caregories-clr;
+                    font-weight: bold;
+                    // font-family: Macan-Bold, sans-serif;
+                }
+            }
+        }
+    }
+}
