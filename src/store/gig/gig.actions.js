@@ -1,9 +1,10 @@
-import { gigservice } from '../../services/gig/gig.service.local'
+import { gigservice } from '../../services/gig'
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG } from './gig.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_GIG_FILTER } from './gig.reducer'
 
-export async function loadGigs(filterBy) {
+export async function loadGigs() {
     try {
+        const { filterBy } = store.getState().gigModule
         const gigs = await gigservice.query(filterBy)
         store.dispatch(getCmdSetGigs(gigs))
     } catch (err) {
@@ -55,6 +56,11 @@ export async function updateGig(gig) {
     }
 }
 
+export function setGigFilter(filterBy) {
+    store.dispatch(getCmdSetGigFilter(filterBy))
+    loadGigs()
+}
+``
 export async function addGigMsg(gigId, txt) {
     try {
         const msg = await gigservice.addGigMsg(gigId, txt)
@@ -97,6 +103,14 @@ function getCmdUpdateGig(gig) {
         gig
     }
 }
+
+function getCmdSetGigFilter(filterBy) {
+    return {
+        type: SET_GIG_FILTER,
+        filterBy
+    }
+}
+
 function getCmdAddGigMsg(msg) {
     return {
         type: ADD_GIG_MSG,

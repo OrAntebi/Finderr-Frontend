@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { gigservice } from '../services/gig'
 
 export function GigFilter({ filterBy, onSetFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
+    const tagList = gigservice.getTagList()
 
     useEffect(() => {
         onSetFilterBy(filterToEdit)
@@ -10,15 +12,17 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     function handleChange(ev) {
         const type = ev.target.type
         const field = ev.target.name
-        let value
+        let value = ev.target.value
 
         switch (type) {
-            case 'text':
+            case 'text': setFilterToEdit({ ...filterToEdit, [field]: value })
+                break
             case 'radio':
                 value = field === 'sortDir' ? +ev.target.value : ev.target.value
                 if (!filterToEdit.sortDir) filterToEdit.sortDir = 1
                 break
-            case 'number':
+            case 'number': setFilterToEdit({ ...filterToEdit, [field]: +value || '' })
+                break
             case 'range':
                 value = +ev.target.value
                 break
@@ -26,8 +30,12 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
         setFilterToEdit({ ...filterToEdit, [field]: value })
     }
 
+    function handleTagClick(tag) {
+        setFilterToEdit(prev => ({ ...prev, tags: [tag] }))
+    }
+
     function clearFilter() {
-        setFilterToEdit({ ...filterToEdit, txt: '', minSpeed: '', maxPrice: '' })
+        setFilterToEdit({ ...filterToEdit, txt: '', minprice: '', maxPrice: '' })
     }
 
     function clearSort() {
@@ -40,79 +48,29 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
             type="text"
             name="txt"
             value={filterToEdit.txt}
-            placeholder="Free text"
+            placeholder="Search gigs"
             onChange={handleChange}
             required
         />
         <input
             type="number"
             min="0"
-            name="minSpeed"
-            value={filterToEdit.minSpeed}
-            placeholder="min. speed"
+            name="minPrice"
+            value={filterToEdit.minPrice}
+            placeholder="Min. price"
             onChange={handleChange}
             required
         />
         <button
             className="btn-clear"
             onClick={clearFilter}>Clear</button>
-        <h3>Sort:</h3>
-        <div className="sort-field">
-            <label>
-                <span>Speed</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="speed"
-                    checked={filterToEdit.sortField === 'speed'}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Vendor</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="vendor"
-                    checked={filterToEdit.sortField === 'vendor'}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Owner</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="owner"
-                    checked={filterToEdit.sortField === 'owner'}
-                    onChange={handleChange}
-                />
-            </label>
+        <h3>services</h3>
+        <div className="tag-list">
+            {tagList.map(tag =>
+                <button key={tag} onClick={() => handleTagClick(tag)}>
+                    {tag}
+                </button>
+            )}
         </div>
-        <div className="sort-dir">
-            <label>
-                <span>Asce</span>
-                <input
-                    type="radio"
-                    name="sortDir"
-                    value="1"
-                    checked={filterToEdit.sortDir === 1}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Desc</span>
-                <input
-                    type="radio"
-                    name="sortDir"
-                    value="-1"
-                    onChange={handleChange}
-                    checked={filterToEdit.sortDir === -1}
-                />
-            </label>
-        </div>
-        <button
-            className="btn-clear"
-            onClick={clearSort}>Clear</button>
     </section>
 }

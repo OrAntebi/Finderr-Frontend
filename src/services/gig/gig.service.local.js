@@ -52,7 +52,6 @@ window.cs = gigservice
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(GIG_KEY)
-    // const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
     const { txt, minPrice, tags } = filterBy
 
     if (txt) {
@@ -62,17 +61,11 @@ async function query(filterBy = { txt: '', price: 0 }) {
     if (minPrice) {
         gigs = gigs.filter(gig => gig.price >= +minPrice)
     }
-    // if (maxPrice) {
-    //     gigs = gigs.filter(gig => gig.price <= maxPrice)
-    // }
-    // if (sortField === 'vendor' || sortField === 'owner') {
-    //     gigs.sort((gig1, gig2) =>
-    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    // }
-    // if (sortField === 'price' || sortField === 'speed') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
-    // }
+
+    if (tags.length) {
+        gigs = gigs.filter(gig =>
+            tags.every(tag => gig.tags.includes(tag)))
+    }
 
     gigs = gigs.map(({ _id, title, price, daysToMake, owner }) => ({
         _id,
@@ -81,6 +74,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
         daysToMake,
         owner
     }))
+
     return gigs
 }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg } from '../store/gig/gig.actions'
+import { loadGigs, addGig, updateGig, removeGig, addGigMsg, setGigFilter } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigservice } from '../services/gig/'
@@ -12,7 +12,9 @@ import { GigFilter } from '../cmps/GigFilter'
 
 export function GigIndex() {
 
-    const [filterBy, setFilterBy] = useState(gigservice.getDefaultFilter())
+    // const [filterBy, setFilterBy] = useState(gigservice.getDefaultFilter())
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
 
     useEffect(() => {
@@ -20,7 +22,7 @@ export function GigIndex() {
     }, [filterBy])
 
     function onSetFilterBy(filterBy) {
-        setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+        setGigFilter(filterBy)
     }
 
     async function onRemoveGig(gigId) {
