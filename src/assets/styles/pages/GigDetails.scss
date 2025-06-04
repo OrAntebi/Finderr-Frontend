@@ -49,9 +49,18 @@
                     padding-left: .25rem;
                     color: $caregories-clr;
                     font-weight: bold;
-                    // font-family: Macan-Bold, sans-serif;
                 }
             }
         }
+    }
+
+    h2 {
+        font-size: rem(20px);
+        padding-bottom: rem(25px);
+    }
+
+    p {
+        color: $nav-link-clr;
+        line-height: lh(24px);
     }
 }

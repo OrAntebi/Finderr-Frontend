@@ -38,7 +38,7 @@ export function GigDetails() {
 
     return (
         <section className="gig-details">
-            <Link to="/gig">Back to list</Link>
+            <Link to="/explore">Back to list</Link>
             {gig && <div>
                 <h1 className="gig-title">{gig.title}</h1>
 
