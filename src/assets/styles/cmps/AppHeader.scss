@@ -1,14 +1,10 @@
 .app-header {
-    min-height: rem(130px);
+    min-height: rem(80px);
 
     background-color: $clr6;
     font-family: Macan-Medium, Helvetica, Arial, sans-serif;
     border-block-end: 1px solid #dadbdd;
     white-space: nowrap;
-
-    @include for-narrow-layout {
-        min-height: rem(80px);
-    }
 
     .app-header-container {
         column-gap: em(32px);
@@ -123,17 +119,15 @@
     }
 
     nav {
+        position: relative;
+
         display: flex;
         align-items: center;
-
-        &.spacer {
-            width: 34px;
-        }
+        gap: rem(24px);
 
         a {
-            color: $nav-link-clr;
             transition: color 0.2s ease-in-out;
-            line-height: 24px;
+            color: $nav-link-clr;
 
             &:hover {
                 color: $nav-link-clr-hover;
@@ -145,10 +139,11 @@
             }
 
             @include for-narrow-layout {
-                padding-inline-end: em(24px);
+                // padding-inline-end: em(24px);
 
                 &.join-link {
                     padding: em(6px) em(16px);
+
                     font-size: rem(14px);
                     border: 1px solid $clr1;
                     border-radius: 4px;
@@ -161,6 +156,22 @@
                 }
             }
         }
+
+        &.spacer {
+            width: 34px;
+        }
+
+        div>button {
+            font-size: inherit;
+            font-family: inherit;
+            color: $nav-link-clr;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                color: $nav-link-clr-hover;
+            }
+        }
+
     }
 
     .active {
@@ -171,13 +182,19 @@
         gap: rem(15px);
         margin: 0 em(12px) em(20px);
 
-        .user-avatar {
-            cursor: pointer;
-        }
-
         .user-full-name {
             font-size: rem(16px);
             cursor: pointer;
         }
+    }
+
+    .user-avatar {
+        cursor: pointer;
+    }
+}
+
+@include for-mobile-layout {
+    .app-header:has(.search-bar-container) {
+        min-height: rem(130px);
     }
 }

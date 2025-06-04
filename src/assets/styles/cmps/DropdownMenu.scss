@@ -1,0 +1,92 @@
+.dropdown-wrapper {
+    position: relative;
+}
+
+.avatar-menu,
+.messages-menu,
+.notifications-menu,
+.likes-menu,
+.orders-menu {
+    position: absolute;
+    top: 40px;
+    right: -15px;
+
+    min-width: 160px;
+
+    background-color: $clr6;
+    border: 1px solid #dadbdd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform .2s ease;
+
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        z-index: 10;
+    }
+
+    li {
+        a,
+        button {
+            display: block;
+
+            padding: rem(10px) em(16px);
+
+            color: #333;
+            font-size: rem(14px);
+            font-family: inherit;
+            cursor: pointer;
+
+            &:hover {
+                color: $nav-link-clr-hover;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        right: 15px;
+
+        width: 0;
+        height: 0;
+
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #dadbdd;
+        z-index: 11;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: 16px;
+
+        width: 0;
+        height: 0;
+
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid $clr6;
+        z-index: 12;
+    }
+
+}
+
+.avatar-menu {
+    top: 50px;
+    right: -5px;
+}
+
+.orders-menu {
+    top: 45px;
+    right: 5px;
+}

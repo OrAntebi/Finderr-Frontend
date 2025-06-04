@@ -52,7 +52,7 @@ export default function UserAvatar({
     };
 
     return (
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} className="user-avatar">
             <StyledBadge
                 overlap="circular"
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -62,7 +62,6 @@ export default function UserAvatar({
                     alt={userName}
                     src={imgUrl || undefined}
                     onClick={onAvatarClick}
-                    className="user-avatar"
                     sx={avatarSx}
                 >
                     {!imgUrl && getInitials(userName)}

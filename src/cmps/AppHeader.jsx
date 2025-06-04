@@ -11,9 +11,16 @@ export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const screenWidth = useScreenSize()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
-    const [avatarMenuIsOpen, setAvatarMenuIsOpen] = useState(false)
-    const navigate = useNavigate()
+    const [dropdownOpen, setDropdownOpen] = useState({
+        notifications: false,
+        messages: false,
+        likes: false,
+        avatar: false,
+        orders: false,
+    })
     const currentPage = useLocation().pathname
+    const navigate = useNavigate()
+
 
     async function onLogout() {
         try {
@@ -34,19 +41,23 @@ export function AppHeader() {
         }, 0)
     }
 
-    function onAvatarClick() {
-        setAvatarMenuIsOpen(prev => !prev)
+    function toggleDropdown(name) {
+        setDropdownOpen(prev => ({ ...prev, [name]: !prev[name] }))
     }
 
-    console.log(currentPage)
+    function closeDropdown(name) {
+        setDropdownOpen(prev => ({ ...prev, [name]: false }))
+    }
+
     return (
         <DynamicHeader
             screenSize={screenWidth}
             user={user}
             onLogout={onLogout}
             onMenuClick={onMenuClick}
-            onAvatarClick={onAvatarClick}
-            avatarMenuIsOpen={avatarMenuIsOpen}
+            toggleDropdown={toggleDropdown}
+            closeDropdown={closeDropdown}
+            dropdownOpen={dropdownOpen}
             currentPage={currentPage}
         />
     )

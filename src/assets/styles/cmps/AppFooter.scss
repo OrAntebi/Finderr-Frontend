@@ -1,12 +1,53 @@
 .app-footer {
     min-height: 5rem;
     border-block-start: 1px solid #dadbdd;
+    padding-block: rem(16px);
 
-    section>* {
-        gap: 1rem;
+    .footer-section {
+        gap: rem(24px);
     }
 
     img {
         max-width: none;
+    }
+
+    p {
+        margin: 0;
+        font-size: rem(14px);
+    }
+
+    .footer-branding {
+        gap: rem(8px);
+    }
+
+    .social-links {
+        gap: rem(8px);
+
+        a {
+            padding: rem(8px);
+            border-radius: 100vh;
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+
+            img {}
+        }
+
+
+    }
+}
+
+@include for-narrow-layout {
+    .app-footer {
+
+        .footer-section {
+            flex-direction: row;
+        }
+
+        .footer-branding {
+            flex-direction: row;
+            gap: rem(16px);
+        }
     }
 }

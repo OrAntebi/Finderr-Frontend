@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: $mobile-padding 1fr $mobile-padding;
+    grid-template-columns: $grid-padding 1fr $grid-padding;
 
     >* {
         grid-column: 2;
@@ -10,19 +10,15 @@
         }
     }
 
+
     @include for-narrow-layout {
         grid-template-columns:
-            minmax($narrow-padding, 1fr) minmax(auto, $mobile-breakpoint) minmax($narrow-padding, 1fr);
+            minmax($grid-padding, 1fr) minmax(auto, $narrow-breakpoint) minmax($grid-padding, 1fr);
     }
 
     @include for-normal-layout {
         grid-template-columns:
-            minmax($normal-padding, 1fr) minmax(auto, $narrow-breakpoint) minmax($normal-padding, 1fr);
-    }
-
-    @include for-wide-layout {
-        grid-template-columns:
-            minmax($wide-padding, 1fr) minmax(auto, $normal-breakpoint) minmax($wide-padding, 1fr);
+            minmax($grid-padding, 1fr) minmax(auto, $normal-breakpoint) minmax($grid-padding, 1fr);
     }
 }
 

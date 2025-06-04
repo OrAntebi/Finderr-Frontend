@@ -12,8 +12,8 @@ export function AppFooter() {
 
     return (
         <footer className="app-footer main-container full flex align-center">
-            <section className="flex align-center justify-between">
-                <section className="flex align-center justify-center">
+            <section className="footer-section flex column align-center justify-between">
+                <section className="footer-branding flex column align-center justify-center">
                     <img src={siteLogo} alt="Site Logo" />
                     <p>© Finderr International Ltd. 2025</p>
                 </section>
