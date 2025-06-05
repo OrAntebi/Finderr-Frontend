@@ -1,7 +1,7 @@
 .app-footer {
     min-height: 5rem;
     border-block-start: 1px solid #dadbdd;
-    padding-block: rem(16px);
+    padding-block: rem(16px) rem(32px);
 
     .footer-section {
         gap: rem(24px);
@@ -24,14 +24,21 @@
         gap: rem(8px);
 
         a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
             padding: rem(8px);
+
+            width: 36px;
+            height: 36px;
+
             border-radius: 100vh;
 
             &:hover {
                 background-color: #f5f5f5;
             }
 
-            img {}
         }
 
 
