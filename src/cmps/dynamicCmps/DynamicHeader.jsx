@@ -12,11 +12,10 @@ import SideMenu from "../SideMenu.jsx"
 export function DynamicHeader({ screenSize, ...props }) {
     const { user } = props
 
-    if (screenSize <= 632) return <MobileHeader {...props} user={user} />
-    if (screenSize < 932) return <NarrowHeader {...props} user={user} />
-    return <RegularHeader {...props} user={user} />
+    if (screenSize <= 664) return <MobileHeader {...props} user={user} />
+    if (screenSize < 964) return <NarrowHeader {...props} user={user} />
+    return <NormalHeader {...props} user={user} />
 }
-
 
 function MobileHeader({ user, onMenuClick, currentPage }) {
     return (
@@ -66,7 +65,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
     )
 }
 
-function RegularHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage }) {
+function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
