@@ -68,6 +68,22 @@
                 height: 680px;
             }
 
+            .hero-video-toggle-btn {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                height: rem(42px);
+                width: rem(42px);
+
+                border-radius: 100vh;
+                background-color: #222325;
+
+                :hover {
+                    background-color: #404145;
+                }
+            }
+
             .hero-overlay {
                 position: absolute;
 
@@ -76,7 +92,7 @@
                 height: 100%;
 
                 color: $hero-primary-clr;
-                
+
                 .hero-content {
                     gap: rem(28px);
 
@@ -132,6 +148,10 @@
                     gap: rem(56px);
                     height: rem(42px);
                     margin-block-start: auto;
+
+                    .logo-list {
+                        gap: rem(48px);
+                    }
                 }
 
             }
