@@ -51,7 +51,7 @@ export function AppHeader() {
 
     return (
         <DynamicHeader
-            screenSize={screenWidth}
+            screenWidth={screenWidth}
             user={user}
             onLogout={onLogout}
             onMenuClick={onMenuClick}
