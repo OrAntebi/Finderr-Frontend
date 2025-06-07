@@ -7,7 +7,10 @@
     white-space: nowrap;
 
     .app-header-container {
-        column-gap: em(32px);
+
+        @include for-narrow-layout {
+            column-gap: em(32px);
+        }
     }
 
     img {
@@ -20,7 +23,10 @@
 
     .menu-icon {
         cursor: pointer;
-        margin-inline-end: rem(15px);
+
+        @include for-narrow-layout {
+            margin-inline-end: rem(15px);
+        }
     }
 
     .side-menu-container {
@@ -157,10 +163,6 @@
             }
         }
 
-        &.spacer {
-            width: 34px;
-        }
-
         div>button {
             font-size: inherit;
             font-family: inherit;
@@ -172,6 +174,10 @@
             }
         }
 
+    }
+
+    .spacer {
+        width: 23px;
     }
 
     .active {

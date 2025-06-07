@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
-import siteLogo from "../assets/img/site-logo.svg"
 import tiktokIcon from "../assets/img/tiktok-icon.svg"
 import instagramIcon from "../assets/img/instagram-icon.svg"
 import linkedinIcon from "../assets/img/linkedin-icon.svg"
 import facebookIcon from "../assets/img/facebook-icon.svg"
 import pinterestIcon from "../assets/img/pinterest-icon.svg"
 import twitterIcon from "../assets/img/twitter-icon.svg"
+import SiteLogo from './SiteLogo'
 
 export function AppFooter() {
     const count = useSelector(storeState => storeState.userModule.count)
@@ -14,7 +14,7 @@ export function AppFooter() {
         <footer className="app-footer main-container full flex align-center">
             <section className="footer-section flex column align-center justify-between">
                 <section className="footer-branding flex column align-center justify-center">
-                    <img src={siteLogo} alt="Site Logo" />
+                    <SiteLogo />
                     <p>© Finderr International Ltd. 2025</p>
                 </section>
 

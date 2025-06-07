@@ -1,4 +1,3 @@
-// DynamicHeader.jsx
 import { NavLink } from "react-router-dom"
 import notificationsIcon from "../../assets/img/notifications-icon.svg"
 import messagesIcon from "../../assets/img/messages-icon.svg"
@@ -9,14 +8,13 @@ import SiteLogo from "../SiteLogo.jsx"
 import SearchInput from "../SearchInput.jsx"
 import SideMenu from "../SideMenu.jsx"
 
-export function DynamicHeader({ screenSize, ...props }) {
+export function DynamicHeader({ screenWidth, ...props }) {
     const { user } = props
 
-    if (screenSize <= 632) return <MobileHeader {...props} user={user} />
-    if (screenSize < 932) return <NarrowHeader {...props} user={user} />
-    return <RegularHeader {...props} user={user} />
+    if (screenWidth < 664) return <MobileHeader {...props} user={user} />
+    if (screenWidth < 964) return <NarrowHeader {...props} user={user} />
+    return <NormalHeader {...props} user={user} />
 }
-
 
 function MobileHeader({ user, onMenuClick, currentPage }) {
     return (
@@ -24,7 +22,7 @@ function MobileHeader({ user, onMenuClick, currentPage }) {
             <section className="app-header-container flex align-center justify-between">
                 <SideMenu user={user} onMenuClick={onMenuClick} />
                 <SiteLogo />
-                {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <nav className="spacer"></nav>}
+                {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
             {currentPage === "/explore" && <SearchInput submitBtn={false} />}
         </header>
@@ -66,7 +64,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
     )
 }
 
-function RegularHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage }) {
+function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">

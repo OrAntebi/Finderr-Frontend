@@ -14,7 +14,6 @@ function getEmptyUser() {
 }
 
 const service = VITE_LOCAL === 'true' ? local : remote
-console.log(VITE_LOCAL)
 export const userService = { ...service, getEmptyUser }
 
 // Easy access to this service from the dev tools console
