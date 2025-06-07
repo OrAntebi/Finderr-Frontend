@@ -1,9 +1,22 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import clockSvg from '../assets/img/clock-icon.svg'
+import roundSvg from '../assets/img/round-icon.svg'
+import checkSvg from '../assets/img/check-icon.svg'
+import arrowSvg from '../assets/img/arrow-icon.svg'
+
 export function PricingPackages({ gig }) {
     const [activeTab, setActiveTab] = useState('standard')
     const tabs = ['basic', 'standard', 'premium']
+    const features = [
+        'Script writing',
+        '60 seconds running time',
+        'Video editing',
+        'Special effects',
+        'Sound design & mixing'
+    ]
+
 
     return (
         <section className="pricing-packages full main-container">
@@ -27,10 +40,27 @@ export function PricingPackages({ gig }) {
                 </div>
                 <p>4k Real and live stock footages from our library to make stunning ad</p>
                 <div className="delivery-info flex">
-                    <span className="delivery-time">📅 7-day delivery</span>
-                    <span className="revisions">🔄 Unlimited Revisions</span>
+                    <div className="delivery-time flex">
+                        <span><img src={clockSvg} alt="" /></span>
+                        <span>7-day delivery</span>
+                    </div>
+                    <div className="revisions flex">
+                        <span><img src={roundSvg} alt="" /></span>
+                        <span>3 Revisions</span>
+                    </div>
                 </div>
+                <ul className="features-list">
+                    {features.map((feature, idx) => (
+                        <li key={idx}>
+                            <span>
+                                <img src={checkSvg} alt="check-icon" />
+                                {feature}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
             </div>
+            <button className="continue-btn">Continue <span><img src={arrowSvg} alt="arrow-icon" /></span></button>
         </section>
     )
 }

@@ -1,4 +1,5 @@
-export function OwnerDetails({ owner, starSvg, isLarge }) {
+import starSvg from '../assets/img/star-icon.svg'
+export function OwnerDetails({ owner, isLarge }) {
     return (
         <>
             <div className="owner-details flex align-center gap1rem">
@@ -10,11 +11,9 @@ export function OwnerDetails({ owner, starSvg, isLarge }) {
                     </div>
                     <div className="rate flex align-center">
                         <div className="stars flex">
-                            <span className="star">{starSvg}</span>
-                            <span className="star">{starSvg}</span>
-                            <span className="star">{starSvg}</span>
-                            <span className="star">{starSvg}</span>
-                            <span className="star">{starSvg}</span>
+                            {Array.from({ length: 5 }, (_, index) => (
+                                <img className="star" src={starSvg} alt="star-icon" />
+                            ))}
                         </div>
                         <span className="rating">{owner.rate}</span>
                     </div>
