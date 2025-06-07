@@ -1,7 +1,7 @@
-export function OwnerDetails({ owner, starSvg, ownerImg }) {
+export function OwnerDetails({ owner, starSvg, isLarge}) {
     return (
         <div className="owner-details flex align-center gap1rem">
-            <img src={ownerImg} alt="owner image" />
+            <img className ={`owner-img ${isLarge ? 'large' : ''}`} src={owner.imgUrl} alt="owner image" />
             <div className="owner-info flex column">
                 <div className="name-and-level flex align-center">
                     <h3>{owner.fullname}</h3>

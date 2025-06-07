@@ -1,5 +1,5 @@
 .gig-details {
-    padding: 2rem;
+    padding: 0 2rem;
 
     .gig-title {
         font-size: rem(28px);
@@ -17,6 +17,11 @@
             width: 64px;
             height: 64px;
             border-radius: 50%;
+
+            &.large {
+                width: 96px;
+                height: 96px;
+            }
         }
 
         .owner-info {
@@ -61,8 +66,31 @@
     }
 
     p {
-        font-family:  Macan-Medium, sans-serif;
+        font-family: Macan-Medium, sans-serif;
         color: $nav-link-clr;
         line-height: lh(24px);
+    }
+
+    .owner-description {
+        .desciption-list {
+            display: grid;
+            padding: rem(24px);
+            border: 1px solid #dadbdd;
+            border-radius: 3px;
+
+            >* {
+                display: flex;
+                flex-direction: column;
+                color: #74767e;
+                padding-bottom: 1rem;
+                
+                strong {    
+                    font-family: Macan-Bold, sans-serif;
+                    color: #62646a;
+                    padding-top: rem(4px);
+                }
+            }
+        }
+        
     }
 }
