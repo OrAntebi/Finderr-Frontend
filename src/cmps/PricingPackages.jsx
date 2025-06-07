@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import checkIcon from '../assets/img/check-icon.svg'
 
 export function PricingPackages({ gig }) {
     const [activeTab, setActiveTab] = useState('standard')
