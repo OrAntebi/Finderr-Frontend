@@ -24,7 +24,7 @@ function MobileHeader({ user, onMenuClick, currentPage }) {
                 <SiteLogo />
                 {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
-            {currentPage === "/explore" && <SearchInput submitBtn={false} />}
+            {currentPage === "/explore" && <SearchInput submitBtn={false} placeholderText="Find services" />}
         </header>
     )
 }
