@@ -1,9 +1,24 @@
 .main-container .main-content {
     min-height: calc(100vh - 10rem);
-    
-    padding-block: rem(40px) rem(48px);
+    padding-block-end: rem(48px);
 
     @include for-narrow-layout {
-        padding-block: rem(40px) rem(64px);
+        padding-block-end: rem(64px);
+    }
+
+    @include for-normal-layout {
+        padding-block-end: 0;
+    }
+
+    &:not(:has(.home-page)) {
+        padding-block-start: rem(40px);
+
+        @include for-narrow-layout {
+            padding-block-start: rem(40px);
+        }
+
+        @include for-normal-layout {
+            padding-block-start: 0;
+        }
     }
 }

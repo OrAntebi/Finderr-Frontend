@@ -10,15 +10,23 @@
         }
     }
 
-
     @include for-narrow-layout {
         grid-template-columns:
-            minmax($grid-padding, 1fr) minmax(auto, $narrow-breakpoint) minmax($grid-padding, 1fr);
+            minmax($grid-padding, 1fr)
+            minmax(auto, $narrow-breakpoint)
+            minmax($grid-padding, 1fr);
     }
-
     @include for-normal-layout {
         grid-template-columns:
-            minmax($grid-padding, 1fr) minmax(auto, $normal-breakpoint) minmax($grid-padding, 1fr);
+            minmax($grid-padding, 1fr)
+            minmax(auto, $normal-breakpoint)
+            minmax($grid-padding, 1fr);
+    }
+    @include for-wide-layout {
+        grid-template-columns:
+            minmax($grid-padding, 1fr)
+            minmax(auto, $wide-breakpoint)
+            minmax($grid-padding, 1fr);
     }
 }
 

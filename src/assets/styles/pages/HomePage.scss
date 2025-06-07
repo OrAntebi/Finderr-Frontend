@@ -1,0 +1,163 @@
+.home-page {
+    .hero-container {
+        position: relative;
+        height: fit-content;
+        background: linear-gradient(180deg, #003912 32.57%, #19aa64 125.43%);
+
+        .hero-content {
+            gap: rem(40px);
+
+            padding: clamp(1rem, 5vw, 2.5rem);
+            margin: auto;
+
+            h1 {
+                margin: 0;
+
+                color: $clr6;
+                text-align: center;
+                font-size: rem(32px);
+                font-weight: 400;
+                white-space: nowrap;
+                letter-spacing: -2px;
+            }
+
+            form {
+                position: relative;
+                justify-content: center;
+                width: 100%;
+
+                .search-bar {
+                    padding: 10px 58px 10px 20px;
+                    min-height: 60px;
+                    font-family: Macan-Regular;
+                    font-size: rem(16px);
+                    border-radius: 12px;
+                }
+
+                .search-btn {
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+
+                    width: 48px;
+                    height: 48px;
+
+                    border-radius: 8px;
+                    background-color: #003912;
+
+                    &:hover {
+                        background-color: #126f43;
+                    }
+                }
+            }
+        }
+
+        @include for-narrow-layout {
+            background: linear-gradient(180deg, #003912 31.18%, #19aa64 120.07%);
+
+            .hero-content {
+                h1 {
+                    font-size: rem(40px);
+                }
+            }
+        }
+
+        @include for-normal-layout {
+
+            .hero-background-video {
+                grid-area: 1 / 1 / 2 / -1;
+
+                width: 100%;
+                height: 680px;
+
+                z-index: 0;
+            }
+
+            .hero-video-toggle-btn {
+                height: rem(42px);
+                width: rem(42px);
+
+                color: $clr6;
+                border-radius: 100vh;
+                background-color: #222325;
+
+                &:hover {
+                    background-color: #404145;
+                }
+            }
+
+            .hero-overlay {
+                grid-area: 1 / 2;
+
+                padding-block: rem(147px) rem(32px);
+
+                color: $hero-primary-clr;
+                z-index: 1;
+
+                .hero-content {
+                    gap: rem(28px);
+
+                    margin: 0;
+                    padding: 0;
+
+                    height: 100%;
+                    max-width: fit-content;
+
+                    background: none;
+
+                    h1 {
+                        margin-block-end: 0;
+                        font-size: rem(72px);
+                        font-weight: 500;
+                        text-align: start;
+                    }
+                }
+
+                form {
+                    .search-btn {
+                        background-color: #222325;
+
+                        &:hover {
+                            background-color: #404145;
+                        }
+                    }
+                }
+
+                nav {
+                    .hero-categories {
+                        gap: rem(16px);
+                    }
+
+                    a {
+                        display: flex;
+                        gap: rem(12px);
+
+                        padding: rem(8px) rem(16px);
+
+                        color: $hero-primary-clr;
+                        border: 1px solid $hero-primary_clr;
+                        border-radius: $hero-btn_border-radius;
+                        background-color: rgba(255, 255, 255, 0.1);
+
+                        &::after {
+                            content: '→';
+                            font-size: 1.2em;
+                            transition: transform 0.3s ease;
+                        }
+                    }
+                }
+
+                .trusted-logos-container {
+                    gap: rem(56px);
+                    height: rem(42px);
+                    margin-block-start: auto;
+
+                    .logo-list {
+                        gap: rem(48px);
+                    }
+                }
+
+            }
+        }
+    }
+}

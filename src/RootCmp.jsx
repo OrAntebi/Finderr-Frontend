@@ -26,7 +26,7 @@ export function RootCmp() {
             <AppHeader />
             <UserMsg />
 
-            <main className="main-content">
+            <main className="main-content main-container full">
                 <Routes>
                     <Route path="" element={<HomePage />} />
                     <Route path="about" element={<AboutUs />}>

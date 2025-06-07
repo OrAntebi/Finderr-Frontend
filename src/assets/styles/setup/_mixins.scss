@@ -1,25 +1,25 @@
 /* Breakpoint mixins */
 
 @mixin for-mobile-layout {
-    @media (max-width: calc($mobile-breakpoint + $grid-padding)) {
+    @media (max-width: calc($mobile-breakpoint + $grid-padding * 2)) {
         @content;
     }
 }
 
 @mixin for-narrow-layout {
-    @media (min-width: calc($narrow-breakpoint + $grid-padding)) {
+    @media (min-width: calc($mobile-breakpoint + $grid-padding * 2)) {
         @content;
     }
 }
 
 @mixin for-normal-layout {
-    @media (min-width: calc($normal-breakpoint + $grid-padding)) {
+    @media (min-width: calc($narrow-breakpoint + $grid-padding * 2)) {
         @content;
     }
 }
 
 @mixin for-wide-layout {
-    @media (min-width: calc($normal-breakpoint + $grid-padding)) {
+    @media (min-width: calc($normal-breakpoint + $grid-padding * 2)) {
         @content;
     }
 }
