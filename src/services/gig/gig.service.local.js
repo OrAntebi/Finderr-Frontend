@@ -4,7 +4,7 @@ import { getRandomIntInclusive, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
 const GIG_KEY = 'gigDB'
-import ownerImg  from '../../assets/img/ownerImg.jpg'
+import ownerImg from '../../assets/img/ownerImg.jpg'
 
 const TAGS = [
     'logo-design', 'wordpress', 'voice-over', 'artistic',
@@ -23,6 +23,7 @@ const TITLES = [
 
 const LOCATIONS = ['Israel', 'USA', 'Germany', 'India', 'Ghana', 'Brazil']
 
+const LANGUAGES = ['Spanish', 'French', 'English', 'Hebew']
 
 const DESCRIPTIONS = [
     'Unique design tailored to your brand.',
@@ -170,8 +171,11 @@ function _getDemoOwner() {
         _id: makeId(),
         fullname: _pickRandom(['Farhan G', 'Shay I', 'Or A']),
         imgUrl: ownerImg,
-        level: getRandomIntInclusive(1, 3),
         rate: +(Math.random() * 1 + 4).toFixed(1), // 3.5-5.0,
+        level: getRandomIntInclusive(1, 3),
+        loc: _pickRandom(LOCATIONS),
+        memberSince: _pickRandom(['2015-11', '2016-02', '2020-11', '2022-04']),
+        languages: _pickRandom(LANGUAGES),
     }
 }
 

@@ -1,0 +1,48 @@
+.pricing-packages {
+    nav {
+        display: flex;
+    }
+
+    button {
+        flex: 1;
+        font-family: Macan-Bold, sans-serif;
+        background-color: #fafafa;
+        border: 1px solid #dadcdd;
+        border-left: none;
+        color: #74767e;
+        padding: 1rem;
+        text-align: center;
+
+        &:first-child {
+            border-left: 1px solid #dadcdd;
+        }
+
+        &.active {
+            background-color: white;
+            border-bottom: 3px solid #222325;
+            color: #222325;
+        }
+    }
+
+    .pricing-card {
+        padding-top: rem(32px);
+        align-items: flex-start;
+        color: #62646A;
+
+        span {
+            font-family: Macan-Bold, sans-serif;
+            color: #404145;
+            font-size: rem(20px);
+            line-height: lh(24px);
+        }
+
+        p {
+            margin-top: em(2px);
+            font-size: em(15px);
+        }
+
+        a {
+            color: #026A5D;
+        }
+    }
+}
