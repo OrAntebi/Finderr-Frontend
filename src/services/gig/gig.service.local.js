@@ -67,12 +67,13 @@ async function query(filterBy = { txt: '', price: 0 }) {
             tags.every(tag => gig.tags.includes(tag)))
     }
 
-    gigs = gigs.map(({ _id, title, price, daysToMake, owner }) => ({
+    gigs = gigs.map(({ _id, title, price, daysToMake, owner,imgUrls }) => ({
         _id,
         title,
         price,
         daysToMake,
-        owner
+        owner,
+        imgUrls
     }))
 
     return gigs
@@ -149,7 +150,9 @@ function _createDemoGigs() {
             owner: _getDemoOwner(),
             avgResponseTime: getRandomIntInclusive(1, 24),
             loc: _pickRandom(LOCATIONS),
-            imgUrls: [`Img${i}`],
+            // imgUrls: [`Img${i}`],
+            // imgUrls: [`assets/img/gigImg/img${i+1}.jpg`],
+            imgUrls: [`src/assets/img/gigImg/img${i + 1}.jpg`],
             tags: _getRandomTags(),
             likedByUsers: [],
             reviews: [],

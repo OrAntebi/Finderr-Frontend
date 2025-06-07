@@ -1,44 +1,34 @@
-// import { Link } from 'react-router-dom'
 
-// export function GigPreview({ gig }) {
-//     return (
-//         <article className="preview">
-//             <header>
-//                 <Link to={`/gig/${gig._id}`}>{gig.vendor}</Link>
-//             </header>
+import { Link } from "react-router-dom"
 
-//             <p>Speed: <span>{gig.speed.toLocaleString()} Km/h</span></p>
-//             {gig.owner && <p>Owner: <Link to={`/user/${gig.owner._id}`}>{gig.owner.fullname}</Link></p>}
-
-//         </article>
-//     )
-// }
-
-// export function GigPreview({ gig }) {
-//     return (
-//         <pre >
-//             {JSON.stringify(gig, null, 2)}
-//         </pre>
-//     )
-// }
-
-// src/cmps/GigPreview.jsx
 export function GigPreview({ gig }) {
+    const mainImg = 'src/assets/img/gigImg.jpg'
 
     return (
-        <article className="gig-preview">
-            <img className="gig-img" src={gig.owner.imgUrl}  />
+        <Link to={`/explore/${gig._id}`} className="gig-preview">
+            {/* <img className="gig-img" src={mainImg} alt={gig.title} /> */}
+            <img className="gig-img" src={gig.imgUrls[0]} alt={gig.title} />
 
-            <h4 className="gig-title">{gig.title}</h4>
+            <div className="owner-row">
+                <img className="owner-avatar" src={'src/assets/img/ownerImg.jpg'} />
+                {/* <img className="owner-avatar" src={`https://api.dicebear.com/8.x/bottts/png?seed=${(gig.title)}`} /> */}
 
-            <section className="gig-footer">
-                <div className="owner">
-                    <img className="owner-img" src={gig.owner.imgUrl} />
-                    <span>{gig.owner.fullname}</span>
-                </div>
+                <span className="owner-name">{gig.owner.fullname}</span>
+            </div>
 
-                <div className="price">From <span>${gig.price}</span></div>
-            </section>
-        </article>
+            <p className="gig-title">{gig.title}</p>
+
+            <div className="rating-row">
+                <span className="star">★</span>
+                <span className="rate-num">{gig.owner.rate.toFixed(1)}</span>
+                <span className="rate-count">({gig.reviews})</span>
+            </div>
+
+            <div className="price-row">
+                <span>From </span>
+                <span className="price">${gig.price}</span>
+            </div>
+        </Link>
     )
 }
+
