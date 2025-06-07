@@ -55,11 +55,11 @@ export function loadFromStorage(key) {
 }
 
 export function getInitials(fullName) {
-    if (!fullName) return '';
+    if (!fullName) return ''
 
-    const words = fullName.trim().split(/\s+/);
-    const first = words[0]?.[0] || '';
-    const second = words[1]?.[0] || '';
+    const words = fullName.trim().split(/\s+/)
+    const first = words[0]?.[0] || ''
+    const second = words[1]?.[0] || ''
 
-    return (first + second).toUpperCase();
+    return (first + second).toUpperCase()
 }

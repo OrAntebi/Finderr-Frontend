@@ -32,7 +32,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
             opacity: 0,
         },
     },
-}));
+}))
 
 export default function UserAvatar({
     imgUrl,
@@ -49,7 +49,7 @@ export default function UserAvatar({
             height: '100%',
             objectFit: 'cover',
         },
-    };
+    }
 
     return (
         <Stack direction="row" spacing={2} className="user-avatar">
@@ -68,5 +68,5 @@ export default function UserAvatar({
                 </Avatar>
             </StyledBadge>
         </Stack>
-    );
+    )
 }
