@@ -1,0 +1,60 @@
+.pricing-packages {
+    nav {
+        display: flex;
+    }
+
+    button {
+        flex: 1;
+        font-family: Macan-Bold, sans-serif;
+        background-color: #fafafa;
+        border: 1px solid #dadcdd;
+        border-left: none;
+        color: #74767e;
+        padding: 1rem;
+        text-align: center;
+
+        &:first-child {
+            border-left: 1px solid #dadcdd;
+        }
+
+        &.active {
+            background-color: white;
+            border-bottom: 3px solid #222325;
+            color: #222325;
+        }
+    }
+
+    .pricing-card {
+        padding-top: rem(32px);
+        align-items: flex-start;
+        color: #62646A;
+        line-height: lh(21px);
+
+
+        .price {
+            p {
+                margin-top: em(2px);
+                font-size: em(15px);
+            }
+
+            span {
+                font-family: Macan-Bold, sans-serif;
+                color: #404145;
+                font-size: rem(20px);
+            }
+        }
+
+        a {
+            color: #026A5D;
+        }
+
+        p {
+            margin: rem(24px) 0 rem(10px);
+        }
+
+        .delivery-info {
+            font-family: Macan-Bold, sans-serif;
+            font-size: rem(14px);
+        }
+    }
+}

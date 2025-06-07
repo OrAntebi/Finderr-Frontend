@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadGig, addGigMsg } from '../store/gig/gig.actions'
 import { OwnerDetails } from '../cmps/OwnerDetails'
+import { PricingPackages } from '../cmps/PricingPackages'
 
 import gigImg from '../assets/img/gigImg.jpg'
 
@@ -43,38 +44,13 @@ export function GigDetails() {
                 <OwnerDetails owner={owner} starSvg={starSvg} isLarge={false} />
 
                 <img src={gigImg} alt="gig image" />
-
-                <h4>${gig.price}</h4>
+                <PricingPackages gig={gig} />
 
                 <h2>About this gig</h2>
                 <p>{gig.description}</p>
 
                 <h2>Get to know {owner.fullname} </h2>
                 <OwnerDetails owner={owner} starSvg={starSvg} isLarge={true} />
-                <div className="owner-description">
-                    <ul className="desciption-list">
-                        <li>
-                            <label>From</label>
-                            <strong>Pakistan</strong>
-                        </li>
-                        <li>
-                            <label>Member since</label>
-                            <strong>Nov 2015</strong>
-                        </li>
-                        <li>
-                            <label>Avg. response time</label>
-                            <strong>1 hour</strong>
-                        </li>
-                        <li>
-                            <label>Last delivery</label>
-                            <strong>about 3 hours</strong>
-                        </li>
-                        <li>
-                            <label>Languages</label>
-                            <strong>Hebrew, English</strong>
-                        </li>
-                    </ul>
-                </div>
             </div>
             }
             <button onClick={() => { onAddGigMsg(gig._id) }}>Add gig msg</button>
