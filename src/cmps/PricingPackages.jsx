@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import checkIcon from '../assets/img/check-icon.svg'
 
 export function PricingPackages({ gig }) {
     const [activeTab, setActiveTab] = useState('standard')
     const tabs = ['basic', 'standard', 'premium']
 
     return (
-        <section className="pricing-packages">
-            <nav role="tablist">
+        <section className="pricing-packages full main-container">
+            <nav role="tablist" className="full">
                 {tabs.map(tab => (
                     <button
                         key={tab}
