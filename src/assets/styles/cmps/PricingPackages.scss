@@ -28,21 +28,33 @@
         padding-top: rem(32px);
         align-items: flex-start;
         color: #62646A;
+        line-height: lh(21px);
 
-        span {
-            font-family: Macan-Bold, sans-serif;
-            color: #404145;
-            font-size: rem(20px);
-            line-height: lh(24px);
-        }
 
-        p {
-            margin-top: em(2px);
-            font-size: em(15px);
+        .price {
+            p {
+                margin-top: em(2px);
+                font-size: em(15px);
+            }
+
+            span {
+                font-family: Macan-Bold, sans-serif;
+                color: #404145;
+                font-size: rem(20px);
+            }
         }
 
         a {
             color: #026A5D;
+        }
+
+        p {
+            margin: rem(24px) 0 rem(10px);
+        }
+
+        .delivery-info {
+            font-family: Macan-Bold, sans-serif;
+            font-size: rem(14px);
         }
     }
 }
