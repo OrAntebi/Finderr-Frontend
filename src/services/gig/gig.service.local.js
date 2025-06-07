@@ -3,9 +3,8 @@ import { storageService } from '../async-storage.service'
 import { getRandomIntInclusive, makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
-// const GIG_KEY = 'gig'
 const GIG_KEY = 'gigDB'
-
+import ownerImg  from '../../assets/img/ownerImg.jpg'
 
 const TAGS = [
     'logo-design', 'wordpress', 'voice-over', 'artistic',
@@ -67,12 +66,13 @@ async function query(filterBy = { txt: '', price: 0 }) {
             tags.every(tag => gig.tags.includes(tag)))
     }
 
-    gigs = gigs.map(({ _id, title, price, daysToMake, owner }) => ({
+    gigs = gigs.map(({ _id, title, price, daysToMake, owner,imgUrls }) => ({
         _id,
         title,
         price,
         daysToMake,
-        owner
+        owner,
+        imgUrls
     }))
 
     return gigs
@@ -149,7 +149,9 @@ function _createDemoGigs() {
             owner: _getDemoOwner(),
             avgResponseTime: getRandomIntInclusive(1, 24),
             loc: _pickRandom(LOCATIONS),
-            imgUrls: [`Img${i}`],
+            // imgUrls: [`Img${i}`],
+            // imgUrls: [`assets/img/gigImg/img${i+1}.jpg`],
+            imgUrls: [`src/assets/img/gigImg/img${i + 1}.jpg`],
             tags: _getRandomTags(),
             likedByUsers: [],
             reviews: [],
@@ -169,10 +171,10 @@ function getTagList() {
 function _getDemoOwner() {
     return {
         _id: makeId(),
-        fullname: _pickRandom(['Farhan', 'Shay', 'Or']),
-        imgUrl: 'imgUrl',
+        fullname: _pickRandom(['Farhan G', 'Shay I', 'Or A']),
+        imgUrl: ownerImg,
         level: getRandomIntInclusive(1, 3),
-        rate: +(Math.random() * 1 + 4).toFixed(1) // 3.5-5.0
+        rate: +(Math.random() * 1 + 4).toFixed(1), // 3.5-5.0,
     }
 }
 
