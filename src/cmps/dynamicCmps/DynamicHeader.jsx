@@ -16,7 +16,7 @@ export function DynamicHeader({ screenWidth, ...props }) {
     return <NormalHeader {...props} user={user} />
 }
 
-function MobileHeader({ user, onMenuClick, currentPage }) {
+function MobileHeader({ user, onMenuClick, currentPage, onSearch }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
@@ -24,12 +24,12 @@ function MobileHeader({ user, onMenuClick, currentPage }) {
                 <SiteLogo />
                 {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
-            {currentPage === "/explore" && <SearchInput submitBtn={false} placeholderText="Find services" />}
+            {currentPage === "/explore" && <SearchInput submitBtn={false} placeholderText="Find services" onSearch={onSearch} />}
         </header>
     )
 }
 
-function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage }) {
+function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage, onSearch }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
@@ -37,7 +37,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                     <SideMenu user={user} onMenuClick={onMenuClick} />
                     <SiteLogo />
                 </section>
-                {currentPage === "/explore" && <SearchInput submitBtn={false} />}
+                {currentPage === "/explore" && <SearchInput submitBtn={false} onSearch={onSearch} />}
                 <nav>
                     {user ? (
                         <>
@@ -64,12 +64,12 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
     )
 }
 
-function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage }) {
+function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage, onSearch }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <SiteLogo />
-                {currentPage === "/explore" && <SearchInput />}
+                {currentPage === "/explore" && <SearchInput onSearch={onSearch} />}
                 <nav>
                     <NavLink to="/about" className="main-nav-link">About</NavLink>
                     <NavLink to="/explore" className="main-nav-link">Explore</NavLink>

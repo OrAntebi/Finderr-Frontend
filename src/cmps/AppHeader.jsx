@@ -6,6 +6,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user/user.actions'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { DynamicHeader } from './dynamicCmps/DynamicHeader.jsx'
+import { setGigFilter } from '../store/gig/gig.actions.js'
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -21,7 +22,9 @@ export function AppHeader() {
     const currentPage = useLocation().pathname
     const navigate = useNavigate()
 
-
+    function handleSearch(txt) {
+        setGigFilter({ txt, tags: [], minPrice: '' })
+    }
     async function onLogout() {
         try {
             await logout()
@@ -59,6 +62,7 @@ export function AppHeader() {
             closeDropdown={closeDropdown}
             dropdownOpen={dropdownOpen}
             currentPage={currentPage}
+            onSearch={handleSearch}
         />
     )
 }
