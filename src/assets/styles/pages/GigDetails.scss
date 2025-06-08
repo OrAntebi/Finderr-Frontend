@@ -10,10 +10,11 @@
 
     .gig-image {
         margin-block-end: rem(24px);
-        width:700px;
+        width: 700px;
     }
 
     .owner-details {
+        gap: 1rem;
         margin-bottom: rem(24px);
 
         img:not(.star) {

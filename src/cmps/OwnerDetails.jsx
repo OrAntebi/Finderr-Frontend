@@ -2,7 +2,7 @@ import starSvg from '../assets/img/star-icon.svg'
 export function OwnerDetails({ owner, isLarge }) {
     return (
         <>
-            <div className="owner-details flex align-center gap1rem">
+            <div className="owner-details flex align-center">
                 <img className={`owner-img ${isLarge ? 'large' : ''}`} src={owner.imgUrl} alt="owner image" />
                 <div className="owner-info flex column">
                     <div className="name-and-level flex align-center">

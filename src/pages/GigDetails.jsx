@@ -19,15 +19,15 @@ export function GigDetails() {
         loadGig(gigId)
     }, [gigId])
 
-    async function onAddGigMsg(gigId) {
-        try {
-            await addGigMsg(gigId, 'bla bla ' + parseInt(Math.random() * 10))
-            showSuccessMsg(`Gig msg added`)
-        } catch (err) {
-            showErrorMsg('Cannot add gig msg')
-        }
+    // async function onAddGigMsg(gigId) {
+    //     try {
+    //         await addGigMsg(gigId, 'bla bla ' + parseInt(Math.random() * 10))
+    //         showSuccessMsg(`Gig msg added`)
+    //     } catch (err) {
+    //         showErrorMsg('Cannot add gig msg')
+    //     }
 
-    }
+    // }
 
     const { owner } = gig || {}
     // const starSvg =
@@ -38,11 +38,10 @@ export function GigDetails() {
     return (
         <section className="gig-details full main-container">
             <BreadCrumbs />
-            <Link to="/categories">Back to list</Link>
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
 
-            <img className="gig-image" src={gigImg} alt="gig image" />
+            <img className="gig-image" src={gig.imgUrls[0]} alt="gig image" />
             <PricingPackages gig={gig} />
 
             <h2>About this gig</h2>
@@ -50,8 +49,7 @@ export function GigDetails() {
 
             <h2>Get to know {owner.fullname} </h2>
             <OwnerDetails owner={owner} isLarge={true} />
-            <button onClick={() => { onAddGigMsg(gig._id) }}>Add gig msg</button>
-
+            {/* <button onClick={() => { onAddGigMsg(gig._id) }}>Add gig msg</button> */}
         </section>
     )
 }
