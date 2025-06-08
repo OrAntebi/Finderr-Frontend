@@ -9,8 +9,6 @@ import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 
-import gigImg from '../assets/img/gigImg/img1.jpg'
-
 export function GigDetails() {
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
