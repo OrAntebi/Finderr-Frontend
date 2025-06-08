@@ -11,7 +11,6 @@ import { setGigFilter } from '../store/gig/gig.actions'
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
-    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const screenWidth = useScreenSize()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dropdownOpen, setDropdownOpen] = useState({
