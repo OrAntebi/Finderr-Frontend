@@ -7,11 +7,11 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { loadGig, addGigMsg } from '../store/gig/gig.actions'
 import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
+import { BreadCrumbs } from '../cmps/BreadCrumbs'
 
 import gigImg from '../assets/img/gigImg/img1.jpg'
 
 export function GigDetails() {
-
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
 
@@ -37,7 +37,8 @@ export function GigDetails() {
     if (!gig) return
     return (
         <section className="gig-details full main-container">
-            <Link to="/explore">Back to list</Link>
+            <BreadCrumbs />
+            <Link to="/categories">Back to list</Link>
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
 

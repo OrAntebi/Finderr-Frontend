@@ -8,15 +8,14 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigservice } from '../services/gig/'
 import { userService } from '../services/user'
 
-import { Breadcrumbs } from '../cmps/Breadcrumbs'
+import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
 
 export function GigIndex() {
-
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const category = useLocation().pathname
+    const location = useLocation()
 
     useEffect(() => {
         loadGigs(filterBy)
@@ -58,13 +57,15 @@ export function GigIndex() {
         }
     }
 
+    function getTitle() {
+        return gigservice.getCategoryTitleFromPath(location.pathname)
+    }
+
+
     return (
         <main className="gig-index">
-            <header>
-                <Breadcrumbs category={category} />
-                <h1>{ }</h1>
-                {userService.getLoggedinUser() && <button onClick={onAddGig}>Add a Gig</button>}
-            </header>
+            <BreadCrumbs />
+            <h1>{getTitle()}</h1>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <GigList
                 gigs={gigs}

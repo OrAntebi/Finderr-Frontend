@@ -5,7 +5,7 @@
 }
 
 html {
-    color: $clr1;
+    color: #62646a;
 }
 
 body {
@@ -26,7 +26,8 @@ h6 {
     margin: 0 0 0.6em;
 }
 
-img, video {
+img,
+video {
     display: block;
     max-width: 100%;
     object-fit: cover;
@@ -42,7 +43,8 @@ p {
     padding: 0;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     padding: 0;
     margin: 0;

@@ -44,7 +44,7 @@ export default function SideMenu({ user, onMenuClick }) {
                         <NavLink to="/about" className="main-nav-link" onClick={onMenuClick}>About</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/explore" className="main-nav-link" onClick={onMenuClick}>Explore</NavLink>
+                        <NavLink to="/categories" className="main-nav-link" onClick={onMenuClick}>Explore</NavLink>
                     </li>
                 </ul>
             </section>

@@ -24,7 +24,7 @@ function MobileHeader({ user, onMenuClick, currentPage, onSearch }) {
                 <SiteLogo />
                 {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
-            {currentPage === "/explore" && <SearchInput submitBtn={false} placeholderText="Find services" onSearch={onSearch} />}
+            {currentPage.startsWith('/categories') && <SearchInput submitBtn={false} placeholderText="Find services" />}
         </header>
     )
 }
@@ -37,7 +37,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                     <SideMenu user={user} onMenuClick={onMenuClick} />
                     <SiteLogo />
                 </section>
-                {currentPage === "/explore" && <SearchInput submitBtn={false} onSearch={onSearch} />}
+                {currentPage.startsWith('/categories') && <SearchInput submitBtn={false} />}
                 <nav>
                     {user ? (
                         <>
@@ -69,10 +69,10 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <SiteLogo />
-                {currentPage === "/explore" && <SearchInput onSearch={onSearch} />}
+                {currentPage.startsWith('/categories') && <SearchInput />}
                 <nav>
                     <NavLink to="/about" className="main-nav-link">About</NavLink>
-                    <NavLink to="/explore" className="main-nav-link">Explore</NavLink>
+                    <NavLink to="/categories" className="main-nav-link">Explore</NavLink>
                     {user ? (
                         <>
                             <div className="dropdown-wrapper flex">

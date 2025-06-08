@@ -6,10 +6,12 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user/user.actions'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { DynamicHeader } from './dynamicCmps/DynamicHeader.jsx'
-import { setGigFilter } from '../store/gig/gig.actions.js'
+import { CategoriesList } from './CategoriesList.jsx'
+import { setGigFilter } from '../store/gig/gig.actions'
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const screenWidth = useScreenSize()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dropdownOpen, setDropdownOpen] = useState({
@@ -22,9 +24,6 @@ export function AppHeader() {
     const currentPage = useLocation().pathname
     const navigate = useNavigate()
 
-    function handleSearch(txt) {
-        setGigFilter({ txt, tags: [], minPrice: '' })
-    }
     async function onLogout() {
         try {
             await logout()
@@ -52,17 +51,23 @@ export function AppHeader() {
         setDropdownOpen(prev => ({ ...prev, [name]: false }))
     }
 
+    function onSetFilterBy(filterBy) {
+        setGigFilter(filterBy)
+    }
+
     return (
-        <DynamicHeader
-            screenWidth={screenWidth}
-            user={user}
-            onLogout={onLogout}
-            onMenuClick={onMenuClick}
-            toggleDropdown={toggleDropdown}
-            closeDropdown={closeDropdown}
-            dropdownOpen={dropdownOpen}
-            currentPage={currentPage}
-            onSearch={handleSearch}
-        />
+        <>
+            <DynamicHeader
+                screenWidth={screenWidth}
+                user={user}
+                onLogout={onLogout}
+                onMenuClick={onMenuClick}
+                toggleDropdown={toggleDropdown}
+                closeDropdown={closeDropdown}
+                dropdownOpen={dropdownOpen}
+                currentPage={currentPage}
+            />
+            <CategoriesList />
+        </>
     )
 }

@@ -5,12 +5,12 @@ export function GigPreview({ gig }) {
     const mainImg = 'src/assets/img/gigImg.jpg'
 
     return (
-        <Link to={`/explore/${gig._id}`} className="gig-preview">
+        <Link to={`/categories/${gig.category}/${gig._id}`} className="gig-preview">
             {/* <img className="gig-img" src={mainImg} alt={gig.title} /> */}
             <img className="gig-img" src={gig.imgUrls[0]} alt={gig.title} />
 
             <div className="owner-row">
-                <img className="owner-avatar" src={'src/assets/img/ownerImg.jpg'} />
+                <img className="owner-avatar" src={'/src/assets/img/ownerImg.jpg'} />
                 {/* <img className="owner-avatar" src={`https://api.dicebear.com/8.x/bottts/png?seed=${(gig.title)}`} /> */}
 
                 <span className="owner-name">{gig.owner.fullname}</span>

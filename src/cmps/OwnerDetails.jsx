@@ -12,7 +12,7 @@ export function OwnerDetails({ owner, isLarge }) {
                     <div className="rate flex align-center">
                         <div className="stars flex">
                             {Array.from({ length: 5 }, (_, index) => (
-                                <img className="star" src={starSvg} alt="star-icon" />
+                                <img key={index} className="star" src={starSvg} alt="star-icon" />
                             ))}
                         </div>
                         <span className="rating">{owner.rate}</span>

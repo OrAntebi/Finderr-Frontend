@@ -19,18 +19,20 @@
     &.column {
         flex-direction: column;
     }
-    &.justify-center {
-        justify-content: center;
-    }
     &.align-center {
         align-items: center;
+    }
+    &.justify-center {
+        justify-content: center;
     }
     &.justify-between {
         justify-content: space-between;
     }
-
-    &.gap1rem {
-        gap: 1rem;
+    &.justify-end {
+        justify-content: flex-end;
+    }
+    &.justify-start {
+        justify-content: flex-start;
     }
 }
 

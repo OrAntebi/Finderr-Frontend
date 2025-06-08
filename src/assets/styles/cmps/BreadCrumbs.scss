@@ -1,0 +1,12 @@
+.breadcrumbs {
+    gap: 8px;
+
+    .item {
+        font-size: rem(14px);
+        color: $clr1;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}

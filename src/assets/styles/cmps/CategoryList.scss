@@ -1,0 +1,44 @@
+.categories-list-container {
+    border-block-end: 1px solid #dadbdd;
+    overflow: visible;
+
+    .categories-list-wrapper {
+        position: relative;
+        width: 100%;
+        overflow-x: auto;
+
+        .categories-list {
+
+            .keen-slider__slide {
+                padding-block: rem(8.5px);
+                min-width: max-content;
+
+                .category-link {
+                    color: #62646a;
+
+                }
+            }
+
+        }
+
+        .arrow {
+            position: absolute;
+            top: 0;
+
+            height: 100%;
+            width: 40px;
+
+            z-index: 1;
+
+            &.arrow-left {
+                left: 0;
+                background: linear-gradient(90deg, #fff 40%, hsla(0, 0%, 100%, 0));
+            }
+
+            &.arrow-right {
+                right: 0;
+                background: linear-gradient(270deg, #fff 40%, hsla(0, 0%, 100%, 0));
+            }
+        }
+    }
+}

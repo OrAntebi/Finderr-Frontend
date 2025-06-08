@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import { gigservice } from '../services/gig'
 
 export function GigFilter({ filterBy, onSetFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
-    const tagList = gigservice.getTagList()
 
     useEffect(() => {
         onSetFilterBy(filterToEdit)
@@ -30,10 +28,6 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
         setFilterToEdit({ ...filterToEdit, [field]: value })
     }
 
-    function handleTagClick(tag) {
-        setFilterToEdit(prev => ({ ...prev, tags: [tag] }))
-    }
-
     function clearFilter() {
         setFilterToEdit({ ...filterToEdit, txt: '', minprice: '', maxPrice: '' })
     }
@@ -42,35 +36,30 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
         setFilterToEdit({ ...filterToEdit, sortField: '', sortDir: '' })
     }
 
-    return <section className="gig-filter">
-        <h3>Filter:</h3>
-        <input
-            type="text"
-            name="txt"
-            value={filterToEdit.txt}
-            placeholder="Search gigs"
-            onChange={handleChange}
-            required
-        />
-        <input
-            type="number"
-            min="0"
-            name="minPrice"
-            value={filterToEdit.minPrice}
-            placeholder="Min. price"
-            onChange={handleChange}
-            required
-        />
-        <button
-            className="btn-clear"
-            onClick={clearFilter}>Clear</button>
-        <h3>services</h3>
-        <div className="tag-list">
-            {tagList.map(tag =>
-                <button className="tag-button" key={tag} onClick={() => handleTagClick(tag)}>
-                    {tag}
-                </button>
-            )}
-        </div>
-    </section>
+    return (
+        <section className="gig-filter">
+            <h3>Filter:</h3>
+            <input
+                type="text"
+                name="txt"
+                value={filterToEdit.txt}
+                placeholder="Search gigs"
+                onChange={handleChange}
+                required
+            />
+            <input
+                type="number"
+                min="0"
+                name="minPrice"
+                value={filterToEdit.minPrice}
+                placeholder="Min. price"
+                onChange={handleChange}
+                required
+            />
+            <button
+                className="btn-clear"
+                onClick={clearFilter}>Clear</button>
+            <h3>services</h3>
+        </section>
+    )
 }
