@@ -10,7 +10,6 @@ import rightArrowIcon from '../assets/img/right-arrow-icon.svg'
 import 'keen-slider/keen-slider.min.css'
 
 export function CategoriesList() {
-    const dispatch = useDispatch()
     const screenWidth = useScreenSize()
     const currentPage = useLocation().pathname
     const categoryList = gigservice.getCategoryList()
