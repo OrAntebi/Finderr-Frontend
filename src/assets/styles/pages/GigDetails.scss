@@ -45,6 +45,13 @@
 
                 .level {
                     font-size: rem(14px);
+                    gap: rem(8px);
+                
+                    .stars {
+                        display: flex;
+                        align-items: center;
+                        gap: rem(2px);
+                    }
                 }
             }
 
