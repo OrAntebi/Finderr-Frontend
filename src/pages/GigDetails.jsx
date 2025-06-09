@@ -31,7 +31,7 @@ export function GigDetails() {
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
             <img className="gig-image" src={gig.imgUrls[0]} alt="gig image" />
-            {screenWidth < 900 && <PricingPackages gig={gig} screenWidth={screenWidth} />}
+            {screenWidth < 964 && <PricingPackages gig={gig} screenWidth={screenWidth} />}
             <h2>About this gig</h2>
             <p>{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
@@ -40,15 +40,15 @@ export function GigDetails() {
     )
 
     return (
-        <section className={`gig-details${screenWidth < 900 ? ' full main-container' : ''}`}>
-            {screenWidth >= 900 ? (
-                <div className="main-content">
+        <section className={`gig-details${screenWidth < 964 ? ' full main-container' : ''}`}>
+            {screenWidth >= 964 ? (
+                <div className="gig-content">
                     {renderMainContent()}
                 </div>
             ) : (
                 renderMainContent()
             )}
-            {screenWidth >= 900 && <PricingPackages gig={gig} />}
+            {screenWidth >= 964 && <PricingPackages gig={gig} />}
         </section>
     )
 }

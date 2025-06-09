@@ -219,7 +219,7 @@
 
     }
 
-    @include for-narrow-layout {
+    @include for-normal-layout {
         display: grid;
         grid-template-columns: minmax(rem(510px), rem(710px)) minmax(rem(290px), rem(410px));
         gap: 2rem;
@@ -227,7 +227,7 @@
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-
+        
         >* {
             grid-column: 1;
         }
@@ -235,7 +235,6 @@
         .pricing-packages {
             grid-column: 2;
             grid-row: 1 / -1;
-            margin-block-start: rem(40px);
             border: 1px solid #dadcdd;
             position: sticky;
             top: 2rem;
