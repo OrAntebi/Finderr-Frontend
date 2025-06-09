@@ -8,14 +8,24 @@
         overflow-x: auto;
 
         .categories-list {
+            height: rem(39px);
 
             .keen-slider__slide {
-                padding-block: rem(8.5px);
                 min-width: max-content;
 
                 .category-link {
+                    height: 100%;
+                    
                     color: #62646a;
+                    border-block-end: 2px solid transparent;
 
+                    &:hover {
+                        border-block-end: 2px solid $nav-link-clr-hover;
+                    }
+
+                    &.active {
+                        border-block-end: 2px solid $nav-link-clr-hover;
+                    }
                 }
             }
 

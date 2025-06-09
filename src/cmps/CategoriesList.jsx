@@ -9,8 +9,13 @@ import 'keen-slider/keen-slider.min.css'
 
 export function CategoriesList() {
     const screenWidth = useScreenSize()
-    const currentPage = useLocation().pathname
     const categoryList = gigservice.getCategoryList()
+    const location = useLocation()
+    const searchParams = new URLSearchParams(location.search)
+    const currentPage = location.pathname
+    const currCategory = searchParams.get('category')
+
+
 
     const [currentSlide, setCurrentSlide] = useState(0)
     const [isAtEnd, setIsAtEnd] = useState(false)
@@ -57,7 +62,7 @@ export function CategoriesList() {
                         <div className="keen-slider__slide" key={categoryRoute}>
                             <Link
                                 to={`/categories?category=${categoryRoute}`}
-                                className="category-link"
+                                className={`category-link flex align-center ${currCategory === categoryRoute ? 'active' : ''}`}
                             >
                                 {categoryName}
                             </Link>
