@@ -15,8 +15,6 @@ export function CategoriesList() {
     const currentPage = location.pathname
     const currCategory = searchParams.get('category')
 
-
-
     const [currentSlide, setCurrentSlide] = useState(0)
     const [isAtEnd, setIsAtEnd] = useState(false)
 
@@ -39,6 +37,18 @@ export function CategoriesList() {
     useEffect(() => {
         instanceRef.current?.update()
     }, [screenWidth])
+
+    useEffect(() => {
+        const hasActiveLink = document.querySelector('.category-link.active')
+
+        if (currentPage === '/categories' && !hasActiveLink) {
+            instanceRef.current?.moveToIdx(0)
+            setCurrentSlide(0)
+            setIsAtEnd(false)
+        }
+    }, [currentPage, currCategory])
+
+
 
     const isMobile = screenWidth < 664
     const isAtStart = currentSlide === 0
