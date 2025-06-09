@@ -122,7 +122,7 @@ window.cs = gigservice
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(GIG_KEY)
-    const { txt, minPrice, categories } = filterBy
+    const { txt, minPrice, maxPrice, daysToMake, categories } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
@@ -130,6 +130,12 @@ async function query(filterBy = { txt: '', price: 0 }) {
     }
     if (minPrice) {
         gigs = gigs.filter(gig => gig.price >= +minPrice)
+    }
+    if (maxPrice) {
+        gigs = gigs.filter(gig => gig.price <= +maxPrice)
+    }
+    if (daysToMake) {
+        gigs = gigs.filter(gig => gig.daysToMake <= +daysToMake)
     }
 
     if (categories.length) {
