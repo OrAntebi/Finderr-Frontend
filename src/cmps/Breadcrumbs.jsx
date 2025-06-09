@@ -1,17 +1,17 @@
-import { useLocation, Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { gigservice } from '../services/gig'
+import { useLocation, useSearchParams, Link } from 'react-router-dom'
 import homeIcon from '../assets/img/home-icon.svg'
-import { setGigFilter } from '../store/gig/gig.actions'
+import { gigservice } from '../services/gig'
 
 export function BreadCrumbs() {
-    const pathnames = useLocation().pathname.split('/').filter(Boolean)
-    const dispatch = useDispatch()
+    const location = useLocation()
+    const [searchParams] = useSearchParams()
 
-    function handleCategoriesClick(name) {
-        if (name === 'categories') setGigFilter({ categories: [] })
-        else setGigFilter({ categories: [name] })
-    }
+    const isInCategories = location.pathname.startsWith('/categories')
+    const category = searchParams.get('category')
+    const categoryTitle = category ? gigservice.getCategoryTitleFromPath(category) : null
+    const isGigDetails = location.pathname.split('/').length === 3 // /categories/:gigId
+
+    if (!isInCategories) return null
 
     return (
         <nav className="breadcrumbs flex align-center">
@@ -19,32 +19,22 @@ export function BreadCrumbs() {
                 <img src={homeIcon} alt="home" />
             </Link>
 
-            {pathnames.length > 0 && <span className="breadcrumb-separator">/</span>}
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/categories" className="breadcrumb-link item">
+                Categories
+            </Link>
 
-            {pathnames.map((name, idx) => {
-                const isLast = idx === pathnames.length - 1
-                const routeTo = '/' + pathnames.slice(0, idx + 1).join('/')
-                const title = gigservice.getCategoryTitleFromPath(name)
-
-                return (
-                    <>
-                        <span key={routeTo} className="flex align-center">
-                            {isLast ? (
-                                <span className="breadcrumb-current item">{title}</span>
-                            ) : (
-                                <Link
-                                    to={routeTo}
-                                    className="breadcrumb-link item"
-                                    onClick={() => handleCategoriesClick(name)}
-                                >
-                                    {title}
-                                </Link>
-                            )}
-                        </span>
-                        {!isLast && <span className="breadcrumb-separator">/</span>}
-                    </>
-                )
-            })}
+            {isGigDetails && category && (
+                <>
+                    <span className="breadcrumb-separator">/</span>
+                    <Link
+                        to={`/categories?category=${category}`}
+                        className="breadcrumb-link item"
+                    >
+                        {categoryTitle}
+                    </Link>
+                </>
+            )}
         </nav>
     )
 }

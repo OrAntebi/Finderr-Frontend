@@ -1,24 +1,37 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router'
-
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg, setGigFilter } from '../store/gig/gig.actions'
+import { useSearchParams } from 'react-router-dom'
+import { loadGigs, addGig, updateGig, removeGig, setGigFilter } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigservice } from '../services/gig/'
-import { userService } from '../services/user'
 
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
+import { Loader } from '../cmps/Loader'
 
 export function GigIndex() {
+    const [searchParams] = useSearchParams()
+    const categoryFromParams = searchParams.get('category')
+
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const location = useLocation()
+
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        if (categoryFromParams) {
+            setGigFilter({ ...filterBy, categories: [categoryFromParams] })
+        } else {
+            setGigFilter({ ...filterBy, categories: [] })
+        }
+    }, [categoryFromParams])
+
+    useEffect(() => {
+        setIsLoading(true)
         loadGigs(filterBy)
+            .finally(() => setIsLoading(false))
     }, [filterBy])
 
     function onSetFilterBy(filterBy) {
@@ -58,19 +71,25 @@ export function GigIndex() {
     }
 
     function getTitle() {
-        return gigservice.getCategoryTitleFromPath(location.pathname)
+        return categoryFromParams
+            ? gigservice.getCategoryTitleFromPath(categoryFromParams)
+            : 'Categories'
     }
-
 
     return (
         <main className="gig-index">
             <BreadCrumbs />
             <h1>{getTitle()}</h1>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-            <GigList
-                gigs={gigs}
-                onRemoveGig={onRemoveGig}
-                onUpdateGig={onUpdateGig} />
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <GigList
+                    gigs={gigs}
+                    onRemoveGig={onRemoveGig}
+                    onUpdateGig={onUpdateGig}
+                />
+            )}
         </main>
     )
 }

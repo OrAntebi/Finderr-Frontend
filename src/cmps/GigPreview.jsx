@@ -1,11 +1,11 @@
-
 import { Link } from "react-router-dom"
 
 export function GigPreview({ gig }) {
     const mainImg = 'src/assets/img/gigImg.jpg'
 
+
     return (
-        <Link to={`/categories/${gig.category}/${gig._id}`} className="gig-preview">
+        <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
             {/* <img className="gig-img" src={mainImg} alt={gig.title} /> */}
             <img className="gig-img" src={gig.imgUrls[0]} alt={gig.title} />
 
