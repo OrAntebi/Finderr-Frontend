@@ -53,10 +53,10 @@ function NormalHomePage() {
                         <SearchInput placeholderText="Search for any service..." />
                         <nav>
                             <ul className="hero-categories flex align-center">
-                                <li><Link to="/categories/website-development">Website Development</Link></li>
-                                <li><Link to="/categories/interior-design">Architecture & Interior Design</Link></li>
-                                <li><Link to="/categories/ugc-videos">UGC Videos</Link></li>
-                                <li><Link to="/categories/video-editing">Video Editing</Link></li>
+                                <li><Link to="/categories?category=programming-tech">Website Development</Link></li>
+                                <li><Link to="/categories?category=graphics-design">Architecture & Interior Design</Link></li>
+                                <li><Link to="/categories?category=video-animation">UGC Videos</Link></li>
+                                <li><Link to="/categories?category=video-animation">Video Editing</Link></li>
                             </ul>
                         </nav>
                     </section>

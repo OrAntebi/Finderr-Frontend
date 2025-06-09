@@ -1,5 +1,15 @@
 import starSvg from '../assets/img/star-icon.svg'
+import { gigservice } from "../services/gig"
+
+
 export function OwnerDetails({ owner, isLarge }) {
+
+
+    const levelStars = gigservice.convertLvlToStars(owner.level)
+        .map((src, idx) => (
+            <img key={idx} src={src} alt="star" className="star" />
+        ))
+
     return (
         <>
             <div className="owner-details flex align-center">
@@ -7,8 +17,13 @@ export function OwnerDetails({ owner, isLarge }) {
                 <div className="owner-info flex column">
                     <div className="name-and-level flex align-center">
                         <h3>{owner.fullname}</h3>
-                        <span className="level">Level {owner.level}</span>
+
+                        <span className="level flex align-center">
+                            <p>Level {owner.level}</p>
+                            <span className="stars flex align-center">{levelStars}</span>
+                        </span>
                     </div>
+
                     <div className="rate flex align-center">
                         <div className="stars flex">
                             {Array.from({ length: 5 }, (_, index) => (

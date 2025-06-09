@@ -11,10 +11,10 @@ export function GigList({ gigs, onRemoveGig, onUpdateGig }) {
         return gig.owner?._id === user._id
     }
 
-    return <section>
-        <ul className="list">
+    return <section className="gig-list-container">
+        <ul className="gig-list">
             {gigs.map(gig =>
-                <li key={gig._id}>
+                <li key={gig._id} className="gig-item">
                     <GigPreview gig={gig} />
                     {shouldShowActionBtns(gig) && <div className="actions">
                         <button onClick={() => onUpdateGig(gig)}>Edit</button>

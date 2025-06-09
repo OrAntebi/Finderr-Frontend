@@ -1,46 +1,60 @@
 .gig-preview {
     display: flex;
     flex-direction: column;
-    width: 240px;
-    border: 1px solid #e4e5e7;
-    border-radius: 8px;
+    height: 100%;
 
-    &:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    .gig-img {
+        border: 1px solid #e4e5e7;
+        border-radius: 8px;
+    }
+
+    >*:not(.gig-img) {
+        margin-block-start: rem(8px);
     }
 
     .owner-row {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        padding: .75rem .75rem .25rem;
+        margin-block-start: rem(12px);
+
+        font-size: rem(14px);
+        font-weight: 600;
+
+        .owner-details,
+        .owner-level {
+            gap: rem(8px);
+        }
 
         .owner-avatar {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
+
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .owner-name {
-            font-size: .875rem;
-            font-weight: 600;
+        .stars {
+            gap: rem(2px);
         }
     }
 
     .gig-title {
-        padding: 0 .75rem;
-        height: 2.5em;
-        margin: 0 0 .5rem;
+        color: #404145;
+        margin-block-end: auto;
+    }
+
+    &:hover {
+        .gig-title {
+            text-decoration: underline;
+        }
     }
 
     .rating-row {
-        display: flex;
-        gap: .25rem;
-        padding: 0 .75rem .5rem;
+
+        >*:not(:first-child) {
+            padding-inline-start: rem(4px);
+        }
 
         .star {
-            color: #ffb33e;
+            font-size: 18px;
         }
 
         .rate-num {
@@ -53,19 +67,9 @@
     }
 
     .price-row {
-        padding: .5rem .75rem .75rem;
-        display: flex;
-        justify-content: left;
-        gap: .25rem;
+        font-weight: 600;
+        color: $clr1;
 
-        span:first-child {
-            color: #74767e;
-            font-size: .75rem;
-            align-self: center;
-        }
-
-        .price {
-            font-weight: 700;
-        }
+        .price {}
     }
 }

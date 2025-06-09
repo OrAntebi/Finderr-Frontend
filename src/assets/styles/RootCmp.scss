@@ -5,21 +5,13 @@
     @include for-narrow-layout {
         padding-block-end: rem(64px);
     }
-
-    @include for-normal-layout {
-        padding-block-end: 0;
-    }
 }
 
 
 .main-container .main-content:not(:has(.home-page)) {
-    padding-block-start: rem(40px);
+    padding-block-start: rem(15px);
 
     @include for-narrow-layout {
-        padding-block-start: rem(40px);
-    }
-
-    @include for-normal-layout {
-        // padding-block-start: 0;
+        padding-block-start: rem(25px);
     }
 }

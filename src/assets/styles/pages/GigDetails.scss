@@ -9,6 +9,7 @@
     }
 
     .gig-image {
+        justify-self: center;
         margin-block-end: rem(24px);
         width: 700px;
     }
@@ -44,6 +45,13 @@
 
                 .level {
                     font-size: rem(14px);
+                    gap: rem(8px);
+                
+                    .stars {
+                        display: flex;
+                        align-items: center;
+                        gap: rem(2px);
+                    }
                 }
             }
 
