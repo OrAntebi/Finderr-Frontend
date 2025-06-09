@@ -14,19 +14,42 @@
                 min-width: max-content;
 
                 .category-link {
+                    position: relative;
+
                     height: 100%;
-                    
+
                     color: #62646a;
-                    border-block-end: 2px solid transparent;
+                    transition: color 0.3s ease-in-out;
 
                     &:hover {
-                        border-block-end: 2px solid $nav-link-clr-hover;
+                        color: $clr1;
                     }
 
                     &.active {
-                        border-block-end: 2px solid $nav-link-clr-hover;
+                        color: $clr1;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+
+                        width: 100%;
+                        height: 2px;
+
+                        background-color: $nav-link-clr-hover;
+                        transform: scaleY(0);
+                        transform-origin: bottom;
+                        transition: transform 0.3s ease-in-out;
+                    }
+
+                    &:hover::after,
+                    &.active::after {
+                        transform: scaleY(1);
                     }
                 }
+
             }
 
         }
