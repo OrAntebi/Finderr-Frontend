@@ -48,7 +48,7 @@ export function PricingPackages({ gig }) {
     const currentFeatures = features.slice(0, currentPackage.featuresCount)
 
     return (
-        <section className="pricing-packages full main-container">
+        <section className="pricing-packages">
             <nav role="tablist" className="full">
                 {tabs.map(tab => (
                     <button

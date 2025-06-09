@@ -195,6 +195,8 @@
     }
 
     .owner-description {
+        margin-block-end: rem(24px);
+
         .desciption-list {
             display: grid;
             padding: rem(24px);
@@ -215,5 +217,62 @@
             }
         }
 
+    }
+
+    @include for-narrow-layout {
+        display: grid;
+        grid-template-columns: minmax(auto, rem(710px)) minmax(rem(290px), rem(410px));
+        gap: 2rem; 
+        align-items: start;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        >* {
+            grid-column: 1;
+        }
+
+        .pricing-packages {
+            grid-column: 2;
+            grid-row: 1 / -1;
+            margin-block-start: rem(40px);
+            border: 1px solid #dadcdd;
+            position: sticky;
+            top: 2rem;
+
+            button {
+                border-top: none;
+            }
+
+            .pricing-card {
+                padding-inline: rem(24px);
+
+                .price {
+                    line-height: rem(24px);
+
+                    .amount {
+                        font-size: rem(24px);
+                    }
+
+                    .discount {
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .continue-btn {
+                display: block;
+                width: 100%;
+                margin: 0 rem(24px) rem(20px);
+                width: calc(100% - 48px);
+                box-sizing: border-box;
+            }
+        }
+
+                .owner-description {
+            .desciption-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     }
 }
