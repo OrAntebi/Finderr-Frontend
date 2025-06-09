@@ -48,7 +48,7 @@ export function PricingPackages({ gig, screenWidth }) {
     const currentFeatures = features.slice(0, currentPackage.featuresCount)
 
     return (
-        <section className={`pricing-packages${screenWidth < 900 ? ' full main-container' : ''}`}>
+        <section className={`pricing-packages${screenWidth < 964 ? ' full main-container' : ''}`}>
             <nav role="tablist" className="full">
                 {tabs.map(tab => (
                     <button
