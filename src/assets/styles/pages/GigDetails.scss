@@ -221,8 +221,8 @@
 
     @include for-narrow-layout {
         display: grid;
-        grid-template-columns: minmax(auto, rem(710px)) minmax(rem(290px), rem(410px));
-        gap: 2rem; 
+        grid-template-columns: minmax(rem(510px), rem(710px)) minmax(rem(290px), rem(410px));
+        gap: 2rem;
         align-items: start;
         width: 100%;
         max-width: 1200px;
@@ -269,7 +269,7 @@
             }
         }
 
-                .owner-description {
+        .owner-description {
             .desciption-list {
                 grid-template-columns: 1fr 1fr;
             }

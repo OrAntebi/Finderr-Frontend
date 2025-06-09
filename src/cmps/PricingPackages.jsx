@@ -6,7 +6,7 @@ import roundSvg from '../assets/img/round-icon.svg'
 import checkSvg from '../assets/img/check-icon.svg'
 import arrowSvg from '../assets/img/arrow-icon.svg'
 
-export function PricingPackages({ gig }) {
+export function PricingPackages({ gig, screenWidth }) {
     const [activeTab, setActiveTab] = useState('standard')
     const features = [
         'Script writing',
@@ -48,7 +48,7 @@ export function PricingPackages({ gig }) {
     const currentFeatures = features.slice(0, currentPackage.featuresCount)
 
     return (
-        <section className="pricing-packages">
+        <section className={`pricing-packages${screenWidth < 900 ? ' full main-container' : ''}`}>
             <nav role="tablist" className="full">
                 {tabs.map(tab => (
                     <button
