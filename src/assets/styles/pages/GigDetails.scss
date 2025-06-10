@@ -10,10 +10,8 @@
         padding-bottom: 1rem;
     }
 
-    .gig-image {
-        justify-self: center;
-        margin-block-end: rem(24px);
-        width: 700px;
+    .gig-slider {
+        margin-bottom: rem(32px);
     }
 
     .owner-details {
@@ -83,6 +81,7 @@
         font-family: Macan-Medium, sans-serif;
         color: $nav-link-clr;
         line-height: lh(24px);
+        // margin-bottom: rem(32px);
     }
 
     .pricing-packages {
