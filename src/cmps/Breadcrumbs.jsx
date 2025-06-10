@@ -9,7 +9,7 @@ export function BreadCrumbs() {
     const isInCategories = location.pathname.startsWith('/categories')
     const category = searchParams.get('category')
     const categoryTitle = category ? gigservice.getCategoryTitleFromPath(category) : null
-    const isGigDetails = location.pathname.split('/').length === 3 // /categories/:gigId
+    const isGigDetails = location.pathname.split('/').length === 3
 
     if (!isInCategories) return null
 

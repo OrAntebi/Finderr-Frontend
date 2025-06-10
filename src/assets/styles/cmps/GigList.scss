@@ -3,26 +3,27 @@
     grid-template-columns: minmax(0, 1fr);
     width: 100%;
 
-    grid-column-gap: 24px;
+    column-gap: 24px;
     row-gap: 32px;
 
     margin-top: rem(16px);
 
     .gig-item {
+        min-width: 0;
         width: 100%;
-
-        // .actions {
-
-        //     button {}
-        // }
     }
 
     @include for-narrow-layout {
-        grid-template-columns: repeat(3, 1fr);
-        grid-row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
     }
 
     @include for-normal-layout {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 40px;
+    }
+
+    @include for-wide-layout {
         grid-template-columns: repeat(4, 1fr);
         row-gap: 40px;
     }
