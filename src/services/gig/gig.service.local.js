@@ -122,11 +122,11 @@ window.cs = gigservice
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(GIG_KEY)
-    const { txt, minPrice, maxPrice, daysToMake, categories } = filterBy
-
+    const { txt, minPrice, maxPrice, daysToMake, categories  } = filterBy
+console.log('FFFFLLLLTR',filterBy)
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description) || regex.test(gig.category))
     }
     if (minPrice) {
         gigs = gigs.filter(gig => gig.price >= +minPrice)
@@ -138,18 +138,22 @@ async function query(filterBy = { txt: '', price: 0 }) {
         gigs = gigs.filter(gig => gig.daysToMake <= +daysToMake)
     }
 
+    // if (category) {
+    //     gigs = gigs.filter(gig => category === (gig.category))
+    // }
     if (categories.length) {
         gigs = gigs.filter(gig => categories.includes(gig.category))
     }
 
-    gigs = gigs.map(({ _id, title, price, category, daysToMake, owner, imgUrls }) => ({
+    gigs = gigs.map(({ _id, title, price, category, daysToMake, owner, imgUrls, description }) => ({
         _id,
         title,
         price,
         category,
         daysToMake,
         owner,
-        imgUrls
+        imgUrls,
+        description
     }))
 
     return gigs

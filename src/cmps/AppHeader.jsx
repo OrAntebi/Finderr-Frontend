@@ -50,6 +50,10 @@ export function AppHeader() {
         setDropdownOpen(prev => ({ ...prev, [name]: false }))
     }
 
+    function handleSearch(txt) {
+        setGigFilter({ txt, tags: [], minPrice: '' })
+    }
+
     function onSetFilterBy(filterBy) {
         setGigFilter(filterBy)
     }
@@ -65,6 +69,7 @@ export function AppHeader() {
                 closeDropdown={closeDropdown}
                 dropdownOpen={dropdownOpen}
                 currentPage={currentPage}
+                onSearch={handleSearch}
             />
             <CategoriesList />
         </>

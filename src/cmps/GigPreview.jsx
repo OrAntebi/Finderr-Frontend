@@ -8,6 +8,11 @@ export function GigPreview({ gig }) {
             <img key={idx} src={src} alt="star" className="star-img" />
         ))
 
+    const shortDescription = gig.description
+        .split(' ')
+        .slice(0, 5)
+        .join(' ') 
+
 
     return (
         <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
@@ -28,6 +33,7 @@ export function GigPreview({ gig }) {
             </div>
 
             <p className="gig-title">{gig.title}</p>
+            <p className="gig-descreption">{shortDescription}</p>
 
             <div className="rating-row flex align-center">
                 <span className="star">★</span>
