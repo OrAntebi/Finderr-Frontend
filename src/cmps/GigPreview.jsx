@@ -1,5 +1,6 @@
 import { gigservice } from "../services/gig"
 import { Link } from "react-router-dom"
+import { GigSlider } from "./GigSlider"
 
 export function GigPreview({ gig }) {
 
@@ -8,21 +9,13 @@ export function GigPreview({ gig }) {
             <img key={idx} src={src} alt="star" className="star-img" />
         ))
 
-    const shortDescription = gig.description
-        .split(' ')
-        .slice(0, 5)
-        .join(' ') 
-
-
     return (
         <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
-            {/* <img className="gig-img" src={mainImg} alt={gig.title} /> */}
-            <img className="gig-img" src={gig.imgUrls[0]} alt={gig.title} />
+            <GigSlider gig={gig} />
 
             <div className="owner-row flex align-center justify-between">
                 <div className="owner-details flex align-center">
-                    <img className="owner-avatar" src={'/src/assets/img/ownerImg.jpg'} />
-                    {/* <img className="owner-avatar" src={`https://api.dicebear.com/8.x/bottts/png?seed=${(gig.title)}`} /> */}
+                    <img className="owner-avatar" src={gig.owner.imgUrl} />
                     <span className="owner-name">{gig.owner.fullname}</span>
                 </div>
 
@@ -33,7 +26,6 @@ export function GigPreview({ gig }) {
             </div>
 
             <p className="gig-title">{gig.title}</p>
-            <p className="gig-descreption">{shortDescription}</p>
 
             <div className="rating-row flex align-center">
                 <span className="star">★</span>

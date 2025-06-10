@@ -7,6 +7,7 @@ import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { Loader } from '../cmps/Loader'
+import { GigSlider } from '../cmps/GigSlider'
 
 import hamburgerSvg from '../assets/img/hamburger-icon.svg'
 import heartSvg from '../assets/img/heart-full-icon.svg'
@@ -33,7 +34,8 @@ export function GigDetails() {
             <BreadCrumbs />
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
-            <img className="gig-image" src={gig.imgUrls[0]} alt="gig image" />
+            {/* <img className="gig-image" src={gig.imgUrls[0]} alt="gig image" /> */}
+            <GigSlider gig={gig} showThumbnails={true} />
             {screenWidth < 964 && <PricingPackages gig={gig} screenWidth={screenWidth} />}
             <h2>About this gig</h2>
             <p>{gig.description}</p>
