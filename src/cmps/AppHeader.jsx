@@ -51,7 +51,7 @@ export function AppHeader() {
     }
 
     function handleSearch(txt) {
-        setGigFilter({ txt, tags: [], minPrice: '' })
+        setGigFilter({ txt, tags: [], categories: [], minPrice: '' })
     }
 
     function onSetFilterBy(filterBy) {
