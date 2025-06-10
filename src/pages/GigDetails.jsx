@@ -8,6 +8,11 @@ import { PricingPackages } from '../cmps/PricingPackages'
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { Loader } from '../cmps/Loader'
 
+import hamburgerSvg from '../assets/img/hamburger-icon.svg'
+import heartSvg from '../assets/img/heart-full-icon.svg'
+import shareSvg from '../assets/img/share-icon.svg'
+import dotsSvg from '../assets/img/three-btns-icon.svg'
+
 export function GigDetails() {
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
@@ -46,7 +51,22 @@ export function GigDetails() {
             ) : (
                 renderMainContent()
             )}
-            {screenWidth >= 964 && <PricingPackages gig={gig} />}
+            {screenWidth >= 964 && (
+                <>
+                    <div className="like-and-share flex align-center">
+                        <div className="collect-wrapper flex align-center justify-center">
+                            <div className="like-wrapper flex align-center justify-center">
+                                <button><span><img src={hamburgerSvg} alt="hamburger-icon" /></span></button>
+                                <button><span><img src={heartSvg} alt="heart-icon" /></span></button>
+                            </div>
+                            <span className="collect-count">38</span>
+                        </div>
+                        <button className="share-dots"><img src={shareSvg} alt="share-icon" /></button>
+                        <button className="share-dots"><img src={dotsSvg} alt="dots-icon" /></button>
+                    </div>
+                    <PricingPackages gig={gig} />
+                </>
+            )}
         </section>
     )
 }

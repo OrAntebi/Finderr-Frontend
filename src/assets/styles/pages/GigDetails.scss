@@ -1,10 +1,12 @@
 .gig-details {
+    padding-top: rem(10px);
+
     .gig-title {
         font-size: rem(28px);
         line-height: lh(38px, 28px);
         font-family: Macan-Bold, sans-serif;
         color: $caregories-clr;
-        margin: 0;
+        margin-block-start: rem(28px);
         padding-bottom: 1rem;
     }
 
@@ -46,7 +48,7 @@
                 .level {
                     font-size: rem(14px);
                     gap: rem(8px);
-                
+
                     .stars {
                         display: flex;
                         align-items: center;
@@ -90,7 +92,7 @@
             display: flex;
         }
 
-        button {
+        nav button {
             flex: 1;
             font-family: Macan-Bold, sans-serif;
             font-size: 1rem;
@@ -197,7 +199,7 @@
 
             span {
                 display: inline-block;
-                // float: right;
+                float: right;
             }
         }
     }
@@ -235,19 +237,79 @@
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        
+
         >* {
             grid-column: 1;
         }
 
-        .pricing-packages {
+        .pricing-packages,
+        .like-and-share {
             grid-column: 2;
-            grid-row: 1 / -1;
-            border: 1px solid #dadcdd;
+            grid-row: 1;
             position: sticky;
-            top: 2rem;
+        }
 
-            button {
+        .like-and-share {
+            top: 10rem;
+            justify-content: flex-end;
+            gap: rem(12px);
+
+            .like-wrapper {
+                gap: rem(8px);
+            }
+
+            .collect-count {
+                border: 1px solid #dadbdd;
+                border-radius: rem(3px);
+                color: #222325;
+                font-size: rem(14px);
+                margin-left: rem(13px);
+                padding: rem(5px) rem(10px);
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-style: solid;
+                }
+
+                &::before {
+                    border-color: transparent #dadbdd transparent transparent;
+                    border-width: rem(8px) rem(9px) rem(8px) 0;
+                    left: rem(-9px);
+                    z-index: 2;
+                }
+
+                &::after {
+                    border-color: transparent white transparent transparent;
+                    border-width: rem(6px) rem(8px) rem(6px) 0;
+                    left: rem(-8px);
+                    z-index: 3;
+                }
+            }
+
+            .share-dots {
+                border: 1px solid #dadbdd;
+                border-radius: 8px;
+                padding: .5rem 1rem;
+
+                &:hover {
+                    background-color: #f5f5f5;
+                }
+            }
+
+        }
+
+
+
+        .pricing-packages {
+            border: 1px solid #dadcdd;
+            top: 13rem;
+
+            nav button {
                 border-top: none;
             }
 
