@@ -34,8 +34,6 @@ export function GigDetails() {
             <BreadCrumbs />
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
-            <GigSlider gig={gig} showThumbnails={true} />
-            {/* <img className="gig-image" src={gig.imgUrls[0]} alt="gig image" /> */}
             {<GigSlider gig={gig} showThumbnails={screenWidth >= 664} />}
             {screenWidth < 964 && <PricingPackages gig={gig} screenWidth={screenWidth} />}
             <h2>About this gig</h2>
