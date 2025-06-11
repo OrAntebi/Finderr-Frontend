@@ -1,6 +1,4 @@
 .gig-details {
-    padding-top: rem(10px);
-
     .gig-title {
         font-size: rem(28px);
         line-height: lh(38px, 28px);
@@ -231,7 +229,7 @@
     @include for-normal-layout {
         display: grid;
         grid-template-columns: minmax(rem(510px), rem(710px)) minmax(rem(290px), rem(410px));
-        gap: 2rem;
+        gap: 3rem;
         align-items: start;
         width: 100%;
         max-width: 1200px;

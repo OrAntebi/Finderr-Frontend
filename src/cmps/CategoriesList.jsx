@@ -15,6 +15,8 @@ export function CategoriesList() {
     const currentPage = location.pathname
     const currCategory = searchParams.get('category')
 
+    const isOnlyCategoriesPage = currentPage === '/categories'
+
     const [currentSlide, setCurrentSlide] = useState(0)
     const [isAtEnd, setIsAtEnd] = useState(false)
 
@@ -40,15 +42,14 @@ export function CategoriesList() {
 
     useEffect(() => {
         const hasActiveLink = document.querySelector('.category-link.active')
+        const isGigDetailsPage = currentPage.startsWith('/categories/') && currentPage !== '/categories'
 
-        if (currentPage === '/categories' && !hasActiveLink) {
+        if ((isOnlyCategoriesPage || isGigDetailsPage) && !hasActiveLink) {
             instanceRef.current?.moveToIdx(0)
             setCurrentSlide(0)
             setIsAtEnd(false)
         }
     }, [currentPage, currCategory])
-
-
 
     const isMobile = screenWidth < 664
     const isAtStart = currentSlide === 0
@@ -72,7 +73,8 @@ export function CategoriesList() {
                         <div className="keen-slider__slide" key={categoryRoute}>
                             <Link
                                 to={`/categories?category=${categoryRoute}`}
-                                className={`category-link flex align-center ${currCategory === categoryRoute ? 'active' : ''}`}
+                                className={`category-link flex align-center ${currCategory === categoryRoute && isOnlyCategoriesPage ? 'active' : ''
+                                    }`}
                             >
                                 {categoryName}
                             </Link>
