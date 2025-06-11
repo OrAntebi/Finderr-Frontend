@@ -17,7 +17,7 @@ export function PricingPackages({ gig, screenWidth }) {
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
     const currentPackage = packages[activeTab]
-    
+
 
     return (
         <section className={`gig-package-section${screenWidth < 964 ? ' full main-container' : ''}`}>

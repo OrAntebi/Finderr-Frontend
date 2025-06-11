@@ -30,7 +30,7 @@ export function GigDetails() {
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
             {<GigSlider gig={gig} showThumbnails={screenWidth >= 664} />}
-            {screenWidth < 964 && <PricingPackages gig={gig} screenWidth={screenWidth} />}
+            {screenWidth < 964 && gig?.packages && <PricingPackages gig={gig} screenWidth={screenWidth} />}
             <h2>About this gig</h2>
             <p>{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
@@ -47,8 +47,8 @@ export function GigDetails() {
             ) : (
                 renderMainContent()
             )}
-            {screenWidth >= 964 && (
-                <PricingPackages  gig={gig} screenWidth={screenWidth}/>
+            {screenWidth >= 964 && gig?.packages && (
+                <PricingPackages gig={gig} screenWidth={screenWidth} />
             )}
         </section>
     )
