@@ -32,7 +32,7 @@ export function PricingPackages({ gig, screenWidth }) {
                 <button className="share-dots"><img src={shareSvg} alt="share-icon" /></button>
                 <button className="share-dots"><img src={dotsSvg} alt="dots-icon" /></button>
             </div>}
-            <div className="pricing-packages">
+            <div className={`pricing-packages ${screenWidth < 964 ? ' full main-container' : ''}`}>
                 <nav role="tablist" className="full">
                     {tabs.map(tab => (
                         <button
