@@ -76,11 +76,22 @@ export function GigIndex() {
             : 'Categories'
     }
 
+    function getTotalGigsCount() {
+        return gigs.length ? `${gigs.length.toLocaleString()}+ results` : ''
+    }
+
     return (
         <main className="gig-index">
             <BreadCrumbs />
+
             <h1>{getTitle()}</h1>
+
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+
+            <section>
+                <span>{getTotalGigsCount()}</span>
+            </section>
+
             {isLoading ? (
                 <Loader />
             ) : (
