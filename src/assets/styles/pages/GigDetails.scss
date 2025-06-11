@@ -241,16 +241,16 @@
             grid-column: 1;
         }
 
-        .pricing-packages,
-        .like-and-share {
+        .gig-package-section {
             grid-column: 2;
             grid-row: 1;
             position: sticky;
+            top: rem(20px);
         }
 
         .like-and-share {
-            top: 10rem;
             justify-content: flex-end;
+            margin-block-end: rem(20px);
             gap: rem(12px);
 
             .like-wrapper {
@@ -306,8 +306,6 @@
 
         .pricing-packages {
             border: 1px solid #dadcdd;
-            top: 13rem;
-
             nav button {
                 border-top: none;
             }
