@@ -42,7 +42,10 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     return (
         <section className="gig-filter">
             <div className="dropdown-filter">
-                <button onClick={toggleDeliveryDropdown}>Delivery Time</button>
+                <button onClick={toggleDeliveryDropdown}>Delivery Time
+                    <svg class="top-filter-bar__svg-icon-adjusted" width="13" height="13" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg>
+                </button>
+
                 {showDeliveryDropdown && (
                     <div className="dropdown-content">
                         {['1', '3', '7', ''].map(value => (
@@ -69,7 +72,10 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
             </div>
 
             <div className="dropdown-filter">
-                <button onClick={toggleBudgetDropdown}>Budget</button>
+                <button onClick={toggleBudgetDropdown}>Budget
+                    <svg class="budjet-delivery-filter-btn__svg-icon-adjusted" width="13" height="13" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path></svg>
+
+                </button>
                 {showBudgetDropdown && (
                     <div className="dropdown-content">
                         <input

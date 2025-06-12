@@ -7,8 +7,15 @@
         // position: relative;
 
         button {
-            padding: 6px 12px;
+            display: flex;
+            // align-items: center;
+            // align-content:center;
+            gap: .5em;
+            padding: 10px 20px;
             cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-weight: 700;
         }
 
         .dropdown-content {
