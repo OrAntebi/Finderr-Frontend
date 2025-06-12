@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import siteLogo from '../assets/img/site-logo.svg'
+import siteLogo from '../assets/img/site-logo1.svg'
 
 export default function SiteLogo() {
     return (
