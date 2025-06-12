@@ -13,7 +13,7 @@ import dotsSvg from '../assets/img/three-btns-icon.svg'
 
 export function PricingPackages({ gig, screenWidth }) {
     const [activeTab, setActiveTab] = useState('standard')
-
+    
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
     const currentPackage = packages[activeTab]

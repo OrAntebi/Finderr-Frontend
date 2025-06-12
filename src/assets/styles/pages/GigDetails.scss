@@ -79,7 +79,6 @@
         font-family: Macan-Medium, sans-serif;
         color: $nav-link-clr;
         line-height: lh(24px);
-        // margin-bottom: rem(32px);
     }
 
     .pricing-packages {
@@ -195,7 +194,6 @@
             }
 
             span {
-                display: inline-block;
                 float: right;
             }
         }
@@ -326,7 +324,6 @@
 
             .continue-btn {
                 display: block;
-                width: 100%;
                 margin: 0 rem(24px) rem(20px);
                 width: calc(100% - 48px);
                 box-sizing: border-box;
