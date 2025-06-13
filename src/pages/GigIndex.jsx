@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { loadGigs, addGig, updateGig, removeGig, setGigFilter } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -17,6 +17,7 @@ export function GigIndex() {
 
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const currentPage = useLocation().pathname
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -81,7 +82,7 @@ export function GigIndex() {
     }
 
     return (
-        <main className="gig-index">
+        <main className={`gig-index ${currentPage === "/categories" ? 'categories-page-shown' : ''}`}>
             <BreadCrumbs />
 
             <h1>{getTitle()}</h1>

@@ -22,7 +22,7 @@ import { Signup } from './pages/Signup.jsx'
 export function RootCmp() {
 
     return (
-        <div className="main-container">
+        <>
             <AppHeader />
             <UserMsg />
 
@@ -50,7 +50,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             <AppFooter />
-        </div>
+        </>
     )
 }
 
