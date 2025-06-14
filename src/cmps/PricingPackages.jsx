@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 import clockSvg from '../assets/img/clock-icon.svg'
 import roundSvg from '../assets/img/round-icon.svg'
-import checkSvg from '../assets/img/check-icon.svg'
 import arrowSvg from '../assets/img/arrow-icon.svg'
 
 import hamburgerSvg from '../assets/img/hamburger-icon.svg'
@@ -13,11 +12,10 @@ import dotsSvg from '../assets/img/three-btns-icon.svg'
 
 export function PricingPackages({ gig, screenWidth }) {
     const [activeTab, setActiveTab] = useState('standard')
-    
+
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
     const currentPackage = packages[activeTab]
-
 
     return (
         <section className={`gig-package-section${screenWidth < 964 ? ' full main-container' : ''}`}>
@@ -74,14 +72,19 @@ export function PricingPackages({ gig, screenWidth }) {
                     </div>
 
                     <ul className="features-list">
-                        {currentPackage.features && currentPackage.features.map((feature, idx) => (
-                            <li key={idx}>
-                                <span>
-                                    <img src={checkSvg} alt="check-icon" />
-                                    {feature}
-                                </span>
-                            </li>
-                        ))}
+                        {packages.premium.features?.map((feature, idx) => {
+                            const isIncluded = currentPackage.features?.includes(feature)
+                            return (
+                                <li key={idx}>
+                                    <span>
+                                        <svg fill={isIncluded ? "#222325" : "#dadbdd"} width="16" height="16" viewBox="0 0 11 9">
+                                            <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                        </svg>
+                                        {feature}
+                                    </span>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </div>
 
