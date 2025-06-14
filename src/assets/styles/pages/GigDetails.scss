@@ -5,7 +5,7 @@
         font-family: Macan-Bold, sans-serif;
         color: $caregories-clr;
         margin-block-start: rem(28px);
-        padding-bottom: 1rem;
+        padding-bottom: rem(16px);
     }
 
     .gig-slider {
@@ -96,7 +96,7 @@
             background-color: #fafafa;
             border: 1px solid #dadcdd;
             border-left: none;
-            color: #74767e;
+            color: $gig-text-secondary;
             padding: 1rem;
             text-align: center;
 
@@ -106,8 +106,8 @@
 
             &.active {
                 background-color: white;
-                border-bottom: 3px solid #222325;
-                color: #222325;
+                border-bottom: 3px solid $gig-text-primary;
+                color: $gig-text-primary;
             }
         }
 
@@ -202,22 +202,22 @@
     .owner-description {
         margin-block-end: rem(24px);
 
-        .desciption-list {
+        .description-list {
             display: grid;
+            gap: rem(16px);
             padding: rem(24px);
-            border: 1px solid #dadbdd;
+            border: 1px solid $gig-border-color;
             border-radius: 3px;
 
             >* {
                 display: flex;
                 flex-direction: column;
-                color: #74767e;
-                padding-bottom: 1rem;
+                color: $gig-text-secondary;
 
                 strong {
                     font-family: Macan-Bold, sans-serif;
                     color: #62646a;
-                    padding-top: rem(4px);
+                    margin-top: rem(4px);
                 }
             }
         }
@@ -227,21 +227,21 @@
     @include for-normal-layout {
         display: grid;
         grid-template-columns: minmax(rem(510px), rem(710px)) minmax(rem(290px), rem(410px));
-        gap: 3rem;
+        gap: rem(48px);
         align-items: start;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
+        justify-content: center;
 
         >* {
             grid-column: 1;
+            min-width: 0;
         }
 
         .gig-package-section {
             grid-column: 2;
-            grid-row: 1;
+            grid-row: 1 / -1;
             position: sticky;
             top: rem(20px);
+            align-self: start;
         }
 
         .like-and-share {
@@ -254,9 +254,9 @@
             }
 
             .collect-count {
-                border: 1px solid #dadbdd;
+                border: 1px solid $gig-border-color;
                 border-radius: rem(3px);
-                color: #222325;
+                color: $gig-text-primary;
                 font-size: rem(14px);
                 margin-left: rem(13px);
                 padding: rem(5px) rem(10px);
@@ -272,7 +272,7 @@
                 }
 
                 &::before {
-                    border-color: transparent #dadbdd transparent transparent;
+                    border-color: transparent $gig-border-color transparent transparent;
                     border-width: rem(8px) rem(9px) rem(8px) 0;
                     left: rem(-9px);
                     z-index: 2;
@@ -287,7 +287,7 @@
             }
 
             .share-dots {
-                border: 1px solid #dadbdd;
+                border: 1px solid $gig-border-color;
                 border-radius: 8px;
                 padding: .5rem 1rem;
 
@@ -302,6 +302,7 @@
 
         .pricing-packages {
             border: 1px solid #dadcdd;
+
             nav button {
                 border-top: none;
             }
@@ -331,9 +332,13 @@
         }
 
         .owner-description {
-            .desciption-list {
+            .description-list {
                 grid-template-columns: 1fr 1fr;
             }
         }
+    }
+
+    @include for-wide-layout {
+        gap: rem(64px);
     }
 }

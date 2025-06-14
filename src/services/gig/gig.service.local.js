@@ -1,8 +1,7 @@
 import { storageService } from '../async-storage.service'
-import { saveToStorage } from '../util.service'
+import { saveToStorage, getRandomIntInclusive } from '../util.service'
 import { userService } from '../user'
 import { gigsData } from '../data/gigs.js'
-import { getRandomIntInclusive } from '../util.service'
 
 const GIG_KEY = 'gigDB'
 const CATEGORIES = {
