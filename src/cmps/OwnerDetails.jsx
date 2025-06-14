@@ -47,15 +47,15 @@ export function OwnerDetails({ owner, isLarge }) {
                         </li>
                         <li>
                             <label>Avg. response time</label>
-                            <strong>1 hour</strong>
+                            <strong>{owner.avgResponceTime}</strong>
                         </li>
                         <li>
                             <label>Last delivery</label>
-                            <strong>about 3 hours</strong>
+                            <strong>{owner.lastDelivery}</strong>
                         </li>
                         <li>
                             <label>Languages</label>
-                            <strong>{owner.languages}</strong>
+                            <strong>{owner.languages.join(', ')}</strong>
                         </li>
                     </ul>
                 </div>}</>
