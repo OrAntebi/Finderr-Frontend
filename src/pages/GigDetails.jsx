@@ -32,7 +32,7 @@ export function GigDetails() {
             {<GigSlider gig={gig} showThumbnails={screenWidth >= 664} />}
             {screenWidth < 964 && gig?.packages && <PricingPackages gig={gig} screenWidth={screenWidth} />}
             <h2>About this gig</h2>
-            <p>{gig.description}</p>
+            <p className="gig-description">{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
             <OwnerDetails owner={owner} isLarge={true} />
         </>

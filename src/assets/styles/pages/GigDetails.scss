@@ -8,7 +8,8 @@
         padding-bottom: rem(16px);
     }
 
-    .gig-slider {
+    .gig-slider,
+    .gig-description {
         margin-bottom: rem(32px);
     }
 
@@ -224,6 +225,14 @@
 
     }
 
+    @include for-narrow-layout {
+        .owner-description {
+            .description-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
     @include for-normal-layout {
         display: grid;
         grid-template-columns: minmax(rem(510px), rem(710px)) minmax(rem(290px), rem(410px));
@@ -234,6 +243,11 @@
         >* {
             grid-column: 1;
             min-width: 0;
+        }
+
+        .gig-slider,
+        .gig-description {
+            margin-bottom: rem(64px);
         }
 
         .gig-package-section {
@@ -328,12 +342,6 @@
                 margin: 0 rem(24px) rem(20px);
                 width: calc(100% - 48px);
                 box-sizing: border-box;
-            }
-        }
-
-        .owner-description {
-            .description-list {
-                grid-template-columns: 1fr 1fr;
             }
         }
     }
