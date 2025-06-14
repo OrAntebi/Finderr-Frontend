@@ -36,7 +36,7 @@ export function OwnerDetails({ owner, isLarge }) {
             </div>
             {
                 isLarge && <div className="owner-description">
-                    <ul className="desciption-list">
+                    <ul className="description-list">
                         <li>
                             <label>From</label>
                             <strong>{owner.loc}</strong>

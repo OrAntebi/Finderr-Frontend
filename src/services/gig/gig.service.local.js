@@ -35,7 +35,6 @@ export const gigservice = {
 window.cs = gigservice
 
 _initGigDB()
-
 function _initGigDB() {
     const stored = JSON.parse(localStorage.getItem(GIG_KEY))
     if (!stored || !stored.length) saveToStorage(GIG_KEY, gigsData)
