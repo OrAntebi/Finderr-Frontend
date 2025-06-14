@@ -13,7 +13,7 @@ const defaults = [
 export function GigSlider({ gig, showThumbnails = false }) {
     const screenWidth = useScreenSize()
     const images = gig.imgUrls?.length ? gig.imgUrls : defaults
-    const isWide = screenWidth >=964
+    const isWide = screenWidth >= 964
 
     const Arrow = ({ onClick, dir }) => (
         <button className={`gallery-btn ${dir}`} onClick={onClick}>
@@ -21,14 +21,16 @@ export function GigSlider({ gig, showThumbnails = false }) {
         </button>
     )
 
+    const isSingleImage = images.length === 1
+
     const settings = {
-        dots: true,
-        arrows: isWide,
-        infinite: true,
+        dots: !isSingleImage ? true : false,
+        arrows: !isSingleImage && isWide,
+        infinite: !isSingleImage,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        ...(isWide && {
+        ...(isWide && !isSingleImage && {
             prevArrow: <Arrow dir="prev" />,
             nextArrow: <Arrow dir="next" />,
         }),
@@ -41,6 +43,7 @@ export function GigSlider({ gig, showThumbnails = false }) {
             dotsClass: "slick-thumbnails"
         })
     }
+
 
     return (
         <div className={`gig-slider ${showThumbnails ? 'with-thumbnails' : ''}`}>

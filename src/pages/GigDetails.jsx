@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { loadGig } from '../store/gig/gig.actions'
 import { OwnerDetails } from '../cmps/OwnerDetails'

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router'
+import { Routes, Route, Navigate, useLocation } from 'react-router'
 
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
@@ -20,13 +20,14 @@ import { Signup } from './pages/Signup.jsx'
 
 
 export function RootCmp() {
+    const currentPage = useLocation().pathname
 
     return (
         <>
             <AppHeader />
             <UserMsg />
 
-            <main className="main-content main-container full">
+            <main className={`main-content main-container full ${currentPage.startsWith("/categories") ? 'categories-page-shown' : ''}`}>
                 <Routes>
                     <Route path="" element={<HomePage />} />
                     <Route path="about" element={<AboutUs />}>

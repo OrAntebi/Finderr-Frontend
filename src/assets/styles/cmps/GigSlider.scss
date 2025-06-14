@@ -5,18 +5,18 @@
     overflow: hidden;
     border-radius: rem(8px);
 
-    
+
     .gig-img {
         display: block;
-        
+
         width: 100%;
-        
+
         aspect-ratio: 16 / 9;
         border: 1px solid #e4e5e7;
         border-radius: rem(8px);
         user-select: none;
     }
-    
+
     &.with-thumbnails {
         border-radius: 0;
 
@@ -29,10 +29,10 @@
         bottom: rem(16px);
 
         li {
-            height: rem(6px);
-            width: rem(6px);
+            height: rem(8px);
+            width: rem(8px);
 
-            margin: 0 rem(3px);
+            margin-block-end: rem(5px);
 
             button {
                 height: 100%;
@@ -41,7 +41,7 @@
                 padding: 0;
 
                 border-radius: 50%;
-                background-color: #ffffff;
+                background-color: rgba(255, 255, 255, 0.5);
 
                 &:before {
                     content: none;
@@ -49,7 +49,7 @@
             }
 
             &.slick-active button {
-                transform: scale(1.5);
+                background-color: rgba(255, 255, 255);
             }
         }
     }

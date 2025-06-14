@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { loadGigs, addGig, updateGig, removeGig, setGigFilter } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -17,7 +17,6 @@ export function GigIndex() {
 
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const currentPage = useLocation().pathname
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -82,26 +81,31 @@ export function GigIndex() {
     }
 
     return (
-        <main className={`gig-index ${currentPage === "/categories" ? 'categories-page-shown' : ''}`}>
-            <BreadCrumbs />
+        isLoading ? (
+            <Loader />
+        ) : (
+            <main className="gig-index">
+                <>
+                    <BreadCrumbs />
 
-            <h1>{getTitle()}</h1>
+                    <h1>{getTitle()}</h1>
 
-            <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                    <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
 
-            <section>
-                <span>{getTotalGigsCount()}</span>
-            </section>
+                    <section>
+                        <span>{getTotalGigsCount()}</span>
+                    </section>
 
-            {isLoading ? (
-                <Loader />
-            ) : (
-                <GigList
-                    gigs={gigs}
-                    onRemoveGig={onRemoveGig}
-                    onUpdateGig={onUpdateGig}
-                />
-            )}
-        </main>
+                    <GigList
+                        gigs={gigs}
+                        onRemoveGig={onRemoveGig}
+                        onUpdateGig={onUpdateGig}
+                    />
+                </>
+            </main>
+        )
     )
 }
+
+
+
