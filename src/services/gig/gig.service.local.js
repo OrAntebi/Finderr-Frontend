@@ -2,6 +2,7 @@ import { storageService } from '../async-storage.service'
 import { saveToStorage } from '../util.service'
 import { userService } from '../user'
 import { gigsData } from '../data/gigs.js'
+import { getRandomIntInclusive } from '../util.service'
 
 const GIG_KEY = 'gigDB'
 const CATEGORIES = {
@@ -19,6 +20,9 @@ const CATEGORIES = {
     'data': 'Data',
     'photography': 'Photography'
 }
+const LOCATIONS = ['Israel', 'USA', 'Germany', 'India', 'France', 'Brazil', 'Japan']
+const MEMBERSHIP_YEARS = ['2018', '2019', '2020', '2021', '2022', '2023']
+const LANGUAGES_LIST = ['English', 'Hebrew', 'Spanish', 'German', 'French', 'Portuguese']
 
 export const gigservice = {
     query,
@@ -38,7 +42,20 @@ _initGigDB()
 
 function _initGigDB() {
     const stored = JSON.parse(localStorage.getItem(GIG_KEY))
-    if (!stored || !stored.length) saveToStorage(GIG_KEY, gigsData)
+    if (!stored || !stored.length) {
+        for (const gig of gigsData) {
+            gig.owner.loc = gig.owner.loc ||
+                LOCATIONS[getRandomIntInclusive(0, LOCATIONS.length - 1)]
+
+            gig.owner.memberSince = gig.owner.memberSince ||
+                MEMBERSHIP_YEARS[getRandomIntInclusive(0, MEMBERSHIP_YEARS.length - 1)]
+
+            gig.owner.languages = gig.owner.languages ||
+                LANGUAGES_LIST[getRandomIntInclusive(0, LANGUAGES_LIST.length - 1)]
+
+        }
+        saveToStorage(GIG_KEY, gigsData);
+    }
 }
 
 async function query(filterBy = getDefaultFilter()) {
