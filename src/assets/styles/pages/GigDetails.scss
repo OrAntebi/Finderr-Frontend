@@ -202,13 +202,18 @@
 
     .owner-description {
         margin-block-end: rem(24px);
+        padding: rem(24px);
+
+        border: 1px solid $gig-border-color;
+        border-radius: 3px;
 
         .description-list {
             display: grid;
             gap: rem(16px);
-            padding: rem(24px);
-            border: 1px solid $gig-border-color;
-            border-radius: 3px;
+
+            padding-block-end: rem(16px);
+
+            border-block-end: 1px solid $gig-border-color;
 
             >* {
                 display: flex;
@@ -223,6 +228,19 @@
             }
         }
 
+        p {
+            padding-block-start: rem(16px);
+        }
+
+        .show-more-btn {
+            margin-block-start: rem(15px);
+            
+            color: #404145;
+            font-size: rem(14px);
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
     @include for-narrow-layout {

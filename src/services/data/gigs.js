@@ -34,7 +34,8 @@ export const gigsData = [
             loc: "Australia",
             languages: ["Japanese"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Taylor, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. My creative process starts with deep research into your industry and target audience, ensuring every concept has a strategic foundation. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right.",
         },
         daysToMake: 3,
         description: "Captivating, enriched, elaborate and original is what I believe you're looking for. Your business logo deserves to be created by somebody who gets your business. I am professional designer offering high-quality business Logo design services since 2013 and branding solutions to all kind of businesses",
@@ -78,7 +79,8 @@ export const gigsData = [
             loc: "Italy",
             languages: ["Hebrew"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Julia, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. My creative process starts with deep research into your industry and target audience, ensuring every concept has a strategic foundation. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Let’s combine your vision with my design expertise to create a visual language that resonates and endures. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality.",
         },
         daysToMake: 3,
         description: "Thank you for stopping by! This gig is intended for anyone who is looking for a well rounded and undefined design for their company or brand. We will try different concepts and ideas to get you where you need to be. If you aren't sure where to start, this is a good gig to choose Unlike a lot of other fiverr artists, my designs do not change in quality depending upon what package you choose. All of my designs deserve the same attention and quality guarantee. My process starts in the traditional form which means I begin with paper and pencil. Once that is complete I refine it with art and/or calligraphy pens. Once that's complete, I bring it into my computer and render it digitally. The colors can be whatever you choose and the packages are all different. So please read them carefully or send me a message if you have any questions",
@@ -125,7 +127,8 @@ export const gigsData = [
             loc: "Germany",
             languages: ["English", "French"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm Micky, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. Let’s combine your vision with my design expertise to create a visual language that resonates and endures. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right.",
         },
         daysToMake: 3,
         description: "Are you looking for an artist to turn your ideas into linocut Illustration? You are in the right gig! Hi, I am Micky, a full-time graphic designer for more than 5 years. I have a strong interest in linocut Illustration. Most of my works focus on Animals, Botanicals, and Landscapes, but are not limited to other objects. I like to incorporate some Japanese handwriting into the Illustration. In this gig, I will provide a service to create an artistic, high-quality, and unique linocut Illustration based on your request. You can freely discuss this with me before placing your Linocut order.",
@@ -171,7 +174,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["English"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Justin, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. My creative process starts with deep research into your industry and target audience, ensuring every concept has a strategic foundation.",
         },
         daysToMake: 4,
         description: "Dive into my unique and eye catching Logo Design expertise. Crafting captivating visuals is my forte, excluding whimsical cartoons.Led by our proficient team, we excel in Business, Website, and YouTube Logo Design.",
@@ -219,7 +223,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["German"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Rhett, a full‑stack developer who translates ambitious concepts into performant digital products. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture.",
         },
         daysToMake: 1,
         description: `Hello, Greetings!
@@ -286,7 +291,8 @@ export const gigsData = [
             loc: "France",
             languages: ["Russian"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm Simon, a full‑stack developer who translates ambitious concepts into performant digital products. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements.",
         },
         daysToMake: 3,
         description: `
@@ -340,7 +346,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["English", "French"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Jason, a full‑stack developer who translates ambitious concepts into performant digital products. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability.",
         },
         daysToMake: 4,
         description: `
@@ -400,7 +407,8 @@ export const gigsData = [
             loc: "Australia",
             languages: ["Spanish", "English"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Sohaib, a full‑stack developer who translates ambitious concepts into performant digital products. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements.",
         },
         daysToMake: 1,
         description: `Hi there!
@@ -453,7 +461,8 @@ export const gigsData = [
             loc: "Germany",
             languages: ["Spanish", "English"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Haya, a full‑stack developer who translates ambitious concepts into performant digital products. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX.",
         },
         daysToMake: 1,
         description: `Hello, my name is Haya Ch and i am a front end web developer and i can build a responsive website for you.
@@ -507,7 +516,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["Hebrew"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Sikandar, a video editor and motion designer who brings stories to life through captivating visuals. Together, we’ll craft a video that not only looks stunning but also converts viewers into fans and customers. Clients praise my ability to translate abstract concepts into compelling visual metaphors that drive engagement. I maintain an organized feedback loop, offering preview renders and accommodating revisions quickly.",
         },
         daysToMake: 2,
         description:
@@ -565,7 +575,8 @@ export const gigsData = [
             loc: "Germany",
             languages: ["Spanish", "English"],
             avgResponceTime: "3 hours",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Adnan, a video editor and motion designer who brings stories to life through captivating visuals. Clients praise my ability to translate abstract concepts into compelling visual metaphors that drive engagement. Together, we’ll craft a video that not only looks stunning but also converts viewers into fans and customers. With Adobe Premiere, After Effects and DaVinci Resolve in my toolkit, I deliver cinematic polish at any resolution. I storyboard every scene to ensure narrative flow before diving into animation or editing. Sound design, Foley effects and royalty‑free music licenses are included so you receive a turnkey final product.",
         },
         daysToMake: 2,
         description:
@@ -622,7 +633,8 @@ export const gigsData = [
             loc: "Italy",
             languages: ["Russian"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
         },
         daysToMake: 3,
         description: 'I am a Full stack web and WordPress developer, I have been doing web development for the last 5 years. I have worked with various technologies including ✅ HTML5, ✅ CSS3, ✅ CSS3 Animation, ✅ Bootstrap, ✅ JavaScript, ✅',
@@ -673,7 +685,8 @@ export const gigsData = [
             loc: "Italy",
             languages: ["English", "French"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Taylor, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. My creative process starts with deep research into your industry and target audience, ensuring every concept has a strategic foundation. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right.",
         },
         daysToMake: 6,
         description: "The process if you have a logo already: After you complete my questionnaire and submit your vector file of the logo I will create your editable guideline in PDF format. The process if you DON'T have a logo already: After you complete my questionnaire, I will create logo concepts, after approval of the logo I will create the guideline.",
@@ -717,7 +730,8 @@ export const gigsData = [
             loc: "France",
             languages: ["Mandarin"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm David, a full‑stack developer who translates ambitious concepts into performant digital products. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
         },
         daysToMake: 3,
         description:
@@ -783,7 +797,8 @@ export const gigsData = [
             loc: "France",
             languages: ["Portuguese"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Fredrick, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. Let’s combine your vision with my design expertise to create a visual language that resonates and endures. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right.",
         },
         daysToMake: 3,
         description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
@@ -835,7 +850,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["Russian"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Elena, a results‑oriented digital marketer dedicated to driving sustainable growth online. I continuously A/B test ad creatives and landing pages, squeezing out every bit of ROI for your marketing spend. I’m committed to data‑backed decisions and creative storytelling that sets your brand apart in crowded marketplaces. Let’s analyze your current funnels, identify quick wins and implement sustainable growth tactics together.",
         },
         daysToMake: 5,
         description: `Hit your targets and maximize your potential with an Etsy SEO Expert
@@ -888,7 +904,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Russian"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Thomas, a results‑oriented digital marketer dedicated to driving sustainable growth online. My content calendars balance evergreen authority pieces with timely campaigns to keep your audience engaged year‑round. I’ve managed budgets from $100 to $100K, always focusing on measurable outcomes and transparent reporting. I continuously A/B test ad creatives and landing pages, squeezing out every bit of ROI for your marketing spend. I’m committed to data‑backed decisions and creative storytelling that sets your brand apart in crowded marketplaces. From keyword research to conversion tracking, I design full‑funnel strategies that turn browsers into loyal customers. Let’s analyze your current funnels, identify quick wins and implement sustainable growth tactics together.",
         },
         daysToMake: 10,
         description: `Top Ecommerce Experts here to help scale your business
@@ -941,7 +958,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["Hebrew"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm james_q55, a video editor and motion designer who brings stories to life through captivating visuals. I maintain an organized feedback loop, offering preview renders and accommodating revisions quickly. With Adobe Premiere, After Effects and DaVinci Resolve in my toolkit, I deliver cinematic polish at any resolution. Clients praise my ability to translate abstract concepts into compelling visual metaphors that drive engagement. Together, we’ll craft a video that not only looks stunning but also converts viewers into fans and customers. Sound design, Foley effects and royalty‑free music licenses are included so you receive a turnkey final product. I storyboard every scene to ensure narrative flow before diving into animation or editing.",
         },
         daysToMake: 6,
         description: 'If you\'re a fan of retro pixel art and want a custom illustration, NFT, profile picture, avatar, emoticon, twitch banner, game graphics, or anything else pixel-based, I\'m your guy! I specialize in creating all types of pixel art and 8-bit characters and objects, including animation sprites.',
@@ -992,7 +1010,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["Japanese"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Haseeb, a results‑oriented digital marketer dedicated to driving sustainable growth online. I’ve managed budgets from $100 to $100K, always focusing on measurable outcomes and transparent reporting. My content calendars balance evergreen authority pieces with timely campaigns to keep your audience engaged year‑round. Let’s analyze your current funnels, identify quick wins and implement sustainable growth tactics together.",
         },
         daysToMake: 4,
         description: 'I will set up your Etsy shop, add listings, will do complete ETSY SEO or do a complete overhaul.',
@@ -1044,7 +1063,8 @@ export const gigsData = [
             loc: "Italy",
             languages: ["Hebrew"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Yomi, a results‑oriented digital marketer dedicated to driving sustainable growth online. I’m committed to data‑backed decisions and creative storytelling that sets your brand apart in crowded marketplaces. From keyword research to conversion tracking, I design full‑funnel strategies that turn browsers into loyal customers. I’ve managed budgets from $100 to $100K, always focusing on measurable outcomes and transparent reporting. Let’s analyze your current funnels, identify quick wins and implement sustainable growth tactics together. I continuously A/B test ad creatives and landing pages, squeezing out every bit of ROI for your marketing spend.",
         },
         daysToMake: 4,
         description: `So you want to start a cash cow channel?
@@ -1097,7 +1117,8 @@ export const gigsData = [
             loc: "Australia",
             languages: ["Portuguese"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Taylor, a results‑oriented digital marketer dedicated to driving sustainable growth online. I’ve managed budgets from $100 to $100K, always focusing on measurable outcomes and transparent reporting. My content calendars balance evergreen authority pieces with timely campaigns to keep your audience engaged year‑round. From keyword research to conversion tracking, I design full‑funnel strategies that turn browsers into loyal customers. I continuously A/B test ad creatives and landing pages, squeezing out every bit of ROI for your marketing spend. Let’s analyze your current funnels, identify quick wins and implement sustainable growth tactics together. I’m committed to data‑backed decisions and creative storytelling that sets your brand apart in crowded marketplaces.",
         },
         daysToMake: 3,
         description: "Instagram is one of the most important websites to do marketing for yourself or your business. With more than 1 billion users, you can always reach new people on it. After years of experience in digital marketing and advertising, I managed to make a great marketing team and we are ready to help you to promote your Instagram account.",
@@ -1141,7 +1162,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["Hebrew"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm james_q55, a video editor and motion designer who brings stories to life through captivating visuals. I maintain an organized feedback loop, offering preview renders and accommodating revisions quickly. With Adobe Premiere, After Effects and DaVinci Resolve in my toolkit, I deliver cinematic polish at any resolution. Clients praise my ability to translate abstract concepts into compelling visual metaphors that drive engagement. Together, we’ll craft a video that not only looks stunning but also converts viewers into fans and customers. Sound design, Foley effects and royalty‑free music licenses are included so you receive a turnkey final product. I storyboard every scene to ensure narrative flow before diving into animation or editing.",
         },
         daysToMake: 2,
         description: 'Character to animate must be simple as the GIG example (this could lower the price and I\'ll send a custom 10-15 usd order). Complex character extra (please message me first to discuss a custom offer or if you want to know if your character is simple enough).',
@@ -1192,7 +1214,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Mandarin"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Yomi, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables.",
         },
         daysToMake: 1,
         description: "If you are looking for someone to get your message across powerfully in articles, blog posts, or marketing material, I am the content writer you need. Let me exploit the opportunity by offering you something phenomenal.",
@@ -1244,7 +1267,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["Portuguese"],
             avgResponceTime: "3 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Aaron, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables.",
         },
         daysToMake: 3,
         description: "I will do a custom male vocal tag. I will send you the wav record with and without your preferred impacts, for example, reverb, delay, falter, flanger, and so on. Included on Worldstar, Youtube and then some. I have a very high quality sounding mic and have had skill using Fl Stdudio for over 3 years now!",
@@ -1294,7 +1318,8 @@ export const gigsData = [
             loc: "India",
             languages: ["German"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Fredrick, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 1,
         description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
@@ -1344,7 +1369,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["Japanese"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Julia, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. My creative process starts with deep research into your industry and target audience, ensuring every concept has a strategic foundation. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling. Let’s combine your vision with my design expertise to create a visual language that resonates and endures. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. Whether you’re refreshing an existing identity or building one from scratch, I bring fresh ideas that blend aesthetics and practicality.",
         },
         daysToMake: 3,
         description: "Thank you for stopping by! This gig is intended for anyone who is looking for a well rounded and undefined design for their company or brand. We will try different concepts and ideas to get you where you need to be. If you aren't sure where to start, this is a good gig to choose Unlike a lot of other fiverr artists, my designs do not change in quality depending upon what package you choose. All of my designs deserve the same attention and quality guarantee. My process starts in the traditional form which means I begin with paper and pencil. Once that is complete I refine it with art and/or calligraphy pens. Once that's complete, I bring it into my computer and render it digitally. The colors can be whatever you choose and the packages are all different. So please read them carefully or send me a message if you have any questions",
@@ -1393,7 +1419,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["Mandarin"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Jesus, a seasoned logo & brand‑identity designer with a passion for turning ideas into striking visuals. Beyond logos, I can craft complete brand guidelines, typography hierarchies and color palettes that stay cohesive across every medium. I believe in transparent collaboration, providing multiple drafts and refining each iteration until the final mark feels just right. Clients appreciate my fast communication, clear rationale behind design choices and dedication to consistent brand storytelling.",
         },
         daysToMake: 3,
         description: `Hello everyone!
@@ -1447,7 +1474,8 @@ export const gigsData = [
             loc: "France",
             languages: ["English"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm Shaon, a results‑oriented digital marketer dedicated to driving sustainable growth online. I’ve managed budgets from $100 to $100K, always focusing on measurable outcomes and transparent reporting. I continuously A/B test ad creatives and landing pages, squeezing out every bit of ROI for your marketing spend. From keyword research to conversion tracking, I design full‑funnel strategies that turn browsers into loyal customers. My content calendars balance evergreen authority pieces with timely campaigns to keep your audience engaged year‑round. I’m committed to data‑backed decisions and creative storytelling that sets your brand apart in crowded marketplaces.",
         },
         daysToMake: 5,
         description: "Welcome to my YouTube SEO gig! I'm a certified SEO expert with years of experience in helping clients increase their visibility and grow their channels on YouTube. If you want to rank higher in search results, attract more views and subscribers, and boost your online presence, you've come to the right place.",
@@ -1491,7 +1519,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["Spanish", "English"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm Karen, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 3,
         description: `
@@ -1546,7 +1575,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["English"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
         },
         daysToMake: 2,
         description: 'Hey there, Are you struggling to fix bugs and errors in your JavaScript, Html, CSS code? You\'re in the in the right place!',
@@ -1596,7 +1626,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Portuguese"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Julia, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables.",
         },
         daysToMake: 3,
         description: "Thank you for stopping by! This gig is intended for anyone who is looking for a well rounded and undefined design for their company or brand. We will try different concepts and ideas to get you where you need to be. If you aren't sure where to start, this is a good gig to choose Unlike a lot of other fiverr artists, my designs do not change in quality depending upon what package you choose. All of my designs deserve the same attention and quality guarantee. My process starts in the traditional form which means I begin with paper and pencil. Once that is complete I refine it with art and/or calligraphy pens. Once that's complete, I bring it into my computer and render it digitally. The colors can be whatever you choose and the packages are all different. So please read them carefully or send me a message if you have any questions",
@@ -1645,7 +1676,8 @@ export const gigsData = [
             loc: "France",
             languages: ["Portuguese"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Fredrick, a video editor and motion designer who brings stories to life through captivating visuals. I maintain an organized feedback loop, offering preview renders and accommodating revisions quickly. Together, we’ll craft a video that not only looks stunning but also converts viewers into fans and customers. With Adobe Premiere, After Effects and DaVinci Resolve in my toolkit, I deliver cinematic polish at any resolution. Clients praise my ability to translate abstract concepts into compelling visual metaphors that drive engagement. I storyboard every scene to ensure narrative flow before diving into animation or editing. Sound design, Foley effects and royalty‑free music licenses are included so you receive a turnkey final product.",
         },
         daysToMake: 3,
         description: "Hello ! Much obliged for visiting my gig :)\nIn this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles.\nIn case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)?\nKindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document.\nI will give hand-drawn dark and White or hued reasonable pictures.\nSympathetically give me clear reference photograph however much as could be expected.\nThe material I utilized for Creating pencil representations are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on .\nYou can give me anything:\nPicture photographs\nFamily photographs\nCreature photographs\nAny item photographs\nScene photographs\nEngineering photographs\nAnything you envision\nKindly reach me prior to submitting your request! Much appreciated.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
@@ -1680,7 +1712,8 @@ export const gigsData = [
             loc: "India",
             languages: ["Spanish", "English"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Faz, a certified accountant and financial analyst committed to transforming numbers into strategic insights. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate. I have experience preparing financial packages for VC funding rounds, ensuring numbers tell a compelling story. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets.",
         },
         daysToMake: 4,
         description: "Hi, Faz is here. I have around 8 years of practical experience in the field of Financial Accounting, Management Accounting and Financial Reporting As per International Accounting and Financial Reporting Standard. Handled thousands of assignments including accounting & reporting, book keeping, internal auditing as per related laws at different levels. I am Top Rated Seller on Fiverr and serving my clients as per best of my skills. My first priority is clients satisfaction and i am 100% sure you will like my work.",
@@ -1714,7 +1747,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["English"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Yahya, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets.",
         },
         daysToMake: 3,
         description: "My name is Yahya, I am a Chartered Accountant (Finalist) and a Professional Accountant at PwC with more than 5+ years working experience. I have advanced level data analysis skills with strong knowledge base and practical exposure of International Financial Reporting Standards, US GAAP & International Standards on Auditing. So by combining all these skills I can complete any task relating to Accounting, Finance, MS Excel & administrative nature etc, professionally and timely. Professionalism, innovation and creativity are my attributes. Client satisfaction is always my 1st priority.",
@@ -1743,7 +1777,8 @@ export const gigsData = [
             loc: "Germany",
             languages: ["Japanese"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Abdul, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures.",
         },
         daysToMake: 2,
         description: "Welcome! My name is Abdulrafy, a certified professional accountant in Pakistan with 7 years of experience. I specialize in preparing financial statements, bookkeeping, business plan development, and financial performance analysis. I value honesty and building good working relationships with my clients. My goal is to exceed your expectations by providing top-notch services tailored to your specific needs.",
@@ -1776,7 +1811,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["English"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Brenn, a certified accountant and financial analyst committed to transforming numbers into strategic insights. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I have experience preparing financial packages for VC funding rounds, ensuring numbers tell a compelling story. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets.",
         },
         daysToMake: 2,
         description: "Hope you enjoyed your visit to my profile. Hi there, my name is Brenn, I am a Business and Nonprofit Fundraising specialist, and I am ready to help you. From business registration, nonprofit registration services, grant & Government contract research, proposal writing, capability statement services, business plans, resume, Resume services to fundraising strategies, I am here to help you. In this capacity, I firmly believe that with my help, your chances at success will rise significantly. Together, we can bring your ideas to life. Reach out to me today!",
@@ -1805,7 +1841,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Japanese"],
             avgResponceTime: "3 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Md, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate.",
         },
         daysToMake: 2,
         description: "Greetings ! This is Al amin. I am a tech-savvy accountant and certified bookkeeper serving in the marketplace for over 10 years . My services are tailored to help Small & Medium businesses for automation and optimizing their cost & operational efficiency. My specializations : ✓ full service bookkeeping ✓ Accounts clean-up & catch up ✓ Bank reconciliation ✓ Financial reporting ✓ Financial analysis Software expertise: ✓QuickBooks online ✓XERO ✓WAVE ✓Zohobooks ✓Sage ✓Excel I guarantee: ✓100% accuracy ✓on time report delivery ✓prompt & easy communication ✓competitive price",
@@ -1839,7 +1876,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["Arabic", "English"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Mominul, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge.",
         },
         daysToMake: 4,
         description: "Are you looking for an expert AI Mobile App Developer to build or tweak your AI app with cutting-edge GPT technology? Your search ends here! I'm Mominul Haque, a professional senior AI Developer with years of experience in AI application development using OpenAI's GPT-4 to build innovative and powerful custom AI Mobile Apps using Machine Learning, Data Science, and Statistical Solutions.",
@@ -1872,7 +1910,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["German"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Shovon, a dedicated professional delivering top‑quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 2,
         description: "I will develop chatgpt ai mobile app or website ai saas app ai chatbot ai software",
@@ -1904,7 +1943,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["Mandarin"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Maudud, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly.",
         },
         daysToMake: 5,
         description: "Are you looking for an experienced AI Developer to enhance your AI mobile app, AI website, AI SaaS App, and AI chatbot with cutting-edge ChatGPT technology? Congratulations, you've come to the right place. Hello, My name is Maudud.I am a dedicated AI developer specializing in OpenAI's GPT-4 to build innovative and powerful AI websites, custom AI, AI mobile apps, machine learning models, data science insights, and advanced statistical applications.",
@@ -1935,7 +1975,8 @@ export const gigsData = [
             loc: "Australia",
             languages: ["English", "French"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Fendi, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 3,
         description: "Transform Your Business with AI-Driven Automation Are you seeking to enhance efficiency, reduce manual tasks, and integrate intelligent automation into your operations? I specialize in creating custom AI-powered automation solutions tailored to your unique business requirements.",
@@ -1968,7 +2009,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["German"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Fiday, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly.",
         },
         daysToMake: 2,
         description: "Are you looking to automate your business processes and enhance productivity? Look no further! I am Fiday, an experienced AI developer with over 4 years in the field. I specialize in creating AI-powered agents that streamline your workflow, reduce manual tasks, and boost your business performance. With my expertise in chatbot AI development, web development (WordPress, Shopify, Full-Stack), and automation tools, I'll create custom AI agents tailored to your unique needs. These intelligent agents can handle customer inquiries, automate repetitive tasks, improve lead generation, and much more saving you time and resources while providing better customer service.",
@@ -2001,7 +2043,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["English", "French"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Christoph, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 1,
         description: "I will guide you toward your optimal life path! All are welcome. I'm Christoph, an Intuitive Reader and Certified Life Coach, dedicated to helping you achieve your goals and manifest your dreams. With strong intuition developed from a young age, I'll support you in navigating life's challenges with clarity and purpose. My services include personalized life coaching for creating positive change and growth, intuitive Tarot, Rune, Palm, and Psychic readings that provide clarity, guidance, and insight, plus Negative Energy Removal to release blockages, restore balance, and help you move forward with confidence and ease",
@@ -2035,7 +2078,8 @@ export const gigsData = [
             loc: "Italy",
             languages: ["Spanish", "English"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Karen, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life.",
         },
         daysToMake: 1,
         description: "I'm Karen Roziner, a Career Development Expert and Coach trusted by over 3,000 clients. I believe everyone deserves an equal opportunity to reach their full potential. Together with my business partner, global recruiter Francesca Trapani, I lead a boutique career development firm with a team of experienced HR professionals. We provide expert resume writing, LinkedIn optimization, reverse recruiting, and career coaching to help you achieve your career aspirations. We've worked across every industry, profession, and seniority level. Now, it's your turn. Let's make it happen; Message me!",
@@ -2066,7 +2110,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["English"],
             avgResponceTime: "6 hours",
-            lastDelivery: "2025-06-09"
+            lastDelivery: "2025-06-09",
+            about: "Hi, I'm Will, a dedicated professional delivering top‑quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly.",
         },
         daysToMake: 2,
         description: "I love working with businesses that are small, growing, established & at the idea stage! I've held Director, VP & C-Level roles in Technology and Startup Businesses including Fresha, Amex, Quandoo, Cake Technologies & Wells Fargo as well as multiple Board Advisory roles. I've worked around the world, built startups, been acquired & experienced multiple fundraises. I help entrepreneurs & professionals on Fiverr to push through ambiguous situations, plan, position, transition, problem solve, grow efficiently & ultimately get to the next level.",
@@ -2100,7 +2145,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["Mandarin"],
             avgResponceTime: "3 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Nidhi, a dedicated professional delivering top‑quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. My goal is to create tangible value for your business through high‑quality, tailored deliverables.",
         },
         daysToMake: 3,
         description: "I am Nidhi. Drawing from my journey in marketing, where I've had the opportunity to collaborate with over 1700 companies, I'm excited to share my insights and assist you in exploring and excelling in the digital world.",
@@ -2131,7 +2177,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["Spanish", "English"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Mary, a dedicated professional delivering top‑quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life.",
         },
         daysToMake: 2,
         description: "Hi, I'm Mary, a Brand Strategist and Market Researcher with 7+ years of experience turning audience data into marketing direction. I help businesses move beyond guesswork and define who they're truly speaking to and how to reach them with purpose. Struggling to connect with your audience? I build buyer personas through market research and brand strategy to improve targeting, enhance customer experience, and drive smarter business decisions.",
@@ -2165,7 +2212,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["Portuguese"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Omar, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 5,
         description: "You're juggling everything in your business but your brand strategy is still unclear. You're developing your product. Planning your marketing. Your to-do list keeps growing, but your brand strategy and messaging still are not clear. You're making big decisions but none of it feels certain. How should I communicate? Who is the right audience? What makes me stand out? And with your launch deadline getting closer, the pressure is building.",
@@ -2196,7 +2244,8 @@ export const gigsData = [
             loc: "Israel",
             languages: ["Russian"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Faisal, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 3,
         description: "I am a Data Science expert and an experienced developer, I work on both quantitative/qualitative analysis, such as Nvivo, and artificial intelligence and machine learning projects such as NLP tasks, and speaker transcription/diarization. I have expertise in TensorFlow, pandas, Scikit-learn, and Keras, using Python. I analyze data in various analytical tools such as SAS/Tableau/PowerBI/Minitab/SPSS/R-studio/Eviews, and research writing for the obtained results.",
@@ -2230,7 +2279,8 @@ export const gigsData = [
             loc: "India",
             languages: ["English", "French"],
             avgResponceTime: "12 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Maaz, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge.",
         },
         daysToMake: 2,
         description: "Hi, I'm Maaz. With over 5 years of experience in machine learning and Drone Design and Development, I specialize in developing custom ML models for drone applications, including real-time aerial image processing, object detection, and autonomous navigation systems. My expertise also extends to advanced data analytics and predictive modeling, enabling actionable insights across diverse domains.",
@@ -2264,7 +2314,8 @@ export const gigsData = [
             loc: "Germany",
             languages: ["Russian"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Salman, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge.",
         },
         daysToMake: 1,
         description: "I hold a master's degree in data science, complemented by 3 years of practical experience in the field. My expertise lies in Generative AI, Machine Learning, and Data Analytics, which I have honed through hands-on work with structured, text, and image datasets. Over the past year, I've served as a Data Scientist in esteemed organizations, where I've applied my skills to various projects and consistently delivered impactful results.",
@@ -2296,7 +2347,8 @@ export const gigsData = [
             loc: "Canada",
             languages: ["English"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-04"
+            lastDelivery: "2025-06-04",
+            about: "Hi, I'm Ghyaas, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results.",
         },
         daysToMake: 1,
         description: "Welcome to my Fiverr profile! I'm a certified Data Scientist and Machine Learning Engineer with a Master's in Data Science and a Bachelor's in Software Engineering. I specialize in Data Cleaning, EDA, Visualization, Machine Learning, and Large Language Models. My services include Data and Text Preprocessing, AI Chatbots, and Data Analysis. Let's discuss your project before placing an order. Proficient in R, Python, Excel, TensorFlow, and Keras. Let's bring your data projects to life!",
@@ -2328,7 +2380,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Mandarin"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-11"
+            lastDelivery: "2025-06-11",
+            about: "Hi, I'm Katy, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge.",
         },
         daysToMake: 1,
         description: "Looking for high-quality, professional photography that makes your product shine? Youre in the right place!",
@@ -2362,7 +2415,8 @@ export const gigsData = [
             loc: "UK",
             languages: ["German"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Jakob, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high‑quality, tailored deliverables.",
         },
         daysToMake: 5,
         description: "I'm Jákob, a Fiverr certified Pro seller and professional e-commerce product photographer specializing in high-quality packshot and lifestyle images. With a focus on showcasing your products in the best possible light, my Fiverr Pro certification stands as a testament to my expertise, quality of work, and dedication to delivering exceptional service. Let's bring your products to life with images that capture attention and drive sales.",
@@ -2395,7 +2449,8 @@ export const gigsData = [
             loc: "Brazil",
             languages: ["Mandarin"],
             avgResponceTime: "2 hours",
-            lastDelivery: "2025-06-13"
+            lastDelivery: "2025-06-13",
+            about: "Hi, I'm Muccitas, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly.",
         },
         daysToMake: 2,
         description: "Hey there, I'm Mucci, and I'm so glad you are here! Chances are, you found me because you're trying to plan the perfect surprise for your soon-to-be fiancé, and you need a New York proposal photographer who will capture that beautiful moment when they say YES! Planning a surprise proposal in New York may seem challenging, but with my help, you can fully immerse yourself in the moment with complete confidence that I will capture every extraordinary moment of the experience. We will cater the moment and location to suit your unique taste. How will we plan this? Read about the process and some testimonials here: allthefeels.club/nyc-surprise-proposal-photographer This is a safe, inclusive, collaborative space where your unique love story is celebrated. So, let's make some magic together!",
@@ -2428,7 +2483,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["Portuguese"],
             avgResponceTime: "24 hours",
-            lastDelivery: "2025-06-07"
+            lastDelivery: "2025-06-07",
+            about: "Hi, I'm Alvin, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Let’s discuss your goals and map out a plan that brings them to life.",
         },
         daysToMake: 3,
         description: "Are you planning a romantic trip to the City of Love to pop the big question or celebrate your engagement or proposal? Let me help you preserve this unforgettable moment with a stunning photoshoot that captures the magic of your love against the breathtaking backdrop of Paris. Imagine strolling hand-in-hand along the Seine, with the Eiffel Tower glistening in the distance, or sharing a tender kiss in the charming cobblestone streets of Montmartre. Whether it's a surprise proposal or a celebration of your engagement, I specialize in creating timeless images that reflect your unique love story.",
@@ -2462,7 +2518,8 @@ export const gigsData = [
             loc: "USA",
             languages: ["English"],
             avgResponceTime: "1 hour",
-            lastDelivery: "2025-06-12"
+            lastDelivery: "2025-06-12",
+            about: "Hi, I'm Katsuhiro, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations.",
         },
         daysToMake: 2,
         description: "I'm mainly a portrait photographer in Toronto and have over 6 years of experience in photography. I can take a photo outside where is flexible with any location you choose for the photo shoot.",

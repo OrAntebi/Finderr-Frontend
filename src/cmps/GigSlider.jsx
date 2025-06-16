@@ -1,6 +1,5 @@
 import Slider from 'react-slick'
-import { useScreenSize } from '../customHooks/useScreenSize' // עדכן נתיב לפי הצורך
-import { Link } from 'react-router-dom'
+import { useScreenSize } from '../customHooks/useScreenSize'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
