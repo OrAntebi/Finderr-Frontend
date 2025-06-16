@@ -5,6 +5,12 @@
     &:has(.categories-page-shown) {
         grid-template-rows: auto auto 1fr auto;
     }
+
+    @include for-mobile-layout {
+        &:not(:has(.categories-list-container)) {
+            grid-template-rows: auto 1fr auto;
+        }
+    }
 }
 
 .main-container .main-content {
