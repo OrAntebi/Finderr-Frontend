@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser'
 import { authRoutes } from './api/auth/auth.routes.js'
 import { userRoutes } from './api/user/user.routes.js'
 import { reviewRoutes } from './api/review/review.routes.js'
-import { carRoutes } from './api/car/car.routes.js'
+import { gigRoutes } from './api/gig/gig.routes.js'
 import { setupSocketAPI } from './services/socket.service.js'
 
 import { setupAsyncLocalStorage } from './middlewares/setupAls.middleware.js'
@@ -40,7 +40,7 @@ app.all('/*all', setupAsyncLocalStorage)
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/review', reviewRoutes)
-app.use('/api/car', carRoutes)
+app.use('/api/gig', gigRoutes)
 
 setupSocketAPI(server)
 
@@ -65,6 +65,7 @@ app.get('/*all', (req, res) => {
 })
 
 import { logger } from './services/logger.service.js'
+import { gigRoutes } from './api/gig/gig.routes.js'
 const port = process.env.PORT || 3030
 
 server.listen(port, () => {
