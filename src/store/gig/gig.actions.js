@@ -60,7 +60,7 @@ export function setGigFilter(filterBy) {
     store.dispatch(getCmdSetGigFilter(filterBy))
     loadGigs()
 }
-``
+
 export async function addGigMsg(gigId, txt) {
     try {
         const msg = await gigservice.addGigMsg(gigId, txt)

@@ -34,10 +34,6 @@ export function GigIndex() {
             .finally(() => setIsLoading(false))
     }, [filterBy])
 
-    function onSetFilterBy(filterBy) {
-        setGigFilter(filterBy)
-    }
-
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
@@ -76,34 +72,20 @@ export function GigIndex() {
             : 'Categories'
     }
 
-    function getTotalGigsCount() {
-        return gigs.length ? `${gigs.length.toLocaleString()}+ results` : ''
-    }
-
+    if (isLoading) return <Loader />
     return (
-        isLoading ? (
-            <Loader />
-        ) : (
-            <main className="gig-index">
-                <>
-                    <BreadCrumbs />
-
-                    <h1>{getTitle()}</h1>
-
-                    <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-
-                    <section>
-                        <span>{getTotalGigsCount()}</span>
-                    </section>
-
-                    <GigList
-                        gigs={gigs}
-                        onRemoveGig={onRemoveGig}
-                        onUpdateGig={onUpdateGig}
-                    />
-                </>
-            </main>
-        )
+        <main className="gig-index">
+            <>
+                <BreadCrumbs />
+                <h1>{getTitle()}</h1>
+                <GigFilter />
+                <GigList
+                    gigs={gigs}
+                    onRemoveGig={onRemoveGig}
+                    onUpdateGig={onUpdateGig}
+                />
+            </>
+        </main>
     )
 }
 

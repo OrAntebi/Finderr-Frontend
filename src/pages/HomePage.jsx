@@ -1,10 +1,10 @@
 import { DynamicHomePage } from "../cmps/dynamicCmps/DynamicHomePage"
 import { useScreenSize } from "../customHooks/useScreenSize"
 
-export function HomePage() {
+export function HomePage({ onSearch }) {
     const screenWidth = useScreenSize()
 
     return (
-        <DynamicHomePage screenWidth={screenWidth} />
+        <DynamicHomePage screenWidth={screenWidth} onSearch={onSearch}/>
     )
 }

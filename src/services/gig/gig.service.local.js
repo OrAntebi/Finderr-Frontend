@@ -29,7 +29,8 @@ export const gigservice = {
     getDefaultFilter,
     addGigMsg,
     getCategoryList,
-    getCategoryTitleFromPath
+    getCategoryTitleFromPath,
+    getAllTags
 }
 
 window.cs = gigservice
@@ -42,15 +43,50 @@ function _initGigDB() {
 
 async function query(filterBy = getDefaultFilter()) {
     let gigs = await storageService.query(GIG_KEY)
-    const { txt, minPrice, maxPrice, daysToMake, categories } = filterBy
+    const { txt, minPrice, maxPrice, daysToMake, categories, tags, sortBy } = filterBy
+
     if (txt) {
-        const re = new RegExp(txt, 'i')
-        gigs = gigs.filter(g => re.test(g.title) || re.test(g.description))
+        const words = txt.trim().toLowerCase().split(/\s+/)
+
+        gigs = gigs.filter(gig => {
+            return words.some(word => {
+                return (
+                    gig.title?.toLowerCase().includes(word) ||
+                    gig.description?.toLowerCase().includes(word) ||
+                    gig.category?.toLowerCase().includes(word) ||
+                    gig.tags?.some(tag => tag.toLowerCase().includes(word))
+                )
+            })
+        })
     }
+    if (categories?.length) gigs = gigs.filter(g => categories.includes(g.category))
+    if (daysToMake) gigs = gigs.filter(g => g.daysToMake <= +daysToMake)
     if (minPrice) gigs = gigs.filter(g => g.price >= +minPrice)
     if (maxPrice) gigs = gigs.filter(g => g.price <= +maxPrice)
-    if (daysToMake) gigs = gigs.filter(g => g.daysToMake <= +daysToMake)
-    if (categories?.length) gigs = gigs.filter(g => categories.includes(g.category))
+    if (tags?.length) gigs = gigs.filter(g => g.tags?.some(t => filterBy.tags.includes(t)))
+
+    if (sortBy) {
+        gigs.sort((a, b) => {
+            switch (sortBy) {
+                case 'recommended':
+                    const aScore = (a.owner.rate * 2) + (a.likedByUsers?.length || 0) - (a.price / 10)
+                    const bScore = (b.owner.rate * 2) + (b.likedByUsers?.length || 0) - (b.price / 10)
+                    return bScore - aScore
+                case 'best-selling':
+                    return (b.sales || b.likedByUsers?.length || 0) - (a.sales || a.likedByUsers?.length || 0)
+                case 'newest-arrivals':
+                    return b.createdAt - a.createdAt
+                case 'fastest-delivery':
+                    return a.daysToMake - b.daysToMake
+                case 'price-low-to-high':
+                    return a.price - b.price
+                case 'price-high-to-low':
+                    return b.price - a.price
+                default:
+                    return 0
+            }
+        })
+    }
 
     return gigs
 }
@@ -98,7 +134,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', categories: [] }
+    return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', categories: [], tags: [], sortBy: '' }
 }
 
 async function addGigMsg(gigId, txt) {
@@ -121,4 +157,24 @@ function getCategoryList(key = null) {
 function getCategoryTitleFromPath(path) {
     const slug = path.split('/').filter(Boolean).at(-1)
     return getCategoryList(slug)
+}
+
+async function getAllTags() {
+    const gigRecords = await storageService.query(GIG_KEY)
+
+    const uniqueTagMap = gigRecords
+        .flatMap(gigItem => gigItem.tags || [])
+        .reduce((tagAccumulator, rawTag) => {
+            const trimmedTag = rawTag.trim()
+            const normalized = trimmedTag.toLowerCase()
+            if (!tagAccumulator.has(normalized)) {
+                tagAccumulator.set(normalized, trimmedTag)
+            }
+            return tagAccumulator
+        }, new Map())
+
+    const sortedTags = [...uniqueTagMap.values()]
+        .sort((tagA, tagB) => tagA.localeCompare(tagB, 'en', { sensitivity: 'base' }))
+
+    return sortedTags
 }

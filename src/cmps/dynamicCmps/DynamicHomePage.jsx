@@ -8,20 +8,20 @@ export function DynamicHomePage({ screenWidth, ...props }) {
     return <NormalHomePage {...props} />
 }
 
-function MobileHomePage() {
+function MobileHomePage({ onSearch }) {
     return (
         <section className="home-page main-container full">
             <section className="hero-container main-container full">
                 <section className="hero-content flex column align-center justify-center full">
                     <h1>Our freelancers<br />will take it from here</h1>
-                    <SearchInput placeholderText='Try "building mobile app"' />
+                    <SearchInput placeholderText='Try "building mobile app"' onSearch={onSearch} />
                 </section>
             </section>
         </section>
     )
 }
 
-function NormalHomePage() {
+function NormalHomePage({ onSearch }) {
     const videoRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(true)
 
@@ -50,7 +50,7 @@ function NormalHomePage() {
                 <section className="hero-overlay flex column">
                     <section className="hero-content flex column">
                         <h1>Our freelancers<br />will take it from here</h1>
-                        <SearchInput placeholderText="Search for any service..." />
+                        <SearchInput placeholderText="Search for any service..." onSearch={onSearch} />
                         <nav>
                             <ul className="hero-categories flex align-center">
                                 <li><Link to="/categories?category=programming-tech">Website Development</Link></li>

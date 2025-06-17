@@ -41,7 +41,7 @@ export const gigsData = [
         description: "Captivating, enriched, elaborate and original is what I believe you're looking for. Your business logo deserves to be created by somebody who gets your business. I am professional designer offering high-quality business Logo design services since 2013 and branding solutions to all kind of businesses",
         imgUrls: ["https://res.cloudinary.com/dgsfbxsed/image/upload/v1698674928/taylor-1_nmgnmv.webp", "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698674928/taylor-2_uqjv74.webp"],
         category: "graphics-design",
-        tags: ['Website Design', 'App Design', 'UX Design'],
+        tags: ['Company Logo', 'Business Logo', 'Logo Design'],
         likedByUsers: ['mini-user']
     },
     {
@@ -89,7 +89,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675270/salty-forest_nbtfmr.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675270/salty-fish_gpddlj.webp"],
         category: "graphics-design",
-        tags: ['Logo Design', 'Website Design', 'App Design', 'UX Design'],
+        tags: ['Company Logo', 'Logo Design', 'Logos'],
         likedByUsers: ['mini-user']
     },
     {
@@ -136,7 +136,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675442/rizem-2_xi3u52.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675442/rizem-3_qenwne.webp"],
         category: "graphics-design",
-        tags: ['Logo Design', 'Website Design', 'App Design', 'UX Design'],
+        tags: ['Company Logo', 'Business Logo', 'Logo Design'],
         likedByUsers: ['mini-user']
     },
     {
@@ -185,7 +185,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675641/justin-3_twyvpr.webp"
         ],
         category: "graphics-design",
-        tags: ['Logo Design', 'Website Design', 'App Design', 'UX Design'],
+        tags: ['Minimalist Logo', 'Modern Logo', 'Logo Design', 'Modern Minimalist'],
         likedByUsers: ['mini-user']
     },
     {
@@ -224,7 +224,7 @@ export const gigsData = [
             languages: ["German"],
             avgResponceTime: "12 hours",
             lastDelivery: "2025-06-11",
-            about: "Hi, I'm Rhett, a full‑stack developer who translates ambitious concepts into performant digital products. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture.",
+            about: "Hi, I'm Rhett, a full‑stack developer who translates ambitious concepts into performant digital products. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. Your project success is my priority I’ll stay aligned with your goals and deliver solutions that delight users. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture.",
         },
         daysToMake: 1,
         description: `Hello, Greetings!
@@ -249,7 +249,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676040/rhett-5_xqsape.webp"
         ],
         category: "programming-tech",
-        tags: ['AI Services', 'Website Development', 'Business Websites', 'E-Commerce Development', 'Landing Pages', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['Figma to React', 'PSD to React', 'React NextJS', 'Tailwind CSS', 'JavaScript React'],
         likedByUsers: [{
             _id: "u102",
             fullname: "Michelle R",
@@ -304,7 +304,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676157/simon-3_zayrwb.webp"
         ],
         category: "programming-tech",
-        tags: ['Wordpress', 'Website Development', 'E-Commerce Development', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['React NextJS', 'HTML CSS JS', 'JavaScript Node', 'JavaScript React', 'Website Development'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -365,7 +365,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676248/jason-5_l7ijy1.webp"
         ],
         category: "programming-tech",
-        tags: ['Website Development', 'Business Websites', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['React NextJS', 'JavaScript Node', 'JavaScript React', 'Web Apps', 'Apps Sites'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -419,7 +419,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676354/sohib-2_qrcivu.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676354/sohib-3_ttej46.webp"],
         category: "programming-tech",
-        tags: ['Website Development', 'Business Websites', 'E-Commerce Development', 'Landing Pages', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['HTML CSS JS', 'Web Apps', 'Code Html', 'Html Css', 'Css Javascript'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -462,7 +462,7 @@ export const gigsData = [
             languages: ["Spanish", "English"],
             avgResponceTime: "24 hours",
             lastDelivery: "2025-06-04",
-            about: "Hi, I'm Haya, a full‑stack developer who translates ambitious concepts into performant digital products. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX.",
+            about: "Hi, I'm Haya, a full‑stack developer who translates ambitious concepts into performant digital products. Your project success is my priority I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. Having deployed countless applications to AWS and Vercel, I can guide you through CI/CD setups and cost‑effective cloud architecture. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX.",
         },
         daysToMake: 1,
         description: `Hello, my name is Haya Ch and i am a front end web developer and i can build a responsive website for you.
@@ -474,7 +474,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678570/haya-3_qr7qjr.webp"
         ],
         category: "programming-tech",
-        tags: ['Landing Pages', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['HTML CSS JS', 'JavaScript React', 'Wizard Html', 'Html Css', 'Css React'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -533,7 +533,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678647/slik3_eah6rw.jpg"
         ],
         category: "video-animation",
-        tags: ["Video Editing", "Visual Effects", "Video Art", "Logo Animation", "Character Animation", "Animated GIFs"],
+        tags: ['YouTube Video', 'Video Editing'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -591,7 +591,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678724/adnan-1_cnvfvc.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678725/adnan-2_f5xscr.webp"],
         category: "video-animation",
-        tags: ["Video Editing", "Visual Effects", "Video Art", "Logo Animation", "Character Animation", "Animated GIFs"],
+        tags: ['TikTok Video', 'TikTok Editing', 'Pro Tiktok', 'Tiktok Editor', 'All Tiktok'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -634,7 +634,7 @@ export const gigsData = [
             languages: ["Russian"],
             avgResponceTime: "2 hours",
             lastDelivery: "2025-06-13",
-            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
+            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
         },
         daysToMake: 3,
         description: 'I am a Full stack web and WordPress developer, I have been doing web development for the last 5 years. I have worked with various technologies including ✅ HTML5, ✅ CSS3, ✅ CSS3 Animation, ✅ Bootstrap, ✅ JavaScript, ✅',
@@ -643,7 +643,7 @@ export const gigsData = [
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698760747/c63a16335bba235adc008ca06bdb19c5945be604_u6dxvg.webp",
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698760840/53bef6c1ff746a306eb355208e2cc486476441c4_gvvflf.webp"],
         category: "programming-tech",
-        tags: ['Website Development', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['Figma to HTML', 'PSD to HTML', 'Tailwind CSS', 'HTML CSS', 'Convert Figma'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -692,7 +692,7 @@ export const gigsData = [
         description: "The process if you have a logo already: After you complete my questionnaire and submit your vector file of the logo I will create your editable guideline in PDF format. The process if you DON'T have a logo already: After you complete my questionnaire, I will create logo concepts, after approval of the logo I will create the guideline.",
         imgUrls: ["https://res.cloudinary.com/de2rdmsca/image/upload/v1698328728/7fc3e2d2da246770dd879d232d1e946c6ad755a7_exmid7.webp", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698328721/178e5fac2ad62b9a85e8be65e9ad3802b2fdc4bd_zfczqg.webp", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698328726/a27bc6ad887e1e7c421805257d146c38b99e97e4_dadpez.webp"],
         category: "graphics-design",
-        tags: ['Logo Design', 'Brand Style Guides', 'UX Design'],
+        tags: ['Brand Logo', 'Logo Design', 'Brand Style Guide', 'Design Brand', 'Brand Style'],
         likedByUsers: ['mini-user']
     },
     {
@@ -755,7 +755,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678836/david-4_gr5w1r.webp"
         ],
         category: "programming-tech",
-        tags: ['Website Development', 'Web Applications', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['React NextJS', 'Tailwind CSS', 'JavaScript React', 'Website Development', 'React Js'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -808,7 +808,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678921/fred-4_a92x63.webp"
         ],
         category: "graphics-design",
-        tags: ['Portraits & Caricatures'],
+        tags: ['Pencil Portrait', 'Portrait Hand', 'Hyper'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -862,7 +862,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679009/elena-3_brsqza.webp"
         ],
         category: "digital-marketing",
-        tags: ['E-Commerce Marketing', 'E-Commerce SEO', 'Video SEO', 'Email Marketing', 'Guest Posting'],
+        tags: ['Etsy SEO', 'Etsy Listing', 'Rank Etsy', 'Listing Etsy'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -916,7 +916,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679096/tom-3_hzugs9.webp"
         ],
         category: "digital-marketing",
-        tags: ['E-Commerce Marketing', 'E-Commerce SEO', 'Video SEO', 'Email Marketing'],
+        tags: ['Amazon Listing', 'Converting Amazon', 'Listing Enhanced', 'Enhanced Brand', 'Brand Content'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -968,7 +968,7 @@ export const gigsData = [
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698761533/D46F4D7E-5737-4F70-AB2A-A66BC4DE789D_frxo3y.webp",
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698761953/316C986E-2D02-4BE9-A3C9-442530D1BF60_kvy6lc.webp"],
         category: "video-animation",
-        tags: ["Video Editing", "Visual Effects", "Video Art", "Logo Animation", "Character Animation", "Animated GIFs"],
+        tags: ['Pixel Art', 'Art Characters', 'Pixel'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1021,7 +1021,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679183/as-2_rdwzud.webp"
         ],
         category: "digital-marketing",
-        tags: ['E-Commerce Marketing', 'E-Commerce SEO', 'Video SEO', 'Email Marketing'],
+        tags: ['Etsy SEO', 'Etsy Listing', 'Up Etsy', 'Etsy Shop', 'Listings Seo'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1075,7 +1075,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679256/yo-3_pkjnlr.webp"
         ],
         category: "digital-marketing",
-        tags: ['Video Marketing', 'E-Commerce Marketing', 'E-Commerce SEO', 'Video SEO', 'Email Marketing'],
+        tags: ['YouTube Video', 'Video Editing', 'Automated Youtube', 'Youtube Channel'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1124,7 +1124,7 @@ export const gigsData = [
         description: "Instagram is one of the most important websites to do marketing for yourself or your business. With more than 1 billion users, you can always reach new people on it. After years of experience in digital marketing and advertising, I managed to make a great marketing team and we are ready to help you to promote your Instagram account.",
         imgUrls: ["https://res.cloudinary.com/de2rdmsca/image/upload/v1698329461/promote-your-facebook-page-to-country-targeted-audience_oppvsc.jpg", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698329479/promote-your-facebook-page-to-country-targeted-audience_xsam5t.jpg", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698329472/promote-your-facebook-page-to-country-targeted-audience_spzn9u.jpg"],
         category: "digital-marketing",
-        tags: ['Social Media Marketing', 'Organic Social Promotions'],
+        tags: ['Professionally', 'Promote', 'Instagram'],
         likedByUsers: ['mini-user']
     },
     {
@@ -1172,7 +1172,7 @@ export const gigsData = [
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698762641/4568df8ba3f075b4355cf4022a8d5419ce81a7d3_y6wpad.webp",
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698762664/2e1be8873a3eb361496323b575293cc4759f200d_k6popr.webp"],
         category: "video-animation",
-        tags: ["Video Editing", "Visual Effects", "Video Art", "Logo Animation", "Character Animation", "Animated GIFs"],
+        tags: ['Cute', 'Gifs', 'Instagram'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1225,7 +1225,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679340/t-3_jkh9ss.jpg"
         ],
         category: "writing-translation",
-        tags: ['Articles & Blog Posts', 'Content Strategy'],
+        tags: ['Assist', 'Work', 'Write'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1276,7 +1276,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679389/aa-1_xohyag.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679390/aa-2_nrfxb8.webp"],
         category: "music-audio",
-        tags: ['DJing', 'DJ Drops & Tags', 'DJ Mixing', 'Remixing & Mashups', 'Mixing & Mastering', 'Audio Editing'],
+        tags: ['Catchy', 'Producer', 'Beat'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1327,7 +1327,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698787851/shop-1_p4ardk.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698787851/shop-2_cdwybx.webp"],
         category: "business",
-        tags: ['General & Administrative Virtual Assistant', 'E-Commerce Management', 'HR Consulting', 'Project Management', 'Business Formation', 'Business Registration'],
+        tags: ['Shopify Store', 'Setup Shopify', 'Shopify Shipping', 'Profiles Shopify', 'Shopify Tax'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1381,7 +1381,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698785635/supply_haweju.webp"
         ],
         category: "graphics-design",
-        tags: ['Logo Design', 'Website Design', 'App Design', 'UX Design', 'Brand Style Guides', 'Landing Page Design', 'Icon Design', 'Portraits & Caricatures'],
+        tags: ['Draw', 'Dark', 'Surrealism'],
         likedByUsers: ['mini-user']
     },
     {
@@ -1432,7 +1432,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679480/j-3_shcoe8.webp"
         ],
         category: "graphics-design",
-        tags: ['AI Artists', 'Image Generation', 'Artists'],
+        tags: ['Concept Art', 'Art Using', 'Amazing'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1481,7 +1481,7 @@ export const gigsData = [
         description: "Welcome to my YouTube SEO gig! I'm a certified SEO expert with years of experience in helping clients increase their visibility and grow their channels on YouTube. If you want to rank higher in search results, attract more views and subscribers, and boost your online presence, you've come to the right place.",
         imgUrls: ["https://res.cloudinary.com/de2rdmsca/image/upload/v1698359084/e13cd8fa46f36704c6475da3ce7c29e4f39b2136_ih0uoq.webp", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698359143/5996e86f11851bb75874bde997a39b830c3dbcfe_xndusq.webp", "https://res.cloudinary.com/de2rdmsca/image/upload/v1698359129/571c768d79532944cb766722dbb7313306da948a_dt2nmf.webp"],
         category: "digital-marketing",
-        tags: ['Video Marketing', 'Organic Social Promotions', 'Video SEO'],
+        tags: ['YouTube Video', 'Video Editing', 'SEO Optimization', 'Optimize Youtube'],
         likedByUsers: ['mini-user']
     },
     {
@@ -1533,7 +1533,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698706621/Karen-M-2_jj1paf.webp"
         ],
         category: "writing-translation",
-        tags: ['Articles & Blog Posts', 'Content Strategy', 'Proofreading & Editing', 'AI Content Editing', 'Book Editing', 'Beta Reading', 'Writing Advice', 'Career Writing', 'Resume Writing', 'Cover Letters', 'LinkedIn Profiles'],
+        tags: ['Website Development', 'SEO Optimization', 'Write Seo', 'Seo Blog', 'Articles Website'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1576,7 +1576,7 @@ export const gigsData = [
             languages: ["English"],
             avgResponceTime: "1 hour",
             lastDelivery: "2025-06-12",
-            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority; I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
+            about: "Hi, I'm james_q55, a full‑stack developer who translates ambitious concepts into performant digital products. Security and performance are never afterthoughts—I optimize queries, implement best‑practice auth flows and ensure responsive UX. I champion agile principles, delivering incremental value and adapting quickly to shifting requirements. My code is always clean, well‑documented and thoroughly tested to guarantee maintainability and scalability. Your project success is my priority I’ll stay aligned with your goals and deliver solutions that delight users. I’m comfortable mentoring teams, conducting code reviews and introducing modern tooling that accelerates development cycles.",
         },
         daysToMake: 2,
         description: 'Hey there, Are you struggling to fix bugs and errors in your JavaScript, Html, CSS code? You\'re in the in the right place!',
@@ -1584,7 +1584,7 @@ export const gigsData = [
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698761102/5ed4622f7c987d922fa0fd6800a9ab34b467f083_lsbp3q.webp",
             "https://res.cloudinary.com/de2rdmsca/image/upload/v1698761039/c17db0eb0d70a2b53e647e16b7e67ef129f7c5bc_br08xb.webp"],
         category: "programming-tech",
-        tags: ['Website Development', 'Web Applications', 'Software Development', 'HTML & CSS Developers', 'JavaScript Developers'],
+        tags: ['HTML CSS JS', 'Errors Javascript', 'Javascript Html', 'Html Css', 'Css Code'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1638,7 +1638,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698786628/pur-2_nhzivt.webp"
         ],
         category: "music-audio",
-        tags: ['Music Production & Writing', 'Producers & Composers', 'Singers & Vocalists', 'Session Musicians', 'Songwriters', 'Beat Making', 'Voice Over & Narration', 'DJing', 'DJ Drops & Tags', 'DJ Mixing', 'Remixing & Mashups', 'Mixing & Mastering', 'Audio Editing'],
+        tags: ['Dj', 'Mix', 'Mashup'],
         likedByUsers: ['mini-user']
     },
     {
@@ -1685,7 +1685,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698787225/pix-1_qc8xfd.webp",
             "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698787224/pix-2_mhnbwg.webp"],
         category: "video-animation",
-        tags: ['Video Art', 'Logo Animation', 'Character Animation', 'Animated GIFs'],
+        tags: ['Pixel Art', 'Art Character', 'Character Asset'],
         likedByUsers: [{
             _id: "u103",
             fullname: "David C",
@@ -1724,7 +1724,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816351/do-all-financial-accounting-tasks_sewxlb.webp"
         ],
         category: "finance",
-        tags: ["Financial Statements", "Accounting", "Bookkeeping"],
+        tags: ['Investor'],
         likedByUsers: []
     },
     {
@@ -1754,7 +1754,7 @@ export const gigsData = [
         description: "My name is Yahya, I am a Chartered Accountant (Finalist) and a Professional Accountant at PwC with more than 5+ years working experience. I have advanced level data analysis skills with strong knowledge base and practical exposure of International Financial Reporting Standards, US GAAP & International Standards on Auditing. So by combining all these skills I can complete any task relating to Accounting, Finance, MS Excel & administrative nature etc, professionally and timely. Professionalism, innovation and creativity are my attributes. Client satisfaction is always my 1st priority.",
         imgUrls: ["https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816774/prepare-financial-statements-and-do-financial-consulting_gjhm6v.webp"],
         category: "finance",
-        tags: ["Financial Modelling", "Valuation", "Startup Finance"],
+        tags: [],
         likedByUsers: []
     },
     {
@@ -1788,7 +1788,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816871/BS_and_CF_1__a48jpi_sbdvfn.jpg"
         ],
         category: "finance",
-        tags: ["Bookkeeping", "Bank Reconciliation"],
+        tags: ['Multi'],
         likedByUsers: []
     },
     {
@@ -1818,7 +1818,7 @@ export const gigsData = [
         description: "Hope you enjoyed your visit to my profile. Hi there, my name is Brenn, I am a Business and Nonprofit Fundraising specialist, and I am ready to help you. From business registration, nonprofit registration services, grant & Government contract research, proposal writing, capability statement services, business plans, resume, Resume services to fundraising strategies, I am here to help you. In this capacity, I firmly believe that with my help, your chances at success will rise significantly. Together, we can bring your ideas to life. Reach out to me today!",
         imgUrls: ["https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816930/audit-financial-cpa-us-accountant-review-financial-statement-cpa-letter-sign_h6nfpw.webp"],
         category: "finance",
-        tags: ["Portfolio Analysis", "Investment Advice"],
+        tags: ['Premium'],
         likedByUsers: []
     },
     {
@@ -1853,7 +1853,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749817048/Domicile_Property_Ltd_-_Balance_Sheet_jbbngw_cofdfd.jpg"
         ],
         category: "finance",
-        tags: ["Budgeting", "Personal Finance"],
+        tags: ['Coach'],
         likedByUsers: []
     },
     {
@@ -1887,7 +1887,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818133/develop-custom-ai-web-apps-mobile-apps-and-software-solutions_pcxy46.webp"
         ],
         category: "ai-services",
-        tags: ["Chatbots", "OpenAI", "RAG"],
+        tags: ['Ai', 'Assistant'],
         likedByUsers: []
     },
     {
@@ -1920,7 +1920,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818247/I_will_develop_ai_chatgpt_mobile_app_or_website_ai_saas_app_ai_chatbot_ai_software_cgk91w_ftlb5m.jpg"
         ],
         category: "ai-services",
-        tags: ["AI Image Generation", "MidJourney", "DALLE"],
+        tags: ['Images'],
         likedByUsers: []
     },
     {
@@ -1952,7 +1952,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818330/develop-chatgpt-ai-mobile-app-or-ai-website-ai-saas-app-ai-chatbot-ai-software_xauctr.jpg"
         ],
         category: "ai-services",
-        tags: ["Model Fine-Tuning", "TensorFlow", "PyTorch"],
+        tags: ['Enterprise'],
         likedByUsers: []
     },
     {
@@ -1986,7 +1986,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818460/build-custom-ai-agents-for-your-business-ed72_wmvbgd.webp"
         ],
         category: "ai-services",
-        tags: ["Data Labelling", "Annotation", "Computer Vision"],
+        tags: ['10k', 'Rows'],
         likedByUsers: []
     },
     {
@@ -2020,7 +2020,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818551/build-ai-agents-for-automation-to-boost-your-business_ufqlik.webp"
         ],
         category: "ai-services",
-        tags: ["Automation", "Excel GPT", "Power BI"],
+        tags: ['Full', 'Bi'],
         likedByUsers: []
     },
     {
@@ -2055,7 +2055,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818755/Christoph_PDF_1_zgvpkw_kmahjh.jpg"
         ],
         category: "personal-growth",
-        tags: ["Productivity", "Life Coaching"],
+        tags: ['Vip'],
         likedByUsers: []
     },
     {
@@ -2082,12 +2082,12 @@ export const gigsData = [
             about: "Hi, I'm Karen, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life.",
         },
         daysToMake: 1,
-        description: "I'm Karen Roziner, a Career Development Expert and Coach trusted by over 3,000 clients. I believe everyone deserves an equal opportunity to reach their full potential. Together with my business partner, global recruiter Francesca Trapani, I lead a boutique career development firm with a team of experienced HR professionals. We provide expert resume writing, LinkedIn optimization, reverse recruiting, and career coaching to help you achieve your career aspirations. We've worked across every industry, profession, and seniority level. Now, it's your turn. Let's make it happen; Message me!",
+        description: "I'm Karen Roziner, a Career Development Expert and Coach trusted by over 3,000 clients. I believe everyone deserves an equal opportunity to reach their full potential. Together with my business partner, global recruiter Francesca Trapani, I lead a boutique career development firm with a team of experienced HR professionals. We provide expert resume writing, LinkedIn optimization, reverse recruiting, and career coaching to help you achieve your career aspirations. We've worked across every industry, profession, and seniority level. Now, it's your turn. Let's make it happen Message me!",
         imgUrls: [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818843/provide-career-coaching-and-reverse-recruiting_imyj2h.webp"
         ],
         category: "personal-growth",
-        tags: ["Meditation", "Mindfulness"],
+        tags: ['Zen', 'Path'],
         likedByUsers: []
     },
     {
@@ -2122,7 +2122,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818955/improve-or-change-career_zotke1.webp"
         ],
         category: "personal-growth",
-        tags: ["Career Coaching", "Goal Setting"],
+        tags: ['Breakthrough'],
         likedByUsers: []
     },
     {
@@ -2154,7 +2154,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819097/prepare-marketing-plan-and-stunning-content_mfd6vy.webp"
         ],
         category: "consulting",
-        tags: ["Business Model", "SaaS", "Growth Strategy"],
+        tags: ['Scale'],
         likedByUsers: []
     },
     {
@@ -2189,7 +2189,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819176/Buyer_persona_for_jewelry_pkoqnk_qoztok.jpg"
         ],
         category: "consulting",
-        tags: ["Freelance Coaching", "Pricing"],
+        tags: ['Package'],
         likedByUsers: []
     },
     {
@@ -2221,7 +2221,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819294/consult-you-on-your-brand-strategy-and-branding_oqixww.jpg"
         ],
         category: "consulting",
-        tags: ["Market Research", "Customer Interviews"],
+        tags: ['Full'],
         likedByUsers: []
     },
     {
@@ -2256,7 +2256,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819418/Analysis_of_YouTube_videos_and_Google_Ads_During_the_month_of_August_lfuuzy_aymq5b.jpg"
         ],
         category: "data",
-        tags: ["Power BI", "Data Visualisation"],
+        tags: ['Suite'],
         likedByUsers: []
     },
     {
@@ -2291,7 +2291,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819496/provide-expert-solutions-to-python-machine-learning-projects_xx6dow.webp"
         ],
         category: "data",
-        tags: ["Web Scraping", "Data Mining"],
+        tags: ['10k+'],
         likedByUsers: []
     },
     {
@@ -2324,7 +2324,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819566/do-classification-analysis-with-python-and-machine-learning_e6z5pi.webp"
         ],
         category: "data",
-        tags: ["Data Cleaning", "ETL"],
+        tags: ['Big'],
         likedByUsers: []
     },
     {
@@ -2357,7 +2357,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819626/Instagram_Reach_analysis_ghyaas_-_Jupyter_Notebook_ytt7yi_ibh3ao.jpg"
         ],
         category: "data",
-        tags: ["SQL", "Database", "Optimization"],
+        tags: ['Full', 'Set'],
         likedByUsers: []
     },
     {
@@ -2392,7 +2392,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819727/shoot-professional-product-photography-lifestyle-photo_fkrush.webp"
         ],
         category: "photography",
-        tags: ["Photo Retouching", "Color Grading"],
+        tags: ['Photos'],
         likedByUsers: []
     },
     {
@@ -2426,7 +2426,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819822/staged-product-still-photography_wi6adt.webp"
         ],
         category: "photography",
-        tags: ["Product Photography", "Studio"],
+        tags: ['Images'],
         likedByUsers: []
     },
     {
@@ -2460,7 +2460,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819922/be-your-surprise-proposal-photographer-in-nyc_nsboti.webp"
         ],
         category: "photography",
-        tags: ["Photo Restoration", "Colorisation"],
+        tags: ['Premium'],
         likedByUsers: []
     },
     {
@@ -2495,7 +2495,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749820034/photograph-and-video-your-wedding-proposal-in-paris_vpwrh3.webp"
         ],
         category: "photography",
-        tags: ["Album Design", "Print Design"],
+        tags: ['Hardcover'],
         likedByUsers: []
     },
     {
@@ -2529,7 +2529,7 @@ export const gigsData = [
             "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749820129/shoot-portrait-photography-in-toronto_lmyrfl.webp"
         ],
         category: "photography",
-        tags: ["Headshots", "Portrait Photography"],
+        tags: ['Poses'],
         likedByUsers: []
     }
 ]

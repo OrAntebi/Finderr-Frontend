@@ -1,4 +1,5 @@
 .search-bar-container {
+    position: relative;
     width: 100%;
 
     .search-bar {
@@ -11,6 +12,8 @@
         border: 1px solid #dadbdd;
         border-radius: 4px;
 
+        transition: border-color 0.2s linear;
+
         &:not(.no-submit-btn) {
             border-inline-end: none;
             border-radius: 4px 0 0 4px;
@@ -20,6 +23,44 @@
             outline: none;
             border-color: $clr1;
         }
+
+        &::-webkit-search-cancel-button {
+            display: none;
+        }
+
+
+    }
+
+    .clear-btn {
+        display: none;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+        width: 24px;
+        height: 24px;
+
+        border: none;
+        border-radius: 100vh;
+        background-color: #e5e5e5;
+        background-image: url("/src/assets/img/clear-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #dcdcdc;
+        }
+
+        @include for-normal-layout {
+            right: 55px;
+        }
+    }
+
+    &:hover .clear-btn,
+    &:focus-within .clear-btn {
+        display: block;
     }
 
     .search-btn {

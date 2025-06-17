@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import { gigservice } from "../services/gig"
 import { useScreenSize } from '../customHooks/useScreenSize'
 import starSvg from '../assets/img/star-icon.svg'
 
 
 export function OwnerDetails({ owner, isLarge }) {
-    const isMobile = useScreenSize() < 664;
-    const [expanded, setExpanded] = useState(false);
+    const isMobile = useScreenSize() < 664
+    const [expanded, setExpanded] = useState(false)
 
-    const maxChars = 180;
-    const showToggle = isMobile && owner.about.length > maxChars;
+    const maxChars = 180
+    const showToggle = isMobile && owner.about.length > maxChars
 
     const aboutText =
         showToggle && !expanded
             ? owner.about.slice(0, owner.about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
-            : owner.about;
+            : owner.about
 
     const levelStars = gigservice.convertLvlToStars(owner.level)
         .map((src, idx) => (
