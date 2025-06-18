@@ -5,6 +5,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 
 import { authRoutes } from './api/auth/auth.routes.js'
+import { logger } from './services/logger.service.js'
 import { userRoutes } from './api/user/user.routes.js'
 import { reviewRoutes } from './api/review/review.routes.js'
 import { gigRoutes } from './api/gig/gig.routes.js'
@@ -64,8 +65,6 @@ app.get('/*all', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
 })
 
-import { logger } from './services/logger.service.js'
-import { gigRoutes } from './api/gig/gig.routes.js'
 const port = process.env.PORT || 3030
 
 server.listen(port, () => {

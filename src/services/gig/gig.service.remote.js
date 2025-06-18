@@ -1,11 +1,30 @@
 import { httpService } from '../http.service'
 
+
+const CATEGORIES = {
+    'graphics-design': 'Graphics & Design',
+    'programming-tech': 'Programming & Tech',
+    'digital-marketing': 'Digital Marketing',
+    'video-animation': 'Video & Animation',
+    'writing-translation': 'Writing & Translation',
+    'music-audio': 'Music & Audio',
+    'business': 'Business',
+    'finance': 'Finance',
+    'ai-services': 'AI Services',
+    'personal-growth': 'Personal Growth',
+    'consulting': 'Consulting',
+    'data': 'Data',
+    'photography': 'Photography'
+}
+
 export const gigservice = {
     query,
     getById,
     save,
     remove,
-    addGigMsg
+    addGigMsg,
+    getCategoryList,
+    getCategoryTitleFromPath
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -33,4 +52,17 @@ async function save(gig) {
 async function addGigMsg(gigId, txt) {
     const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
+}
+
+function getCategoryList(key = null) {
+    if (key) return CATEGORIES[key] || key
+    return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
+        categoryRoute,
+        categoryName
+    }))
+}
+
+function getCategoryTitleFromPath(path) {
+    const slug = path.split('/').filter(Boolean).at(-1)
+    return getCategoryList(slug)
 }

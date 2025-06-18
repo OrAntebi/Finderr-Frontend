@@ -1,5 +1,7 @@
-import { logger } from "../../services/logger.service"
-import { gigService } from "./gig.service"
+// import { logger } from "../../services/logger.service"
+import { logger } from "../../services/logger.service.js"
+import { gigService } from "./gig.service.js"
+// import { gigService } from "./gig.service/"
 
 export async function getGigs(req, res) {
 

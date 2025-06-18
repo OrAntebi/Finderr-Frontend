@@ -102,39 +102,40 @@ async function update(gig) {
     }
 }
 
-// async function addGigMsg(gigId, msg) {
-//     try {
-//         const criteria = { _id: ObjectId.createFromHexString(gigId) }
-//         msg.id = makeId()
+async function addGigMsg(gigId, msg) {
+    try {
+        const criteria = { _id: ObjectId.createFromHexString(gigId) }
+        msg.id = makeId()
 
-//         const collection = await dbService.getCollection('gig')
-//         await collection.updateOne(criteria, { $push: { msgs: msg } })
+        const collection = await dbService.getCollection('gig')
+        await collection.updateOne(criteria, { $push: { msgs: msg } })
 
-//         return msg
-//     } catch (err) {
-//         logger.error(`cannot add gig msg ${gigId}`, err)
-//         throw err
-//     }
-// }
+        return msg
+    } catch (err) {
+        logger.error(`cannot add gig msg ${gigId}`, err)
+        throw err
+    }
+}
 
-// async function removeGigMsg(gigId, msgId) {
-//     try {
-//         const criteria = { _id: ObjectId.createFromHexString(gigId) }
+async function removeGigMsg(gigId, msgId) {
+    try {
+        const criteria = { _id: ObjectId.createFromHexString(gigId) }
 
-//         const collection = await dbService.getCollection('gig')
-//         await collection.updateOne(criteria, { $pull: { msgs: { id: msgId } } })
+        const collection = await dbService.getCollection('gig')
+        await collection.updateOne(criteria, { $pull: { msgs: { id: msgId } } })
 
-//         return msgId
-//     } catch (err) {
-//         logger.error(`cannot remove gig msg ${gigId}`, err)
-//         throw err
-//     }
-// }
+        return msgId
+    } catch (err) {
+        logger.error(`cannot remove gig msg ${gigId}`, err)
+        throw err
+    }
+}
 
 function _buildCriteria(filterBy = {}) {
     const {
         txt = '',
-        categories: category = [],
+        // categories: category = [],
+        category = '',
         tags = [],
         minPrice = '',
         maxPrice = '',
@@ -180,7 +181,7 @@ function _buildCriteria(filterBy = {}) {
 }
 
 
-// function _buildSort(filterBy) {
-//     if (!filterBy.sortField) return {}
-//     return { [filterBy.sortField]: filterBy.sortDir }
-// }
+function _buildSort(filterBy) {
+    if (!filterBy.sortField) return {}
+    return { [filterBy.sortField]: filterBy.sortDir }
+}
