@@ -1,7 +1,7 @@
 import { storageService } from '../async-storage.service'
 import { saveToStorage } from '../util.service'
 import { userService } from '../user'
-import { gigsData } from '../data/gigs.js'
+import gigs from '../data/gigs.json' assert { type: 'json' }
 
 const GIG_KEY = 'gigDB'
 const CATEGORIES = {
@@ -38,7 +38,7 @@ window.cs = gigservice
 _initGigDB()
 function _initGigDB() {
     const stored = JSON.parse(localStorage.getItem(GIG_KEY))
-    if (!stored || !stored.length) saveToStorage(GIG_KEY, gigsData)
+    if (!stored || !stored.length) saveToStorage(GIG_KEY, gigs)
 }
 
 async function query(filterBy = getDefaultFilter()) {
