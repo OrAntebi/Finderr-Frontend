@@ -1,9 +1,20 @@
-import starSvg from '../assets/img/star-icon.svg'
+import { useState } from 'react'
 import { gigservice } from "../services/gig"
+import { useScreenSize } from '../customHooks/useScreenSize'
+import starSvg from '../assets/img/star-icon.svg'
 
 
 export function OwnerDetails({ owner, isLarge }) {
+    const isMobile = useScreenSize() < 664
+    const [expanded, setExpanded] = useState(false)
 
+    const maxChars = 180
+    const showToggle = isMobile && owner.about.length > maxChars
+
+    const aboutText =
+        showToggle && !expanded
+            ? owner.about.slice(0, owner.about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
+            : owner.about
 
     const levelStars = gigservice.convertLvlToStars(owner.level)
         .map((src, idx) => (
@@ -36,7 +47,7 @@ export function OwnerDetails({ owner, isLarge }) {
             </div>
             {
                 isLarge && <div className="owner-description">
-                    <ul className="desciption-list">
+                    <ul className="description-list">
                         <li>
                             <label>From</label>
                             <strong>{owner.loc}</strong>
@@ -47,17 +58,27 @@ export function OwnerDetails({ owner, isLarge }) {
                         </li>
                         <li>
                             <label>Avg. response time</label>
-                            <strong>1 hour</strong>
+                            <strong>{owner.avgResponceTime}</strong>
                         </li>
                         <li>
                             <label>Last delivery</label>
-                            <strong>about 3 hours</strong>
+                            <strong>{owner.lastDelivery}</strong>
                         </li>
                         <li>
                             <label>Languages</label>
-                            <strong>{owner.languages}</strong>
+                            <strong>{owner.languages.join(', ')}</strong>
                         </li>
                     </ul>
+                    <p>{aboutText}</p>
+
+                    {showToggle && (
+                        <button
+                            className='show-more-btn'
+                            onClick={() => setExpanded(!expanded)}
+                        >
+                            {expanded ? '- See Less' : '+ See More'}
+                        </button>
+                    )}
                 </div>}</>
     )
 }

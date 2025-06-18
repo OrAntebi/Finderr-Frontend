@@ -9,7 +9,7 @@ import { DynamicHeader } from './dynamicCmps/DynamicHeader.jsx'
 import { CategoriesList } from './CategoriesList.jsx'
 import { setGigFilter } from '../store/gig/gig.actions'
 
-export function AppHeader() {
+export function AppHeader({ onSearch }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const screenWidth = useScreenSize()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -50,14 +50,6 @@ export function AppHeader() {
         setDropdownOpen(prev => ({ ...prev, [name]: false }))
     }
 
-    function handleSearch(txt) {
-        setGigFilter({ txt, tags: [], categories: [], minPrice: '' })
-    }
-
-    function onSetFilterBy(filterBy) {
-        setGigFilter(filterBy)
-    }
-
     return (
         <>
             <DynamicHeader
@@ -69,7 +61,7 @@ export function AppHeader() {
                 closeDropdown={closeDropdown}
                 dropdownOpen={dropdownOpen}
                 currentPage={currentPage}
-                onSearch={handleSearch}
+                onSearch={onSearch}
             />
             <CategoriesList />
         </>

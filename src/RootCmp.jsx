@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router'
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router'
 
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
@@ -18,18 +18,28 @@ import { LoginSignup } from './pages/LoginSignup.jsx'
 import { Login } from './pages/Login.jsx'
 import { Signup } from './pages/Signup.jsx'
 
+import { setGigFilter } from './store/gig/gig.actions.js'
+
 
 export function RootCmp() {
     const currentPage = useLocation().pathname
+    const navigate = useNavigate()
+
+    function handleSearch(txt) {
+        setGigFilter({ txt, tags: [], categories: [], minPrice: '' })
+        if (!currentPage.startsWith('/categories')) {
+            navigate('/categories')
+        }
+    }
 
     return (
         <>
-            <AppHeader />
+            <AppHeader onSearch={handleSearch} />
             <UserMsg />
 
             <main className={`main-content main-container full ${currentPage.startsWith("/categories") ? 'categories-page-shown' : ''}`}>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
+                    <Route path="" element={<HomePage onSearch={handleSearch} />} />
                     <Route path="about" element={<AboutUs />}>
                         <Route path="team" element={<AboutTeam />} />
                         <Route path="vision" element={<AboutVision />} />
