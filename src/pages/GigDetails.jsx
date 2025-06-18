@@ -14,9 +14,11 @@ import { icons } from '../assets/icons/icons'
 export function GigDetails() {
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
+    const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
     const screenWidth = useScreenSize()
     const [isModalOpen, setIsModalOpen] = useState(false)
+
 
     function handleContinueClick(ev) {
         ev.stopPropagation()
@@ -31,6 +33,7 @@ export function GigDetails() {
 
     const { owner } = gig || {}
     if (isLoading || !gig) return <Loader />
+    const selectedPack = gig.packages[selectedPackage]
 
     const renderMainContent = () => (
         <>
@@ -38,7 +41,14 @@ export function GigDetails() {
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} />
             {<GigSlider gig={gig} showThumbnails={screenWidth >= 664} />}
-            {screenWidth < 964 && gig?.packages && <PricingPackages gig={gig} screenWidth={screenWidth} icons={icons} onContinueClick={handleContinueClick} />}
+            {screenWidth < 964 && gig?.packages && <PricingPackages
+                gig={gig}
+                screenWidth={screenWidth}
+                icons={icons}
+                onContinueClick={handleContinueClick}
+                selectedPackage={selectedPackage}
+                onSelectPackage={setSelectedPackage}
+            />}
             <h2>About this gig</h2>
             <p className="gig-description">{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
@@ -56,8 +66,15 @@ export function GigDetails() {
                 renderMainContent()
             )}
             {screenWidth >= 964 && gig?.packages && (
-                <PricingPackages gig={gig} screenWidth={screenWidth} icons={icons} onContinueClick={handleContinueClick} />
-            )}
+                <PricingPackages
+                    gig={gig}
+                    screenWidth={screenWidth}
+                    icons={icons}
+                    onContinueClick={handleContinueClick}
+                    selectedPackage={selectedPackage}
+                    onSelectPackage={setSelectedPackage}
+                />)
+            }
             {isModalOpen &&
                 <dialog className="modal-payment flex column">
                     <div className="modal-title flex align-center justify-between">
@@ -70,28 +87,34 @@ export function GigDetails() {
                         <div className="modal-description flex column">
                             <li>
                                 <div className="package-and-price flex justify-between">
-                                    <p className="current-package">Standard</p>
-                                    <p className="amount">23$</p>
+                                    <p className="current-package">{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)}</p>
+                                    <p className="amount">${selectedPack.packPrice}</p>
                                 </div>
                                 <div className="gig-description-text">
-                                    <span>Standard </span>
+                                    <span>{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)} </span>
                                     <span>{gig.title}</span>
                                 </div>
                             </li>
                         </div>
                         <div className="modal-price">
                             <div className="price-container flex column">
-                                <span>23$</span>
+                                <span>${selectedPack.packPrice}</span>
                                 <span>Single order</span>
                             </div>
                             <ul className="modal-delivery-info flex column">
                                 <div className="delivery-time flex align-center">
                                     <span><img src={icons.clock} alt="" /></span>
-                                    <span>2-day delivery</span>
+                                    <span>{selectedPack.packDaysToMake}-day delivery</span>
                                 </div>
                                 <div className="revisions flex align-center">
                                     <span><img src={icons.round} alt="" /></span>
-                                    <span>1 Revision</span>
+                                    <span>
+                                        {selectedPackage === 'premium'
+                                            ? 'Unlimited Revisions'
+                                            : selectedPackage === 'standard'
+                                                ? '3 Revisions'
+                                                : '1 Revision'}
+                                    </span>
                                 </div>
                             </ul>
                         </div>
