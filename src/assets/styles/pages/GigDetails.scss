@@ -200,6 +200,139 @@
         }
     }
 
+    .modal-payment {
+        position: absolute;
+        inset: 0 0 0 auto;
+        z-index: 2;
+        max-width: rem(480px);
+        width: 100%;
+        height: 100%;
+        color: #404145;
+
+        .modal-title {
+            padding: rem(12px) rem(16px) rem(12px) rem(20px);
+            font-family: Macan-Bold, sans-serif;
+            border-bottom: 1px solid #b5b6ba;
+
+            .close-modal-btn {
+                padding: rem(8px);
+            }
+        }
+
+        .modal-details-container {
+            padding: rem(24px) rem(20px) rem(20px);
+            overflow-y: auto;
+            flex-grow: 1;
+
+            .modal-description {
+                margin-bottom: rem(12px);
+
+                li {
+                    list-style: none;
+                    border: 2px solid #222325;
+                    border-radius: 8px;
+                    padding: rem(16px) rem(20px);
+
+                    .package-and-price {
+                        margin-bottom: rem(12px);
+
+                        p {
+                            color: #404145;
+
+                            &.current-package {
+                                font-weight: 550;
+                            }
+                        }
+                    }
+
+                    .gig-description-text {
+                        font-size: rem(14px);
+                        line-height: rem(21px);
+                        font-weight: 550;
+
+                        span:first-of-type {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            .modal-price {
+                padding: rem(24px) rem(32px);
+                background-color: #f5f5f5;
+                border-radius: 8px;
+                color: #404145;
+
+                .price-container {
+                    span:first-child {
+                        font-size: rem(20px);
+                        font-family: Macan-Bold, sans-serif;
+                    }
+
+                    span:nth-child(2) {
+                        margin-top: rem(4px);
+                        font-size: rem(14px);
+                        line-height: rem(21px);
+                    }
+                }
+
+                .modal-delivery-info {
+                    list-style: none;
+                    border-top: 1px solid #dadbdd;
+                    margin-top: rem(16px);
+                    margin-bottom: .5rem;
+                    padding-top: rem(16px);
+                    font-size: rem(14px);
+                    line-height: rem(21px);
+
+                    >* {
+                        margin-top: rem(8px);
+
+                        span {
+                            font-weight: 600;
+                            margin-right: rem(8px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            padding: rem(20px) rem(20px) rem(8px);
+            border-top: 1px solid #b5b6ba;
+
+            .continue-btn {
+                gap: rem(8px);
+                width: 100%;
+                background-color: #1f1f23;
+                border-color: transparent;
+                border-width: 1px;
+                color: white;
+                border-radius: 8px;
+                padding: rem(15px) rem(24px);
+                font-size: rem(16px);
+                font-weight: 600;
+                line-height: rem(24px);
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: #313235;
+                }
+            }
+
+            div {
+                span {
+                    margin-top: rem(8px);
+                    font-size: rem(12px);
+                    line-height: rem(20px);
+                    color: #62646a;
+                }
+            }
+        }
+
+
+    }
+
     .owner-description {
         margin-block-end: rem(24px);
         padding: rem(24px);
@@ -234,7 +367,7 @@
 
         .show-more-btn {
             margin-block-start: rem(15px);
-            
+
             color: #404145;
             font-size: rem(14px);
             font-weight: 600;

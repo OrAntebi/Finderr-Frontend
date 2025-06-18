@@ -1,18 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import clockSvg from '../assets/img/clock-icon.svg'
-import roundSvg from '../assets/img/round-icon.svg'
-import arrowSvg from '../assets/img/arrow-icon.svg'
-
-import hamburgerSvg from '../assets/img/hamburger-icon.svg'
-import heartSvg from '../assets/img/heart-full-icon.svg'
-import shareSvg from '../assets/img/share-icon.svg'
-import dotsSvg from '../assets/img/three-btns-icon.svg'
-
-export function PricingPackages({ gig, screenWidth }) {
+export function PricingPackages({ gig, screenWidth, icons }) {
     const [activeTab, setActiveTab] = useState('standard')
-
+    
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
     const currentPackage = packages[activeTab]
@@ -22,13 +13,13 @@ export function PricingPackages({ gig, screenWidth }) {
             {screenWidth >= 964 && <div className="like-and-share flex align-center">
                 <div className="collect-wrapper flex align-center justify-center">
                     <div className="like-wrapper flex align-center justify-center">
-                        <button><span><img src={hamburgerSvg} alt="hamburger-icon" /></span></button>
-                        <button><span><img src={heartSvg} alt="heart-icon" /></span></button>
+                        <button><span><img src={icons.hamburger} alt="hamburger-icon" /></span></button>
+                        <button><span><img src={icons.heart} alt="heart-icon" /></span></button>
                     </div>
                     <span className="collect-count">38</span>
                 </div>
-                <button className="share-dots"><img src={shareSvg} alt="share-icon" /></button>
-                <button className="share-dots"><img src={dotsSvg} alt="dots-icon" /></button>
+                <button className="share-dots"><img src={icons.share} alt="share-icon" /></button>
+                <button className="share-dots"><img src={icons.dots} alt="dots-icon" /></button>
             </div>}
             <div className={`pricing-packages ${screenWidth < 964 ? ' full main-container' : ''}`}>
                 <nav role="tablist" className="full">
@@ -58,11 +49,11 @@ export function PricingPackages({ gig, screenWidth }) {
 
                     <div className="delivery-info flex">
                         <div className="delivery-time flex">
-                            <span><img src={clockSvg} alt="" /></span>
+                            <span><img src={icons.clock} alt="" /></span>
                             <span>{currentPackage.packDaysToMake}-day delivery</span>
                         </div>
                         <div className="revisions flex">
-                            <span><img src={roundSvg} alt="" /></span>
+                            <span><img src={icons.round} alt="" /></span>
                             <span>
                                 {activeTab === 'premium' ? 'Unlimited Revisions' :
                                     activeTab === 'standard' ? '3 Revisions' :
@@ -89,7 +80,7 @@ export function PricingPackages({ gig, screenWidth }) {
                 </div>
 
                 <button className="continue-btn">
-                    Continue <span><img src={arrowSvg} alt="arrow-icon" /></span>
+                    Continue <span><img src={icons.arrow} alt="arrow-icon" /></span>
                 </button>
             </div>
         </section>
