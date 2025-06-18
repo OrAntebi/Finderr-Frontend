@@ -1,0 +1,26 @@
+.no-gigs-found {
+    width: 100%;
+    height: 100%;
+
+    h2 {
+        margin-block-end: rem(5px);
+    }
+
+    p {
+        margin-block-end: rem(40px);
+    }
+
+    .back-btn {
+        margin-block-end: 1.5rem;
+        padding: rem(10px) rem(15px);
+
+        font-weight: 600;
+        color: #fff;
+        background-color: #1dbf73;
+        border-radius: 4px;
+
+        &:hover {
+            filter: opacity(0.9);
+        }
+    }
+}
