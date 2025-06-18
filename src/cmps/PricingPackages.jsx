@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function PricingPackages({ gig, screenWidth, icons }) {
+export function PricingPackages({ gig, screenWidth, icons, onContinueClick }) {
     const [activeTab, setActiveTab] = useState('standard')
-    
+
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
     const currentPackage = packages[activeTab]
@@ -79,7 +79,7 @@ export function PricingPackages({ gig, screenWidth, icons }) {
                     </ul>
                 </div>
 
-                <button className="continue-btn">
+                <button className="continue-btn" onClick={onContinueClick}>
                     Continue <span><img src={icons.arrow} alt="arrow-icon" /></span>
                 </button>
             </div>
