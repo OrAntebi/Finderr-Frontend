@@ -26,6 +26,17 @@ export function GigDetails() {
     }
 
     useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isModalOpen])
+
+    useEffect(() => {
         setIsLoading(true)
         loadGig(gigId)
             .finally(() => setIsLoading(false))
@@ -57,7 +68,9 @@ export function GigDetails() {
     )
 
     return (
-        <section className={`gig-details${screenWidth < 964 ? ' full main-container' : ''}`}>
+        <section className={`gig-details${screenWidth < 964 ? ' full main-container' : ''} ${isModalOpen ? 'modal-open' : ''}`}>
+            {isModalOpen && <div className="modal-overlay" onClick={() => setIsModalOpen(false)}></div>}
+
             {screenWidth >= 964 ? (
                 <div className="gig-content">
                     {renderMainContent()}
@@ -76,7 +89,7 @@ export function GigDetails() {
                 />)
             }
             {isModalOpen &&
-                <dialog className="modal-payment flex column">
+                <dialog className="modal-payment flex column" open>
                     <div className="modal-title flex align-center justify-between">
                         <span>Order options</span>
                         <button className="close-modal-btn" onClick={() => setIsModalOpen(false)}>
@@ -102,12 +115,16 @@ export function GigDetails() {
                                 <span>Single order</span>
                             </div>
                             <ul className="modal-delivery-info flex column">
+                                <div className="package-type flex align-center">
+                                    <span className="package flex align-center"><img src={icons.package} alt="package-icon" /></span>
+                                    <span>{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)} package</span>
+                                </div>
                                 <div className="delivery-time flex align-center">
-                                    <span><img src={icons.clock} alt="" /></span>
+                                    <span><img src={icons.clock} alt="clock-icon" /></span>
                                     <span>{selectedPack.packDaysToMake}-day delivery</span>
                                 </div>
                                 <div className="revisions flex align-center">
-                                    <span><img src={icons.round} alt="" /></span>
+                                    <span><img src={icons.round} alt="round-icon" /></span>
                                     <span>
                                         {selectedPackage === 'premium'
                                             ? 'Unlimited Revisions'
@@ -122,7 +139,7 @@ export function GigDetails() {
                     <div className="modal-footer">
                         <button className="continue-btn flex align-center justify-center">
                             <span>Continue</span>
-                            <span>(23$)</span>
+                            <span>(${selectedPack.packPrice})</span>
                         </button>
                         <div className="flex align-center justify-center">
                             <span>You won't be charged yet</span>

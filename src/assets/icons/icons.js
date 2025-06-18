@@ -6,6 +6,7 @@ import heartSvg from '../img/heart-full-icon.svg'
 import shareSvg from '../img/share-icon.svg'
 import dotsSvg from '../img/three-btns-icon.svg'
 import closeSvg from '../img/close-icon.svg'
+import packageSvg from '../img/package-icon.svg'
 
 export const icons = {
   clock: clockSvg,
@@ -15,5 +16,6 @@ export const icons = {
   heart: heartSvg,
   share: shareSvg,
   dots: dotsSvg,
-  close: closeSvg
+  close: closeSvg,
+  package: packageSvg,
 }
