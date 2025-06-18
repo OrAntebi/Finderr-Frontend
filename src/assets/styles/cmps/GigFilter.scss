@@ -140,7 +140,9 @@
                 display: flex;
                 gap: em(8px);
 
-                font-size: em(14.4px);
+                padding-block: rem(4px);
+
+                font-size: em(14px);
                 white-space: nowrap;
             }
 

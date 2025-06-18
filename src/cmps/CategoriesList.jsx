@@ -3,6 +3,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import { gigservice } from '../services/gig'
 import { Link, useLocation } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
+import { setGigFilter } from '../store/gig/gig.actions'
 import leftArrowIcon from '../assets/img/left-arrow-icon.svg'
 import rightArrowIcon from '../assets/img/right-arrow-icon.svg'
 import 'keen-slider/keen-slider.min.css'
@@ -51,6 +52,10 @@ export function CategoriesList() {
         }
     }, [currentPage, currCategory])
 
+    function onClickCategory(category) {
+        setGigFilter({ ...gigservice.getDefaultFilter(), categories: [category] })
+    }
+
     const isMobile = screenWidth < 664
     const isAtStart = currentSlide === 0
 
@@ -73,6 +78,7 @@ export function CategoriesList() {
                         <div className="keen-slider__slide" key={categoryRoute}>
                             <Link
                                 to={`/categories?category=${categoryRoute}`}
+                                onClick={() => onClickCategory(categoryRoute)}
                                 className={`category-link flex align-center ${currCategory === categoryRoute && isOnlyCategoriesPage ? 'active' : ''
                                     }`}
                             >

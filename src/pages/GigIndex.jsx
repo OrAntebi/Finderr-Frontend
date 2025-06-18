@@ -10,6 +10,7 @@ import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
 import { Loader } from '../cmps/Loader'
+import { NoGigsFound } from '../cmps/NoGigsFound'
 
 export function GigIndex() {
     const [searchParams] = useSearchParams()
@@ -75,16 +76,20 @@ export function GigIndex() {
     if (isLoading) return <Loader />
     return (
         <main className="gig-index">
-            <>
-                <BreadCrumbs />
-                <h1>{getTitle()}</h1>
-                <GigFilter />
-                <GigList
-                    gigs={gigs}
-                    onRemoveGig={onRemoveGig}
-                    onUpdateGig={onUpdateGig}
-                />
-            </>
+            {gigs.length === 0 ? (
+                <NoGigsFound />
+            ) : (
+                <>
+                    <BreadCrumbs />
+                    <h1>{getTitle()}</h1>
+                    <GigFilter />
+                    <GigList
+                        gigs={gigs}
+                        onRemoveGig={onRemoveGig}
+                        onUpdateGig={onUpdateGig}
+                    />
+                </>
+            )}
         </main>
     )
 }

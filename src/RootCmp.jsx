@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router'
 
+import { gigservice } from './services/gig'
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
 import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
@@ -19,18 +20,21 @@ import { Login } from './pages/Login.jsx'
 import { Signup } from './pages/Signup.jsx'
 
 import { setGigFilter } from './store/gig/gig.actions.js'
+import { useCallback } from 'react'
 
 
 export function RootCmp() {
     const currentPage = useLocation().pathname
     const navigate = useNavigate()
 
-    function handleSearch(txt) {
-        setGigFilter({ txt, tags: [], categories: [], minPrice: '' })
-        if (!currentPage.startsWith('/categories')) {
-            navigate('/categories')
-        }
-    }
+    const handleSearch = useCallback((rawQuery) => {
+        const searchQuery = rawQuery.trim()
+        if (!searchQuery) return
+
+        setGigFilter({ ...gigservice.getDefaultFilter(), txt: searchQuery })
+
+        navigate('/categories', { replace: true })
+    }, [navigate])
 
     return (
         <>

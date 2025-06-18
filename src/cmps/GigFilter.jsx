@@ -99,7 +99,7 @@ export function GigFilter() {
         { label: 'Price: High to Low', value: 'price-high-to-low' }
     ]
 
-    const ClearApplyBtns = (onClear) => {
+    const ClearApplyBtns = ({ onClear }) => {
         return (
             <div className="btn-group">
                 <button className="btn clear-btn" onClick={onClear}>Clear</button>
@@ -206,7 +206,8 @@ export function GigFilter() {
                     <button onClick={resetAllFilters}>Reset All</button>
                 </section>
             </section>
-
+            
+            {/* SORT */}
             <section className="gig-sort flex align-center justify-between">
                 <span>{getTotalGigsCount()}</span>
 

@@ -10,6 +10,7 @@ export default function SearchInput({
 
     function handleSubmit(ev) {
         ev.preventDefault()
+        setTxt('')
         if (onSearch) onSearch(txt)
     }
 
