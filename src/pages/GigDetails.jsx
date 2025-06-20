@@ -8,6 +8,7 @@ import { PricingPackages } from '../cmps/PricingPackages'
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { Loader } from '../cmps/Loader'
 import { GigSlider } from '../cmps/GigSlider'
+import { PaymentModal } from '../cmps/PaymentModal'
 import { icons } from '../assets/icons/icons'
 
 
@@ -18,12 +19,6 @@ export function GigDetails() {
     const [isLoading, setIsLoading] = useState(true)
     const screenWidth = useScreenSize()
     const [isModalOpen, setIsModalOpen] = useState(false)
-
-
-    function handleContinueClick(ev) {
-        ev.stopPropagation()
-        setIsModalOpen(true)
-    }
 
     useEffect(() => {
         if (isModalOpen) {
@@ -44,7 +39,29 @@ export function GigDetails() {
 
     const { owner } = gig || {}
     if (isLoading || !gig) return <Loader />
-    const selectedPack = gig.packages[selectedPackage]
+
+    const selectedPack = {
+        ...gig.packages[selectedPackage],
+        packageName: selectedPackage,
+        packageNameCapitalized: selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
+    }
+    const getRevisionText = () => {
+        switch (selectedPack.packageName) {
+            case 'premium': return 'Unlimited Revisions'
+            case 'standard': return '3 Revisions'
+            case 'basic': return '1 Revision'
+            default: return '1 Revision'
+        }
+    }
+
+    function handleContinueClick(ev) {
+        ev.stopPropagation()
+        setIsModalOpen(true)
+    }
+
+    function onPurchaseOrder() {
+        console.log('Purchase order', selectedPack)
+    }
 
     const renderMainContent = () => (
         <>
@@ -56,9 +73,10 @@ export function GigDetails() {
                 gig={gig}
                 screenWidth={screenWidth}
                 icons={icons}
-                onContinueClick={handleContinueClick}
-                selectedPackage={selectedPackage}
+                selectedPack={selectedPack}
                 onSelectPackage={setSelectedPackage}
+                getRevisionText={getRevisionText}
+                onContinueClick={handleContinueClick}
             />}
             <h2>About this gig</h2>
             <p className="gig-description">{gig.description}</p>
@@ -83,68 +101,20 @@ export function GigDetails() {
                     gig={gig}
                     screenWidth={screenWidth}
                     icons={icons}
-                    onContinueClick={handleContinueClick}
-                    selectedPackage={selectedPackage}
+                    selectedPack={selectedPack}
                     onSelectPackage={setSelectedPackage}
+                    getRevisionText={getRevisionText}
+                    onContinueClick={handleContinueClick}
                 />)
             }
-            <div className={`modal-payment flex column ${isModalOpen ? 'modal-open' : ''}`}>
-                <div className="modal-title flex align-center justify-between">
-                    <span>Order options</span>
-                    <button className="close-modal-btn" onClick={() => setIsModalOpen(false)}>
-                        <img src={icons.close} alt="close-icon" />
-                    </button>
-                </div>
-                <div className="modal-details-container">
-                    <div className="modal-description flex column">
-                        <li>
-                            <div className="package-and-price flex justify-between">
-                                <p className="current-package">{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)}</p>
-                                <p className="amount">${selectedPack.packPrice}</p>
-                            </div>
-                            <div className="gig-description-text">
-                                <span>{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)} </span>
-                                <span>{gig.title}</span>
-                            </div>
-                        </li>
-                    </div>
-                    <div className="modal-price">
-                        <div className="price-container flex column">
-                            <span>${selectedPack.packPrice}</span>
-                            <span>Single order</span>
-                        </div>
-                        <ul className="modal-delivery-info flex column">
-                            <div className="package-type flex align-center">
-                                <span className="package flex align-center"><img src={icons.package} alt="package-icon" /></span>
-                                <span>{selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)} package</span>
-                            </div>
-                            <div className="delivery-time flex align-center">
-                                <span><img src={icons.clock} alt="clock-icon" /></span>
-                                <span>{selectedPack.packDaysToMake}-day delivery</span>
-                            </div>
-                            <div className="revisions flex align-center">
-                                <span><img src={icons.round} alt="round-icon" /></span>
-                                <span>
-                                    {selectedPackage === 'premium'
-                                        ? 'Unlimited Revisions'
-                                        : selectedPackage === 'standard'
-                                            ? '3 Revisions'
-                                            : '1 Revision'}
-                                </span>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-                <div className="modal-footer">
-                    <button className="continue-btn flex align-center justify-center">
-                        <span>Continue</span>
-                        <span>(${selectedPack.packPrice})</span>
-                    </button>
-                    <div className="flex align-center justify-center">
-                        <span>You won't be charged yet</span>
-                    </div>
-                </div>
-            </div>
+            <PaymentModal
+                isModalOpen={isModalOpen}
+                onCloseModal={() => setIsModalOpen(false)}
+                selectedPack={selectedPack}
+                gig={gig}
+                onPurchaseOrder={onPurchaseOrder}
+                getRevisionText={getRevisionText}
+            />
         </section>
     )
 }
