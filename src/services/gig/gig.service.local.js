@@ -26,7 +26,6 @@ export const gigservice = {
     save,
     remove,
     getEmptyGig,
-    getDefaultFilter,
     addGigMsg,
     getCategoryList,
     getCategoryTitleFromPath,
@@ -41,7 +40,7 @@ function _initGigDB() {
     if (!stored || !stored.length) saveToStorage(GIG_KEY, gigs)
 }
 
-async function query(filterBy = getDefaultFilter()) {
+async function query(filterBy) {
     let gigs = await storageService.query(GIG_KEY)
     const { txt, minPrice, maxPrice, daysToMake, categories, tags, sortBy } = filterBy
 
@@ -131,10 +130,6 @@ function getEmptyGig() {
         likedByUsers: [],
         reviews: []
     }
-}
-
-function getDefaultFilter() {
-    return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', categories: [], tags: [], sortBy: '' }
 }
 
 async function addGigMsg(gigId, txt) {

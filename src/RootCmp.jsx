@@ -33,7 +33,8 @@ export function RootCmp() {
 
         setGigFilter({ ...gigservice.getDefaultFilter(), txt: searchQuery })
 
-        navigate('/categories', { replace: true })
+        const params = new URLSearchParams({ query: searchQuery })
+        navigate({ pathname: '/categories', search: `?${params.toString()}` })
     }, [navigate])
 
     return (

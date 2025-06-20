@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
-import { loadGigs, addGig, updateGig, removeGig, setGigFilter } from '../store/gig/gig.actions'
+import { loadGigs, updateGig, removeGig } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { gigservice } from '../services/gig/'
+import { gigservice } from '../services/gig'
+import { useGigFilterQuery } from '../customHooks/useGigFilterQuery'
 
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { GigList } from '../cmps/GigList'
@@ -13,67 +13,46 @@ import { Loader } from '../cmps/Loader'
 import { NoGigsFound } from '../cmps/NoGigsFound'
 
 export function GigIndex() {
-    const [searchParams] = useSearchParams()
-    const categoryFromParams = searchParams.get('category')
-
-    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const { filter } = useGigFilterQuery()
+    const gigs = useSelector(state => state.gigModule.gigs)
 
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        if (categoryFromParams) {
-            setGigFilter({ ...filterBy, categories: [categoryFromParams] })
-        } else {
-            setGigFilter({ ...filterBy, categories: [] })
-        }
-    }, [categoryFromParams])
-
-    useEffect(() => {
         setIsLoading(true)
-        loadGigs(filterBy)
+        loadGigs(filter)
             .finally(() => setIsLoading(false))
-    }, [filterBy])
+    }, [filter])
 
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
             showSuccessMsg('Gig removed')
-        } catch (err) {
+        } catch {
             showErrorMsg('Cannot remove gig')
-        }
-    }
-
-    async function onAddGig() {
-        const gig = gigservice.getEmptyGig()
-        gig.vendor = prompt('Vendor?')
-        try {
-            const savedGig = await addGig(gig)
-            showSuccessMsg(`Gig added (id: ${savedGig._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add gig')
         }
     }
 
     async function onUpdateGig(gig) {
         const speed = +prompt('New speed?', gig.speed)
         if (!speed) return
-        const gigToSave = { ...gig, speed }
         try {
-            const savedGig = await updateGig(gigToSave)
+            const savedGig = await updateGig({ ...gig, speed })
             showSuccessMsg(`Gig updated, new speed: ${savedGig.speed}`)
-        } catch (err) {
+        } catch {
             showErrorMsg('Cannot update gig')
         }
     }
 
+
     function getTitle() {
-        return categoryFromParams
-            ? gigservice.getCategoryTitleFromPath(categoryFromParams)
+        return filter.categories.length
+            ? gigservice.getCategoryTitleFromPath(filter.categories[0])
             : 'Categories'
     }
 
     if (isLoading) return <Loader />
+
     return (
         <main className="gig-index">
             {gigs.length === 0 ? (
@@ -82,7 +61,7 @@ export function GigIndex() {
                 <>
                     <BreadCrumbs />
                     <h1>{getTitle()}</h1>
-                    <GigFilter />
+                    <GigFilter filter={filter} />
                     <GigList
                         gigs={gigs}
                         onRemoveGig={onRemoveGig}
@@ -93,6 +72,3 @@ export function GigIndex() {
         </main>
     )
 }
-
-
-

@@ -1,20 +1,25 @@
 import { useState, useEffect } from 'react'
-import { useKeenSlider } from 'keen-slider/react'
-import { gigservice } from '../services/gig'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { gigservice } from '../services/gig'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { setGigFilter } from '../store/gig/gig.actions'
-import leftArrowIcon from '../assets/img/left-arrow-icon.svg'
-import rightArrowIcon from '../assets/img/right-arrow-icon.svg'
+
+import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+
+import rightArrowIcon from '../assets/img/right-arrow-icon.svg'
+import leftArrowIcon from '../assets/img/left-arrow-icon.svg'
 
 export function CategoriesList() {
     const screenWidth = useScreenSize()
     const categoryList = gigservice.getCategoryList()
+
     const location = useLocation()
-    const searchParams = new URLSearchParams(location.search)
     const currentPage = location.pathname
-    const currCategory = searchParams.get('category')
+
+    const currCategory = useSelector(s => s.gigModule.filterBy.categories[0] || '')
 
     const isOnlyCategoriesPage = currentPage === '/categories'
 
@@ -23,16 +28,13 @@ export function CategoriesList() {
 
     const [sliderRef, instanceRef] = useKeenSlider({
         initial: 0,
-        slides: {
-            perView: 'auto',
-            spacing: 20,
+        slides: { perView: 'auto', spacing: 20 },
+        slideChanged(s) {
+            setCurrentSlide(s.track.details.rel)
+            setIsAtEnd(s.track.details.rel >= s.track.details.maxIdx)
         },
-        slideChanged(slider) {
-            setCurrentSlide(slider.track.details.rel)
-            setIsAtEnd(slider.track.details.rel >= slider.track.details.maxIdx)
-        },
-        created(slider) {
-            setIsAtEnd(slider.track.details.rel >= slider.track.details.maxIdx)
+        created(s) {
+            setIsAtEnd(s.track.details.rel >= s.track.details.maxIdx)
             instanceRef.current?.update()
         },
     })
@@ -42,15 +44,15 @@ export function CategoriesList() {
     }, [screenWidth])
 
     useEffect(() => {
-        const hasActiveLink = document.querySelector('.category-link.active')
-        const isGigDetailsPage = currentPage.startsWith('/categories/') && currentPage !== '/categories'
-
-        if ((isOnlyCategoriesPage || isGigDetailsPage) && !hasActiveLink) {
+        const hasActive = document.querySelector('.category-link.active')
+        const isGigDetails =
+            currentPage.startsWith('/categories/') && currentPage !== '/categories'
+        if ((isOnlyCategoriesPage || isGigDetails) && !hasActive) {
             instanceRef.current?.moveToIdx(0)
             setCurrentSlide(0)
             setIsAtEnd(false)
         }
-    }, [currentPage, currCategory])
+    }, [currentPage, currCategory, isOnlyCategoriesPage])
 
     function onClickCategory(category) {
         setGigFilter({ ...gigservice.getDefaultFilter(), categories: [category] })
@@ -58,7 +60,6 @@ export function CategoriesList() {
 
     const isMobile = screenWidth < 664
     const isAtStart = currentSlide === 0
-
     if (isMobile || !currentPage.startsWith('/categories')) return null
 
     return (
@@ -79,7 +80,9 @@ export function CategoriesList() {
                             <Link
                                 to={`/categories?category=${categoryRoute}`}
                                 onClick={() => onClickCategory(categoryRoute)}
-                                className={`category-link flex align-center ${currCategory === categoryRoute && isOnlyCategoriesPage ? 'active' : ''
+                                className={`category-link flex align-center ${currCategory === categoryRoute && isOnlyCategoriesPage
+                                    ? 'active'
+                                    : ''
                                     }`}
                             >
                                 {categoryName}
