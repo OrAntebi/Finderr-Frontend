@@ -1,0 +1,41 @@
+import { storageService } from '../async-storage.service'
+import { userService } from '../user/user.service.local'
+
+const ORDER_KEY = 'orderDB'
+
+
+export const orderService = {
+    query,
+    getById,
+    save,
+    remove,
+}
+
+async function query(filterBy = {}) {
+    const loggedUser = userService.getLoggedinUser()
+
+    if (!loggedUser) return []
+
+    const orders = await storageService.query(ORDER_KEY)
+    return orders.filter(order =>
+        order.seller._id === loggedUser._id || order.buyer._id === loggedUser._id
+    )
+}
+
+async function getById(orderId) {
+    return await storageService.get(STORAGE_KEY, orderId)
+}
+
+async function remove(orderId) {
+    await storageService.remove(ORDER_KEY, orderId)
+}
+
+async function save(order) {
+    let savedOrder
+    if (order._id) {
+        savedOrder = await storageService.put(STORAGE_KEY, order)
+    } else {
+        savedOrder = await storageService.post(STORAGE_KEY, order)
+    }
+    return savedOrder
+}
