@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { loadGig } from '../store/gig/gig.actions'
 import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
@@ -10,6 +11,7 @@ import { Loader } from '../cmps/Loader'
 import { GigSlider } from '../cmps/GigSlider'
 import { PaymentModal } from '../cmps/PaymentModal'
 import { icons } from '../assets/icons/icons'
+
 
 
 export function GigDetails() {
@@ -60,7 +62,14 @@ export function GigDetails() {
     }
 
     function onPurchaseOrder() {
-        console.log('Purchase order', selectedPack)
+        const purchaseData = {
+            gigId: gig._id,
+            packageName: selectedPackage,
+        }
+
+        setIsModalOpen(false)
+        showSuccessMsg('Purchase order')
+        console.log('Purchase order', purchaseData)
     }
 
     const renderMainContent = () => (
