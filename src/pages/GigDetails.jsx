@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
+
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { orderService } from '../services/order/order.service.local'
+
 import { loadGig } from '../store/gig/gig.actions'
 import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
@@ -17,6 +20,7 @@ import { icons } from '../assets/icons/icons'
 export function GigDetails() {
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
+    const user = useSelector(storeState => storeState.userModule.user)
     const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
     const screenWidth = useScreenSize()
@@ -61,15 +65,41 @@ export function GigDetails() {
         setIsModalOpen(true)
     }
 
-    function onPurchaseOrder() {
-        const purchaseData = {
-            gigId: gig._id,
-            packageName: selectedPackage,
-        }
+    async function onPurchaseOrder() {
+        if (!user || !user._id) {
+            setIsModalOpen(false)
+            showErrorMsg('You must be logged in to place an order.')
+            return
+        } 
 
-        setIsModalOpen(false)
-        showSuccessMsg('Purchase order')
-        console.log('Purchase order', purchaseData)
+        try {
+            const orderToSave = {
+                buyer: {
+                    _id: user._id,
+                    fullname: user.fullname
+                },
+                seller: {
+                    _id: gig.owner._id,
+                    fullname: gig.owner.fullname
+                },
+                gig: {
+                    _id: gig._id,
+                    title: gig.title
+                },
+                price: selectedPack.packPrice,
+                packageName: selectedPack.packageName,
+                status: "pending",
+                createdAt: Date.now(),
+            }
+
+            await orderService.save(orderToSave)
+
+            setIsModalOpen(false)
+            showSuccessMsg('Your order was placed successfully!')
+        } catch (err) {
+            console.error('Failed to place order', err)
+            showErrorMsg('Something went wrong while placing your order.')
+        }
     }
 
     const renderMainContent = () => (
