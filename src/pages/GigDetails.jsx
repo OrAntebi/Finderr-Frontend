@@ -79,14 +79,13 @@ export function GigDetails() {
                 createdAt: Date.now()
             }
 
-
             await orderService.save(order)
-            setIsModalOpen(false)
-            console.log('order', order)
             showSuccessMsg('Purchased service successfully!')
         } catch (err) {
             console.error('Cannot save order', err)
             showErrorMsg('Failed to complete the purchase')
+        } finally {
+            setIsModalOpen(false)
         }
     }
 
