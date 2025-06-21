@@ -16,7 +16,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', categories: [], tags: [], sortBy: '' }
+  return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', category:'', tags: [], sortBy: '' }
 }
 
 function convertLvlToStars(level) {

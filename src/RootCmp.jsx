@@ -21,6 +21,7 @@ import { Signup } from './pages/Signup.jsx'
 
 import { setGigFilter } from './store/gig/gig.actions.js'
 import { useCallback } from 'react'
+import { Category } from '@mui/icons-material'
 
 
 export function RootCmp() {
@@ -31,7 +32,7 @@ export function RootCmp() {
         const searchQuery = rawQuery.trim()
         if (!searchQuery) return
 
-        setGigFilter({ ...gigservice.getDefaultFilter(), txt: searchQuery })
+        setGigFilter({ ...gigservice.getDefaultFilter(), txt: searchQuery, Category: '' })
 
         const params = new URLSearchParams({ query: searchQuery })
         navigate({ pathname: '/categories', search: `?${params.toString()}` })
