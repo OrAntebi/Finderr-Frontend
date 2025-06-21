@@ -1,3 +1,4 @@
+import { storageService } from '../async-storage.service'
 import { httpService } from '../http.service'
 
 
@@ -24,6 +25,7 @@ export const gigservice = {
     remove,
     addGigMsg,
     getCategoryList,
+    getAllTags,
     getCategoryTitleFromPath
 }
 
@@ -66,3 +68,24 @@ function getCategoryTitleFromPath(path) {
     const slug = path.split('/').filter(Boolean).at(-1)
     return getCategoryList(slug)
 }
+
+async function getAllTags() {
+    const gigRecords = await storageService.query(GIG_KEY)
+
+    const uniqueTagMap = gigRecords
+        .flatMap(gigItem => gigItem.tags || [])
+        .reduce((tagAccumulator, rawTag) => {
+            const trimmedTag = rawTag.trim()
+            const normalized = trimmedTag.toLowerCase()
+            if (!tagAccumulator.has(normalized)) {
+                tagAccumulator.set(normalized, trimmedTag)
+            }
+            return tagAccumulator
+        }, new Map())
+
+    const sortedTags = [...uniqueTagMap.values()]
+        .sort((tagA, tagB) => tagA.localeCompare(tagB, 'en', { sensitivity: 'base' }))
+
+    return sortedTags
+}
+
