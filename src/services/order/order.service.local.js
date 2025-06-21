@@ -23,7 +23,7 @@ async function query(filterBy = {}) {
 }
 
 async function getById(orderId) {
-    return await storageService.get(STORAGE_KEY, orderId)
+    return await storageService.get(ORDER_KEY, orderId)
 }
 
 async function remove(orderId) {
@@ -33,9 +33,9 @@ async function remove(orderId) {
 async function save(order) {
     let savedOrder
     if (order._id) {
-        savedOrder = await storageService.put(STORAGE_KEY, order)
+        savedOrder = await storageService.put(ORDER_KEY, order)
     } else {
-        savedOrder = await storageService.post(STORAGE_KEY, order)
+        savedOrder = await storageService.post(ORDER_KEY, order)
     }
     return savedOrder
 }

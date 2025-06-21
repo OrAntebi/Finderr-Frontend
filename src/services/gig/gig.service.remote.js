@@ -1,22 +1,4 @@
-import { storageService } from '../async-storage.service'
 import { httpService } from '../http.service'
-
-
-const CATEGORIES = {
-    'graphics-design': 'Graphics & Design',
-    'programming-tech': 'Programming & Tech',
-    'digital-marketing': 'Digital Marketing',
-    'video-animation': 'Video & Animation',
-    'writing-translation': 'Writing & Translation',
-    'music-audio': 'Music & Audio',
-    'business': 'Business',
-    'finance': 'Finance',
-    'ai-services': 'AI Services',
-    'personal-growth': 'Personal Growth',
-    'consulting': 'Consulting',
-    'data': 'Data',
-    'photography': 'Photography'
-}
 
 export const gigservice = {
     query,
@@ -24,12 +6,13 @@ export const gigservice = {
     save,
     remove,
     addGigMsg,
-    getCategoryList,
-    getAllTags,
-    getCategoryTitleFromPath
+    getAllTags
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = {}) {
+    const params = { ...filterBy };
+
+    if (Array.isArray(params.tags)) params.tags = params.tags.join(',');
     return httpService.get(`gig`, filterBy)
 }
 
@@ -56,21 +39,8 @@ async function addGigMsg(gigId, txt) {
     return savedMsg
 }
 
-function getCategoryList(key = null) {
-    if (key) return CATEGORIES[key] || key
-    return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
-        categoryRoute,
-        categoryName
-    }))
-}
-
-function getCategoryTitleFromPath(path) {
-    const slug = path.split('/').filter(Boolean).at(-1)
-    return getCategoryList(slug)
-}
-
 async function getAllTags() {
-    const gigRecords = await storageService.query(GIG_KEY)
+    const gigRecords = await query()
 
     const uniqueTagMap = gigRecords
         .flatMap(gigItem => gigItem.tags || [])
@@ -88,4 +58,3 @@ async function getAllTags() {
 
     return sortedTags
 }
-

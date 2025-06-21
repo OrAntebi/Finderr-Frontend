@@ -16,7 +16,7 @@ function getEmptyGig() {
 }
 
 function getDefaultFilter() {
-  return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', category:'', tags: [], sortBy: '' }
+  return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', category: '', tags: [], sortBy: '' }
 }
 
 function convertLvlToStars(level) {
@@ -25,6 +25,35 @@ function convertLvlToStars(level) {
   return Array.from({ length: maxStars }, (_, i) =>
     i < level ? fullStar : emptyStar
   )
+}
+
+function getCategoryList(key = null) {
+  const CATEGORIES = {
+    'graphics-design': 'Graphics & Design',
+    'programming-tech': 'Programming & Tech',
+    'digital-marketing': 'Digital Marketing',
+    'video-animation': 'Video & Animation',
+    'writing-translation': 'Writing & Translation',
+    'music-audio': 'Music & Audio',
+    'business': 'Business',
+    'finance': 'Finance',
+    'ai-services': 'AI Services',
+    'personal-growth': 'Personal Growth',
+    'consulting': 'Consulting',
+    'data': 'Data',
+    'photography': 'Photography'
+  }
+  
+  if (key) return CATEGORIES[key] || key
+  return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
+    categoryRoute,
+    categoryName
+  }))
+}
+
+function getCategoryTitleFromPath(path) {
+  const slug = path.split('/').filter(Boolean).at(-1)
+  return getCategoryList(slug)
 }
 
 const FILTER_KEYS = [
@@ -42,7 +71,7 @@ function queryParamsToFilter(qp) {
     [...qp].filter(([key]) => FILTER_KEYS.includes(key))
   )
   return {
-    categories: params.category ? [params.category] : [],
+    category: params.category || '',
     txt: params.query || '',
     daysToMake: params.daysToMake || '',
     minPrice: params.minPrice || '',
@@ -55,7 +84,7 @@ function queryParamsToFilter(qp) {
 function filterToQueryParams(filter, base = new URLSearchParams()) {
   FILTER_KEYS.forEach(key => base.delete(key))
 
-  if (filter.categories?.length) base.set('category', filter.categories[0])
+  if (filter.category) base.set('category', filter.category)
   if (filter.txt) base.set('query', filter.txt)
   if (filter.daysToMake) base.set('daysToMake', filter.daysToMake)
   if (filter.minPrice) base.set('minPrice', filter.minPrice)
@@ -67,10 +96,13 @@ function filterToQueryParams(filter, base = new URLSearchParams()) {
 }
 
 const service = VITE_LOCAL === 'true' ? local : remote
+
 export const gigservice = {
   getEmptyGig,
   getDefaultFilter,
   convertLvlToStars,
+  getCategoryList,
+  getCategoryTitleFromPath,
   queryParamsToFilter,
   filterToQueryParams,
   FILTER_KEYS,
