@@ -99,7 +99,7 @@ export function GigFilter() {
     const resetAll = () => {
         const def = {
             ...gigservice.getDefaultFilter(),
-            categories: filterBy.categories,
+            category: filterBy.category,
         }
         setFilter(def)
         setGigFilter(def)

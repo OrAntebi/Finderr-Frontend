@@ -7,7 +7,6 @@ import { logout } from '../store/user/user.actions'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { DynamicHeader } from './dynamicCmps/DynamicHeader.jsx'
 import { CategoriesList } from './CategoriesList.jsx'
-import { setGigFilter } from '../store/gig/gig.actions'
 
 export function AppHeader({ onSearch }) {
     const user = useSelector(storeState => storeState.userModule.user)

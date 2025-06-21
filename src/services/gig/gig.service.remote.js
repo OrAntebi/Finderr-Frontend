@@ -1,33 +1,18 @@
 import { httpService } from '../http.service'
 
-
-const CATEGORIES = {
-    'graphics-design': 'Graphics & Design',
-    'programming-tech': 'Programming & Tech',
-    'digital-marketing': 'Digital Marketing',
-    'video-animation': 'Video & Animation',
-    'writing-translation': 'Writing & Translation',
-    'music-audio': 'Music & Audio',
-    'business': 'Business',
-    'finance': 'Finance',
-    'ai-services': 'AI Services',
-    'personal-growth': 'Personal Growth',
-    'consulting': 'Consulting',
-    'data': 'Data',
-    'photography': 'Photography'
-}
-
 export const gigservice = {
     query,
     getById,
     save,
     remove,
     addGigMsg,
-    getCategoryList,
-    getCategoryTitleFromPath
+    getAllTags
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = {}) {
+    const params = { ...filterBy };
+
+    if (Array.isArray(params.tags)) params.tags = params.tags.join(',');
     return httpService.get(`gig`, filterBy)
 }
 
@@ -54,15 +39,22 @@ async function addGigMsg(gigId, txt) {
     return savedMsg
 }
 
-function getCategoryList(key = null) {
-    if (key) return CATEGORIES[key] || key
-    return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
-        categoryRoute,
-        categoryName
-    }))
-}
+async function getAllTags() {
+    const gigRecords = await query()
 
-function getCategoryTitleFromPath(path) {
-    const slug = path.split('/').filter(Boolean).at(-1)
-    return getCategoryList(slug)
+    const uniqueTagMap = gigRecords
+        .flatMap(gigItem => gigItem.tags || [])
+        .reduce((tagAccumulator, rawTag) => {
+            const trimmedTag = rawTag.trim()
+            const normalized = trimmedTag.toLowerCase()
+            if (!tagAccumulator.has(normalized)) {
+                tagAccumulator.set(normalized, trimmedTag)
+            }
+            return tagAccumulator
+        }, new Map())
+
+    const sortedTags = [...uniqueTagMap.values()]
+        .sort((tagA, tagB) => tagA.localeCompare(tagB, 'en', { sensitivity: 'base' }))
+
+    return sortedTags
 }
