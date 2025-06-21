@@ -1,36 +1,35 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function PricingPackages({ gig, screenWidth, icons, onContinueClick, selectedPackage, onSelectPackage }) {
-    const activeTab = selectedPackage
-    const setActiveTab = onSelectPackage
-
+export function PricingPackages({ gig, screenWidth, icons, selectedPack, onSelectPackage, onContinueClick, getRevisionText }) {
     const { packages } = gig
     const tabs = ['basic', 'standard', 'premium']
-    const currentPackage = packages[activeTab]
+    const currentPackage = packages[selectedPack.packageName]
 
     return (
         <section className={`gig-package-section${screenWidth < 964 ? ' full main-container' : ''}`}>
-            {screenWidth >= 964 && <div className="like-and-share flex align-center">
-                <div className="collect-wrapper flex align-center justify-center">
-                    <div className="like-wrapper flex align-center justify-center">
-                        <button><span><img src={icons.hamburger} alt="hamburger-icon" /></span></button>
-                        <button><span><img src={icons.heart} alt="heart-icon" /></span></button>
+            {screenWidth >= 964 && (
+                <div className="like-and-share flex align-center">
+                    <div className="collect-wrapper flex align-center justify-center">
+                        <div className="like-wrapper flex align-center justify-center">
+                            <button><span><img src={icons.hamburger} alt="hamburger-icon" /></span></button>
+                            <button><span><img src={icons.heart} alt="heart-icon" /></span></button>
+                        </div>
+                        <span className="collect-count">38</span>
                     </div>
-                    <span className="collect-count">38</span>
+                    <button className="share-dots"><img src={icons.share} alt="share-icon" /></button>
+                    <button className="share-dots"><img src={icons.dots} alt="dots-icon" /></button>
                 </div>
-                <button className="share-dots"><img src={icons.share} alt="share-icon" /></button>
-                <button className="share-dots"><img src={icons.dots} alt="dots-icon" /></button>
-            </div>}
-            <div className={`pricing-packages ${screenWidth < 964 ? ' full main-container' : ''}`}>
+            )}
+
+            <div className={`pricing-packages${screenWidth < 964 ? ' full main-container' : ''}`}>
                 <nav role="tablist" className="full">
                     {tabs.map(tab => (
                         <button
                             key={tab}
                             role="tab"
-                            aria-selected={activeTab === tab}
-                            className={activeTab === tab ? 'active' : ''}
-                            onClick={() => setActiveTab(tab)}
+                            aria-selected={selectedPack.packageName === tab}
+                            className={selectedPack.packageName === tab ? 'active' : ''}
+                            onClick={() => onSelectPackage(tab)}
                         >
                             {tab.charAt(0).toUpperCase() + tab.slice(1)}
                         </button>
@@ -41,7 +40,8 @@ export function PricingPackages({ gig, screenWidth, icons, onContinueClick, sele
                     <div className="price flex column">
                         <span className="amount">${currentPackage.packPrice}</span>
                         <p className="discount">
-                            Save up to {activeTab === 'basic' ? '2%' : activeTab === 'standard' ? '5%' : '10%'} with
+                            Save up to {selectedPack.packageName === 'basic' ? '2%' :
+                                selectedPack.packageName === 'standard' ? '5%' : '10%'} with
                             <Link to="/login"> Subscribe to Save</Link>
                         </p>
                     </div>
@@ -55,11 +55,7 @@ export function PricingPackages({ gig, screenWidth, icons, onContinueClick, sele
                         </div>
                         <div className="revisions flex">
                             <span><img src={icons.round} alt="" /></span>
-                            <span>
-                                {activeTab === 'premium' ? 'Unlimited Revisions' :
-                                    activeTab === 'standard' ? '3 Revisions' :
-                                        '1 Revision'}
-                            </span>
+                            <span>{getRevisionText()}</span>
                         </div>
                     </div>
 
