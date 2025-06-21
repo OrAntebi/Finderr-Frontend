@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { loadGig } from '../store/gig/gig.actions'
@@ -21,6 +21,7 @@ export function GigDetails() {
     const [isLoading, setIsLoading] = useState(true)
     const screenWidth = useScreenSize()
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (isModalOpen) {
@@ -70,6 +71,7 @@ export function GigDetails() {
         setIsModalOpen(false)
         showSuccessMsg('Purchase order')
         console.log('Purchase order', purchaseData)
+        navigate(`/checkout/${gig._id}/${selectedPackage}`)
     }
 
     const renderMainContent = () => (

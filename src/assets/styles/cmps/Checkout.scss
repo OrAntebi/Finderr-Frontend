@@ -1,0 +1,38 @@
+.checkout-page {
+    padding: rem(24px) rem(24px) rem(48px);
+
+    h3 {
+        margin: 0;
+        padding: rem(16px);
+
+        border: 1px solid #efeff0;
+        border-radius: rem(4px) rem(4px) 0 0;
+    }
+
+    .checkout-options {
+        padding: rem(16px);
+        
+        border: 1px solid #efeff0;
+        border-block-start: none;
+        border-radius: 0 0 rem(4px) rem(4px);
+    }
+}
+
+
+// .checkout-option input[type="radio"] {
+//     position: absolute;
+//     opacity: 0;
+// }
+
+// .radio-custom {
+//     width: 16px;
+//     height: 16px;
+//     border: 2px solid #ccc;
+//     border-radius: 50%;
+//     transition: background .2s;
+// }
+
+// input[type="radio"]:checked+.radio-custom {
+//     background: #1dbf73;
+//     border-color: #1dbf73;
+// }

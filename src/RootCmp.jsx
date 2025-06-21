@@ -22,6 +22,7 @@ import { Signup } from './pages/Signup.jsx'
 import { setGigFilter } from './store/gig/gig.actions.js'
 import { useCallback } from 'react'
 import { Category } from '@mui/icons-material'
+import { Checkout } from './pages/Checkout.jsx'
 
 
 export function RootCmp() {
@@ -52,6 +53,7 @@ export function RootCmp() {
                     </Route>
                     <Route path="categories" element={<GigIndex />} />
                     <Route path="categories/:gigId" element={<GigDetails />} />
+                    <Route path="checkout/:gigId/:package" element={<Checkout />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />
