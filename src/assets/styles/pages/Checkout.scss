@@ -64,7 +64,11 @@
                 box-shadow: inset 0 2px 4px rgba(0, 0, 0, .06);
 
                 .card-details {
-                    max-width: 520px;
+
+                    @include for-normal-layout {
+                        max-width: 520px;
+
+                    }
 
                     label p {
                         padding-block: rem(32px) rem(8px);
@@ -384,7 +388,6 @@
         }
 
         @include for-normal-layout {
-
             border: 1px solid #efeff0;
 
         }
@@ -392,6 +395,6 @@
 
     @include for-normal-layout {
         grid-template-columns: 2fr 1fr;
-        gap: 10rem;
+        gap: 4rem;
     }
 }
