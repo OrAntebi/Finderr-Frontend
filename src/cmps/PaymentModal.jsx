@@ -1,6 +1,6 @@
 import { icons } from '../assets/icons/icons'
 
-export function PaymentModal({ isModalOpen, onCloseModal, selectedPack, gig, onPurchaseOrder, getRevisionText }) {
+export function PaymentModal({ isModalOpen, onCloseModal, selectedPack, gig, onProceedToPayment, getRevisionText }) {
     return (
         <div className={`modal-payment flex column ${isModalOpen ? 'modal-open' : ''}`}>
             <div className={`modal-payment flex column modal-open`}>
@@ -49,7 +49,7 @@ export function PaymentModal({ isModalOpen, onCloseModal, selectedPack, gig, onP
                 <div className="modal-footer">
                     <button
                         className="continue-btn flex align-center justify-center"
-                        onClick={onPurchaseOrder}
+                        onClick={onProceedToPayment}
                     >
                         <span>Continue</span>
                         <span>(${selectedPack.packPrice})</span>

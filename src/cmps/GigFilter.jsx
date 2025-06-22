@@ -110,8 +110,8 @@ export function GigFilter() {
         applyChanges({ tags: filter.tags.filter(t => t !== tag) })
 
     return (
-        <section className="gig-filter-container flx column">
-            <section className="gig-filter">
+        <section className="gig-filter-container flex column">
+            <section className="gig-filter flex align-center wrap">
                 <DeliveryDropdown
                     isOpen={openDropdown === 'delivery'}
                     toggle={() => setOpenDropdown(openDropdown === 'delivery' ? null : 'delivery')}
@@ -154,7 +154,7 @@ export function GigFilter() {
                 clearBudget={() => clearKey('budget')}
             />
 
-            <section className="gig-sort flex align-center justify-between">
+            <section className="gig-sort flex column align-center justify-between">
                 <span>{gigsCountText}</span>
 
                 <div className="sort-by-container flex align-center">
@@ -398,9 +398,9 @@ function ActiveFilters({ filter, removeTag, clearDelivery, clearBudget }) {
     if (!chips.length) return null
 
     return (
-        <section className='active-filters flex gap8 wrap'>
+        <section className='active-filters flex align-center wrap'>
             {chips.map(c => (
-                <span key={c.id} className='chip' onClick={c.onClear}>
+                <span key={c.id} className="chip" onClick={c.onClear}>
                     {c.label}
                     <button>
                         <img src={closeIcon} alt='remove' />

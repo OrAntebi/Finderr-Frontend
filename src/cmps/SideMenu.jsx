@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import menu from '../assets/img/menu.svg'
 import UserAvatar from './UserAvatar.jsx'
 
-export default function SideMenu({ user, onMenuClick }) {
+export default function SideMenu({ user, onLogout, onMenuClick }) {
     const navigate = useNavigate()
 
     function handleUserClick(ev) {
@@ -17,15 +17,18 @@ export default function SideMenu({ user, onMenuClick }) {
             <section className="side-menu-container">
                 <ul className="side-menu">
                     {user ? (
-                        <li className="user-info flex align-center">
-                            <UserAvatar
-                                imgUrl={user.imgUrl}
-                                userName={user.fullname}
-                                onAvatarClick={handleUserClick}
-                                size={{ width: 54, height: 54 }}
-                            />
-                            <p className="user-full-name" onClick={handleUserClick}>{user.fullname}</p>
-                        </li>
+                        <>
+                            <li className="user-info flex align-center">
+                                <UserAvatar
+                                    imgUrl={user.imgUrl}
+                                    userName={user.fullname}
+                                    onAvatarClick={handleUserClick}
+                                    size={{ width: 54, height: 54 }}
+                                />
+                                <p className="user-full-name" onClick={handleUserClick}>{user.fullname}</p>
+                            </li>
+
+                        </>
                     ) : (
                         <>
                             <li>
@@ -41,11 +44,19 @@ export default function SideMenu({ user, onMenuClick }) {
                         </>
                     )}
                     <li>
-                        <NavLink to="/about" className="main-nav-link" onClick={onMenuClick}>About</NavLink>
-                    </li>
-                    <li>
                         <NavLink to="/categories" className="main-nav-link" onClick={onMenuClick}>Explore</NavLink>
                     </li>
+
+                    {user && (
+                        <>
+                            <li>
+                                <NavLink to={`/user/${user._id}/orders`} className="main-nav-link" onClick={onMenuClick}>Orders</NavLink>
+                            </li>
+                            <li>
+                                <a className="main-nav-link" onClick={onLogout}>Logout</a>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </section>
             <div className="side-menu-overlay" onClick={onMenuClick}></div>

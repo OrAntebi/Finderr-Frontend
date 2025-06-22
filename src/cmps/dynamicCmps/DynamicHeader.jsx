@@ -16,11 +16,11 @@ export function DynamicHeader({ screenWidth, ...props }) {
     return <NormalHeader {...props} user={user} />
 }
 
-function MobileHeader({ user, onMenuClick, currentPage, onSearch }) {
+function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
-                <SideMenu user={user} onMenuClick={onMenuClick} />
+                <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick} />
                 <SiteLogo />
                 {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
@@ -71,7 +71,6 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                 <SiteLogo />
                 {currentPage.startsWith('/categories') && <SearchInput onSearch={onSearch}/>}
                 <nav>
-                    <NavLink to="/about" className="main-nav-link">About</NavLink>
                     <NavLink to="/categories" className="main-nav-link">Explore</NavLink>
                     {user ? (
                         <>
