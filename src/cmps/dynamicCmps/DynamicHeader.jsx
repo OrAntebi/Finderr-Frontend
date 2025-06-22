@@ -115,7 +115,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                 <DropdownMenu
                                     isOpen={dropdownOpen.orders}
                                     onClose={() => closeDropdown('orders')}
-                                    items={[{ type: 'link', to: '/orders', label: 'Your Orders' }]}
+                                    items={[{ type: 'link', to: '/user/:id/orders', label: 'Your Orders' }]}
                                     className="orders-menu"
                                 />
                             </div>
