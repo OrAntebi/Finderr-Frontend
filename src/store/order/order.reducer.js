@@ -1,19 +1,14 @@
-import { orderService } from "../../services/gig"
-
-export const SET_GIGS = 'SET_GIGS'
-
+export const SET_ORDERS = 'SET_ORDERS'
 
 const initialState = {
-    gigs: [],
-    gig: null,
-    filterBy: gigService.getDefaultFilter()
+    orders: [],
 }
 
 export function gigReducer(state = initialState, action) {
     var newState = state
     switch (action.type) {
-        case SET_GIGS:
-            newState = { ...state, gigs: action.gigs }
+        case SET_ORDERS:
+            newState = { ...state, orders: action.orders }
             break
         default:
     }

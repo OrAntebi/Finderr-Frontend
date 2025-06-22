@@ -8,10 +8,9 @@ export const orderService = {
     query,
     getById,
     save,
-    remove,
 }
 
-async function query(filterBy = {}) {
+async function query() {
     const loggedUser = userService.getLoggedinUser()
 
     if (!loggedUser) return []
@@ -24,10 +23,6 @@ async function query(filterBy = {}) {
 
 async function getById(orderId) {
     return await storageService.get(ORDER_KEY, orderId)
-}
-
-async function remove(orderId) {
-    await storageService.remove(ORDER_KEY, orderId)
 }
 
 async function save(order) {

@@ -20,8 +20,8 @@ export function OrderIndex() {
     if (isLoading) return <Loader />
 
     return (
-        <section className="orders-page main-layout full">
-            {<OrderList orders={orders} openModal={openOrderModal} loggedUser={loggedUser} mode={'buyer'} />}
+        <section className="orders-page">
+            {<OrderList orders={orders} loggedUser={loggedUser} />}
         </section>
     )
 }

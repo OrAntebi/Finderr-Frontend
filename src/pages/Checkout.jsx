@@ -52,7 +52,10 @@ export function Checkout() {
                     _id: user._id,
                     fullname: user.fullname
                 },
-                seller: gig.owner,
+                seller: {
+                    _id: gig.owner._id,
+                    fullname: gig.owner.fullname
+                },
                 gig: {
                     _id: gig._id,
                     title: gig.title
