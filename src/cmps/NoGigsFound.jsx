@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router'
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 import { setGigFilter } from '../store/gig/gig.actions'
 
 export function NoGigsFound() {
     const navigate = useNavigate()
 
     function onBack() {
-        setGigFilter(gigservice.getDefaultFilter())
+        setGigFilter(gigService.getDefaultFilter())
         navigate('/categories')
     }
 

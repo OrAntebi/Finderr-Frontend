@@ -6,7 +6,7 @@ export const SET_GIGS = 'SET_GIGS'
 const initialState = {
     gigs: [],
     gig: null,
-    filterBy: gigservice.getDefaultFilter()
+    filterBy: gigService.getDefaultFilter()
 }
 
 export function gigReducer(state = initialState, action) {

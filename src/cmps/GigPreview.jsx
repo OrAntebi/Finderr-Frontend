@@ -1,10 +1,10 @@
-import { gigservice } from "../services/gig"
+import { gigService } from "../services/gig"
 import { Link } from "react-router-dom"
 import { GigSlider } from "./GigSlider"
 
 export function GigPreview({ gig }) {
 
-    const levelStars = gigservice.convertLvlToStars(gig.owner.level)
+    const levelStars = gigService.convertLvlToStars(gig.owner.level)
         .map((src, idx) => (
             <img key={idx} src={src} alt="star" className="star-img" />
         ))

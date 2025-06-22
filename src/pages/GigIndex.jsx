@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { loadGigs, updateGig, removeGig } from '../store/gig/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 import { useGigFilterQuery } from '../customHooks/useGigFilterQuery'
 
 import { BreadCrumbs } from '../cmps/BreadCrumbs'
@@ -47,7 +47,7 @@ export function GigIndex() {
 
     function getTitle() {
         return filter.categories.length
-            ? gigservice.getCategoryTitleFromPath(filter.categories[0])
+            ? gigService.getCategoryTitleFromPath(filter.categories[0])
             : 'Categories'
     }
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { setGigFilter } from '../store/gig/gig.actions'
 
@@ -14,7 +14,7 @@ import leftArrowIcon from '../assets/img/left-arrow-icon.svg'
 
 export function CategoriesList() {
     const screenWidth = useScreenSize()
-    const categoryList = gigservice.getCategoryList()
+    const categoryList = gigService.getCategoryList()
 
     const location = useLocation()
     const currentPage = location.pathname
@@ -56,8 +56,8 @@ export function CategoriesList() {
     }, [currentPage, currCategory, isOnlyCategoriesPage])
 
     function onClickCategory(category) {
-        // setGigFilter({ ...gigservice.getDefaultFilter(), categories: [category] })
-        setGigFilter({ ...gigservice.getDefaultFilter(), category: category })
+        // setGigFilter({ ...gigService.getDefaultFilter(), categories: [category] })
+        setGigFilter({ ...gigService.getDefaultFilter(), category: category })
     }
 
     const isMobile = screenWidth < 664

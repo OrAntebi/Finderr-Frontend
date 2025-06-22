@@ -2,13 +2,13 @@ import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
 import { setGigFilter } from '../store/gig/gig.actions'
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 
 import arrowIcon from '../assets/img/dropdown-arrow-icon.svg'
 import checkIcon from '../assets/img/check-icon-2.svg'
 import closeIcon from '../assets/img/close-icon.svg'
 
-const { queryParamsToFilter, filterToQueryParams } = gigservice
+const { queryParamsToFilter, filterToQueryParams } = gigService
 
 const BUDGET_OPTIONS = [
     { id: 'value', label: 'Value', note: 'Under ₪200', min: '', max: 200 },
@@ -46,7 +46,7 @@ export function GigFilter() {
     const dropdownRefs = useRef({})
 
     useEffect(() => {
-        gigservice.getAllTags().then(setAllTags)
+        gigService.getAllTags().then(setAllTags)
     }, [])
 
     useEffect(() => {
@@ -98,7 +98,7 @@ export function GigFilter() {
 
     const resetAll = () => {
         const def = {
-            ...gigservice.getDefaultFilter(),
+            ...gigService.getDefaultFilter(),
             categories: filterBy.categories,
         }
         setFilter(def)

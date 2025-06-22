@@ -1,6 +1,6 @@
 import { useLocation, useSearchParams, Link } from 'react-router-dom'
 import homeIcon from '../assets/img/home-icon.svg'
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 
 export function BreadCrumbs() {
     const location = useLocation()
@@ -8,7 +8,7 @@ export function BreadCrumbs() {
 
     const isInCategories = location.pathname.startsWith('/categories')
     const category = searchParams.get('category')
-    const categoryTitle = category ? gigservice.getCategoryTitleFromPath(category) : null
+    const categoryTitle = category ? gigService.getCategoryTitleFromPath(category) : null
     const isGigDetails = location.pathname.split('/').length === 3
 
     if (!isInCategories) return null

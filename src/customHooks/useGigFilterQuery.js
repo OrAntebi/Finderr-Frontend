@@ -1,11 +1,11 @@
 
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { gigservice } from '../services/gig'
+import { gigService } from '../services/gig'
 import { setGigFilter } from '../store/gig/gig.actions'
 import { useSelector } from 'react-redux'
 
-const { queryParamsToFilter, filterToQueryParams, getDefaultFilter } = gigservice
+const { queryParamsToFilter, filterToQueryParams, getDefaultFilter } = gigService
 
 export function useGigFilterQuery() {
     const [searchParams, setSearchParams] = useSearchParams()

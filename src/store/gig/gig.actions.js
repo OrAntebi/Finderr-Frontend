@@ -1,11 +1,11 @@
-import { gigservice } from '../../services/gig'
+import { gigService } from '../../services/gig'
 import { store } from '../store'
 import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_GIG_FILTER } from './gig.reducer'
 
 export async function loadGigs() {
     try {
         const { filterBy } = store.getState().gigModule
-        const gigs = await gigservice.query(filterBy)
+        const gigs = await gigService.query(filterBy)
         store.dispatch(getCmdSetGigs(gigs))
     } catch (err) {
         console.log('Cannot load gigs', err)
@@ -15,7 +15,7 @@ export async function loadGigs() {
 
 export async function loadGig(gigId) {
     try {
-        const gig = await gigservice.getById(gigId)
+        const gig = await gigService.getById(gigId)
         store.dispatch(getCmdSetGig(gig))
     } catch (err) {
         console.log('Cannot load gig', err)
@@ -26,7 +26,7 @@ export async function loadGig(gigId) {
 
 export async function removeGig(gigId) {
     try {
-        await gigservice.remove(gigId)
+        await gigService.remove(gigId)
         store.dispatch(getCmdRemoveGig(gigId))
     } catch (err) {
         console.log('Cannot remove gig', err)
@@ -36,7 +36,7 @@ export async function removeGig(gigId) {
 
 export async function addGig(gig) {
     try {
-        const savedGig = await gigservice.save(gig)
+        const savedGig = await gigService.save(gig)
         store.dispatch(getCmdAddGig(savedGig))
         return savedGig
     } catch (err) {
@@ -47,7 +47,7 @@ export async function addGig(gig) {
 
 export async function updateGig(gig) {
     try {
-        const savedGig = await gigservice.save(gig)
+        const savedGig = await gigService.save(gig)
         store.dispatch(getCmdUpdateGig(savedGig))
         return savedGig
     } catch (err) {
@@ -63,7 +63,7 @@ export function setGigFilter(filterBy) {
 
 export async function addGigMsg(gigId, txt) {
     try {
-        const msg = await gigservice.addGigMsg(gigId, txt)
+        const msg = await gigService.addGigMsg(gigId, txt)
         store.dispatch(getCmdAddGigMsg(msg))
         return msg
     } catch (err) {
@@ -121,7 +121,7 @@ function getCmdAddGigMsg(msg) {
 // unitTestActions()
 async function unitTestActions() {
     await loadGigs()
-    await addGig(gigservice.getEmptyGig())
+    await addGig(gigService.getEmptyGig())
     await updateGig({
         _id: 'm1oC7',
         title: 'Gig-Good',

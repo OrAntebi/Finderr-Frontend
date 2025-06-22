@@ -18,7 +18,7 @@ const CATEGORIES = {
     'photography': 'Photography'
 }
 
-export const gigservice = {
+export const gigService = {
     query,
     getById,
     save,

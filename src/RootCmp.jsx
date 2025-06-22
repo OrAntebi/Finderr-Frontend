@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router'
 
-import { gigservice } from './services/gig'
+import { gigService } from './services/gig'
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
 import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
@@ -32,7 +32,7 @@ export function RootCmp() {
         const searchQuery = rawQuery.trim()
         if (!searchQuery) return
 
-        setGigFilter({ ...gigservice.getDefaultFilter(), txt: searchQuery, Category: '' })
+        setGigFilter({ ...gigService.getDefaultFilter(), txt: searchQuery, Category: '' })
 
         const params = new URLSearchParams({ query: searchQuery })
         navigate({ pathname: '/categories', search: `?${params.toString()}` })

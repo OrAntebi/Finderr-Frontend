@@ -3,8 +3,8 @@ import { getRandomIntInclusive, makeId } from '../util.service'
 import fullStar from '../../assets/img/owner-level-full.svg'
 import emptyStar from '../../assets/img/owner-level-empty.svg'
 
-import { gigservice as local } from './gig.service.local'
-import { gigservice as remote } from './gig.service.remote'
+import { gigService as local } from './gig.service.local'
+import { gigService as remote } from './gig.service.remote'
 
 function getEmptyGig() {
   return {
@@ -67,7 +67,7 @@ function filterToQueryParams(filter, base = new URLSearchParams()) {
 }
 
 const service = VITE_LOCAL === 'true' ? local : remote
-export const gigservice = {
+export const gigService = {
   getEmptyGig,
   getDefaultFilter,
   convertLvlToStars,
@@ -109,4 +109,4 @@ export const gigservice = {
 //* Easy access to this service from the dev tools console
 //* when using script - dev / dev:local
 
-if (DEV) window.gigservice = gigservice
+if (DEV) window.gigService = gigService

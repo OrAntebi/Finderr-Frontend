@@ -20,7 +20,7 @@ const CATEGORIES = {
     'photography': 'Photography'
 }
 
-export const gigservice = {
+export const gigService = {
     query,
     getById,
     save,
@@ -32,7 +32,7 @@ export const gigservice = {
     getAllTags
 }
 
-window.cs = gigservice
+window.cs = gigService
 
 _initGigDB()
 function _initGigDB() {

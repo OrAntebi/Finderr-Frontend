@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { gigservice } from "../services/gig"
+import { gigService } from "../services/gig"
 import { useScreenSize } from '../customHooks/useScreenSize'
 import starSvg from '../assets/img/star-icon.svg'
 
@@ -16,7 +16,7 @@ export function OwnerDetails({ owner, isLarge }) {
             ? owner.about.slice(0, owner.about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
             : owner.about
 
-    const levelStars = gigservice.convertLvlToStars(owner.level)
+    const levelStars = gigService.convertLvlToStars(owner.level)
         .map((src, idx) => (
             <img key={idx} src={src} alt="star" className="star" />
         ))
