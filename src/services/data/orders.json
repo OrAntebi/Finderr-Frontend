@@ -1,0 +1,23 @@
+[
+  {
+     "buyer":{
+        "_id": "Zk4Yj",
+        "fullname":"shay",
+        "username":"s360"
+     },
+     "seller":{
+        "_id":"6543e5d9151fc839cfbe2d54",
+        "fullname":"Taylor P",
+        "username":"taylor_paul10"
+     },
+     "gig":{
+        "_id":"6543e94f151fc839cfbe2d92",
+        "title":"I will create custom company logo design for your business"
+         },
+     "packageName": "standard",
+     "price": 15,
+     "title":"Bronze",
+     "createdAt":1698570506603,
+     "status":"fulfilled"
+  } 
+]

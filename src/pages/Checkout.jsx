@@ -43,7 +43,6 @@ export function Checkout() {
             .finally(() => setIsLoading(false))
     }, [gigId])
 
-
     async function onPurchaseOrder() {
 
         try {
@@ -54,11 +53,13 @@ export function Checkout() {
                 },
                 seller: {
                     _id: gig.owner._id,
-                    fullname: gig.owner.fullname
+                    fullname: gig.owner.fullname,
+                    imgUrl: gig.owner.imgUrl
                 },
                 gig: {
                     _id: gig._id,
-                    title: gig.title
+                    title: gig.title,
+                    imgUrl: gig.imgUrls[0]
                 },
                 status: 'pending',
                 packageName,

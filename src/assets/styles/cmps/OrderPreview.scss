@@ -1,0 +1,129 @@
+.order-preview {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .order-status {
+        margin-bottom: 20px;
+
+        .status-label {
+            font-size: 12px;
+            color: #777;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .status-info {
+            margin: 8px 0;
+
+            .status-value {
+                font-weight: bold;
+                font-size: 14px;
+                margin-right: 8px;
+            }
+
+            .due-date {
+                font-size: 12px;
+                color: #777;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+
+            .progress-fill {
+                height: 100%;
+                transition: width 0.3s ease;
+            }
+        }
+    }
+
+    .gig-info {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+
+        .gig-image {
+            img {
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+        }
+
+        .gig-details {
+            flex: 1;
+
+            .gig-title {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 0 0 4px 0;
+                color: #333;
+            }
+
+            .gig-category {
+                font-size: 13px;
+                color: #666;
+                margin: 0 0 4px 0;
+            }
+
+            .seller-name {
+                font-size: 12px;
+                color: #777;
+                margin: 0;
+            }
+        }
+    }
+
+    .order-details {
+        margin-bottom: 20px;
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+
+            .detail-label {
+                font-size: 12px;
+                color: #777;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+
+            .detail-value {
+                font-size: 12px;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .order-actions {
+        text-align: right;
+
+        .view-order-btn {
+            background: #1dbf73;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: #17a060;
+            }
+        }
+    }
+}
