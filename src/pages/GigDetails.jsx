@@ -19,7 +19,7 @@ export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const gig = useSelector(storeState => storeState.gigModule.gig)
-    const user = useSelector(storeState => storeState.userModule.user)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
     const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -55,7 +55,7 @@ export function GigDetails() {
 
     async function onPurchaseOrder() {
         try {
-            if (!user || !user._id) {
+            if (!loggedUser || !loggedUser._id) {
                 showErrorMsg('You must be logged in to purchase services.')
                 return
             }
@@ -64,8 +64,8 @@ export function GigDetails() {
 
             const order = {
                 buyer: {
-                    _id: user._id,
-                    fullname: user.fullname
+                    _id: loggedUser._id,
+                    fullname: loggedUser.fullname
                 },
                 seller: gig.owner,
                 gig: {
