@@ -4,7 +4,7 @@ const initialState = {
     orders: [],
 }
 
-export function gigReducer(state = initialState, action) {
+export function orderReducer(state = initialState, action) {
     var newState = state
     switch (action.type) {
         case SET_ORDERS:

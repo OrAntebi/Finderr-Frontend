@@ -2,12 +2,14 @@ import { legacy_createStore as createStore, combineReducers } from 'redux'
 
 import { gigReducer } from './gig/gig.reducer'
 import { userReducer } from './user/user.reducer'
+import { orderReducer } from './order/order.reducer'
 import { reviewReducer } from './review/review.reducer'
 import { systemReducer } from './system.reducer'
 
 const rootReducer = combineReducers({
     gigModule: gigReducer,
     userModule: userReducer,
+    orderModule: orderReducer,
     systemModule: systemReducer,
     reviewModule: reviewReducer,
 })
