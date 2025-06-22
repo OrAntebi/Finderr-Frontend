@@ -1,26 +1,22 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
-
 import { setGigFilter } from '../store/gig/gig.actions'
 import { gigService } from '../services/gig'
-
 import arrowIcon from '../assets/img/dropdown-arrow-icon.svg'
 import checkIcon from '../assets/img/check-icon-2.svg'
 import closeIcon from '../assets/img/close-icon.svg'
-
-const { queryParamsToFilter, filterToQueryParams } = gigService
 
 const BUDGET_OPTIONS = [
     { id: 'value', label: 'Value', note: 'Under ₪200', min: '', max: 200 },
     { id: 'mid', label: 'Mid-range', note: '₪200-₪364', min: 200, max: 364 },
     { id: 'high', label: 'High-end', note: '₪364 & Above', min: 364, max: '' },
-    { id: 'custom', label: 'Custom', note: '', isCustom: true },
+    { id: 'custom', label: 'Custom', note: '', isCustom: true }
 ]
 const DELIVERY_OPTIONS = [
     { label: 'Express 24H', value: 1 },
     { label: 'Up to 3 days', value: 3 },
     { label: 'Up to 7 days', value: 7 },
-    { label: 'Anytime', value: '' },
+    { label: 'Anytime', value: '' }
 ]
 const SORT_OPTIONS = [
     { label: 'Recommended', value: 'recommended' },
@@ -28,7 +24,7 @@ const SORT_OPTIONS = [
     { label: 'Newest Arrivals', value: 'newest-arrivals' },
     { label: 'Fastest Delivery', value: 'fastest-delivery' },
     { label: 'Price: Low → High', value: 'price-low-to-high' },
-    { label: 'Price: High → Low', value: 'price-high-to-low' },
+    { label: 'Price: High → Low', value: 'price-high-to-low' }
 ]
 
 export function GigFilter() {
@@ -53,7 +49,7 @@ export function GigFilter() {
         setFilter({
             ...structuredClone(filterBy),
             tags: filterBy.tags || [],
-            sortBy: filterBy.sortBy || 'recommended',
+            sortBy: filterBy.sortBy || 'recommended'
         })
     }, [filterBy])
 
@@ -71,22 +67,19 @@ export function GigFilter() {
         dropdownRefs.current[key] = node
     }
 
-    const applyChanges = useCallback(
-        changes => {
-            const next = { ...filter, ...changes }
-            setFilter(next)
-            setGigFilter(next)
-            setOpenDropdown(null)
-        },
-        [filter]
-    )
+    const applyChanges = useCallback(changes => {
+        const next = { ...filter, ...changes }
+        setFilter(next)
+        setGigFilter(next)
+        setOpenDropdown(null)
+    }, [filter])
 
     const clearKey = section => {
         const cleared = {
             delivery: { daysToMake: '' },
             budget: { minPrice: '', maxPrice: '' },
             tags: { tags: [] },
-            sort: { sortBy: 'recommended' },
+            sort: { sortBy: 'recommended' }
         }[section]
         applyChanges(cleared)
     }
@@ -98,8 +91,8 @@ export function GigFilter() {
 
     const resetAll = () => {
         const def = {
-            ...gigService.getDefaultFilter(),
-            category: filterBy.category,
+            ...gigservice.getDefaultFilter(),
+            category: filterBy.category
         }
         setFilter(def)
         setGigFilter(def)
@@ -114,7 +107,7 @@ export function GigFilter() {
             <section className="gig-filter flex align-center wrap">
                 <DeliveryDropdown
                     isOpen={openDropdown === 'delivery'}
-                    toggle={() => setOpenDropdown(openDropdown === 'delivery' ? null : 'delivery')}
+                    toggle={() => setOpenDropdown(prev => prev === 'delivery' ? null : 'delivery')}
                     register={n => registerRef('delivery', n)}
                     draft={{ daysToMake: filter.daysToMake }}
                     options={DELIVERY_OPTIONS}
@@ -124,7 +117,7 @@ export function GigFilter() {
 
                 <BudgetDropdown
                     isOpen={openDropdown === 'budget'}
-                    toggle={() => setOpenDropdown(openDropdown === 'budget' ? null : 'budget')}
+                    toggle={() => setOpenDropdown(prev => prev === 'budget' ? null : 'budget')}
                     register={n => registerRef('budget', n)}
                     draft={{ minPrice: filter.minPrice, maxPrice: filter.maxPrice }}
                     options={BUDGET_OPTIONS}
@@ -134,7 +127,7 @@ export function GigFilter() {
 
                 <TagsDropdown
                     isOpen={openDropdown === 'tags'}
-                    toggle={() => setOpenDropdown(openDropdown === 'tags' ? null : 'tags')}
+                    toggle={() => setOpenDropdown(prev => prev === 'tags' ? null : 'tags')}
                     register={n => registerRef('tags', n)}
                     tags={allTags}
                     selected={filter.tags}
@@ -161,7 +154,7 @@ export function GigFilter() {
                     <span>Sort by:</span>
                     <SortDropdown
                         isOpen={openDropdown === 'sort'}
-                        toggle={() => setOpenDropdown(openDropdown === 'sort' ? null : 'sort')}
+                        toggle={() => setOpenDropdown(prev => prev === 'sort' ? null : 'sort')}
                         register={n => registerRef('sort', n)}
                         options={SORT_OPTIONS}
                         current={filter.sortBy}
@@ -173,11 +166,13 @@ export function GigFilter() {
     )
 }
 
-/* ───────── WRAPPER ───────── */
 function DropdownWrapper({ isOpen, toggle, register, wrapperClasses, contentClasses, buttonLabel, children }) {
     return (
         <section className={`dropdown-filter ${wrapperClasses} ${isOpen ? 'open' : ''}`}>
-            <button onClick={toggle}>
+            <button
+                onPointerDown={e => e.stopPropagation()}
+                onClick={toggle}
+            >
                 {buttonLabel}
                 <img src={arrowIcon} alt='' className={`arrow-icon ${isOpen ? 'rotate' : ''}`} />
             </button>
@@ -189,14 +184,9 @@ function DropdownWrapper({ isOpen, toggle, register, wrapperClasses, contentClas
     )
 }
 
-/* ───────── DELIVERY ───────── */
 function DeliveryDropdown({ isOpen, toggle, register, draft, options, onApply, onClear }) {
-
     const [temp, setTemp] = useState(draft)
-
-    useEffect(() => {
-        if (isOpen) setTemp(draft)
-    }, [isOpen, draft])
+    useEffect(() => { if (isOpen) setTemp(draft) }, [isOpen, draft])
 
     return (
         <DropdownWrapper
@@ -225,7 +215,6 @@ function DeliveryDropdown({ isOpen, toggle, register, draft, options, onApply, o
     )
 }
 
-/* ───────── BUDGET ───────── */
 function BudgetDropdown({ isOpen, toggle, register, draft, options, onApply, onClear }) {
     const initState = () => {
         const opt = options.find(o => o.min === draft.minPrice && o.max === draft.maxPrice)
@@ -235,7 +224,6 @@ function BudgetDropdown({ isOpen, toggle, register, draft, options, onApply, onC
         }
     }
     const [state, setState] = useState(initState)
-
     useEffect(() => { if (isOpen) setState(initState()) }, [isOpen, draft])
 
     const apply = () => {
@@ -291,14 +279,9 @@ function BudgetDropdown({ isOpen, toggle, register, draft, options, onApply, onC
     )
 }
 
-/* ───────── TAGS ───────── */
 function TagsDropdown({ isOpen, toggle, register, tags, selected, onApply, onClear }) {
-
     const [temp, setTemp] = useState(new Set(selected))
-
-    useEffect(() => {
-        if (isOpen) setTemp(new Set(selected))
-    }, [isOpen, selected])
+    useEffect(() => { if (isOpen) setTemp(new Set(selected)) }, [isOpen, selected])
 
     const toggleTag = tag => {
         const next = new Set(temp)
@@ -336,14 +319,16 @@ function TagsDropdown({ isOpen, toggle, register, tags, selected, onApply, onCle
     )
 }
 
-/* ───────── SORT ───────── */
 function SortDropdown({ isOpen, toggle, register, options, current, onApply }) {
-
     const currentLabel = options.find(o => o.value === current)?.label || 'Recommended'
 
     return (
         <section className={`dropdown-filter sort flex align-center ${isOpen ? 'open' : ''}`}>
-            <button className='sort-btn' onClick={toggle}>
+            <button
+                className='sort-btn'
+                onPointerDown={e => e.stopPropagation()}
+                onClick={toggle}
+            >
                 {currentLabel}
                 <img src={arrowIcon} alt='' className={`arrow-icon ${isOpen ? 'rotate' : ''}`} />
             </button>
@@ -370,7 +355,6 @@ function SortDropdown({ isOpen, toggle, register, options, current, onApply }) {
     )
 }
 
-/* ───────── Active Filters ───────── */
 function ActiveFilters({ filter, removeTag, clearDelivery, clearBudget }) {
     const chips = []
 
@@ -382,8 +366,8 @@ function ActiveFilters({ filter, removeTag, clearDelivery, clearBudget }) {
     }
 
     if (filter.minPrice || filter.maxPrice) {
-        const match = BUDGET_OPTIONS.find(
-            o => o.min === filter.minPrice && o.max === filter.maxPrice
+        const match = BUDGET_OPTIONS.find(o =>
+            o.min === filter.minPrice && o.max === filter.maxPrice
         )
         const txt = match ? match.note : `Up to ₪${filter.maxPrice || filter.minPrice}`
         chips.push({ id: 'budget', label: txt, onClear: clearBudget })
@@ -400,7 +384,7 @@ function ActiveFilters({ filter, removeTag, clearDelivery, clearBudget }) {
     return (
         <section className='active-filters flex align-center wrap'>
             {chips.map(c => (
-                <span key={c.id} className="chip" onClick={c.onClear}>
+                <span key={c.id} className='chip' onClick={c.onClear}>
                     {c.label}
                     <button>
                         <img src={closeIcon} alt='remove' />
@@ -411,7 +395,6 @@ function ActiveFilters({ filter, removeTag, clearDelivery, clearBudget }) {
     )
 }
 
-/* ───────── BUTTONS ───────── */
 function Buttons({ onClear, onApply }) {
     return (
         <div className='btn-group'>
@@ -420,4 +403,3 @@ function Buttons({ onClear, onApply }) {
         </div>
     )
 }
-
