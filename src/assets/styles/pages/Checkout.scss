@@ -1,0 +1,397 @@
+.checkout-page {
+    display: grid;
+    text-wrap: pretty;
+
+    >* {
+        margin-block-end: rem(32px);
+    }
+
+    .checkout-title {
+        margin: 0;
+        padding: rem(16px);
+
+        color: #404145;
+        font-size: rem(16px);
+        font-weight: 700;
+        background-color: #fafafa;
+        border: 1px solid #efeff0;
+        border-radius: rem(4px);
+    }
+
+    .payment-options {
+        align-self: start;
+
+        border: 1px solid #efeff0;
+        border-radius: rem(4px);
+
+        >*:not(:last-child) {
+            border-block-end: 1px solid #efeff0;
+        }
+
+        .checkout-option-wrapper {
+
+            >*:not(:last-child) {
+                border-block-end: 1px solid #efeff0;
+            }
+
+            .checkout-option {
+                padding-inline-start: rem(16px);
+
+                height: rem(64px);
+                cursor: pointer;
+
+                .credit-card-option {
+
+                    p {
+                        margin-inline: rem(4px) rem(8px);
+                    }
+
+                    img {
+                        object-fit: contain;
+                    }
+                }
+
+                .paypal-option {
+
+                    &:hover+.radio-custom {
+                        border-color: #222325;
+                    }
+                }
+            }
+
+            .card-details-wrapper {
+                padding: rem(24px) rem(18px);
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, .06);
+
+                .card-details {
+                    max-width: 520px;
+
+                    label p {
+                        padding-block: rem(32px) rem(8px);
+
+                        font-weight: 550;
+                        color: #222325;
+
+                        &:last-child {
+                            padding-block: 0;
+                        }
+
+                        .optioal {
+                            color: #74767e;
+                            margin-left: 5px;
+                        }
+                    }
+
+                    .exp-cvv-wrapper {
+                        flex-direction: column;
+                        gap: 16px;
+
+                        @include for-normal-layout {
+                            flex-direction: row;
+                            justify-content: space-between;
+                        }
+
+                        .expiration-date,
+                        .security-code {
+                            width: 100%;
+                        }
+                    }
+
+                    .card-number {
+
+                        p {
+                            padding-block-start: 0;
+                        }
+
+                        .input-wrapper {
+                            padding: 2px;
+
+                            border: 1px solid #c5c6c9;
+                            border-radius: rem(8px);
+
+                            span {
+                                display: inline-block;
+
+                                background: white no-repeat;
+                                border: none;
+                                background-position-y: center;
+                            }
+
+                            .card-number-input {
+                                border: none;
+                                padding: 0 rem(4px);
+                            }
+
+                            .card-logo {
+                                height: 40px;
+                                width: 40px;
+
+                                margin-inline-start: rem(12px);
+
+                                background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_png,q_auto/v1/attachments/generic_asset/asset/b33a17ee6981973e5fd588e87ba38e91-1707291433871/genericCard.svg);
+                            }
+
+                            .lock-icon {
+                                height: 20px;
+                                width: 20px;
+
+                                margin-inline-end: rem(12px);
+
+                                background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_png,q_auto/v1/attachments/generic_asset/asset/2dc1d5932910ddcb9ffb76726ad76df9-1707320628574/lockIcon.svg);
+                            }
+                        }
+                    }
+
+                    .save-card-field {
+                        margin-block-start: rem(32px);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .remember-payment-method {
+                padding: rem(24px) rem(18px);
+
+                font-weight: 550;
+                color: #404145;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, .06);
+                cursor: pointer;
+            }
+
+            input[type='checkbox'],
+            input[type='radio'] {
+                position: absolute;
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+
+            .radio-custom {
+                display: inline-block;
+
+                margin-right: rem(8px);
+
+                width: 20px;
+                height: 20px;
+
+                border: 1px solid #dadbdd;
+                border-radius: 50%;
+                transition: border-width .2s, border-color .2s;
+
+                &:hover {
+                    border-color: #222325;
+                }
+            }
+
+            input:checked+.radio-custom {
+                border-color: #222325;
+                border-width: 5px;
+            }
+
+            .checkbox-custom {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                margin-right: rem(8px);
+                padding: rem(3px);
+
+                width: 18px;
+                height: 18px;
+
+                filter: opacity(.7);
+                border: 1px solid rgb(197, 198, 201);
+                border-radius: 2px;
+                transition: border-width .2s, border-color .2s;
+
+                img {
+                    opacity: 0;
+                    transition: opacity .15s;
+                }
+
+                &:hover {
+                    border-color: #222325;
+                }
+            }
+
+            input[type='checkbox']:checked+.checkbox-custom img {
+                opacity: 1;
+            }
+
+            input {
+                display: flex;
+                align-items: center;
+
+                width: 100%;
+
+                padding: 11px 12px;
+
+                font: inherit;
+                color: #222325;
+                border: 1px solid #c5c6c9;
+                border-radius: rem(8px);
+                outline: none;
+                transition: 0.15s ease-in-out;
+
+                &::placeholder {
+                    color: #22232582;
+                    justify-content: center;
+                }
+
+            }
+        }
+    }
+
+    .summary-container {
+        border-radius: 4px;
+
+        .order-details-container {
+            margin-block-end: rem(16px);
+            padding: rem(16px) rem(24px);
+
+            background-color: #fafafa;
+
+            .order-details-header {
+                padding-block-end: rem(16px);
+
+                .order-image {
+                    margin-inline-end: rem(16px);
+
+                    width: 110px;
+                    height: 70px;
+                }
+
+                .order-title {
+                    font-weight: 600;
+                }
+            }
+
+            .order-details-general {
+                padding-block: rem(16px);
+
+                .order-details-general-title {
+                    font-weight: 600;
+                    text-transform: capitalize;
+                }
+            }
+
+            .order-details-items-container {
+
+                .feature {
+                    padding-block: rem(6px);
+
+                    &:first-of-type {
+                        padding-block-start: 0;
+                    }
+
+                    &:last-of-type {
+                        padding-block-end: 0;
+                    }
+
+                    img {
+                        margin: 2px 9px 0 0;
+                        padding-block: 5px;
+                    }
+                }
+            }
+        }
+
+        .summary {
+            padding: rem(16px) rem(24px);
+
+            border-block-start: 1px solid #efeff0;
+
+            .summary-table {
+                margin-block-end: rem(16px);
+                padding-block-end: rem(16px);
+                border-block-end: 1px solid #efeff0;
+
+                .fee-row {
+                    padding-block-end: rem(6px);
+                }
+
+                .tax-row {
+                    padding-block-start: rem(6px);
+                }
+            }
+
+            .summary-footer {
+                padding-block-end: rem(16px);
+
+                .total-price {
+                    padding-block-end: rem(10px);
+                    font-size: rem(18px);
+                    font-weight: 600;
+                }
+
+                .delivery-date {
+                    padding-block: rem(6px);
+                }
+
+                .gig-terms-agreement-disclaimer p {
+                    margin-block-start: rem(16px);
+
+                    font-weight: 600;
+                    font-size: rem(13px);
+                    line-height: em(24px);
+
+                    span {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .pay-button-component {
+
+                .pay-button {
+                    padding: rem(15px) rem(24px);
+
+                    width: 100%;
+
+                    font-size: rem(16px);
+                    font-weight: 600;
+                    line-height: 100%;
+                    text-align: center;
+
+                    color: $clr6;
+                    background-color: $clr1;
+                    border-radius: rem(4px);
+                }
+
+                .secure-payment {
+                    margin-block-start: rem(8px);
+                    gap: rem(8px);
+                }
+
+            }
+
+            .currency-section {
+                margin-block-start: rem(16px);
+
+                font-size: rem(14px);
+                line-height: em(21px);
+            }
+        }
+
+        .trader-disclaimer {
+            padding: rem(16px) rem(24px);
+
+            img {
+                margin: 4px 8px 0 0;
+                align-self: start;
+            }
+        }
+
+        @include for-normal-layout {
+
+            border: 1px solid #efeff0;
+
+        }
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: 2fr 1fr;
+        gap: 10rem;
+    }
+}

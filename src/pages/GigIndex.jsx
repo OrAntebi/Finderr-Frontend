@@ -46,8 +46,8 @@ export function GigIndex() {
 
 
     function getTitle() {
-        return filter.categories.length
-            ? gigService.getCategoryTitleFromPath(filter.categories[0])
+        return filter.category
+            ? gigService.getCategoryTitleFromPath(filter.category)
             : 'Categories'
     }
 

@@ -53,40 +53,15 @@ export function GigDetails() {
         }
     }
 
-    async function onPurchaseOrder() {
-        try {
-            if (!loggedUser || !loggedUser._id) {
-                showErrorMsg('You must be logged in to purchase services.')
-                return
-            }
+    async function onProceedToPayment() {
 
-            const { packPrice, packDaysToMake, packageName } = selectedPack
-
-            const order = {
-                buyer: {
-                    _id: loggedUser._id,
-                    fullname: loggedUser.fullname
-                },
-                seller: gig.owner,
-                gig: {
-                    _id: gig._id,
-                    title: gig.title
-                },
-                status: 'pending',
-                packageName,
-                packPrice,
-                daysToMake: packDaysToMake,
-                createdAt: Date.now()
-            }
-
-            await orderService.save(order)
-            showSuccessMsg('Purchased service successfully!')
-        } catch (err) {
-            console.error('Cannot save order', err)
-            showErrorMsg('Failed to complete the purchase')
-        } finally {
-            setIsModalOpen(false)
+        if (!loggedUser || !loggedUser._id) {
+            showErrorMsg('You must be logged in to purchase services.')
+            navigate('/login')
+            return
         }
+
+        navigate(`/checkout/${gigId}/${selectedPackage}`)
     }
 
     const renderMainContent = () => (
@@ -139,7 +114,7 @@ export function GigDetails() {
                 onCloseModal={() => setIsModalOpen(false)}
                 selectedPack={selectedPack}
                 gig={gig}
-                onPurchaseOrder={onPurchaseOrder}
+                onProceedToPayment={onProceedToPayment}
                 getRevisionText={getRevisionText}
             />
         </section>

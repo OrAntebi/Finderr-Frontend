@@ -27,8 +27,6 @@ export const gigService = {
     remove,
     getEmptyGig,
     addGigMsg,
-    getCategoryList,
-    getCategoryTitleFromPath,
     getAllTags
 }
 
@@ -40,9 +38,9 @@ function _initGigDB() {
     if (!stored || !stored.length) saveToStorage(GIG_KEY, gigs)
 }
 
-async function query(filterBy) {
+async function query(filterBy = {}) {
     let gigs = await storageService.query(GIG_KEY)
-    const { txt, minPrice, maxPrice, daysToMake, categories, tags, sortBy } = filterBy
+    const { txt, minPrice, maxPrice, daysToMake, category, tags, sortBy } = filterBy
 
     if (txt) {
         const words = txt.trim().toLowerCase().split(/\s+/)
@@ -58,7 +56,7 @@ async function query(filterBy) {
             })
         })
     }
-    if (categories?.length) gigs = gigs.filter(g => categories.includes(g.category))
+    if (category) gigs = gigs.filter(g => category.includes(g.category))
     if (daysToMake) gigs = gigs.filter(g => g.daysToMake <= +daysToMake)
     if (minPrice) gigs = gigs.filter(g => g.price >= +minPrice)
     if (maxPrice) gigs = gigs.filter(g => g.price <= +maxPrice)
@@ -139,19 +137,6 @@ async function addGigMsg(gigId, txt) {
     gig.msgs.push(msg)
     await storageService.put(GIG_KEY, gig)
     return msg
-}
-
-function getCategoryList(key = null) {
-    if (key) return CATEGORIES[key] || key
-    return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
-        categoryRoute,
-        categoryName
-    }))
-}
-
-function getCategoryTitleFromPath(path) {
-    const slug = path.split('/').filter(Boolean).at(-1)
-    return getCategoryList(slug)
 }
 
 async function getAllTags() {

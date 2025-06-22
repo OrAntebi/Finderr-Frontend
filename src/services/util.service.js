@@ -63,3 +63,21 @@ export function getInitials(fullName) {
 
     return (first + second).toUpperCase()
 }
+
+export function genRandomCardNumber() {
+    return [...Array(16)]
+        .map(() => getRandomIntInclusive(0, 9))
+        .join('')
+        .replace(/(\d{4})(?=\d)/g, '$1 ');
+}
+
+export function genRandomExpiration() {
+    const mm = String(getRandomIntInclusive(1, 12)).padStart(2, '0');
+    const yy =
+        String(new Date().getFullYear() + getRandomIntInclusive(1, 10)).slice(-2);
+    return `${mm} / ${yy}`;
+}
+
+export function genRandomCvv() {
+    return String(getRandomIntInclusive(0, 999)).padStart(3, '0');
+}

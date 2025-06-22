@@ -19,7 +19,6 @@ export function CategoriesList() {
     const location = useLocation()
     const currentPage = location.pathname
 
-    // const currCategory = useSelector(s => s.gigModule.filterBy.categories[0] || '')
     const currCategory = useSelector(s => s.gigModule.filterBy.category || '')
 
     const isOnlyCategoriesPage = currentPage === '/categories'
@@ -56,7 +55,7 @@ export function CategoriesList() {
     }, [currentPage, currCategory, isOnlyCategoriesPage])
 
     function onClickCategory(category) {
-        // setGigFilter({ ...gigService.getDefaultFilter(), categories: [category] })
+        // setGigFilter({ ...gigservice.getDefaultFilter(), categories: [category] })
         setGigFilter({ ...gigService.getDefaultFilter(), category: category })
     }
 
