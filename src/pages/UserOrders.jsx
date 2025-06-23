@@ -20,7 +20,6 @@ export function UserOrders() {
     }, [])
 
     if (isLoading) return <Loader />
-    console.log(orders)
 
     return (
         <section className="user-orders">

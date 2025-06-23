@@ -59,6 +59,7 @@ export function Checkout() {
                 gig: {
                     _id: gig._id,
                     title: gig.title,
+                    category: gig.category,
                     imgUrl: gig.imgUrls[0]
                 },
                 status: 'pending',

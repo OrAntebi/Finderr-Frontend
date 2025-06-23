@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { gigService } from '../services/gig'
 
 export function OrderPreview({ order }) {
     
@@ -21,7 +22,7 @@ export function OrderPreview({ order }) {
             day: 'numeric' 
         })
     }
-
+    const { status, createdAt, daysToMake, _id, gig, seller } = order
     return (
         <div className="order-preview">
             <div className="order-status">
@@ -29,51 +30,51 @@ export function OrderPreview({ order }) {
                 <div className="status-info">
                     <span 
                         className="status-value" 
-                        style={{ color: getStatusColor(order.status) }}
+                        style={{ color: getStatusColor(status) }}
                     >
-                        {order.status.toUpperCase()}
+                        {status.toUpperCase()}
                     </span>
                     <span className="due-date">
-                        Due date on {calculateDueDate(order.createdAt, order.daysToMake)}
+                        Due date on {calculateDueDate(createdAt, daysToMake)}
                     </span>
                 </div>
                 <div className="progress-bar">
                     <div 
                         className="progress-fill" 
                         style={{ 
-                            backgroundColor: getStatusColor(order.status),
-                            width: order.status === 'pending' ? '25%' : 
-                                   order.status === 'approved' ? '50%' : 
-                                   order.status === 'fulfilled' ? '100%' : '0%'
+                            backgroundColor: getStatusColor(status),
+                            width: status === 'pending' ? '25%' : 
+                                   status === 'approved' ? '50%' : 
+                                   status === 'fulfilled' ? '100%' : '0%'
                         }}
                     ></div>
                 </div>
             </div>
 
-            <div className="gig-info">
+            <div className="gig-info flex wrap">
                 <div className="gig-image">
-                    <img src={order.gig.imgUrl || '/default-gig-image.jpg'} alt={order.gig.title} />
+                    <img src={gig.imgUrl || '/default-gig-image.jpg'} alt={gig.title} />
                 </div>
                 <div className="gig-details">
-                    <h3 className="gig-title">{order.gig.title}</h3>
-                    <p className="gig-category">{order.packageName}</p>
-                    <p className="seller-name">From {order.seller.fullname}</p>
+                    <h3 className="gig-title">{gig.title}</h3>
+                    <p className="gig-category">{gigService.getCategoryList(gig.category)}</p>
+                    <p className="seller-name">From {seller.fullname}</p>
                 </div>
             </div>
 
             <div className="order-details">
-                <div className="detail-row">
+                <div className="detail-row flex justify-between">
                     <span className="detail-label">ORDER NO.</span>
-                    <span className="detail-value">#{order._id}</span>
+                    <span className="detail-value">#{_id}</span>
                 </div>
                 <div className="detail-row">
                     <span className="detail-label">DELIVERY TIME</span>
-                    <span className="detail-value">📅 {order.daysToMake} Days</span>
+                    <span className="detail-value">📅 {daysToMake} Days</span>
                 </div>
             </div>
 
             <div className="order-actions">
-                <Link to={`/order/${order._id}`} className="view-order-btn">
+                <Link to={`/order/${_id}`} className="view-order-btn">
                     VIEW ORDER
                 </Link>
             </div>
