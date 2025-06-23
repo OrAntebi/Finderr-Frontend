@@ -12,8 +12,8 @@ export const gigService = {
 async function query(filterBy = {}) {
     const params = { ...filterBy };
 
-    if (Array.isArray(params.tags)) params.tags = params.tags.join(',');
-    return httpService.get(`gig`, filterBy)
+    if (Array.isArray(params.tags)&&params.tags.length) params.tags = params.tags.join(',')
+    return httpService.get(`gig`, params)
 }
 
 function getById(gigId) {
