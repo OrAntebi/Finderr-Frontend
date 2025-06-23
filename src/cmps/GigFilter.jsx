@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
+import { useEffect, useRef, useState, useCallback, useMemo, useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { setGigFilter } from '../store/gig/gig.actions'
 import { gigService } from '../services/gig'
@@ -91,7 +91,7 @@ export function GigFilter() {
 
     const resetAll = () => {
         const def = {
-            ...gigservice.getDefaultFilter(),
+            ...gigService.getDefaultFilter(),
             category: filterBy.category
         }
         setFilter(def)
@@ -167,22 +167,43 @@ export function GigFilter() {
 }
 
 function DropdownWrapper({ isOpen, toggle, register, wrapperClasses, contentClasses, buttonLabel, children }) {
+    const contentRef = useRef()
+    const [alignRight, setAlignRight] = useState(false)
+
+    useLayoutEffect(() => {
+        if (!isOpen) {
+            setAlignRight(false)
+            return
+        }
+        const el = contentRef.current
+        if (!el) return
+        const needRight = el.getBoundingClientRect().right > window.innerWidth - 8
+        setAlignRight(needRight)
+    }, [isOpen])
+
     return (
         <section className={`dropdown-filter ${wrapperClasses} ${isOpen ? 'open' : ''}`}>
-            <button
-                onPointerDown={e => e.stopPropagation()}
-                onClick={toggle}
-            >
+            <button onPointerDown={e => e.stopPropagation()} onClick={toggle}>
                 {buttonLabel}
-                <img src={arrowIcon} alt='' className={`arrow-icon ${isOpen ? 'rotate' : ''}`} />
+                <img src={arrowIcon} alt="" className={`arrow-icon ${isOpen ? 'rotate' : ''}`} />
             </button>
-            {isOpen &&
-                <div className={`dropdown-content ${contentClasses || ''}`} ref={register}>
+
+            {isOpen && (
+                <div
+                    ref={el => {
+                        register(el)
+                        contentRef.current = el
+                    }}
+                    className={`dropdown-content ${contentClasses || ''} ${alignRight ? 'align-right' : ''}`}
+                >
                     {children}
-                </div>}
+                </div>
+            )}
         </section>
     )
 }
+
+
 
 function DeliveryDropdown({ isOpen, toggle, register, draft, options, onApply, onClear }) {
     const [temp, setTemp] = useState(draft)

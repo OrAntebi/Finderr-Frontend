@@ -176,6 +176,11 @@
                     color: #74767e;
                 }
             }
+
+            &.align-right {
+                left: auto;
+                right: 0
+            }
         }
     }
 
@@ -193,7 +198,7 @@
         }
 
         .dropdown-content {
-            left: -110px;
+            left: -122px;
             max-height: rem(200px);
             overflow-y: scroll;
         }
