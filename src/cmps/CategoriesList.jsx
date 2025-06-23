@@ -55,7 +55,6 @@ export function CategoriesList() {
     }, [currentPage, currCategory, isOnlyCategoriesPage])
 
     function onClickCategory(category) {
-        // setGigFilter({ ...gigservice.getDefaultFilter(), categories: [category] })
         setGigFilter({ ...gigService.getDefaultFilter(), category: category })
     }
 

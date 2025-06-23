@@ -2556,7 +2556,8 @@
         "packDaysToMake": 4,
         "desc": "Income statement + balance sheet",
         "features": [
-          "PDF report"
+          "PDF report",
+          "Summary charts"
         ]
       },
       "standard": {
@@ -2565,6 +2566,8 @@
         "packDaysToMake": 3,
         "desc": "Full 3-statement model",
         "features": [
+          "PDF report",
+          "Summary charts",
           "Excel model",
           "Cash-flow"
         ]
@@ -2575,9 +2578,14 @@
         "packDaysToMake": 2,
         "desc": "Audit-ready pack",
         "features": [
+          "PDF report",
+          "Summary charts",
+          "Excel model",
+          "Cash-flow",
           "Notes",
           "Ratio analysis",
-          "Revisions"
+          "Revisions",
+          "Tax dashboard"
         ]
       }
     },
@@ -2598,7 +2606,7 @@
       "about": "Hi, I'm Faz, a certified accountant and financial analyst committed to transforming numbers into strategic insights. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate. I have experience preparing financial packages for VC funding rounds, ensuring numbers tell a compelling story. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets."
     },
     "daysToMake": 4,
-    "description": "Hi, Faz is here. I have around 8 years of practical experience in the field of Financial Accounting, Management Accounting and Financial Reporting As per International Accounting and Financial Reporting Standard. Handled thousands of assignments including accounting & reporting, book keeping, internal auditing as per related laws at different levels. I am Top Rated Seller on Fiverr and serving my clients as per best of my skills. My first priority is clients satisfaction and i am 100% sure you will like my work.",
+    "description": "Hi, Faz is here. I have around 8 years of practical experience in the field of Financial Accounting, Management Accounting and Financial Reporting As per International Accounting and Financial Reporting Standard. Handled thousands of assignments including accounting & reporting, bookkeeping, internal auditing as per related laws at different levels. I am Top Rated Seller on Fiverr and serving my clients as per best of my skills. My first priority is clients satisfaction and i am 100% sure you will like my work.",
     "imgUrls": [
       "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816332/do-all-financial-accounting-tasks_y4ydwy.webp",
       "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816345/do-all-financial-accounting-tasks_iqohyz.webp",
@@ -2623,7 +2631,8 @@
         "packDaysToMake": 3,
         "desc": "Revenue & expense forecast",
         "features": [
-          "1 scenario"
+          "1 scenario",
+          "Basic charts"
         ]
       },
       "standard": {
@@ -2632,8 +2641,11 @@
         "packDaysToMake": 2,
         "desc": "3-statement linked model",
         "features": [
+          "1 scenario",
+          "Basic charts",
           "3 scenarios",
-          "Charts"
+          "Charts",
+          "Variance analysis"
         ]
       },
       "premium": {
@@ -2642,8 +2654,14 @@
         "packDaysToMake": 1,
         "desc": "Investor deck ready",
         "features": [
+          "1 scenario",
+          "Basic charts",
+          "3 scenarios",
+          "Charts",
+          "Variance analysis",
           "DCF valuation",
-          "Sensitivity"
+          "Sensitivity",
+          "Investor pitch deck"
         ]
       }
     },
@@ -2660,7 +2678,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Yahya, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets."
+      "about": "Hi, I'm Yahya, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash-flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets."
     },
     "daysToMake": 3,
     "description": "My name is Yahya, I am a Chartered Accountant (Finalist) and a Professional Accountant at PwC with more than 5+ years working experience. I have advanced level data analysis skills with strong knowledge base and practical exposure of International Financial Reporting Standards, US GAAP & International Standards on Auditing. So by combining all these skills I can complete any task relating to Accounting, Finance, MS Excel & administrative nature etc, professionally and timely. Professionalism, innovation and creativity are my attributes. Client satisfaction is always my 1st priority.",
@@ -2683,7 +2701,8 @@
         "packDaysToMake": 2,
         "desc": "Up to 250 transactions",
         "features": [
-          "QuickBooks"
+          "QuickBooks",
+          "Monthly report"
         ]
       },
       "standard": {
@@ -2693,7 +2712,9 @@
         "desc": "Up to 500 transactions",
         "features": [
           "QuickBooks",
-          "Report"
+          "Monthly report",
+          "Report",
+          "Bank reconciliation"
         ]
       },
       "premium": {
@@ -2703,8 +2724,12 @@
         "desc": "Unlimited transactions",
         "features": [
           "QuickBooks",
+          "Monthly report",
+          "Report",
+          "Bank reconciliation",
           "Xero",
-          "Report"
+          "Forecasting",
+          "Audit support"
         ]
       }
     },
@@ -2721,7 +2746,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Abdul, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures."
+      "about": "Hi, I'm Abdul, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash-flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. Expect timely deliverables, clear explanations and actionable insights—not just raw figures."
     },
     "daysToMake": 2,
     "description": "Welcome! My name is Abdulrafy, a certified professional accountant in Pakistan with 7 years of experience. I specialize in preparing financial statements, bookkeeping, business plan development, and financial performance analysis. I value honesty and building good working relationships with my clients. My goal is to exceed your expectations by providing top-notch services tailored to your specific needs.",
@@ -2748,7 +2773,8 @@
         "packDaysToMake": 2,
         "desc": "Risk & return metrics",
         "features": [
-          "PDF summary"
+          "PDF summary",
+          "Key ratios"
         ]
       },
       "standard": {
@@ -2757,8 +2783,11 @@
         "packDaysToMake": 1,
         "desc": "Asset allocation plan",
         "features": [
+          "PDF summary",
+          "Key ratios",
           "Excel",
-          "Recommendations"
+          "Recommendations",
+          "Risk flags"
         ]
       },
       "premium": {
@@ -2767,7 +2796,14 @@
         "packDaysToMake": 1,
         "desc": "Ongoing quarterly review",
         "features": [
-          "Follow-up call"
+          "PDF summary",
+          "Key ratios",
+          "Excel",
+          "Recommendations",
+          "Risk flags",
+          "Follow-up call",
+          "Quarterly dashboard",
+          "Compliance review"
         ]
       }
     },
@@ -2784,7 +2820,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-09",
-      "about": "Hi, I'm Brenn, a certified accountant and financial analyst committed to transforming numbers into strategic insights. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I have experience preparing financial packages for VC funding rounds, ensuring numbers tell a compelling story. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets."
+      "about": "Hi, I'm Brenn, a certified accountant and financial analyst committed to transforming numbers into strategic insights. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I have experience preparing financial packages for VC funding rounds, ensuring numbers tell a compelling story. Expect timely deliverables, clear explanations and actionable insights—not just raw figures. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate. My cash-flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Automating routine bookkeeping tasks with cloud software, I free you to focus on growth rather than spreadsheets."
     },
     "daysToMake": 2,
     "description": "Hope you enjoyed your visit to my profile. Hi there, my name is Brenn, I am a Business and Nonprofit Fundraising specialist, and I am ready to help you. From business registration, nonprofit registration services, grant & Government contract research, proposal writing, capability statement services, business plans, resume, Resume services to fundraising strategies, I am here to help you. In this capacity, I firmly believe that with my help, your chances at success will rise significantly. Together, we can bring your ideas to life. Reach out to me today!",
@@ -2809,7 +2845,8 @@
         "packDaysToMake": 2,
         "desc": "Monthly template",
         "features": [
-          "Spending tracker"
+          "Spending tracker",
+          "Budget template"
         ]
       },
       "standard": {
@@ -2818,7 +2855,10 @@
         "packDaysToMake": 1,
         "desc": "Annual forecast",
         "features": [
-          "Debt payoff plan"
+          "Spending tracker",
+          "Budget template",
+          "Debt payoff plan",
+          "Expense categories"
         ]
       },
       "premium": {
@@ -2827,8 +2867,13 @@
         "packDaysToMake": 1,
         "desc": "1-on-1 session",
         "features": [
+          "Spending tracker",
+          "Budget template",
+          "Debt payoff plan",
+          "Expense categories",
           "Saving goals",
-          "Follow-up"
+          "Follow-up",
+          "Investment forecast"
         ]
       }
     },
@@ -2845,7 +2890,7 @@
       ],
       "avgResponceTime": "3 hours",
       "lastDelivery": "2025-06-04",
-      "about": "Hi, I'm Md, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash‑flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate."
+      "about": "Hi, I'm Md, a certified accountant and financial analyst committed to transforming numbers into strategic insights. My cash-flow forecasts and sensitivity analyses help founders and CFOs make informed decisions under uncertainty. Accuracy, confidentiality and strategic thinking define every engagement I undertake. I stay current with IFRS and GAAP updates so your statements remain compliant no matter where you operate."
     },
     "daysToMake": 2,
     "description": "Greetings ! This is Al amin. I am a tech-savvy accountant and certified bookkeeper serving in the marketplace for over 10 years . My services are tailored to help Small & Medium businesses for automation and optimizing their cost & operational efficiency. My specializations : ✓ full service bookkeeping ✓ Accounts clean-up & catch up ✓ Bank reconciliation ✓ Financial reporting ✓ Financial analysis Software expertise: ✓QuickBooks online ✓XERO ✓WAVE ✓Zohobooks ✓Sage ✓Excel I guarantee: ✓100% accuracy ✓on time report delivery ✓prompt & easy communication ✓competitive price",
@@ -2874,7 +2919,8 @@
         "desc": "Website embed",
         "features": [
           "OpenAI API",
-          "1 data source"
+          "1 data source",
+          "FAQ flow"
         ]
       },
       "standard": {
@@ -2883,8 +2929,12 @@
         "packDaysToMake": 3,
         "desc": "CRM integration",
         "features": [
+          "OpenAI API",
+          "1 data source",
+          "FAQ flow",
           "3 data sources",
-          "Brand tone"
+          "Brand tone",
+          "Analytics dashboard"
         ]
       },
       "premium": {
@@ -2893,8 +2943,16 @@
         "packDaysToMake": 2,
         "desc": "Advanced RAG + analytics",
         "features": [
+          "OpenAI API",
+          "1 data source",
+          "FAQ flow",
+          "3 data sources",
+          "Brand tone",
+          "Analytics dashboard",
           "Vector DB",
-          "Dashboard"
+          "Dashboard",
+          "Fine-tuned model",
+          "Advanced RAG"
         ]
       }
     },
@@ -2912,7 +2970,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-09",
-      "about": "Hi, I'm Mominul, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge."
+      "about": "Hi, I'm Mominul, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge."
     },
     "daysToMake": 4,
     "description": "Are you looking for an expert AI Mobile App Developer to build or tweak your AI app with cutting-edge GPT technology? Your search ends here! I'm Mominul Haque, a professional senior AI Developer with years of experience in AI application development using OpenAI's GPT-4 to build innovative and powerful custom AI Mobile Apps using Machine Learning, Data Science, and Statistical Solutions.",
@@ -2940,7 +2998,8 @@
         "packDaysToMake": 2,
         "desc": "Commercial license",
         "features": [
-          "Upscale"
+          "Upscale",
+          "3 prompts"
         ]
       },
       "standard": {
@@ -2949,7 +3008,11 @@
         "packDaysToMake": 1,
         "desc": "Multiple concepts",
         "features": [
-          "Prompt sheet"
+          "Upscale",
+          "3 prompts",
+          "Prompt sheet",
+          "Style guide",
+          "10 prompts"
         ]
       },
       "premium": {
@@ -2958,8 +3021,15 @@
         "packDaysToMake": 1,
         "desc": "Full campaign set",
         "features": [
+          "Upscale",
+          "3 prompts",
+          "Prompt sheet",
+          "Style guide",
+          "10 prompts",
           "PSD files",
-          "Variations"
+          "Variations",
+          "Campaign brief",
+          "20 prompts"
         ]
       }
     },
@@ -2976,7 +3046,7 @@
       ],
       "avgResponceTime": "1 hour",
       "lastDelivery": "2025-06-04",
-      "about": "Hi, I'm Shovon, a dedicated professional delivering top‑quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Shovon, a dedicated professional delivering top-quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 2,
     "description": "I will develop chatgpt ai mobile app or website ai saas app ai chatbot ai software",
@@ -3003,7 +3073,8 @@
         "desc": "Up to 50 MB data",
         "features": [
           "Hyper-parameters",
-          "Eval report"
+          "Eval report",
+          "CPU training"
         ]
       },
       "standard": {
@@ -3012,8 +3083,12 @@
         "packDaysToMake": 4,
         "desc": "Up to 200 MB data",
         "features": [
+          "Hyper-parameters",
+          "Eval report",
+          "CPU training",
           "LoRA",
-          "TensorBoard"
+          "TensorBoard",
+          "GPU training"
         ]
       },
       "premium": {
@@ -3022,8 +3097,15 @@
         "packDaysToMake": 3,
         "desc": "1 GB data + deployment",
         "features": [
+          "Hyper-parameters",
+          "Eval report",
+          "CPU training",
+          "LoRA",
+          "TensorBoard",
           "GPU training",
-          "Docker image"
+          "Docker image",
+          "Deployment script",
+          "Monitoring"
         ]
       }
     },
@@ -3040,7 +3122,7 @@
       ],
       "avgResponceTime": "1 hour",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Maudud, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
+      "about": "Hi, I'm Maudud, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
     },
     "daysToMake": 5,
     "description": "Are you looking for an experienced AI Developer to enhance your AI mobile app, AI website, AI SaaS App, and AI chatbot with cutting-edge ChatGPT technology? Congratulations, you've come to the right place. Hello, My name is Maudud.I am a dedicated AI developer specializing in OpenAI's GPT-4 to build innovative and powerful AI websites, custom AI, AI mobile apps, machine learning models, data science insights, and advanced statistical applications.",
@@ -3065,7 +3147,8 @@
         "packDaysToMake": 3,
         "desc": "CSV/JSON output",
         "features": [
-          "Bounding boxes"
+          "Bounding boxes",
+          "Label schema"
         ]
       },
       "standard": {
@@ -3074,7 +3157,10 @@
         "packDaysToMake": 2,
         "desc": "Multi-class labels",
         "features": [
-          "Quality audit"
+          "Bounding boxes",
+          "Label schema",
+          "Quality audit",
+          "Class balance"
         ]
       },
       "premium": {
@@ -3083,8 +3169,13 @@
         "packDaysToMake": 1,
         "desc": "Complex annotation",
         "features": [
+          "Bounding boxes",
+          "Label schema",
+          "Quality audit",
+          "Class balance",
           "NER",
-          "Relations"
+          "Relations",
+          "Ontology mapping"
         ]
       }
     },
@@ -3102,7 +3193,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Fendi, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Fendi, a dedicated professional delivering top-quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high-quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 3,
     "description": "Transform Your Business with AI-Driven Automation Are you seeking to enhance efficiency, reduce manual tasks, and integrate intelligent automation into your operations? I specialize in creating custom AI-powered automation solutions tailored to your unique business requirements.",
@@ -3130,7 +3221,8 @@
         "packDaysToMake": 2,
         "desc": "GPT formulas",
         "features": [
-          "1 sheet"
+          "1 sheet",
+          "Macro examples"
         ]
       },
       "standard": {
@@ -3139,8 +3231,11 @@
         "packDaysToMake": 1,
         "desc": "Multi-sheet",
         "features": [
+          "1 sheet",
+          "Macro examples",
           "Power Query",
-          "Docs"
+          "Docs",
+          "Multi-sheet templates"
         ]
       },
       "premium": {
@@ -3149,8 +3244,14 @@
         "packDaysToMake": 1,
         "desc": "Power BI + GPT",
         "features": [
+          "1 sheet",
+          "Macro examples",
+          "Power Query",
+          "Docs",
+          "Multi-sheet templates",
           "Dashboard",
-          "Training"
+          "Training",
+          "BI connectors"
         ]
       }
     },
@@ -3167,7 +3268,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Fiday, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
+      "about": "Hi, I'm Fiday, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
     },
     "daysToMake": 2,
     "description": "Are you looking to automate your business processes and enhance productivity? Look no further! I am Fiday, an experienced AI developer with over 4 years in the field. I specialize in creating AI-powered agents that streamline your workflow, reduce manual tasks, and boost your business performance. With my expertise in chatbot AI development, web development (WordPress, Shopify, Full-Stack), and automation tools, I'll create custom AI agents tailored to your unique needs. These intelligent agents can handle customer inquiries, automate repetitive tasks, improve lead generation, and much more saving you time and resources while providing better customer service.",
@@ -3195,7 +3296,8 @@
         "packDaysToMake": 1,
         "desc": "Email action plan",
         "features": [
-          "One check-in"
+          "One check-in",
+          "Tarot spread PDF"
         ]
       },
       "standard": {
@@ -3204,7 +3306,10 @@
         "packDaysToMake": 1,
         "desc": "Daily accountability",
         "features": [
-          "Chat support"
+          "One check-in",
+          "Tarot spread PDF",
+          "Chat support",
+          "Daily card"
         ]
       },
       "premium": {
@@ -3213,7 +3318,13 @@
         "packDaysToMake": 1,
         "desc": "Voice coaching",
         "features": [
-          "Weekly calls"
+          "One check-in",
+          "Tarot spread PDF",
+          "Chat support",
+          "Daily card",
+          "Weekly calls",
+          "Voice notes",
+          "Meditation guide"
         ]
       }
     },
@@ -3231,7 +3342,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Christoph, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Christoph, a dedicated professional delivering top-quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 1,
     "description": "I will guide you toward your optimal life path! All are welcome. I'm Christoph, an Intuitive Reader and Certified Life Coach, dedicated to helping you achieve your goals and manifest your dreams. With strong intuition developed from a young age, I'll support you in navigating life's challenges with clarity and purpose. My services include personalized life coaching for creating positive change and growth, intuitive Tarot, Rune, Palm, and Psychic readings that provide clarity, guidance, and insight, plus Negative Energy Removal to release blockages, restore balance, and help you move forward with confidence and ease",
@@ -3259,7 +3370,8 @@
         "packDaysToMake": 1,
         "desc": "10-min routine",
         "features": [
-          "PDF guide"
+          "PDF guide",
+          "Breathing exercise"
         ]
       },
       "standard": {
@@ -3268,7 +3380,10 @@
         "packDaysToMake": 1,
         "desc": "20-min routine",
         "features": [
-          "Audio tracks"
+          "PDF guide",
+          "Breathing exercise",
+          "Audio tracks",
+          "Journal prompt"
         ]
       },
       "premium": {
@@ -3277,7 +3392,13 @@
         "packDaysToMake": 1,
         "desc": "40-min routine",
         "features": [
-          "Live session"
+          "PDF guide",
+          "Breathing exercise",
+          "Audio tracks",
+          "Journal prompt",
+          "Live session",
+          "Accountability board",
+          "Follow-up email"
         ]
       }
     },
@@ -3295,7 +3416,7 @@
       ],
       "avgResponceTime": "1 hour",
       "lastDelivery": "2025-06-11",
-      "about": "Hi, I'm Karen, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life."
+      "about": "Hi, I'm Karen, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life."
     },
     "daysToMake": 1,
     "description": "I'm Karen Roziner, a Career Development Expert and Coach trusted by over 3,000 clients. I believe everyone deserves an equal opportunity to reach their full potential. Together with my business partner, global recruiter Francesca Trapani, I lead a boutique career development firm with a team of experienced HR professionals. We provide expert resume writing, LinkedIn optimization, reverse recruiting, and career coaching to help you achieve your career aspirations. We've worked across every industry, profession, and seniority level. Now, it's your turn. Let's make it happen Message me!",
@@ -3321,7 +3442,8 @@
         "packDaysToMake": 2,
         "desc": "Resume review + advice",
         "features": [
-          "PDF"
+          "PDF",
+          "Resume template"
         ]
       },
       "standard": {
@@ -3330,7 +3452,10 @@
         "packDaysToMake": 1,
         "desc": "1-hr Zoom coaching",
         "features": [
-          "Action plan"
+          "PDF",
+          "Resume template",
+          "Action plan",
+          "LinkedIn review"
         ]
       },
       "premium": {
@@ -3339,7 +3464,13 @@
         "packDaysToMake": 1,
         "desc": "3 coaching calls",
         "features": [
-          "Ongoing support"
+          "PDF",
+          "Resume template",
+          "Action plan",
+          "LinkedIn review",
+          "Ongoing support",
+          "Mock interview",
+          "Career roadmap"
         ]
       }
     },
@@ -3356,7 +3487,7 @@
       ],
       "avgResponceTime": "6 hours",
       "lastDelivery": "2025-06-09",
-      "about": "Hi, I'm Will, a dedicated professional delivering top‑quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
+      "about": "Hi, I'm Will, a dedicated professional delivering top-quality results tailored to your unique needs. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
     },
     "daysToMake": 2,
     "description": "I love working with businesses that are small, growing, established & at the idea stage! I've held Director, VP & C-Level roles in Technology and Startup Businesses including Fresha, Amex, Quandoo, Cake Technologies & Wells Fargo as well as multiple Board Advisory roles. I've worked around the world, built startups, been acquired & experienced multiple fundraises. I help entrepreneurs & professionals on Fiverr to push through ambiguous situations, plan, position, transition, problem solve, grow efficiently & ultimately get to the next level.",
@@ -3384,7 +3515,8 @@
         "packDaysToMake": 3,
         "desc": "PDF audit",
         "features": [
-          "1 revision"
+          "1 revision",
+          "Audit checklist"
         ]
       },
       "standard": {
@@ -3393,8 +3525,11 @@
         "packDaysToMake": 2,
         "desc": "Roadmap",
         "features": [
+          "1 revision",
+          "Audit checklist",
           "Call",
-          "2 revisions"
+          "2 revisions",
+          "Roadmap worksheet"
         ]
       },
       "premium": {
@@ -3403,8 +3538,14 @@
         "packDaysToMake": 1,
         "desc": "Growth plan",
         "features": [
+          "1 revision",
+          "Audit checklist",
+          "Call",
+          "2 revisions",
+          "Roadmap worksheet",
           "3 calls",
-          "Investor deck"
+          "Investor deck",
+          "Growth KPI dashboard"
         ]
       }
     },
@@ -3421,7 +3562,7 @@
       ],
       "avgResponceTime": "3 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Nidhi, a dedicated professional delivering top‑quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. My goal is to create tangible value for your business through high‑quality, tailored deliverables."
+      "about": "Hi, I'm Nidhi, a dedicated professional delivering top-quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. My goal is to create tangible value for your business through high-quality, tailored deliverables."
     },
     "daysToMake": 3,
     "description": "I am Nidhi. Drawing from my journey in marketing, where I've had the opportunity to collaborate with over 1700 companies, I'm excited to share my insights and assist you in exploring and excelling in the digital world.",
@@ -3446,7 +3587,8 @@
         "packDaysToMake": 2,
         "desc": "Pricing tips",
         "features": [
-          "Template"
+          "Template",
+          "Checklist"
         ]
       },
       "standard": {
@@ -3455,7 +3597,10 @@
         "packDaysToMake": 1,
         "desc": "Live coaching",
         "features": [
-          "Recording"
+          "Template",
+          "Checklist",
+          "Recording",
+          "Buyer persona canvas"
         ]
       },
       "premium": {
@@ -3464,7 +3609,13 @@
         "packDaysToMake": 1,
         "desc": "Rate sheet + call",
         "features": [
-          "Follow-up"
+          "Template",
+          "Checklist",
+          "Recording",
+          "Buyer persona canvas",
+          "Follow-up",
+          "Market gap analysis",
+          "Action plan"
         ]
       }
     },
@@ -3482,7 +3633,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Mary, a dedicated professional delivering top‑quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life."
+      "about": "Hi, I'm Mary, a dedicated professional delivering top-quality results tailored to your unique needs. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high-quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life."
     },
     "daysToMake": 2,
     "description": "Hi, I'm Mary, a Brand Strategist and Market Researcher with 7+ years of experience turning audience data into marketing direction. I help businesses move beyond guesswork and define who they're truly speaking to and how to reach them with purpose. Struggling to connect with your audience? I build buyer personas through market research and brand strategy to improve targeting, enhance customer experience, and drive smarter business decisions.",
@@ -3510,7 +3661,8 @@
         "packDaysToMake": 5,
         "desc": "5 interviews",
         "features": [
-          "Summary"
+          "Summary",
+          "Brand pillars"
         ]
       },
       "standard": {
@@ -3519,8 +3671,11 @@
         "packDaysToMake": 4,
         "desc": "10 interviews",
         "features": [
+          "Summary",
+          "Brand pillars",
           "Transcripts",
-          "Insights"
+          "Insights",
+          "Persona outline"
         ]
       },
       "premium": {
@@ -3529,8 +3684,15 @@
         "packDaysToMake": 3,
         "desc": "20 interviews",
         "features": [
+          "Summary",
+          "Brand pillars",
+          "Transcripts",
+          "Insights",
+          "Persona outline",
           "Video clips",
-          "Deck"
+          "Deck",
+          "Messaging matrix",
+          "Launch calendar"
         ]
       }
     },
@@ -3547,7 +3709,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Omar, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Omar, a dedicated professional delivering top-quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high-quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 5,
     "description": "You're juggling everything in your business but your brand strategy is still unclear. You're developing your product. Planning your marketing. Your to-do list keeps growing, but your brand strategy and messaging still are not clear. You're making big decisions but none of it feels certain. How should I communicate? Who is the right audience? What makes me stand out? And with your launch deadline getting closer, the pressure is building.",
@@ -3572,7 +3734,8 @@
         "packDaysToMake": 3,
         "desc": "1 data source",
         "features": [
-          "Publish to web"
+          "Publish to web",
+          "Basic visuals"
         ]
       },
       "standard": {
@@ -3581,7 +3744,10 @@
         "packDaysToMake": 2,
         "desc": "Up to 3 sources",
         "features": [
-          "DAX measures"
+          "Publish to web",
+          "Basic visuals",
+          "DAX measures",
+          "Drill-through"
         ]
       },
       "premium": {
@@ -3590,8 +3756,13 @@
         "packDaysToMake": 1,
         "desc": "Full report",
         "features": [
+          "Publish to web",
+          "Basic visuals",
+          "DAX measures",
+          "Drill-through",
           "Row-level security",
-          "Training"
+          "Training",
+          "Deployment guide"
         ]
       }
     },
@@ -3608,7 +3779,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Faisal, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Faisal, a dedicated professional delivering top-quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high-quality, tailored deliverables. Let’s discuss your goals and map out a plan that brings them to life. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 3,
     "description": "I am a Data Science expert and an experienced developer, I work on both quantitative/qualitative analysis, such as Nvivo, and artificial intelligence and machine learning projects such as NLP tasks, and speaker transcription/diarization. I have expertise in TensorFlow, pandas, Scikit-learn, and Keras, using Python. I analyze data in various analytical tools such as SAS/Tableau/PowerBI/Minitab/SPSS/R-studio/Eviews, and research writing for the obtained results.",
@@ -3637,7 +3808,8 @@
         "desc": "Static pages",
         "features": [
           "CSV",
-          "Python script"
+          "Python script",
+          "EDA"
         ]
       },
       "standard": {
@@ -3646,8 +3818,12 @@
         "packDaysToMake": 1,
         "desc": "JavaScript sites",
         "features": [
+          "CSV",
+          "Python script",
+          "EDA",
           "JSON",
-          "Pagination"
+          "Pagination",
+          "Model training"
         ]
       },
       "premium": {
@@ -3656,8 +3832,16 @@
         "packDaysToMake": 1,
         "desc": "Complex auth",
         "features": [
+          "CSV",
+          "Python script",
+          "EDA",
+          "JSON",
+          "Pagination",
+          "Model training",
           "API",
-          "Scheduler"
+          "Scheduler",
+          "Hyper-parameter tuning",
+          "Model serving"
         ]
       }
     },
@@ -3675,7 +3859,7 @@
       ],
       "avgResponceTime": "12 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Maaz, a dedicated professional delivering top‑quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge."
+      "about": "Hi, I'm Maaz, a dedicated professional delivering top-quality results tailored to your unique needs. Let’s discuss your goals and map out a plan that brings them to life. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge."
     },
     "daysToMake": 2,
     "description": "Hi, I'm Maaz. With over 5 years of experience in machine learning and Drone Design and Development, I specialize in developing custom ML models for drone applications, including real-time aerial image processing, object detection, and autonomous navigation systems. My expertise also extends to advanced data analytics and predictive modeling, enabling actionable insights across diverse domains.",
@@ -3703,7 +3887,8 @@
         "packDaysToMake": 1,
         "desc": "Up to 5k rows",
         "features": [
-          "Duplicates removal"
+          "Duplicates removal",
+          "EDA"
         ]
       },
       "standard": {
@@ -3712,8 +3897,11 @@
         "packDaysToMake": 1,
         "desc": "Up to 25k",
         "features": [
+          "Duplicates removal",
+          "EDA",
           "Null handling",
-          "Logs"
+          "Logs",
+          "Feature scaling"
         ]
       },
       "premium": {
@@ -3722,7 +3910,14 @@
         "packDaysToMake": 1,
         "desc": "50k+",
         "features": [
-          "Schema design"
+          "Duplicates removal",
+          "EDA",
+          "Null handling",
+          "Logs",
+          "Feature scaling",
+          "Schema design",
+          "Model tuning",
+          "Report"
         ]
       }
     },
@@ -3739,13 +3934,13 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-04",
-      "about": "Hi, I'm Salman, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge."
+      "about": "Hi, I'm Salman, a dedicated professional delivering top-quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge."
     },
     "daysToMake": 1,
     "description": "I hold a master's degree in data science, complemented by 3 years of practical experience in the field. My expertise lies in Generative AI, Machine Learning, and Data Analytics, which I have honed through hands-on work with structured, text, and image datasets. Over the past year, I've served as a Data Scientist in esteemed organizations, where I've applied my skills to various projects and consistently delivered impactful results.",
     "imgUrls": [
       "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819563/do-classification-analysis-with-python-and-machine-learning_z1bofy.jpg",
-      "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819566/do-classification-analysis-with-python-and-machine-learning_e6z5pi.webp"
+      "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819566/do-classification-analysis-with-python-and-machine-learning_e6zpi.webp"
     ],
     "category": "data",
     "tags": [
@@ -3765,7 +3960,8 @@
         "packDaysToMake": 1,
         "desc": "Join & filter",
         "features": [
-          "MySQL"
+          "MySQL",
+          "Index suggestion"
         ]
       },
       "standard": {
@@ -3774,7 +3970,10 @@
         "packDaysToMake": 1,
         "desc": "Aggregations",
         "features": [
-          "PostgreSQL"
+          "MySQL",
+          "Index suggestion",
+          "PostgreSQL",
+          "Query optimisation"
         ]
       },
       "premium": {
@@ -3783,8 +3982,14 @@
         "packDaysToMake": 1,
         "desc": "Procedure/CTE",
         "features": [
+          "MySQL",
+          "Index suggestion",
+          "PostgreSQL",
+          "Query optimisation",
           "MS-SQL",
-          "Docs"
+          "Docs",
+          "ETL pipeline",
+          "Dashboard"
         ]
       }
     },
@@ -3801,7 +4006,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-04",
-      "about": "Hi, I'm Ghyaas, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
+      "about": "Hi, I'm Ghyaas, a dedicated professional delivering top-quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Let’s discuss your goals and map out a plan that brings them to life. My goal is to create tangible value for your business through high-quality, tailored deliverables. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results."
     },
     "daysToMake": 1,
     "description": "Welcome to my Fiverr profile! I'm a certified Data Scientist and Machine Learning Engineer with a Master's in Data Science and a Bachelor's in Software Engineering. I specialize in Data Cleaning, EDA, Visualization, Machine Learning, and Large Language Models. My services include Data and Text Preprocessing, AI Chatbots, and Data Analysis. Let's discuss your project before placing an order. Proficient in R, Python, Excel, TensorFlow, and Keras. Let's bring your data projects to life!",
@@ -3828,7 +4033,8 @@
         "packDaysToMake": 1,
         "desc": "Skin retouch",
         "features": [
-          "Blemish removal"
+          "Blemish removal",
+          "Color correction"
         ]
       },
       "standard": {
@@ -3837,7 +4043,10 @@
         "packDaysToMake": 1,
         "desc": "Color grade",
         "features": [
-          "Dodge & burn"
+          "Blemish removal",
+          "Color correction",
+          "Dodge & burn",
+          "Shadow fix"
         ]
       },
       "premium": {
@@ -3846,7 +4055,13 @@
         "packDaysToMake": 1,
         "desc": "Full edit",
         "features": [
-          "Background cleanup"
+          "Blemish removal",
+          "Color correction",
+          "Dodge & burn",
+          "Shadow fix",
+          "Background cleanup",
+          "Product isolation",
+          "Lifestyle composite"
         ]
       }
     },
@@ -3863,7 +4078,7 @@
       ],
       "avgResponceTime": "1 hour",
       "lastDelivery": "2025-06-11",
-      "about": "Hi, I'm Katy, a dedicated professional delivering top‑quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high‑quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge."
+      "about": "Hi, I'm Katy, a dedicated professional delivering top-quality results tailored to your unique needs. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. My goal is to create tangible value for your business through high-quality, tailored deliverables. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge."
     },
     "daysToMake": 1,
     "description": "Looking for high-quality, professional photography that makes your product shine? Youre in the right place!",
@@ -3891,7 +4106,8 @@
         "packDaysToMake": 5,
         "desc": "White background",
         "features": [
-          "RAW"
+          "RAW",
+          "Basic retouch"
         ]
       },
       "standard": {
@@ -3900,7 +4116,11 @@
         "packDaysToMake": 4,
         "desc": "Styled props",
         "features": [
-          "PSD"
+          "RAW",
+          "Basic retouch",
+          "PSD",
+          "Color grading",
+          "Prop styling"
         ]
       },
       "premium": {
@@ -3909,7 +4129,15 @@
         "packDaysToMake": 3,
         "desc": "Lifestyle scene",
         "features": [
-          "Location"
+          "RAW",
+          "Basic retouch",
+          "PSD",
+          "Color grading",
+          "Prop styling",
+          "Location",
+          "Model hire",
+          "Creative brief",
+          "Advanced retouch"
         ]
       }
     },
@@ -3926,7 +4154,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Jakob, a dedicated professional delivering top‑quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high‑quality, tailored deliverables."
+      "about": "Hi, I'm Jakob, a dedicated professional delivering top-quality results tailored to your unique needs. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. My goal is to create tangible value for your business through high-quality, tailored deliverables."
     },
     "daysToMake": 5,
     "description": "I'm Jákob, a Fiverr certified Pro seller and professional e-commerce product photographer specializing in high-quality packshot and lifestyle images. With a focus on showcasing your products in the best possible light, my Fiverr Pro certification stands as a testament to my expertise, quality of work, and dedication to delivering exceptional service. Let's bring your products to life with images that capture attention and drive sales.",
@@ -3953,7 +4181,8 @@
         "packDaysToMake": 2,
         "desc": "Minor damage",
         "features": [
-          "Digital file"
+          "Digital file",
+          "Basic colour"
         ]
       },
       "standard": {
@@ -3962,7 +4191,11 @@
         "packDaysToMake": 1,
         "desc": "Medium damage",
         "features": [
-          "Colorise"
+          "Digital file",
+          "Basic colour",
+          "Colorise",
+          "Skin smoothing",
+          "Light enhancement"
         ]
       },
       "premium": {
@@ -3971,7 +4204,14 @@
         "packDaysToMake": 1,
         "desc": "Severe damage",
         "features": [
-          "Print ready"
+          "Digital file",
+          "Basic colour",
+          "Colorise",
+          "Skin smoothing",
+          "Light enhancement",
+          "Print ready",
+          "Album design",
+          "Art print"
         ]
       }
     },
@@ -3988,7 +4228,7 @@
       ],
       "avgResponceTime": "2 hours",
       "lastDelivery": "2025-06-13",
-      "about": "Hi, I'm Muccitas, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
+      "about": "Hi, I'm Muccitas, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. Let’s discuss your goals and map out a plan that brings them to life. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly."
     },
     "daysToMake": 2,
     "description": "Hey there, I'm Mucci, and I'm so glad you are here! Chances are, you found me because you're trying to plan the perfect surprise for your soon-to-be fiancé, and you need a New York proposal photographer who will capture that beautiful moment when they say YES! Planning a surprise proposal in New York may seem challenging, but with my help, you can fully immerse yourself in the moment with complete confidence that I will capture every extraordinary moment of the experience. We will cater the moment and location to suit your unique taste. How will we plan this? Read about the process and some testimonials here: allthefeels.club/nyc-surprise-proposal-photographer This is a safe, inclusive, collaborative space where your unique love story is celebrated. So, let's make some magic together!",
@@ -4015,7 +4255,8 @@
         "packDaysToMake": 3,
         "desc": "Digital PDF",
         "features": [
-          "Cover design"
+          "Cover design",
+          "Formatting"
         ]
       },
       "standard": {
@@ -4024,8 +4265,11 @@
         "packDaysToMake": 2,
         "desc": "Print ready",
         "features": [
+          "Cover design",
+          "Formatting",
           "Layout",
-          "CMYK"
+          "CMYK",
+          "Table of contents"
         ]
       },
       "premium": {
@@ -4034,7 +4278,14 @@
         "packDaysToMake": 1,
         "desc": "Printed book",
         "features": [
-          "Shipping"
+          "Cover design",
+          "Formatting",
+          "Layout",
+          "CMYK",
+          "Table of contents",
+          "Shipping",
+          "Hardcover binding",
+          "ISBN assignment"
         ]
       }
     },
@@ -4051,7 +4302,7 @@
       ],
       "avgResponceTime": "24 hours",
       "lastDelivery": "2025-06-07",
-      "about": "Hi, I'm Alvin, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Let’s discuss your goals and map out a plan that brings them to life."
+      "about": "Hi, I'm Alvin, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Let’s discuss your goals and map out a plan that brings them to life."
     },
     "daysToMake": 3,
     "description": "Are you planning a romantic trip to the City of Love to pop the big question or celebrate your engagement or proposal? Let me help you preserve this unforgettable moment with a stunning photoshoot that captures the magic of your love against the breathtaking backdrop of Paris. Imagine strolling hand-in-hand along the Seine, with the Eiffel Tower glistening in the distance, or sharing a tender kiss in the charming cobblestone streets of Montmartre. Whether it's a surprise proposal or a celebration of your engagement, I specialize in creating timeless images that reflect your unique love story.",
@@ -4079,7 +4330,8 @@
         "packDaysToMake": 2,
         "desc": "Virtual shoot",
         "features": [
-          "Retouch"
+          "Retouch",
+          "Pose guide"
         ]
       },
       "standard": {
@@ -4089,7 +4341,10 @@
         "desc": "Multiple outfits",
         "features": [
           "Retouch",
-          "Color grade"
+          "Pose guide",
+          "Color grade",
+          "Outfit consultation",
+          "Lighting setup"
         ]
       },
       "premium": {
@@ -4098,7 +4353,14 @@
         "packDaysToMake": 1,
         "desc": "Studio quality",
         "features": [
-          "Background swap"
+          "Retouch",
+          "Pose guide",
+          "Color grade",
+          "Outfit consultation",
+          "Lighting setup",
+          "Background swap",
+          "Studio flash",
+          "Print package"
         ]
       }
     },
@@ -4115,7 +4377,7 @@
       ],
       "avgResponceTime": "1 hour",
       "lastDelivery": "2025-06-12",
-      "about": "Hi, I'm Katsuhiro, a dedicated professional delivering top‑quality results tailored to your unique needs. My goal is to create tangible value for your business through high‑quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting‑edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations."
+      "about": "Hi, I'm Katsuhiro, a dedicated professional delivering top-quality results tailored to your unique needs. My goal is to create tangible value for your business through high-quality, tailored deliverables. I stay updated on industry trends and best practices so your project benefits from cutting-edge knowledge. Clear communication, timely updates and a collaborative spirit ensure our partnership runs smoothly. Client satisfaction is my north star—I’m not happy until you’re thrilled with the results. I approach every project with enthusiasm, meticulous planning and a commitment to exceeding expectations."
     },
     "daysToMake": 2,
     "description": "I'm mainly a portrait photographer in Toronto and have over 6 years of experience in photography. I can take a photo outside where is flexible with any location you choose for the photo shoot.",
