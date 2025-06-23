@@ -1,0 +1,21 @@
+.order-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+
+    column-gap: rem(24px);
+    row-gap: rem(32px);
+
+    margin-top: rem(16px);
+
+    .order-item {
+        min-width: 0;
+        width: 100%;
+    }
+
+    @include for-wide-layout {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: rem(32px);
+        row-gap: rem(40px);
+    }
+}
