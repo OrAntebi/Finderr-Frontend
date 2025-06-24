@@ -1,6 +1,7 @@
 import { useLocation, useSearchParams, Link } from 'react-router-dom'
 import homeIcon from '../assets/img/home-icon.svg'
 import { gigService } from '../services/gig'
+import { setGigFilter } from '../store/gig/gig.actions'
 
 export function BreadCrumbs() {
     const location = useLocation()
@@ -11,6 +12,10 @@ export function BreadCrumbs() {
     const categoryTitle = category ? gigService.getCategoryTitleFromPath(category) : null
     const isGigDetails = location.pathname.split('/').length === 3
 
+    function resetFilter() {
+        setGigFilter(gigService.getDefaultFilter())
+    }
+
     if (!isInCategories) return null
 
     return (
@@ -20,7 +25,7 @@ export function BreadCrumbs() {
             </Link>
 
             <span className="breadcrumb-separator">/</span>
-            <Link to="/categories" className="breadcrumb-link item">
+            <Link to="/categories" className="breadcrumb-link item" onClick={resetFilter}>
                 Categories
             </Link>
 

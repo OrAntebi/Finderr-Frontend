@@ -46,9 +46,20 @@ export function GigIndex() {
 
 
     function getTitle() {
-        return filter.category
-            ? gigService.getCategoryTitleFromPath(filter.category)
-            : 'Categories'
+        const { txt = '', category } = filter
+        const search = txt.trim()
+
+        if (search) {
+            return (
+                <>
+                    <span style={{ fontWeight: 400 }}>Results for&nbsp;</span>
+                    {search}
+                </>
+            )
+        }
+
+        if (category) return gigService.getCategoryTitleFromPath(category)
+        return 'Categories'
     }
 
     if (isLoading) return <Loader />

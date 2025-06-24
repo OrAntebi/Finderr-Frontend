@@ -22,6 +22,7 @@ import { Signup } from './pages/Signup.jsx'
 import { setGigFilter } from './store/gig/gig.actions.js'
 import { useCallback } from 'react'
 import { Checkout } from './pages/Checkout.jsx'
+import { Backdrop } from './cmps/Backdrop.jsx'
 
 
 export function RootCmp() {
@@ -32,7 +33,7 @@ export function RootCmp() {
         const searchQuery = rawQuery.trim()
         if (!searchQuery) return
 
-        setGigFilter({ ...gigService.getDefaultFilter(), txt: searchQuery, Category: '' })
+        setGigFilter({ ...gigService.getDefaultFilter(), txt: searchQuery, category: '' })
 
         const params = new URLSearchParams({ query: searchQuery })
         navigate({ pathname: '/categories', search: `?${params.toString()}` })
@@ -64,6 +65,7 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
+            {currentPage.startsWith("/categories") && <Backdrop />}
             <AppFooter />
         </>
     )
