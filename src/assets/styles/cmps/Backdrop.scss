@@ -7,13 +7,15 @@
     width: 100%;
 
     background-color: rgba(0, 0, 0, .5);
-    cursor: pointer;
     opacity: 0;
     overflow: hidden;
     transition: all .3s ease;
     z-index: 9;
+    pointer-events: none;
 
     &.active {
+        cursor: pointer;
+        pointer-events: all;
         opacity: 1;
     }
 }
