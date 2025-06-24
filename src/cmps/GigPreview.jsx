@@ -3,11 +3,14 @@ import { Link } from "react-router-dom"
 import { GigSlider } from "./GigSlider"
 
 export function GigPreview({ gig }) {
+    const starsArr = gigService.convertLvlToStars(gig.owner.level)
 
-    const levelStars = gigService.convertLvlToStars(gig.owner.level)
-        .map((src, idx) => (
-            <img key={idx} src={src} alt="star" className="star-img" />
-        ))
+    const level = Number(gig.owner.level)
+    const isTopRated = level === 3
+
+    const levelStars = starsArr.map((src, idx) => (
+        <img key={idx} src={src} alt="star" className="star-img" />
+    ))
 
     return (
         <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
@@ -19,8 +22,8 @@ export function GigPreview({ gig }) {
                     <span className="owner-name">{gig.owner.fullname}</span>
                 </div>
 
-                <span className="owner-level flex align-center">
-                    <p>Level {gig.owner.level}</p>
+                <span className={`owner-level flex align-center ${isTopRated ? "top-rated" : ""}`}>
+                    <p>{isTopRated ? "Top rated" : `Level ${gig.owner.level}`}</p>
                     <span className="stars flex align-center">{levelStars}</span>
                 </span>
             </div>
@@ -39,4 +42,3 @@ export function GigPreview({ gig }) {
         </Link>
     )
 }
-

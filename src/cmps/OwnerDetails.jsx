@@ -16,6 +16,9 @@ export function OwnerDetails({ owner, isLarge }) {
             ? owner.about.slice(0, owner.about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
             : owner.about
 
+    const level = Number(owner.level)
+    const isTopRated = level === 3
+
     const levelStars = gigService.convertLvlToStars(owner.level)
         .map((src, idx) => (
             <img key={idx} src={src} alt="star" className="star" />
@@ -26,11 +29,11 @@ export function OwnerDetails({ owner, isLarge }) {
             <div className="owner-details flex align-center">
                 <img className={`owner-img ${isLarge ? 'large' : ''}`} src={owner.imgUrl} alt="owner image" />
                 <div className="owner-info flex column">
-                    <div className="name-and-level flex justify-between">
+                    <div className="name-and-level flex justify-start">
                         <h3>{owner.fullname}</h3>
 
-                        <span className="level flex align-center">
-                            <p>Level {owner.level}</p>
+                        <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>
+                            <p>{isTopRated ? "Top rated" : `Level ${gig.owner.level}`}</p>
                             <span className="stars flex align-center">{levelStars}</span>
                         </span>
                     </div>

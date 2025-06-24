@@ -43,7 +43,7 @@
                 flex-direction: column;
 
                 @include for-narrow-layout {
-                    gap: rem(8px);
+                    gap: rem(12px);
                     flex-direction: row;
                     align-items: center;
                 }
@@ -63,6 +63,18 @@
                         display: flex;
                         align-items: center;
                         gap: rem(2px);
+                    }
+                    
+                    &.top-rated {
+                        padding-inline: rem(6px);
+                        
+                        border-radius: rem(4px);
+                        background-color: #ffe0b3;
+                        
+                        p {
+                            font-weight: 600;
+                            color: $clr1;
+                        }
                     }
                 }
             }
