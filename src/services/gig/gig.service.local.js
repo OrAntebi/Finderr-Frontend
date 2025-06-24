@@ -56,7 +56,7 @@ async function query(filterBy = {}) {
                     const bScore = (b.owner.rate * 2) + (b.likedByUsers?.length || 0) - (b.price / 10)
                     return bScore - aScore
                 case 'best-selling':
-                    return (b.sales || b.likedByUsers?.length || 0) - (a.sales || a.likedByUsers?.length || 0)
+                    return (b.orders || 0) - (a.orders || 0)
                 case 'newest-arrivals':
                     return b.createdAt - a.createdAt
                 case 'fastest-delivery':
