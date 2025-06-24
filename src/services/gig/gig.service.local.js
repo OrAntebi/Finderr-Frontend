@@ -4,21 +4,6 @@ import { userService } from '../user'
 import gigs from '../data/gigs.json' assert { type: 'json' }
 
 const GIG_KEY = 'gigDB'
-const CATEGORIES = {
-    'graphics-design': 'Graphics & Design',
-    'programming-tech': 'Programming & Tech',
-    'digital-marketing': 'Digital Marketing',
-    'video-animation': 'Video & Animation',
-    'writing-translation': 'Writing & Translation',
-    'music-audio': 'Music & Audio',
-    'business': 'Business',
-    'finance': 'Finance',
-    'ai-services': 'AI Services',
-    'personal-growth': 'Personal Growth',
-    'consulting': 'Consulting',
-    'data': 'Data',
-    'photography': 'Photography'
-}
 
 export const gigService = {
     query,
@@ -33,6 +18,7 @@ export const gigService = {
 window.cs = gigService
 
 _initGigDB()
+
 function _initGigDB() {
     const stored = JSON.parse(localStorage.getItem(GIG_KEY))
     if (!stored || !stored.length) saveToStorage(GIG_KEY, gigs)

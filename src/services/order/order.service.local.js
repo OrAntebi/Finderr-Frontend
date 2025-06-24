@@ -14,6 +14,7 @@ export const orderService = {
 window.cs = orderService
 
 _initOrderDB()
+
 function _initOrderDB() {
     const stored = JSON.parse(localStorage.getItem(ORDER_KEY))
     if (!stored || !stored.length) saveToStorage(ORDER_KEY, orders)
