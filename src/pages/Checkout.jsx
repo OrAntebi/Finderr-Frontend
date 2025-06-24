@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router'
 import { Loader } from '../cmps/Loader'
 import { loadGig } from '../store/gig/gig.actions'
 import { orderService } from '../services/order/index'
+import { gigService } from '../services/gig'
 import { genRandomCardNumber, genRandomCvv, genRandomExpiration, getRandomIntInclusive } from '../services/util.service'
 import paypalIcon from '../assets/img/paypal-icon.svg'
 import checkIcon from '../assets/img/check-icon.svg'
@@ -46,6 +47,8 @@ export function Checkout() {
     async function onPurchaseOrder() {
 
         try {
+            const categoryLabel = gigService.getCategoryList(gig.category) 
+            
             const order = {
                 buyer: {
                     _id: user._id,
@@ -59,8 +62,9 @@ export function Checkout() {
                 gig: {
                     _id: gig._id,
                     title: gig.title,
+                    imgUrl: gig.imgUrls?.[0],
                     category: gig.category,
-                    imgUrl: gig.imgUrls[0]
+                    categoryLabel
                 },
                 status: 'pending',
                 packageName,

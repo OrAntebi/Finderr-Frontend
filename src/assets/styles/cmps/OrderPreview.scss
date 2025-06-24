@@ -3,6 +3,8 @@
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-width: 0;
 
     .order-status {
         margin-bottom: 20px;
@@ -20,11 +22,12 @@
             .status-value {
                 font-family: Macan-Bold, sans-serif;
                 font-size: rem(16px);
-                margin-right: 8px;
+                margin-right: rem(8px);
+                text-transform: uppercase;
             }
 
             .due-date {
-                font-size: 12px;
+                font-size: rem(12px);
                 color: #777;
             }
         }
@@ -44,22 +47,19 @@
     }
 
     .gig-info {
-        gap: rem(16px);
-        margin-bottom: rem(20px);
+        gap: rem(10px);
+        padding-block-end: rem(15px);
+        border-bottom: 1px solid #dadbdd;
 
         .gig-image {
             img {
-                width: 120px;
-                height: 80px;
-                border: 1px solid #e4e5e7;
+                max-width: rem(140px);
+                height: rem(90px);
                 border-radius: 8px;
-                object-fit: cover;
             }
         }
 
-        .gig-details {
-            flex: 1;
-
+        .gig-content {
             >*:not(:first-child) {
                 margin-block-start: rem(8px);
             }
@@ -74,55 +74,62 @@
             .gig-category {
                 font-size: rem(13px);
                 color: #74767e;
-                margin: 0;
             }
 
             .seller-name {
                 font-size: rem(12px);
                 color: #74767e;
-                margin: 0;
             }
         }
     }
 
     .order-details {
-        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: rem(92px);
+        margin-block-start: rem(12px);
 
         .detail-row {
-            margin-bottom: 8px;
+            grid-column: 1;
+            margin-block-end: rem(20px);
+            color: #74767e;
+            font-size: rem(14px);
+            font-weight: 600;
+            letter-spacing: 0.5px;
 
             .detail-label {
-                font-size: 12px;
-                color: #777;
-                font-weight: 600;
-                letter-spacing: 0.5px;
+                width: rem(130px);
+                text-transform: uppercase;
             }
 
             .detail-value {
-                font-size: 12px;
-                color: #333;
+                font-size: rem(15px);
+                margin-inline-start: rem(4px);
                 font-weight: 500;
+                
+                &.delivery {
+                    gap: rem(4px);
+                }
             }
         }
-    }
-
-    .order-actions {
-        text-align: right;
 
         .view-order-btn {
-            background: #1dbf73;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background 0.2s ease;
+            grid-column: 2;
+            grid-row: 2;
 
-            &:hover {
-                background: #17a060;
+            .show-order {
+                background-color: #1dbf73;
+                color: white;
+                font-weight: 500;
+                padding: rem(8px) rem(12px);
+                border-radius: 4px;
+                font-size: 12px;
+                text-transform: uppercase;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #17a060;
+                }
             }
         }
     }

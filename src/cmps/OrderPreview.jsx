@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom"
-import { gigService } from '../services/gig'
+import { calculateDueDate } from '../services/util.service'
+import deliverySvg from '../assets/img/delivery-icon.svg'
 
 export function OrderPreview({ order }) {
-    
+
     const getStatusColor = (status) => {
         switch (status) {
             case 'pending': return '#f39c12'
@@ -13,70 +13,64 @@ export function OrderPreview({ order }) {
         }
     }
 
-    const calculateDueDate = (createdAt, daysToMake) => {
-        const dueDate = new Date(createdAt)
-        dueDate.setDate(dueDate.getDate() + daysToMake)
-        return dueDate.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric' 
-        })
-    }
+
     const { status, createdAt, daysToMake, _id, gig, seller } = order
+    const dueDate = calculateDueDate(createdAt, daysToMake)
+
     return (
-        <div className="order-preview">
+        <div className="order-preview flex column">
             <div className="order-status">
                 <span className="status-label">ORDER STATUS</span>
                 <div className="status-info">
-                    <span 
-                        className="status-value" 
+                    <span
+                        className="status-value"
                         style={{ color: getStatusColor(status) }}
                     >
-                        {status.toUpperCase()}
+                        {status}
                     </span>
                     <span className="due-date">
-                        Due date on {calculateDueDate(createdAt, daysToMake)}
+                        Due date on {dueDate}
                     </span>
                 </div>
                 <div className="progress-bar">
-                    <div 
-                        className="progress-fill" 
-                        style={{ 
+                    <div
+                        className="progress-fill"
+                        style={{
                             backgroundColor: getStatusColor(status),
-                            width: status === 'pending' ? '25%' : 
-                                   status === 'approved' ? '50%' : 
-                                   status === 'fulfilled' ? '100%' : '0%'
+                            width: status === 'pending' ? '25%' :
+                                status === 'approved' ? '50%' :
+                                    status === 'fulfilled' ? '100%' : '0%'
                         }}
                     ></div>
                 </div>
             </div>
 
-            <div className="gig-info flex wrap">
+            <div className="gig-info flex">
                 <div className="gig-image">
-                    <img src={gig.imgUrl || '/default-gig-image.jpg'} alt={gig.title} />
+                    <img src={gig.imgUrl} alt={gig.title} />
                 </div>
-                <div className="gig-details">
+                <div className="gig-content">
                     <h3 className="gig-title">{gig.title}</h3>
-                    <p className="gig-category">{gigService.getCategoryList(gig.category)}</p>
+                    <p className="gig-category">{gig.categoryLabel}</p>
                     <p className="seller-name">From {seller.fullname}</p>
                 </div>
             </div>
 
             <div className="order-details">
-                <div className="detail-row flex justify-between">
-                    <span className="detail-label">ORDER NO.</span>
+                <div className="detail-row flex align-center justify-start">
+                    <span className="detail-label">order no.</span>
                     <span className="detail-value">#{_id}</span>
                 </div>
-                <div className="detail-row">
-                    <span className="detail-label">DELIVERY TIME</span>
-                    <span className="detail-value">📅 {daysToMake} Days</span>
+                <div className="detail-row flex align-center justify-start">
+                    <span className="detail-label">delivery time</span>
+                    <div className="detail-value delivery flex align-center justify-center">
+                        <img src={deliverySvg} alt="delivery-icon" />
+                        <span>{daysToMake} Days</span>
+                    </div>
                 </div>
-            </div>
-
-            <div className="order-actions">
-                <Link to={`/order/${_id}`} className="view-order-btn">
-                    VIEW ORDER
-                </Link>
+                <div className="view-order-btn flex align-center justify-end">
+                    <button className="show-order btn">view order</button>
+                </div>
             </div>
         </div>
     )
