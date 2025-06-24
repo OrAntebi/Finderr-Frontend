@@ -1,8 +1,11 @@
 export const LOADING_START = 'LOADING_START'
 export const LOADING_DONE = 'LOADING_DONE'
+export const SHOW_BACKDROP = 'SHOW_BACKDROP'
+export const HIDE_BACKDROP = 'HIDE_BACKDROP'
 
 const initialState = {
-    isLoading: false
+    isLoading: false,
+    isBackdropOpen: false,
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -11,6 +14,11 @@ export function systemReducer(state = initialState, action = {}) {
             return { ...state, isLoading: true }
         case LOADING_DONE:
             return { ...state, isLoading: false }
-        default: return state
+        case SHOW_BACKDROP:
+            return { ...state, isBackdropOpen: true }
+        case HIDE_BACKDROP:
+            return { ...state, isBackdropOpen: false }
+        default:
+            return state
     }
 }

@@ -1,4 +1,5 @@
 .categories-list-container {
+    background-color: #ffffff;
     border-block-end: 1px solid #dadbdd;
     overflow: visible;
 
@@ -73,5 +74,9 @@
                 background: linear-gradient(270deg, #fff 40%, hsla(0, 0%, 100%, 0));
             }
         }
+    }
+
+    &:has(~ .backdrop.active) {
+        pointer-events: none;
     }
 }
