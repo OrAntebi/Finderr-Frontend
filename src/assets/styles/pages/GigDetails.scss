@@ -31,9 +31,22 @@
         .owner-info {
             color: $caregories-clr;
             font-family: Macan-Bold, sans-serif;
+            gap: rem(4px);
+
+            @include for-narrow-layout {
+                gap: rem(8px);
+            }
 
             .name-and-level {
-                gap: .5rem;
+                gap: rem(4px);
+                align-items: start;
+                flex-direction: column;
+
+                @include for-narrow-layout {
+                    gap: rem(8px);
+                    flex-direction: row;
+                    align-items: center;
+                }
 
                 h3 {
                     margin: 0;
@@ -56,6 +69,7 @@
 
             .rate {
                 line-height: lh(24px);
+                column-gap: rem(8px);
 
                 .star:not(:first-child) {
                     padding-left: .25rem;
@@ -66,7 +80,19 @@
                     color: $caregories-clr;
                     font-weight: bold;
                 }
+
+                .reviews {
+                    color: #74767e;
+                    font-size: rem(16px);
+                    font-weight: 500;
+                    font-family: Macan-Regular;
+
+                    label {
+                        text-decoration: underline;
+                    }
+                }
             }
+
         }
     }
 

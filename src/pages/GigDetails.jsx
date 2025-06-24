@@ -38,6 +38,7 @@ export function GigDetails() {
     if (isLoading || !gig) return <Loader />
 
     const { owner } = gig
+    console.log('owner', owner)
     const selectedPack = {
         ...gig.packages[selectedPackage],
         packageName: selectedPackage,

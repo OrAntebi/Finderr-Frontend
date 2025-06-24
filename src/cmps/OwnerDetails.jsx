@@ -26,7 +26,7 @@ export function OwnerDetails({ owner, isLarge }) {
             <div className="owner-details flex align-center">
                 <img className={`owner-img ${isLarge ? 'large' : ''}`} src={owner.imgUrl} alt="owner image" />
                 <div className="owner-info flex column">
-                    <div className="name-and-level flex align-center">
+                    <div className="name-and-level flex justify-between">
                         <h3>{owner.fullname}</h3>
 
                         <span className="level flex align-center">
@@ -36,13 +36,19 @@ export function OwnerDetails({ owner, isLarge }) {
                     </div>
 
                     <div className="rate flex align-center">
-                        <div className="stars flex">
-                            {Array.from({ length: 5 }, (_, index) => (
-                                <img key={index} className="star" src={starSvg} alt="star-icon" />
-                            ))}
+                        <div className="flex align-center">
+                            <div className="stars flex">
+                                {Array.from({ length: isMobile ? 1 : 5 }, (_, index) => (
+                                    <img key={index} className="star" src={starSvg} alt="star-icon" />
+                                ))}
+                            </div>
+                            <span className="rating">{owner.rate}</span>
                         </div>
-                        <span className="rating">{owner.rate}</span>
+                        <span className="reviews">
+                            (<label>{owner.reviews} reviews</label>)
+                        </span>
                     </div>
+
                 </div>
             </div>
             {
