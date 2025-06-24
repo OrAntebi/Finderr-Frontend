@@ -30,7 +30,7 @@ export function GigPreview({ gig }) {
             <div className="rating-row flex align-center">
                 <span className="star">★</span>
                 <span className="rate-num">{gig.owner.rate.toFixed(1)}</span>
-                <span className="rate-count">({gig.reviews})</span>
+                <span className="rate-count">({gig.owner.reviews})</span>
             </div>
 
             <div className="price-row flex align-center">
