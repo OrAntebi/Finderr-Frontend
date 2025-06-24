@@ -85,7 +85,7 @@ export function genRandomCvv() {
 export function calculateDueDate(createdAt, daysToAdd) {
     const dueDate = new Date(createdAt)
     dueDate.setDate(dueDate.getDate() + daysToAdd)
-    return dueDate.toLocaleTimeString('en-US', {
+    return dueDate.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'

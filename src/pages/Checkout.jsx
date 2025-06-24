@@ -22,8 +22,8 @@ export function Checkout() {
 
     const user = useSelector(storeState => storeState.userModule.user)
     const gig = useSelector(storeState => storeState.gigModule.gig)
-    const { gigId, packageName } = useParams()
-    const packageDetails = gig?.packages[packageName]
+    const { gigId, packageType } = useParams()
+    const packageDetails = gig?.packages[packageType]
 
     const [paymentMethod, setPaymentMethod] = useState('card')
     const screenWidth = useScreenSize()
@@ -55,9 +55,9 @@ export function Checkout() {
                     fullname: user.fullname
                 },
                 seller: {
-                    _id: gig.owner._id,
-                    fullname: gig.owner.fullname,
-                    imgUrl: gig.owner.imgUrl
+                    _id: gig?.owner._id,
+                    fullname: gig?.owner.fullname,
+                    imgUrl: gig?.owner.imgUrl
                 },
                 gig: {
                     _id: gig._id,
@@ -65,16 +65,16 @@ export function Checkout() {
                     imgUrl: gig.imgUrls?.[0],
                     category: gig.category,
                     categoryLabel,
-                    packPrice: packageDetails.packPrice,
+                    price: gig?.packages['basic']?.packPrice,
                     createdAt: gig.createdAt
                 },
                 status: 'pending',
-                packageName,
+                packageName: packageDetails.title,
                 totalPrice,
                 daysToMake: packageDetails.packDaysToMake,
                 createdAt: Date.now()
             }
-
+            console.log(order)
             await orderService.save(order)
             showSuccessMsg('Purchased service successfully!')
             navigate(`/user/${gigId}/orders`)
@@ -240,7 +240,7 @@ export function Checkout() {
                     </header>
 
                     <section className="order-details-general flex align-center justify-between">
-                        <span className="order-details-general-title">{packageName}</span>
+                        <span className="order-details-general-title">{packageType}</span>
                         <span className="order-details-general-price">${packageDetails?.packPrice}</span>
                     </section>
 

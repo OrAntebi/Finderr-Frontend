@@ -25,7 +25,7 @@ export function UserOrders() {
         <section className="user-orders">
             <div className="title flex align-center">
                 <img src={orderSvg} alt="order-icon" />
-                <h1>User Orders</h1>
+                <h1>my orders</h1>
             </div>
 
             <OrderList orders={orders} />

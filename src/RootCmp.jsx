@@ -49,7 +49,7 @@ export function RootCmp() {
                     <Route path="" element={<HomePage onSearch={handleSearch} />} />
                     <Route path="categories" element={<GigIndex />} />
                     <Route path="categories/:gigId" element={<GigDetails />} />
-                    <Route path="checkout/:gigId/:packageName" element={<Checkout />} />
+                    <Route path="checkout/:gigId/:packageType" element={<Checkout />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="user/:id/orders" element={<UserOrders />} />
                     <Route path="review" element={<ReviewIndex />} />
