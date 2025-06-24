@@ -7,9 +7,9 @@ import checkIcon from '../assets/img/check-icon-2.svg'
 import closeIcon from '../assets/img/close-icon.svg'
 
 const BUDGET_OPTIONS = [
-    { id: 'value', label: 'Value', note: 'Under ₪200', min: '', max: 200 },
-    { id: 'mid', label: 'Mid-range', note: '₪200-₪364', min: 200, max: 364 },
-    { id: 'high', label: 'High-end', note: '₪364 & Above', min: 364, max: '' },
+    { id: 'value', label: 'Value', note: 'Under $200', min: '', max: 200 },
+    { id: 'mid', label: 'Mid-range', note: '$200-$364', min: 200, max: 364 },
+    { id: 'high', label: 'High-end', note: '$364 & Above', min: 364, max: '' },
     { id: 'custom', label: 'Custom', note: '', isCustom: true }
 ]
 const DELIVERY_OPTIONS = [

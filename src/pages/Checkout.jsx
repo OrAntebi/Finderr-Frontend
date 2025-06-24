@@ -47,8 +47,8 @@ export function Checkout() {
     async function onPurchaseOrder() {
 
         try {
-            const categoryLabel = gigService.getCategoryList(gig.category) 
-            
+            const categoryLabel = gigService.getCategoryList(gig.category)
+
             const order = {
                 buyer: {
                     _id: user._id,
@@ -64,11 +64,13 @@ export function Checkout() {
                     title: gig.title,
                     imgUrl: gig.imgUrls?.[0],
                     category: gig.category,
-                    categoryLabel
+                    categoryLabel,
+                    packPrice: packageDetails.packPrice,
+                    createdAt: gig.createdAt
                 },
                 status: 'pending',
                 packageName,
-                packPrice: packageDetails.packPrice,
+                totalPrice,
                 daysToMake: packageDetails.packDaysToMake,
                 createdAt: Date.now()
             }

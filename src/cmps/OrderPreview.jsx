@@ -57,11 +57,11 @@ export function OrderPreview({ order }) {
             </div>
 
             <div className="order-details">
-                <div className="detail-row flex align-center justify-start">
+                <div className="detail-row flex align-center justify-between">
                     <span className="detail-label">order no.</span>
                     <span className="detail-value">#{_id}</span>
                 </div>
-                <div className="detail-row flex align-center justify-start">
+                <div className="detail-row flex align-center justify-between">
                     <span className="detail-label">delivery time</span>
                     <div className="detail-value delivery flex align-center justify-center">
                         <img src={deliverySvg} alt="delivery-icon" />
