@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { gigService } from "../services/gig"
 import { useScreenSize } from '../customHooks/useScreenSize'
 import starSvg from '../assets/img/star-icon.svg'
@@ -11,7 +13,7 @@ export function OwnerDetails({ owner, isLarge }) {
     const {
         about, imgUrl, level, fullname, rate,
         reviews, loc, memberSince, avgResponseTime,
-        lastDelivery, languages
+        lastDelivery, languages, _id
     } = owner
 
     const maxChars = 180
@@ -36,7 +38,8 @@ export function OwnerDetails({ owner, isLarge }) {
                 <img className={`owner-img ${isLarge ? 'large' : ''}`} src={imgUrl} alt="owner image" />
                 <div className="owner-info flex column">
                     <div className="name-and-level flex justify-start">
-                        <h3>{fullname}</h3>
+
+                        <Link to={`/user/${_id}`}><h3>{fullname}</h3></Link>
 
                         <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>
                             <p>{isTopRated ? "Top rated" : `Level ${level}`}</p>
