@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux"
-import { getRandomDemoUser } from "../services/util.service"
-import { useRef } from "react"
 
 
-export function UserDetails() {
-    const loggedInUser = useSelector(storeState => storeState.userModule.user)
-    const userInfo = useRef(getRandomDemoUser()).current
+export function UserDetails({ user }) {
+
+    const { fullname, username, imgUrl, from, memberSince, avgResponseTime,
+        lastDelivery, description, languages, skills, education } = user
 
     return (
         <article className="user-details flex column">
@@ -13,12 +11,12 @@ export function UserDetails() {
             <section className="card user-card flex column">
 
                 <div className="user-img flex align-center justify-center">
-                    <img src={loggedInUser.imgUrl} alt="user image" />
+                    <img src={imgUrl} alt="user image" />
                 </div>
 
                 <div className="user-info flex column align-center justify-center">
-                    <h3 className="fullname">{loggedInUser.fullname}</h3>
-                    <p className="username">@{loggedInUser.username}</p>
+                    <h3 className="fullname">{fullname}</h3>
+                    <p className="username">@{username}</p>
                 </div>
 
                 <div className="user-stats flex column ">
@@ -27,28 +25,28 @@ export function UserDetails() {
                             <i className="fa-solid fa-location-dot"></i>
                             <span>From</span>
                         </label>
-                        <b>{userInfo.from}</b>
+                        <b>{from}</b>
                     </span>
                     <span className="member-since flex align-center justify-between">
                         <label className="member-since-label">
                             <i className="fa-solid fa-user"></i>
                             <span>Member Since</span>
                         </label>
-                        <b>{userInfo.memberSince}</b>
+                        <b>{memberSince}</b>
                     </span>
                     <span className="avg-response-time flex align-center justify-between">
                         <label className="avg-response-time-label">
                             <i className="fa-regular fa-clock"></i>
                             <span>Avg. Response Time</span>
                         </label>
-                        <b>{userInfo.avgResponseTime}</b>
+                        <b>{avgResponseTime}</b>
                     </span>
                     <span className="last-delivery flex align-center justify-between">
                         <label className="last-delivery-label">
                             <i className="fa-solid fa-paper-plane"></i>
                             <span>Last Delivery</span>
                         </label>
-                        <b>{userInfo.lastDelivery}</b>
+                        <b>{lastDelivery}</b>
                     </span>
                 </div>
             </section>
@@ -57,13 +55,13 @@ export function UserDetails() {
 
                 <div className="description flex column">
                     <h3 className="title">Description</h3>
-                    <p className="text">{userInfo.description}</p>
+                    <p className="text">{description}</p>
                 </div>
 
                 <div className="languages flex column">
                     <h3 className="title">Languages</h3>
                     <ul className="languages-list clean-list">
-                        {userInfo.languages.map(({ language, proficiency }, idx) => (
+                        {languages.map(({ language, proficiency }, idx) => (
                             <li key={idx} className="language">
                                 {language} - <span>{proficiency}</span>
                             </li>
@@ -100,7 +98,7 @@ export function UserDetails() {
                 <div className="skills flex column">
                     <h3 className="title">Skills</h3>
                     <ul className="skills-list clean-list flex align-center">
-                        {userInfo.skills.map((skill, idx) => (
+                        {skills.map((skill, idx) => (
                             <li key={idx} className="skill">{skill}</li>
                         ))}
                     </ul>
@@ -108,8 +106,8 @@ export function UserDetails() {
 
                 <div className="education flex column">
                     <h3 className="title">Education</h3>
-                    <p className="edu-title">{userInfo.education.title}</p>
-                    <p className="edu-subtitle">{userInfo.education.subtitle}</p>
+                    <p className="edu-title">{education.title}</p>
+                    <p className="edu-subtitle">{education.subtitle}</p>
                 </div>
 
             </section>
