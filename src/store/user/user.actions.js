@@ -87,7 +87,6 @@ export async function loadWatchedUser(userId) {
         store.dispatch({ type: SET_WATCHED_USER, user })
     } catch (err) {
         showErrorMsg('Cannot load user')
-
         console.error('Cannot load watched user', err)
     }
 }

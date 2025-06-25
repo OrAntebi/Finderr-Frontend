@@ -38,7 +38,7 @@ export function UserOrders() {
         setSelectedOrder(null)
     }
 
-    if (isLoading) return <Loader />
+    if (!loggedUser || isLoading) return <Loader />
 
     return (
         <section className={`user-orders ${isModalOpen ? 'modal-open' : ''}`}>

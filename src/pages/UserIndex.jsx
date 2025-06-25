@@ -32,14 +32,14 @@ export function UserIndex() {
             .finally(() => setIsLoading(false))
     }, [userIdFromParams])
 
-    if (isLoading) return <Loader />
+    if (isLoading || !watchedUser) return <Loader />
 
     const detailedUser = {
         ...watchedUser,
         ...userInfo
     }
-    const ordersSold = orders.filter(order => order.seller._id === userIdFromParams)
     const isOwnProfile = loggedInUser?._id === userIdFromParams
+    const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
 
     return (
         <main className="user-index flex">
