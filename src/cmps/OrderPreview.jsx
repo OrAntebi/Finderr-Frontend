@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { calculateDueDate } from '../services/util.service'
 import deliverySvg from '../assets/img/delivery-icon.svg'
 
@@ -46,9 +48,9 @@ export function OrderPreview({ order }) {
             </div>
 
             <div className="gig-info flex">
-                <div className="gig-image">
+                <Link to={`/categories/${gig._id}`} className="gig-image">
                     <img src={gig.imgUrl} alt={gig.title} />
-                </div>
+                </Link>
                 <div className="gig-content">
                     <h3 className="gig-title">{gig.title}</h3>
                     <p className="gig-category">{gig.categoryLabel}</p>
