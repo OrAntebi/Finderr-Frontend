@@ -32,7 +32,7 @@ async function query(filterBy = {}) {
         const words = txt.trim().toLowerCase().split(/\s+/)
 
         gigs = gigs.filter(gig => {
-            return words.some(word => {
+            return words.every(word => {
                 return (
                     gig.title?.toLowerCase().includes(word) ||
                     gig.description?.toLowerCase().includes(word) ||
@@ -70,7 +70,6 @@ async function query(filterBy = {}) {
             }
         })
     }
-
     return gigs
 }
 
