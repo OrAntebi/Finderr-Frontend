@@ -1,0 +1,142 @@
+.user-details {
+    max-width: 400px;
+    font-size: 14px;
+
+    .card {
+        padding: 1.875rem;
+
+        color: #62646a;
+        border: 1px solid #dadbdd;
+
+        &:last-of-type {
+            margin-block-start: 25px;
+        }
+    }
+
+    .user-card {
+
+        .user-img {
+            width: 150px;
+            height: fit-content;
+
+            align-self: center;
+            margin-block-end: rem(15px);
+
+            img {
+                border-radius: 100vh;
+            }
+        }
+
+        .user-info {
+            gap: rem(3px);
+            border-block-end: 1px solid #dadbdd;
+            padding-block-end: rem(24px);
+            margin-block-end: rem(24px);
+
+            .fullname {
+                font-size: rem(20px);
+            }
+
+            .username {
+                text-transform: lowercase;
+            }
+        }
+
+        .user-stats {
+            gap: rem(20px);
+            font-family: 'Macan-Medium';
+
+            span label {
+                display: flex;
+                align-items: center;
+                gap: rem(12px);
+            }
+        }
+
+    }
+
+    .desc-card {
+
+        >* {
+            width: 100%;
+
+            &:not(:last-child) {
+                padding-block-end: rem(25px);
+                border-block-end: 1px solid #dadbdd;
+            }
+
+            &:not(:first-child) {
+                padding-block-start: rem(25px);
+            }
+        }
+
+        h3 {
+            padding-block-end: em(18px);
+        }
+
+        div li:not(:last-of-type),
+        p:not(:last-of-type) {
+            padding-block-end: em(10px);
+        }
+
+        .languages {
+
+            .language span {
+                color: #b2b2b2;
+            }
+        }
+
+        .linked-accounts {
+
+            li {
+                gap: rem(10px);
+                text-transform: capitalize;
+
+                i {
+                    padding-block-start: rem(2px);
+                }
+
+                a {
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .skills {
+
+            .skills-list {
+                flex-wrap: wrap;
+                gap: rem(10px);
+
+                .skill {
+                    padding: rem(5px) rem(12px);
+
+                    font-size: rem(16px);
+                    border: 1px solid #e4e5e7;
+                    border-radius: 100vh;
+                    transition: background-color 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+        }
+
+        .education .edu-subtitle {
+            color: #b2b2b2;
+        }
+    }
+
+    h3 {
+        margin: 0;
+
+        font-size: rem(18px);
+        color: #0e0e0f;
+    }
+
+}

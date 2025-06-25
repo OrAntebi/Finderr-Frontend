@@ -19,7 +19,7 @@
 @import "pages/GigIndex";
 @import "pages/GigDetails";
 @import "pages/ReviewIndex";
-@import "pages/UserDetails";
+@import "pages/UserIndex";
 @import "pages/UserOrders";
 @import "pages/AdminIndex";
 @import "pages/TaskDetails";
@@ -49,6 +49,7 @@
 @import "cmps/GigSlider";
 @import "cmps/OrderList";
 @import "cmps/OrderPreview";
+@import "cmps/UserDetails";
 
 @import "cmps/Loader";
 @import "cmps/NoGigsFound";

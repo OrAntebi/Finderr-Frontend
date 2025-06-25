@@ -9,7 +9,7 @@ import { ChatApp } from './pages/Chat.jsx'
 import { AdminIndex } from './pages/AdminIndex.jsx'
 
 import { GigDetails } from './pages/GigDetails'
-import { UserDetails } from './pages/UserDetails'
+import { UserIndex } from './pages/UserIndex'
 import { UserOrders } from './pages/UserOrders'
 
 import { AppHeader } from './cmps/AppHeader'
@@ -50,7 +50,7 @@ export function RootCmp() {
                     <Route path="categories" element={<GigIndex />} />
                     <Route path="categories/:gigId" element={<GigDetails />} />
                     <Route path="checkout/:gigId/:packageType" element={<Checkout />} />
-                    <Route path="user/:id" element={<UserDetails />} />
+                    <Route path="user/:id" element={<UserIndex />} />
                     <Route path="user/:id/orders" element={<UserOrders />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />

@@ -52,7 +52,7 @@ async function update({ _id, score }) {
 async function login(userCred) {
     const users = await storageService.query(USER_KEY)
     const user = users.find(user => user.username === userCred.username)
-    
+
     if (user) return _saveLocalUser(user)
 }
 
@@ -77,6 +77,7 @@ function _saveLocalUser(user) {
         _id: user._id,
         fullname: user.fullname,
         imgUrl: user.imgUrl,
+        username: user.username
     }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
