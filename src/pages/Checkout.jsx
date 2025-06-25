@@ -74,7 +74,7 @@ export function Checkout() {
                 daysToMake: packageDetails.packDaysToMake,
                 createdAt: Date.now()
             }
-            console.log(order)
+            
             await orderService.save(order)
             showSuccessMsg('Purchased service successfully!')
             navigate(`/user/${gigId}/orders`)
