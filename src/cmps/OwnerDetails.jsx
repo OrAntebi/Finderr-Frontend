@@ -67,7 +67,7 @@ export function OwnerDetails({ owner, isLarge }) {
                         </li>
                         <li>
                             <label>Avg. response time</label>
-                            <strong>{owner.avgResponceTime}</strong>
+                            <strong>{avgResponseTime}</strong>
                         </li>
                         <li>
                             <label>Last delivery</label>
