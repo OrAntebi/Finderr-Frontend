@@ -30,10 +30,6 @@ export function GigDetails() {
         loadGig(gigId).finally(() => setIsLoading(false))
     }, [gigId])
 
-    useEffect(() => {
-        document.body.style.overflow = isModalOpen ? 'hidden' : 'unset'
-        return () => document.body.style.overflow = 'unset'
-    }, [isModalOpen])
 
     if (isLoading || !gig) return <Loader />
 
