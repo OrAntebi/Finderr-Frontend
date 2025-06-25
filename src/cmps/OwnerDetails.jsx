@@ -33,7 +33,7 @@ export function OwnerDetails({ owner, isLarge }) {
                         <h3>{owner.fullname}</h3>
 
                         <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>
-                            <p>{isTopRated ? "Top rated" : `Level ${gig.owner.level}`}</p>
+                            <p>{isTopRated ? "Top rated" : `Level ${owner.level}`}</p>
                             <span className="stars flex align-center">{levelStars}</span>
                         </span>
                     </div>
