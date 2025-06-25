@@ -1,4 +1,3 @@
-import { userService } from '../services/user'
 import { GigPreview } from './GigPreview'
 
 export function GigList({ gigs }) {

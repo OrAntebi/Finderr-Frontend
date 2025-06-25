@@ -8,6 +8,7 @@ import { loadOrders } from '../store/order/order.actions'
 import { loadGigs } from '../store/gig/gig.actions'
 
 import { OrderList } from '../cmps/OrderList'
+import { GigList } from '../cmps/GigList'
 import { UserDetails } from '../cmps/UserDetails'
 import { UserGigList } from '../cmps/UserGigsList'
 import { Loader } from '../cmps/Loader'
@@ -48,8 +49,7 @@ export function UserIndex() {
             <section className="user-details">
                 {
                     !isOwnProfile ?
-                        <h2>all his gigs</h2>
-                        // {/* <GigList gigs={userGigs} /> */ }
+                        <GigList gigs={userGigs} />
                         :
                         <>
                             <h2>Manage Orders</h2>
