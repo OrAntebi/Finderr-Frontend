@@ -57,6 +57,12 @@
         }
 
         .gig-image {
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+            }
+
             img {
                 border-radius: 8px;
 
@@ -72,21 +78,41 @@
                 margin-block-start: rem(8px);
             }
 
+
+
             .gig-title {
                 font-size: rem(16px);
                 font-weight: 600;
                 color: #404145;
                 margin: 0;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: #1dbf73;
+                }
             }
 
             .gig-category {
                 font-size: rem(13px);
                 color: #74767e;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: #1dbf73;
+                }
             }
 
             .seller-name {
                 font-size: rem(12px);
                 color: #74767e;
+
+                a {
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: #1dbf73;
+                    }
+                }
             }
         }
     }

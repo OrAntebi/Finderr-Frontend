@@ -48,13 +48,23 @@ export function OrderPreview({ order }) {
             </div>
 
             <div className="gig-info flex">
+
                 <Link to={`/categories/${gig._id}`} className="gig-image">
                     <img src={gig.imgUrl} alt={gig.title} />
                 </Link>
+
                 <div className="gig-content">
-                    <h3 className="gig-title">{gig.title}</h3>
-                    <p className="gig-category">{gig.categoryLabel}</p>
-                    <p className="seller-name">From {seller.fullname}</p>
+                    <Link to={`/categories/${gig._id}`}>
+                        <h3 className="gig-title">{gig.title}</h3>
+                    </Link>
+
+                    <Link to={`/categories/?category=${gig.category}`}>
+                        <p className="gig-category">{gig.categoryLabel}</p>
+                    </Link>
+        
+                    <p className="seller-name">
+                        From <Link to={`/user/${seller._id}`}>{seller.fullname}</Link>
+                    </p>
                 </div>
             </div>
 
