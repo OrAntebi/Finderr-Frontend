@@ -54,13 +54,18 @@ export function GigDetails() {
     }
 
     async function onProceedToPayment() {
-
         if (!loggedUser || !loggedUser._id) {
             showErrorMsg('You must be logged in to purchase services.')
             navigate('/login')
             return
         }
 
+        if (loggedUser._id === owner._id) {
+            showErrorMsg(`Oops! You can't buy your own service`)
+            setIsModalOpen(false)
+            return
+        }
+        
         navigate(`/checkout/${gigId}/${selectedPackage}`)
     }
 
