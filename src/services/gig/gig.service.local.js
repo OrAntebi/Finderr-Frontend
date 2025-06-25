@@ -56,8 +56,17 @@ async function query(filterBy = {}) {
         gigs.sort((a, b) => {
             switch (sortBy) {
                 case 'recommended':
-                    const aScore = (a.owner.rate * 2) + (a.likedByUsers?.length || 0) - (a.price / 10)
-                    const bScore = (b.owner.rate * 2) + (b.likedByUsers?.length || 0) - (b.price / 10)
+                    const aScore =
+                        (a.impressions || 0) * 3 +
+                        (a.owner.rate || 0) * 3 +
+                        (a.owner.reviews || 0) * 2 +
+                        (5 - (a.daysToMake || 5))
+
+                    const bScore =
+                        (b.impressions || 0) * 3 +
+                        (b.owner.rate || 0) * 3 +
+                        (b.owner.reviews || 0) * 2 +
+                        (5 - (b.daysToMake || 5))
                     return bScore - aScore
                 case 'best-selling':
                     return (b.orders || 0) - (a.orders || 0)

@@ -257,7 +257,7 @@
         z-index: 11;
 
         transform: translateX(100%);
-        transition: all .3s ease;
+        transition: transform 0.2s ease-in-out;
 
         .modal-title {
             padding: rem(12px) rem(16px) rem(12px) rem(20px);
@@ -440,7 +440,7 @@
         background-color: rgba(0, 0, 0, 0.5);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.2s ease-in-out;
         z-index: 10;
     }
 
@@ -450,6 +450,7 @@
         }
 
         .modal-overlay {
+            cursor: pointer;
             opacity: 1;
             visibility: visible;
         }
