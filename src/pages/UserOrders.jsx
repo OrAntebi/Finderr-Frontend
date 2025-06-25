@@ -9,7 +9,9 @@ import orderSvg from "../assets/img/order-icon.svg"
 
 export function UserOrders() {
     const orders = useSelector(state => state.orderModule.orders)
-    // const loggedUser = useSelector(storeState => storeState.userModule.user)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
+
+    const userOrders = orders.filter(order => order.buyer._id === loggedUser._id)
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -28,7 +30,7 @@ export function UserOrders() {
                 <h1>my orders</h1>
             </div>
 
-            <OrderList orders={orders} />
+            <OrderList orders={userOrders} />
         </section>
     )
 }
