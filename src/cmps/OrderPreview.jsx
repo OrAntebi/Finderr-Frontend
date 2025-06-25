@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { calculateDueDate } from '../services/util.service'
 import deliverySvg from '../assets/img/delivery-icon.svg'
 
-export function OrderPreview({ order }) {
+export function OrderPreview({ order, onOrderClicked }) {
 
     const getStatusColor = (status) => {
         switch (status) {
@@ -81,7 +81,7 @@ export function OrderPreview({ order }) {
                     </div>
                 </div>
                 <div className="view-order-btn flex align-center justify-end">
-                    <button className="show-order btn">view order</button>
+                    <button onClick={(ev) => onOrderClicked(order, ev)} className="show-order btn">view order</button>
                 </div>
             </div>
         </div>
