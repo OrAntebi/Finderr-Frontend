@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import users from '../data/user.json' assert { type: 'json' }
+import users from '../data/users.json' assert { type: 'json' }
 import { saveToStorage } from '../util.service'
 
 const USER_KEY = 'userDB'
