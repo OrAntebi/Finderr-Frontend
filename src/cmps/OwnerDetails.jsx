@@ -8,18 +8,24 @@ export function OwnerDetails({ owner, isLarge }) {
     const isMobile = useScreenSize() < 664
     const [expanded, setExpanded] = useState(false)
 
+    const {
+        about, imgUrl, level, fullname, rate,
+        reviews, loc, memberSince, avgResponseTime,
+        lastDelivery, languages
+    } = owner
+
     const maxChars = 180
-    const showToggle = isMobile && owner.about.length > maxChars
+    const showToggle = isMobile && about.length > maxChars
 
     const aboutText =
         showToggle && !expanded
-            ? owner.about.slice(0, owner.about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
-            : owner.about
+            ? about.slice(0, about.substr(0, maxChars).lastIndexOf(' ')) + ' …'
+            : about
 
-    const level = Number(owner.level)
-    const isTopRated = level === 3
+    const numericLevel = Number(level)
+    const isTopRated = numericLevel === 3
 
-    const levelStars = gigService.convertLvlToStars(owner.level)
+    const levelStars = gigService.convertLvlToStars(level)
         .map((src, idx) => (
             <img key={idx} src={src} alt="star" className="star" />
         ))
@@ -27,13 +33,13 @@ export function OwnerDetails({ owner, isLarge }) {
     return (
         <>
             <div className="owner-details flex align-center">
-                <img className={`owner-img ${isLarge ? 'large' : ''}`} src={owner.imgUrl} alt="owner image" />
+                <img className={`owner-img ${isLarge ? 'large' : ''}`} src={imgUrl} alt="owner image" />
                 <div className="owner-info flex column">
                     <div className="name-and-level flex justify-start">
-                        <h3>{owner.fullname}</h3>
+                        <h3>{fullname}</h3>
 
                         <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>
-                            <p>{isTopRated ? "Top rated" : `Level ${owner.level}`}</p>
+                            <p>{isTopRated ? "Top rated" : `Level ${level}`}</p>
                             <span className="stars flex align-center">{levelStars}</span>
                         </span>
                     </div>
@@ -45,10 +51,10 @@ export function OwnerDetails({ owner, isLarge }) {
                                     <img key={index} className="star" src={starSvg} alt="star-icon" />
                                 ))}
                             </div>
-                            <span className="rating">{owner.rate}</span>
+                            <span className="rating">{rate}</span>
                         </div>
                         <span className="reviews">
-                            (<label>{owner.reviews} reviews</label>)
+                            (<label>{reviews} reviews</label>)
                         </span>
                     </div>
 
@@ -59,11 +65,11 @@ export function OwnerDetails({ owner, isLarge }) {
                     <ul className="description-list">
                         <li>
                             <label>From</label>
-                            <strong>{owner.loc}</strong>
+                            <strong>{loc}</strong>
                         </li>
                         <li>
                             <label>Member since</label>
-                            <strong>{owner.memberSince}</strong>
+                            <strong>{memberSince}</strong>
                         </li>
                         <li>
                             <label>Avg. response time</label>
@@ -71,11 +77,11 @@ export function OwnerDetails({ owner, isLarge }) {
                         </li>
                         <li>
                             <label>Last delivery</label>
-                            <strong>{owner.lastDelivery}</strong>
+                            <strong>{lastDelivery}</strong>
                         </li>
                         <li>
                             <label>Languages</label>
-                            <strong>{owner.languages.join(', ')}</strong>
+                            <strong>{languages.join(', ')}</strong>
                         </li>
                     </ul>
                     <p>{aboutText}</p>
