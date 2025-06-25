@@ -1,30 +1,32 @@
-import { useEffect } from 'react'
-// import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { loadUser } from '../store/user/user.actions'
+import { loadWatchedUser } from '../store/user/user.actions'
+import { loadOrders } from '../store/order/order.actions'
+import { loadGigs } from '../store/gig/gig.actions'
+
+import { OrderList } from '../cmps/OrderList'
 import { UserDetails } from '../cmps/UserDetails'
 import { UserGigList } from '../cmps/UserGigsList'
-// import { store } from '../store/store'
-// import { showSuccessMsg } from '../services/event-bus.service'
-// import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
+
 
 export function UserIndex() {
+    const { id: userIdFromParams } = useParams()
 
-    const params = useParams()
-    // const user = useSelector(storeState => storeState.userModule.watchedUser)
+    const userGigs = useSelector(store => store.gigModule.gigs)
+    console.log(userIdFromParams);
+
+    const loggedInUser = useSelector(store => store.userModule.user)
+    const orders = useSelector(store => store.orderModule.orders)
 
     useEffect(() => {
-        loadUser(params.id)
+        loadOrders()
+        loadGigs({ userId: userIdFromParams })
+    }, [userIdFromParams])
 
-        // socketService.emit(SOCKET_EMIT_USER_WATCH, params.id)
-        // socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-
-        // return () => {
-        //     socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-        // }
-
-    }, [params.id])
+    const ordersSold = orders.filter(order => order.seller._id === userIdFromParams)
+    const isOwnProfile = loggedInUser?._id === userIdFromParams
 
     // function onUserUpdate(user) {
     //     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
@@ -34,7 +36,22 @@ export function UserIndex() {
     return (
         <main className="user-index flex">
             <UserDetails />
-            <UserGigList />
+            {/* <UserGigList /> */}
+            <section className="user-details">
+                {
+                    !isOwnProfile ?
+                        {/* <GigList gigs={userGigs} /> */ }
+                        :
+                        <>
+                            <h2>Manage Orders</h2>
+                            <OrderList orders={ordersSold} />
+
+                            <h2>All Gigs</h2>
+                            <UserGigList gigs={userGigs} />
+                        </>
+                }
+
+            </section>
         </main>
     )
 }

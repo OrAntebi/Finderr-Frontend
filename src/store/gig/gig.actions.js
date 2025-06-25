@@ -2,10 +2,12 @@ import { gigService } from '../../services/gig'
 import { store } from '../store'
 import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_GIG_FILTER } from './gig.reducer'
 
-export async function loadGigs() {
+export async function loadGigs(runtimeFilter = {}) {
     try {
         const { filterBy } = store.getState().gigModule
-        const gigs = await gigService.query(filterBy)
+        const finalFilter = { ...filterBy, ...runtimeFilter }
+
+        const gigs = await gigService.query(finalFilter)
         store.dispatch(getCmdSetGigs(gigs))
     } catch (err) {
         console.log('Cannot load gigs', err)

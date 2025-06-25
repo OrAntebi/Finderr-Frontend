@@ -26,7 +26,11 @@ function _initGigDB() {
 
 async function query(filterBy = {}) {
     let gigs = await storageService.query(GIG_KEY)
-    const { txt, minPrice, maxPrice, daysToMake, category, tags, sortBy } = filterBy
+    const { txt, minPrice, maxPrice, daysToMake, category, tags, sortBy, userId } = filterBy
+
+    if (userId) {
+        return gigs.filter(gig => gig.owner._id === userId)
+    }
 
     if (txt) {
         const words = txt.trim().toLowerCase().split(/\s+/)

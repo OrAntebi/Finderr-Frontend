@@ -74,9 +74,20 @@ export async function logout() {
 export async function loadUser(userId) {
     try {
         const user = await userService.getById(userId)
-        store.dispatch({ type: SET_WATCHED_USER, user })
+        store.dispatch({ type: SET_USER, user })
     } catch (err) {
         showErrorMsg('Cannot load user')
         console.log('Cannot load user', err)
+    }
+}
+
+export async function loadWatchedUser(userId) {
+    try {
+        const user = await userService.getById(userId)
+        store.dispatch({ type: SET_WATCHED_USER, user })
+    } catch (err) {
+        showErrorMsg('Cannot load user')
+
+        console.error('Cannot load watched user', err)
     }
 }
