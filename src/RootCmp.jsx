@@ -51,7 +51,7 @@ export function RootCmp() {
                     <Route path="categories/:gigId" element={<GigDetails />} />
                     <Route path="checkout/:gigId/:packageType" element={<Checkout />} />
                     <Route path="user/:id" element={<UserIndex />} />
-                    <Route path="user/:id/orders" element={<UserOrders />} />
+                    <Route path="user/orders" element={<UserOrders />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />
                     <Route path="admin" element={
