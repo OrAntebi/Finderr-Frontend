@@ -1,8 +1,3 @@
-import { useSelector } from "react-redux";
-import { Loader } from "./Loader";
-import { useEffect, useState } from "react";
-import { loadOrders } from "../store/order/order.actions";
-
 // export function UserGigList() {
 //     const orders = useSelector(state => state.orderModule.orders)
 //     const loggedUser = useSelector(storeState => storeState.userModule.user)
@@ -36,6 +31,7 @@ import { loadOrders } from "../store/order/order.actions";
 //         </section>
 //     )
 // }
+
 export function UserGigList({ gigs }) {
   return (
     <table className="gig-list-editable">

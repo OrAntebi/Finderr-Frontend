@@ -10,7 +10,7 @@ import { loadGigs } from '../store/gig/gig.actions'
 import { OrderList } from '../cmps/OrderList'
 import { GigList } from '../cmps/GigList'
 import { UserDetails } from '../cmps/UserDetails'
-import { UserGigList } from '../cmps/UserGigsList'
+import { UserGigList } from '../cmps/UserGigList'
 import { Loader } from '../cmps/Loader'
 
 export function UserIndex() {
