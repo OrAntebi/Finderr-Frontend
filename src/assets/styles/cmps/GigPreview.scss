@@ -18,9 +18,10 @@
         font-size: rem(14px);
         font-weight: 600;
 
-        .owner-details,
+        .owner-details a,
         .owner-level {
             gap: rem(8px);
+            text-decoration: none;
 
             &.top-rated {
                 padding-inline: rem(6px);
@@ -29,6 +30,11 @@
                 color: $clr1;
                 background-color: #ffe0b3;
             }
+
+            &:hover {
+                text-decoration: underline;
+            }
+
         }
 
         .owner-avatar {
@@ -47,11 +53,18 @@
     .gig-title {
         color: #404145;
         margin-block-end: auto;
+        text-decoration: none;
     }
 
     &:hover {
         .gig-title {
             text-decoration: underline;
+        }
+    }
+
+    &:has(.owner-name:hover) {
+        .gig-title {
+            text-decoration: none;
         }
     }
 

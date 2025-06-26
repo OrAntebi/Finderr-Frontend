@@ -35,11 +35,15 @@ export function OwnerDetails({ owner, isLarge }) {
     return (
         <>
             <div className="owner-details flex align-center">
-                <img className={`owner-img ${isLarge ? 'large' : ''}`} src={imgUrl} alt="owner image" />
+                <Link to={`/user/${_id}`}>
+                    <img className={`owner-img ${isLarge ? 'large' : ''}`} src={imgUrl} alt="owner image" />
+                </Link>
                 <div className="owner-info flex column">
                     <div className="name-and-level flex justify-start">
 
-                        <Link to={`/user/${_id}`}><h3>{fullname}</h3></Link>
+                        <Link to={`/user/${_id}`}>
+                            <h3>{fullname}</h3>
+                        </Link>
 
                         <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>
                             <p>{isTopRated ? "Top rated" : `Level ${level}`}</p>

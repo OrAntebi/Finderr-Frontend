@@ -17,9 +17,11 @@ export function GigPreview({ gig }) {
             <GigSlider gig={gig} />
 
             <div className="owner-row flex align-center justify-between">
-                <div className="owner-details flex align-center">
+                <div className="owner-details">
+                    <Link to={`/user/${gig.owner._id}`} className="owner-name flex align-center" onClick={(ev) => ev.stopPropagation()}>
                     <img className="owner-avatar" src={gig.owner.imgUrl} />
-                    <span className="owner-name">{gig.owner.fullname}</span>
+                        {gig.owner.fullname}
+                    </Link>
                 </div>
 
                 <span className={`owner-level flex align-center ${isTopRated ? "top-rated" : ""}`}>
