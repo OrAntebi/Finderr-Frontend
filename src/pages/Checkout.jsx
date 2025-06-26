@@ -78,7 +78,7 @@ export function Checkout() {
 
             await orderService.save(order)
             showSuccessMsg('Purchased service successfully!')
-            navigate(`/user/${gigId}/orders`)
+            navigate(`/user/orders`)
         } catch (err) {
             console.error('Cannot save order', err)
             showErrorMsg('Failed to complete the purchase')
