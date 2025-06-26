@@ -174,3 +174,12 @@ export function getRandomDemoUser() {
   const idx = Math.floor(Math.random() * demoUsers.length)
   return { ...demoUsers[idx] }
 }
+
+export function formatTimestamp(ts) {
+    const date = new Date(ts)
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    })
+}

@@ -52,7 +52,8 @@ export function Checkout() {
             const order = {
                 buyer: {
                     _id: user._id,
-                    fullname: user.fullname
+                    fullname: user.fullname,
+                    imgUrl: user.imgUrl
                 },
                 seller: {
                     _id: gig?.owner._id,
@@ -74,7 +75,7 @@ export function Checkout() {
                 daysToMake: packageDetails.packDaysToMake,
                 createdAt: Date.now()
             }
-            
+
             await orderService.save(order)
             showSuccessMsg('Purchased service successfully!')
             navigate(`/user/${gigId}/orders`)

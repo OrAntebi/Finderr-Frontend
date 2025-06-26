@@ -1,0 +1,61 @@
+.user-order-list {
+    border: 1px solid #dadbdd;
+
+    .order-cards {
+
+        >*:not(:last-child) {
+            border-block-end: 1px solid #dadbdd;
+        }
+
+        .order-card {
+            display: flex;
+            flex-direction: column;
+            padding: rem(20px);
+            gap: rem(10px);
+
+            &:hover {
+                background-color: #f9f9f9;
+                cursor: pointer;
+            }
+        }
+    }
+
+    @include for-normal-layout {
+        border: 1px solid #dadbdd;
+        overflow-x: auto;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+
+            th,
+            td {
+                padding: rem(20px);
+                text-align: left;
+                vertical-align: middle;
+                color: #404145;
+            }
+
+            th {
+                font-weight: 600;
+                text-transform: capitalize;
+                border-block-end: 1px solid #dadbdd;
+            }
+
+            tr {
+                border-block-end: 1px solid #dadbdd;
+
+                &:last-child {
+                    border-block-end: none;
+                }
+            }
+
+            tbody tr:hover {
+                background-color: #f9f9f9;
+                cursor: pointer;
+            }
+
+        }
+    }
+}

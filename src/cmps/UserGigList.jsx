@@ -1,59 +1,47 @@
-// export function UserGigList() {
-//     const orders = useSelector(state => state.orderModule.orders)
-//     const loggedUser = useSelector(storeState => storeState.userModule.user)
+import { UserGigPreview } from "./UserGigPreview"
+import { useScreenSize } from '../customHooks/useScreenSize'
 
-//     const sortedUserGigs = orders
-//         .filter(order => order.seller._id === loggedUser._id)
-//         .sort((a, b) => b.createdAt - a.createdAt)
+export function UserGigList({ gigs, onRemoveGig }) {
+  const screenWidth = useScreenSize()
+  const isMobile = screenWidth < 964
 
-//     const [isLoading, setIsLoading] = useState(true)
-
-//     useEffect(() => {
-//         setIsLoading(true)
-//         loadOrders()
-//             .finally(() => setIsLoading(false))
-//     }, [])
-
-//     if (isLoading) return <Loader />
-//     console.log('sortedUserGigs', sortedUserGigs)
-//     return (
-//         <section className="user-gigs-list">
-//             <h2>Your Gigs</h2>
-//             <ul>
-//                 {sortedUserGigs.map((gig) => (
-//                     <li key={gig._id}>
-//                         <h3>{gig.title}</h3>
-//                         <p>{gig.description}</p>
-//                         <p>Price: ${gig.price}</p>
-//                     </li>
-//                 ))}
-//             </ul>
-//         </section>
-//     )
-// }
-
-export function UserGigList({ gigs }) {
   return (
-    <table className="gig-list-editable">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {gigs.map(gig => (
-          <tr key={gig._id}>
-            <td>{gig.title}</td>
-            <td>${gig.price}</td>
-            <td>
-              <button onClick={() => onEditGig(gig)}>Edit</button>
-              <button onClick={() => onRemoveGig(gig._id)}>Delete</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <section className="user-gig-list">
+      {isMobile ? (
+        <div className="gig-cards">
+          {gigs.map(gig => (
+            <UserGigPreview
+              key={gig._id}
+              isMobile={isMobile}
+              gig={gig}
+              onRemoveGig={onRemoveGig}
+            />
+          ))}
+        </div>
+      ) : (
+        <table className="gig-table">
+          <thead>
+            <tr>
+              <th className="empty-cell"></th>
+              <th className="title-cell">Title</th>
+              <th className="price-cell">Added</th>
+              <th className="price-cell">Price</th>
+              <th className="actions-cell">Impressions</th>
+              <th className="actions-cell">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {gigs.map(gig => (
+              <UserGigPreview
+                key={gig._id}
+                isMobile={isMobile}
+                gig={gig}
+                onRemoveGig={onRemoveGig}
+              />
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
   )
 }

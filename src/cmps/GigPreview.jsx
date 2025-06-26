@@ -1,8 +1,9 @@
 import { gigService } from "../services/gig"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { GigSlider } from "./GigSlider"
 
 export function GigPreview({ gig }) {
+    const navigate = useNavigate()
     const starsArr = gigService.convertLvlToStars(gig.owner.level)
 
     const level = Number(gig.owner.level)
@@ -12,16 +13,21 @@ export function GigPreview({ gig }) {
         <img key={idx} src={src} alt="star" className="star-img" />
     ))
 
+    function onGigClick(ev) {
+        ev.preventDefault()
+        navigate(`/user/${gig.owner._id}`)
+    }
+
     return (
         <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
             <GigSlider gig={gig} />
 
             <div className="owner-row flex align-center justify-between">
                 <div className="owner-details">
-                    <Link to={`/user/${gig.owner._id}`} className="owner-name flex align-center" onClick={(ev) => ev.stopPropagation()}>
-                    <img className="owner-avatar" src={gig.owner.imgUrl} />
+                    <div className="owner-name flex align-center" onClick={(ev) => onGigClick(ev)}>
+                        <img className="owner-avatar" src={gig.owner.imgUrl} />
                         {gig.owner.fullname}
-                    </Link>
+                    </div>
                 </div>
 
                 <span className={`owner-level flex align-center ${isTopRated ? "top-rated" : ""}`}>

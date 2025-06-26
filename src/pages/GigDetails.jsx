@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { orderService } from '../services/order/order.service.local'
 import { loadGig } from '../store/gig/gig.actions'
 
 import { OwnerDetails } from '../cmps/OwnerDetails'

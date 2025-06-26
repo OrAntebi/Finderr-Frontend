@@ -1,0 +1,26 @@
+.user-order-preview {
+    .buyer-cell {
+        display: flex;
+        align-items: center;
+        gap: rem(10px);
+        font-weight: 600;
+
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .status-cell .status {
+        padding: rem(4px) rem(10px);
+
+        color: #fff;
+        border-radius: .5rem;
+        text-align: center;
+        text-transform: capitalize;
+        min-width: 100px;
+        cursor: pointer;
+    }
+}

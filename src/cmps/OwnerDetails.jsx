@@ -41,8 +41,7 @@ export function OwnerDetails({ owner, isLarge }) {
                 <div className="owner-info flex column">
                     <div className="name-and-level flex justify-start">
 
-                        <Link to={`/user/${_id}`}>
-                            <h3>{fullname}</h3>
+                        <Link to={`/user/${_id}`}><h3>{fullname}</h3>
                         </Link>
 
                         <span className={`level flex align-center ${isTopRated ? "top-rated" : ""}`}>

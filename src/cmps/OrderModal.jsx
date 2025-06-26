@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router"
 import { calculateDueDate } from '../services/util.service'
+import { Link } from "react-router-dom"
 
 export function OrderModal({ order, userSeller, closeModal }) {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ export function OrderModal({ order, userSeller, closeModal }) {
         navigate(`/user/${seller._id}`)
         closeModal()
     }
-
+    console.log('buyer', buyer)
     return (
         <div className="order-modal">
             <div className="header flex">
@@ -31,23 +32,30 @@ export function OrderModal({ order, userSeller, closeModal }) {
                     {userSeller ? (
                         <>
                             <img src={buyer.imgUrl} alt="Buyer" onClick={navigateToBuyer} />
-                            <h4 onClick={navigateToBuyer} className="underline">
-                                {buyer.username}
-                            </h4>
-                            <p>
-                                ordered the <span className="bold">{packageName}</span> package from you for{" "}
+                            <p className="">
+
+                                <a onClick={navigateToBuyer} className="underline">
+                                    {buyer.fullname}
+                                </a>
+                                &nbsp;ordered the&nbsp;
+                                <span className="bold">{packageName}&nbsp;</span>
+                                package from you for&nbsp;
                                 <span className="bold">${totalPrice}</span>
+
                             </p>
                         </>
                     ) : (
                         <>
                             <img src={seller.imgUrl} alt="Seller" onClick={navigateToSeller} />
                             <p className="msg">
-                                You ordered the <span className="bold">{packageName}</span> package from{" "}
-                                <span className="underline bold" onClick={navigateToSeller}>
+                                You ordered the&nbsp;
+                                <span className="bold">{packageName}&nbsp;</span>
+                                package from&nbsp;
+                                <span className="underline" onClick={navigateToSeller}>
                                     {seller.fullname}
-                                </span>{" "}
-                                for <span className="bold">${totalPrice}</span>
+                                </span>
+                                &nbsp;for&nbsp;
+                                <span className="bold">${totalPrice}</span>
                             </p>
                         </>
                     )}
@@ -55,7 +63,7 @@ export function OrderModal({ order, userSeller, closeModal }) {
 
                 <div className="contact-buyer flex">
                     {userSeller ? (
-                        <button onClick={navigateToBuyer}>Contact {buyer.username}</button>
+                        <button onClick={navigateToBuyer}>Contact {buyer.fullname}</button>
                     ) : (
                         <button onClick={navigateToSeller}>Contact {seller.fullname}</button>
                     )}

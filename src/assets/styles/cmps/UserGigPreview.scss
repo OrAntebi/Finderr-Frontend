@@ -1,0 +1,71 @@
+.gig-card {
+    // display: flex;
+    // flex-direction: column;
+
+
+    img {
+        max-width: 200px;
+        aspect-ratio: 16/9;
+    }
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.gig-row {
+
+    img {
+        max-width: 200px;
+        aspect-ratio: 16/9;
+    }
+
+    .impressions-cell i {
+        margin-inline-end: rem(5px);
+        font-size: rem(18px);
+        color: #19a463;
+    }
+
+
+    .actions-cell {
+        text-align: center;
+
+        .btn-delete i {
+            font-size: rem(18px);
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: #a33030da;
+                scale: 1.1;
+                animation: 2s ease 0s infinite normal none running swing;
+            }
+        }
+
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(15deg);
+    }
+
+    40% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(5deg);
+    }
+
+    80% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

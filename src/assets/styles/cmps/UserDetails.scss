@@ -1,6 +1,9 @@
 .user-details {
-    max-width: 400px;
     font-size: 14px;
+
+    @include for-normal-layout {
+        // max-width: 350px;
+    }
 
     .card {
         padding: 1.875rem;
@@ -45,6 +48,11 @@
         .user-stats {
             gap: rem(20px);
             font-family: 'Macan-Medium';
+            font-size: rem(14px);
+
+            @media (max-width: 370px) {
+                font-size: rem(11px);
+            }
 
             span label {
                 display: flex;
@@ -115,7 +123,6 @@
                 .skill {
                     padding: rem(5px) rem(12px);
 
-                    font-size: rem(16px);
                     border: 1px solid #e4e5e7;
                     border-radius: 100vh;
                     transition: background-color 0.3s ease-in-out;

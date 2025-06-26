@@ -12,21 +12,17 @@
 
     @include for-narrow-layout {
         grid-template-columns:
-            minmax($grid-padding, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            minmax($grid-padding, 1fr);
+            minmax($grid-padding, 1fr) minmax(auto, $narrow-breakpoint) minmax($grid-padding, 1fr);
     }
+
     @include for-normal-layout {
         grid-template-columns:
-            minmax($grid-padding, 1fr)
-            minmax(auto, $normal-breakpoint)
-            minmax($grid-padding, 1fr);
+            minmax($grid-padding, 1fr) minmax(auto, $normal-breakpoint) minmax($grid-padding, 1fr);
     }
+
     @include for-wide-layout {
         grid-template-columns:
-            minmax($grid-padding, 1fr)
-            minmax(auto, $wide-breakpoint)
-            minmax($grid-padding, 1fr);
+            minmax($grid-padding, 1fr) minmax(auto, $wide-breakpoint) minmax($grid-padding, 1fr);
     }
 }
 
@@ -34,4 +30,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
+}
+    
+.user-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include for-normal-layout {
+        grid-template-columns: 300px 1fr;
+    }
+
+    @include for-wide-layout {
+        grid-template-columns: 400px 1fr;
+    }
 }
