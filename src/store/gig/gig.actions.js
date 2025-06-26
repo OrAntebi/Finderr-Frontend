@@ -18,7 +18,8 @@ export async function loadGigs(runtimeFilter = {}) {
 export async function loadGig(gigId) {
     try {
         const gig = await gigService.getById(gigId)
-        store.dispatch(getCmdSetGig(gig))
+        const updatedGig = await gigService.save({...gig, impressions: gig.impressions += 1})
+        store.dispatch(getCmdSetGig(updatedGig))
     } catch (err) {
         console.log('Cannot load gig', err)
         throw err

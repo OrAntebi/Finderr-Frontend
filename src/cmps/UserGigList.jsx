@@ -3,7 +3,7 @@ import { useScreenSize } from '../customHooks/useScreenSize'
 
 export function UserGigList({ gigs, onRemoveGig }) {
   const screenWidth = useScreenSize()
-  const isMobile = screenWidth < 964
+  const isMobile = screenWidth < 1224
 
   return (
     <section className="user-gig-list">
