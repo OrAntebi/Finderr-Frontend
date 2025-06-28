@@ -34,7 +34,7 @@
             position: absolute;
             top: 32px;
 
-            min-width: 122px;
+            min-width: 160px;
 
             background-color: #fff;
             border-radius: rem(8px);
@@ -44,7 +44,6 @@
             li {
                 width: 100%;
                 padding: rem(8px) rem(12px);
-                text-transform: capitalize;
                 line-height: 1.5;
 
                 &:hover {

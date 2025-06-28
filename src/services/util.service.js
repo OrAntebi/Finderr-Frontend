@@ -176,10 +176,42 @@ export function getRandomDemoUser() {
 }
 
 export function formatTimestamp(ts) {
-    const date = new Date(ts)
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    })
+  const date = new Date(ts)
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
+}
+
+export const getStatusMeta = (status, type = 'label') => {
+  const statusMap = {
+    pending: {
+      color: '#c48a2d',
+      label: 'pending',
+    },
+    approved: {
+      color: '#f39c12',
+      label: 'confirmed',
+      dropdown: 'Approve order'
+    },
+    rejected: {
+      color: '#e74c3c',
+      label: 'seller refused the order',
+      dropdown: 'Decline order'
+    },
+    fulfilled: {
+      color: '#1dbf73',
+      label: "it's delivered!",
+      dropdown: 'Mark as fulfilled'
+    },
+    default: {
+      color: '#95a5a6',
+      label: '-',
+      dropdown: '-'
+    }
+  }
+
+  const statusData = statusMap[status] || statusMap.default
+  return statusData[type]
 }

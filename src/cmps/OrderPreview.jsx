@@ -1,21 +1,9 @@
 import { Link } from 'react-router-dom'
 
-import { calculateDueDate } from '../services/util.service'
+import { calculateDueDate, getStatusMeta } from '../services/util.service'
 import deliverySvg from '../assets/img/delivery-icon.svg'
 
 export function OrderPreview({ order, onOrderClicked }) {
-
-    const getStatusColor = (status) => {
-        switch (status) {
-            case 'pending': return '#f39c12'
-            case 'approved': return '#3498db'
-            case 'fulfilled': return '#27ae60'
-            case 'rejected': return '#e74c3c'
-            default: return '#95a5a6'
-        }
-    }
-
-
     const { status, createdAt, daysToMake, _id, gig, seller } = order
     const dueDate = calculateDueDate(createdAt, daysToMake)
 
@@ -26,9 +14,9 @@ export function OrderPreview({ order, onOrderClicked }) {
                 <div className="status-info">
                     <span
                         className="status-value"
-                        style={{ color: getStatusColor(status) }}
+                        style={{ color: getStatusMeta(status, 'color') }}
                     >
-                        {status}
+                        {getStatusMeta(status, 'label')}
                     </span>
                     <span className="due-date">
                         Due date on {dueDate}
@@ -38,7 +26,7 @@ export function OrderPreview({ order, onOrderClicked }) {
                     <div
                         className="progress-fill"
                         style={{
-                            backgroundColor: getStatusColor(status),
+                            backgroundColor: getStatusMeta(status, 'color'),
                             width: status === 'pending' ? '25%' :
                                 status === 'approved' ? '50%' :
                                     status === 'fulfilled' ? '100%' : '0%'
@@ -61,7 +49,7 @@ export function OrderPreview({ order, onOrderClicked }) {
                     <Link to={`/categories/?category=${gig.category}`}>
                         <p className="gig-category">{gig.categoryLabel}</p>
                     </Link>
-        
+
                     <p className="seller-name">
                         From <Link to={`/user/${seller._id}`}>{seller.fullname}</Link>
                     </p>
