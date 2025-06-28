@@ -1,7 +1,9 @@
 import { formatTimestamp } from '../services/util.service.js';
 
-export function UserOrderPreview({ order, handleOrderClicked, isMobile }) {
+export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDropdownOpen, toggleStatusDropdown, updateOrderStatus, dropdownRefs }) {
     const { buyer, gig, createdAt, totalPrice, status } = order;
+
+    const orderStatuses = ['pending', 'approved', 'fulfilled', 'rejected']
 
     const getStatusColor = (status) => {
         switch (status) {
@@ -13,6 +15,10 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile }) {
         }
     }
 
+    const setRef = (el) => {
+        if (dropdownRefs) dropdownRefs(el)
+    }
+
     return (
         isMobile ? (
             <article className="order-card user-order-preview" onClick={ev => handleOrderClicked(order, ev)}>
@@ -21,10 +27,22 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile }) {
                     <span>{buyer.fullname}</span>
                 </div>
                 <div className="gig-cell">{gig.title}</div>
-                <div className="dueon-cell">{formatTimestamp(createdAt)}</div>
-                <div className="price-cell">${totalPrice}</div>
-                <div className="status-cell">
-                    <label className="status" style={{ backgroundColor: getStatusColor(status) }}>{status}</label>
+                <div className="dueon-cell flex column"><b>Due on</b> {formatTimestamp(createdAt)}</div>
+                <div className="price-cell flex column"><b>Total price</b> ${totalPrice}</div>
+                <div className="status-cell" ref={setRef}>
+                    <label className="status" style={{ backgroundColor: getStatusColor(status) }} onClick={ev => toggleStatusDropdown(ev, order._id)}>
+                        {status}
+                    </label>
+
+                    {statusDropdownOpen === order._id && (
+                        <ul className="status-dropdown">
+                            {orderStatuses.map(st => (
+                                <li key={st} onClick={ev => updateOrderStatus(ev, order, st)}>
+                                    {st}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </article>
         ) : (
@@ -36,8 +54,20 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile }) {
                 <td className="cell gig-cell">{gig.title}</td>
                 <td className="cell dueon-cell">{formatTimestamp(createdAt)}</td>
                 <td className="cell price-cell">${totalPrice}</td>
-                <td className="cell status-cell">
-                    <label className="status" style={{ backgroundColor: getStatusColor(status) }}>{status}</label>
+                <td className="cell status-cell" ref={setRef}>
+                    <label className="status" style={{ backgroundColor: getStatusColor(status) }} onClick={ev => toggleStatusDropdown(ev, order._id)}>
+                        {status}
+                    </label>
+
+                    {statusDropdownOpen === order._id && (
+                        <ul className="status-dropdown">
+                            {orderStatuses.map(statusOption => (
+                                <li key={statusOption} onClick={ev => updateOrderStatus(ev, order, statusOption)}>
+                                    {statusOption}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </td>
             </tr>
         )

@@ -1,12 +1,12 @@
 import { UserOrderPreview } from './UserOrderPreview'
 import { useScreenSize } from '../customHooks/useScreenSize'
 
-export function UserOrderList({ orders, handleOrderClicked }) {
+export function UserOrderList({ orders, handleOrderClicked, statusDropdownOpen, toggleStatusDropdown, updateOrderStatus, dropdownRefs }) {
   const screenWidth = useScreenSize()
   const isMobile = screenWidth < 964
 
   return (
-    <section className="user-order-list">
+    <section className="user-order-list" style={{ overflow: "visible" }}>
       {isMobile ? (
         <div className="order-cards">
           {orders.map(order => (
@@ -15,6 +15,10 @@ export function UserOrderList({ orders, handleOrderClicked }) {
               order={order}
               isMobile={isMobile}
               handleOrderClicked={handleOrderClicked}
+              statusDropdownOpen={statusDropdownOpen}
+              toggleStatusDropdown={toggleStatusDropdown}
+              updateOrderStatus={updateOrderStatus}
+              dropdownRefs={el => (dropdownRefs.current[order._id] = el)}
             />
           ))}
         </div>
@@ -36,9 +40,14 @@ export function UserOrderList({ orders, handleOrderClicked }) {
                 order={order}
                 isMobile={isMobile}
                 handleOrderClicked={handleOrderClicked}
+                statusDropdownOpen={statusDropdownOpen}
+                toggleStatusDropdown={toggleStatusDropdown}
+                updateOrderStatus={updateOrderStatus}
+                dropdownRefs={el => (dropdownRefs.current[order._id] = el)}
               />
+
             ))}
-          </tbody>
+          </tbody >
         </table>
       )}
     </section>

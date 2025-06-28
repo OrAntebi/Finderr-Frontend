@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig'
 import { getRandomDemoUser } from "../services/util.service"
 import { loadWatchedUser } from '../store/user/user.actions'
-import { loadOrders } from '../store/order/order.actions'
+import { loadOrders, updateOrder } from '../store/order/order.actions'
 import { loadGigs } from '../store/gig/gig.actions'
 import { removeGig } from '../store/gig/gig.actions'
 
@@ -25,33 +25,51 @@ export function UserIndex() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedOrder, setSelectedOrder] = useState(null)
 
+    const [statusDropdownOpen, setStatusDropdownOpen] = useState(null)
+
     const userGigs = useSelector(store => store.gigModule.gigs)
     const loggedInUser = useSelector(store => store.userModule.user)
     const watchedUser = useSelector(store => store.userModule.watchedUser)
     const orders = useSelector(store => store.orderModule.orders)
 
+    const dropdownRefs = useRef({})
     const navigate = useNavigate()
 
     useEffect(() => {
-        async function loadData() {
-            setIsLoading(true)
+        setIsLoading(true)
 
-            try {
-                await Promise.all([
-                    loadWatchedUser(userIdFromParams),
-                    loadOrders(),
-                    loadGigs({ userId: userIdFromParams })
-                ])
-            } catch (err) {
+        Promise.all([
+            loadWatchedUser(userIdFromParams),
+            loadOrders(),
+            loadGigs({ userId: userIdFromParams })
+        ])
+            .catch(() => {
                 navigate('/')
                 showErrorMsg('Failed to load user data')
-            } finally {
+            })
+            .finally(() => {
                 setIsLoading(false)
+            })
+
+    }, [userIdFromParams])
+
+    useEffect(() => {
+        function handleClickOutside(ev) {
+            const openRef = dropdownRefs.current[statusDropdownOpen]
+            if (openRef && !openRef.contains(ev.target)) {
+                setStatusDropdownOpen(null)
             }
         }
 
-        loadData()
-    }, [userIdFromParams])
+        if (statusDropdownOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [statusDropdownOpen])
+
 
     function handleOrderClicked(order, ev) {
         ev.stopPropagation()
@@ -64,7 +82,7 @@ export function UserIndex() {
         setSelectedOrder(null)
     }
 
-    async function onRemoveGig(ev, gigId) {
+    function onRemoveGig(ev, gigId) {
         ev.stopPropagation()
 
         removeGig(gigId)
@@ -74,6 +92,26 @@ export function UserIndex() {
             .catch(err => {
                 console.log('Problems removing gig:', err)
                 showErrorMsg(`Having problems removing gig!`)
+            })
+    }
+
+    function toggleStatusDropdown(ev, orderId) {
+        ev.stopPropagation()
+        setStatusDropdownOpen(prev => prev === orderId ? null : orderId)
+    }
+
+    function updateOrderStatus(ev, order, newStatus) {
+        ev.stopPropagation()
+        const updatedOrder = { ...order, status: newStatus }
+
+        updateOrder(updatedOrder)
+            .then(() => showSuccessMsg(`Order status updated successfully!`))
+            .catch(err => {
+                console.log('Problems updating order status:', err)
+                showErrorMsg(`Having problems updating order status!`)
+            })
+            .finally(() => {
+                setStatusDropdownOpen(null)
             })
     }
 
@@ -102,8 +140,19 @@ export function UserIndex() {
                         ) : (
                             <section className={`user-orders card ${isModalOpen ? 'modal-open' : ''}`}>
                                 <>
-                                    <UserOrderList orders={ordersSold} handleOrderClicked={handleOrderClicked} />
-                                    <OrderModal order={selectedOrder} userSeller={true} closeModal={handleCloseModal} />
+                                    <UserOrderList
+                                        orders={ordersSold}
+                                        handleOrderClicked={handleOrderClicked}
+                                        statusDropdownOpen={statusDropdownOpen}
+                                        toggleStatusDropdown={toggleStatusDropdown}
+                                        updateOrderStatus={updateOrderStatus}
+                                        dropdownRefs={dropdownRefs}
+                                    />
+                                    <OrderModal
+                                        order={selectedOrder}
+                                        userSeller={true}
+                                        closeModal={handleCloseModal}
+                                    />
                                     {isModalOpen && <div className="modal-overlay" onClick={handleCloseModal}></div>}
                                 </>
                             </section>
@@ -115,7 +164,10 @@ export function UserIndex() {
                         ) : (
                             <section className="user-gigs card">
 
-                                <UserGigList gigs={userGigs} onRemoveGig={onRemoveGig} />
+                                <UserGigList
+                                    gigs={userGigs}
+                                    onRemoveGig={onRemoveGig}
+                                />
                             </section>
                         )}
                     </>
