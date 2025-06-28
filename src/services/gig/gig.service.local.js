@@ -57,16 +57,15 @@ async function query(filterBy = {}) {
             switch (sortBy) {
                 case 'recommended':
                     const aScore =
-                        (a.impressions || 0) * 3 +
-                        (a.owner.rate || 0) * 3 +
-                        (a.owner.reviews || 0) * 2 +
-                        (5 - (a.daysToMake || 5))
+                        (a.owner.rate || 0) * 200 +
+                        (a.owner.level || 0) * 100 +
+                        (a.owner.reviews || 0) * 0.1
 
                     const bScore =
-                        (b.impressions || 0) * 3 +
-                        (b.owner.rate || 0) * 3 +
-                        (b.owner.reviews || 0) * 2 +
-                        (5 - (b.daysToMake || 5))
+                        (b.owner.rate || 0) * 200 +
+                        (b.owner.level || 0) * 100 +
+                        (b.owner.reviews || 0) * 0.1
+
                     return bScore - aScore
                 case 'best-selling':
                     return (b.orders || 0) - (a.orders || 0)
