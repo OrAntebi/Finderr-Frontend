@@ -13,18 +13,23 @@ export function GigPreview({ gig }) {
         <img key={idx} src={src} alt="star" className="star-img" />
     ))
 
-    function onGigClick(ev) {
-        ev.preventDefault()
+    function onGigClick() {
+        navigate(`/categories/${gig._id}?category=${gig.category}`)
+    }
+
+    function onOwnerClick(ev) {
+        ev.stopPropagation()
         navigate(`/user/${gig.owner._id}`)
     }
 
+
     return (
-        <Link to={`/categories/${gig._id}?category=${gig.category}`} className="gig-preview">
+        <section className="gig-preview" onClick={onGigClick}>
             <GigSlider gig={gig} />
 
             <div className="owner-row flex align-center justify-between">
                 <div className="owner-details">
-                    <div className="owner-name flex align-center" onClick={(ev) => onGigClick(ev)}>
+                    <div className="owner-name flex align-center" onClick={(ev) => onOwnerClick(ev)}>
                         <img className="owner-avatar" src={gig.owner.imgUrl} />
                         {gig.owner.fullname}
                     </div>
@@ -47,6 +52,6 @@ export function GigPreview({ gig }) {
             <div className="price-row flex align-center">
                 <span className="price">From ${gig.price}</span>
             </div>
-        </Link>
+        </section>
     )
 }

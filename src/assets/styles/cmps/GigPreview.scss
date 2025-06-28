@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    cursor: pointer;
 
     .gig-img {
         border: 1px solid #e4e5e7;
@@ -30,11 +31,10 @@
                 color: $clr1;
                 background-color: #ffe0b3;
             }
+        }
 
-            &:hover {
-                text-decoration: underline;
-            }
-
+        .owner-details .owner-name:hover {
+            text-decoration: underline;
         }
 
         .owner-avatar {

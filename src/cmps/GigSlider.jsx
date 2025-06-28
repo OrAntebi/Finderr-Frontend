@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react'
 import Slider from 'react-slick'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import 'slick-carousel/slick/slick.css'
@@ -13,26 +14,19 @@ export function GigSlider({ gig, showThumbnails = false }) {
     const screenWidth = useScreenSize()
     const images = gig.imgUrls?.length ? gig.imgUrls : defaults
     const isWide = screenWidth >= 964
-
-    const Arrow = ({ onClick, dir }) => (
-        <button className={`gallery-btn ${dir}`} onClick={onClick}>
-            <i className={`fa-solid fa-chevron-${dir === 'prev' ? 'left' : 'right'}`}></i>
-        </button>
-    )
-
     const isSingleImage = images.length === 1
 
+    const sliderRef = useRef()
+    const [currentSlide, setCurrentSlide] = useState(0)
+
     const settings = {
-        dots: !isSingleImage ? true : false,
-        arrows: !isSingleImage && isWide,
-        infinite: !isSingleImage,
+        dots: !isSingleImage,
+        arrows: false,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        ...(isWide && !isSingleImage && {
-            prevArrow: <Arrow dir="prev" />,
-            nextArrow: <Arrow dir="next" />,
-        }),
+        beforeChange: (_, next) => setCurrentSlide(next),
         ...(showThumbnails && {
             customPaging: (i) => (
                 <div className="thumbnail">
@@ -46,7 +40,13 @@ export function GigSlider({ gig, showThumbnails = false }) {
 
     return (
         <div className={`gig-slider ${showThumbnails ? 'with-thumbnails' : ''}`}>
-            <Slider {...settings}>
+            {isWide && !isSingleImage && currentSlide > 0 && (
+                <button className="gallery-btn prev" onClick={ev => { ev.stopPropagation(); sliderRef.current.slickPrev() }}>
+                    <i className="fa-solid fa-chevron-left"></i>
+                </button>
+            )}
+
+            <Slider {...settings} ref={sliderRef}>
                 {images.map((url, i) => (
                     <img
                         key={`${gig._id}-${i}`}
@@ -57,6 +57,13 @@ export function GigSlider({ gig, showThumbnails = false }) {
                     />
                 ))}
             </Slider>
+
+            {isWide && !isSingleImage && currentSlide < images.length - 1 && (
+                <button className="gallery-btn next" onClick={ev => { ev.stopPropagation(); sliderRef.current.slickNext() }}>
+                    <i className="fa-solid fa-chevron-right"></i>
+                </button>
+            )}
         </div>
+
     )
 }
