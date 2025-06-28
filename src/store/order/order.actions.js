@@ -19,7 +19,7 @@ export async function updateOrder(order) {
         const savedOrder = await orderService.save(order)
         store.dispatch({ type: UPDATE_ORDER, savedOrder })
     } catch (err) {
-        console.log('Cannot save gig', err)
+        console.log('Cannot save order', err)
         throw err 
     }
 }

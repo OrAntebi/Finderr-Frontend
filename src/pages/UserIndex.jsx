@@ -124,7 +124,7 @@ export function UserIndex() {
     }
     const isOwnProfile = loggedInUser?._id === userIdFromParams
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
-        .sort((a, b) => b.createdAt - a.crSeatedAt)
+        .sort((a, b) => b.createdAt - a.createdAt)
 
     return (
         <main className="user-index user-profile-grid">
