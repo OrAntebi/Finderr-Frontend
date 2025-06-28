@@ -9,8 +9,19 @@
 
     h1 {
         color: #222325;
-        margin-block: rem(28px) 0;
+        margin-block: rem(28px) rem(14px);
+
+        :not(:has(.breadcrumbs)) & {
+            margin-block-start: 0;
+        }
+
     }
+
+    .sub-heading {
+        text-wrap: balance;
+        max-width: 800px;
+    }
+
 
     button {
         margin-inline-end: 0;

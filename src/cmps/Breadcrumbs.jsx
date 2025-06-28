@@ -7,7 +7,6 @@ export function BreadCrumbs() {
     const location = useLocation()
     const [searchParams] = useSearchParams()
 
-    const isInCategories = location.pathname.startsWith('/categories')
     const category = searchParams.get('category')
     const categoryTitle = category ? gigService.getCategoryTitleFromPath(category) : null
     const isGigDetails = location.pathname.split('/').length === 3
@@ -16,7 +15,7 @@ export function BreadCrumbs() {
         setGigFilter(gigService.getDefaultFilter())
     }
 
-    if (!isInCategories) return null
+    if (!category) return null
 
     return (
         <nav className="breadcrumbs flex align-center">

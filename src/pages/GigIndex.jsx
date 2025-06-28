@@ -11,10 +11,12 @@ import { GigList } from '../cmps/GigList'
 import { GigFilter } from '../cmps/GigFilter'
 import { Loader } from '../cmps/Loader'
 import { NoGigsFound } from '../cmps/NoGigsFound'
+import { CategoryGreetBanner } from '../cmps/CategoryGreetBanner'
 
 export function GigIndex() {
     const { filter } = useGigFilterQuery()
     const gigs = useSelector(state => state.gigModule.gigs)
+    const user = useSelector(state => state.userModule.user)
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -45,23 +47,6 @@ export function GigIndex() {
     }
 
 
-    function getTitle() {
-        const { txt = '', category } = filter
-        const search = txt.trim()
-
-        if (search) {
-            return (
-                <>
-                    <span style={{ fontWeight: 400 }}>Results for&nbsp;</span>
-                    {search}
-                </>
-            )
-        }
-
-        if (category) return gigService.getCategoryTitleFromPath(category)
-        return 'Categories'
-    }
-
     if (isLoading) return <Loader />
 
     return (
@@ -71,7 +56,7 @@ export function GigIndex() {
             ) : (
                 <>
                     <BreadCrumbs />
-                    <h1>{getTitle()}</h1>
+                    <CategoryGreetBanner user={user} filter={filter}/>
                     <GigFilter filter={filter} />
                     <GigList
                         gigs={gigs}

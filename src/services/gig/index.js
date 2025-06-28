@@ -43,7 +43,7 @@ function getCategoryList(key = null) {
     'data': 'Data',
     'photography': 'Photography'
   }
-  
+
   if (key) return CATEGORIES[key] || key
   return Object.entries(CATEGORIES).map(([categoryRoute, categoryName]) => ({
     categoryRoute,
@@ -51,9 +51,11 @@ function getCategoryList(key = null) {
   }))
 }
 
-function getCategoryTitleFromPath(path) {
-  const slug = path.split('/').filter(Boolean).at(-1)
-  return getCategoryList(slug)
+function getCategoryTitleFromPath(input) {
+  const key = input.includes('/')
+    ? input.split('/').filter(Boolean).at(-1)
+    : input
+  return getCategoryList(key) || key
 }
 
 const FILTER_KEYS = [

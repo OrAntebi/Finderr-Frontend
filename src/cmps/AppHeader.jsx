@@ -26,7 +26,7 @@ export function AppHeader({ onSearch }) {
         try {
             await logout()
             navigate('/')
-            showSuccessMsg(`Bye now`)
+            showSuccessMsg(`Logged out successfully`)
         } catch (err) {
             showErrorMsg('Cannot logout')
         }
