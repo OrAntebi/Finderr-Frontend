@@ -61,6 +61,7 @@
                     height: em(46px);
                     width: 100%;
 
+                    color: inherit;
                     border-radius: 8px;
                     cursor: pointer;
 
@@ -190,7 +191,8 @@
         margin: 0 em(12px) em(20px);
 
         .user-full-name {
-            font-size: rem(16px);
+            color: $clr1;
+            font-size: rem(18px);
             cursor: pointer;
         }
     }
