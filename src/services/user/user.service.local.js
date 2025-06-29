@@ -41,10 +41,8 @@ async function update(userToUpdate) {
     await storageService.put(USER_KEY, userToUpdate)
 
     const loggedinUser = getLoggedinUser()
-    if (loggedinUser?._id === userToUpdate._id) {
-        _saveLocalUser(userToUpdate)
-    }
-
+    if (loggedinUser?._id === userToUpdate._id)  _saveLocalUser(userToUpdate)
+    
     return userToUpdate
 }
 

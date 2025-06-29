@@ -10,7 +10,7 @@ export const userService = {
 	getById,
 	remove,
 	update,
-    getLoggedinUser,
+	getLoggedinUser,
 }
 
 function getUsers() {
@@ -26,14 +26,13 @@ function remove(userId) {
 	return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
-	const user = await httpService.put(`user/${_id}`, { _id, score })
+async function update(userToUpdate) {
+	const user = await httpService.put(`user/${_id}`, userToUpdate)
 
-	// When admin updates other user's details, do not update loggedinUser
-    const loggedinUser = getLoggedinUser() // Might not work because its defined in the main service???
-    if (loggedinUser._id === user._id) _saveLocalUser(user)
-
-	return user
+	const loggedinUser = getLoggedinUser()
+	if (loggedinUser?._id === user._id) _saveLocalUser(user)
+	
+	return userToUpdate
 }
 
 async function login(userCred) {
@@ -44,8 +43,8 @@ async function login(userCred) {
 async function signup(userCred) {
 	if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 	userCred.score = 10000
-	
-    const user = await httpService.post('auth/signup', userCred)
+
+	const user = await httpService.post('auth/signup', userCred)
 	return _saveLocalUser(user)
 }
 
@@ -55,7 +54,7 @@ async function logout() {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+	return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
 function _saveLocalUser(user) {
