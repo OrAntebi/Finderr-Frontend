@@ -4,7 +4,7 @@ import UserAvatar from './UserAvatar.jsx';
 export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDropdownOpen, toggleStatusDropdown, updateOrderStatus, dropdownRefs }) {
     const { buyer, gig, createdAt, totalPrice, status } = order;
 
-    const orderStatuses = ['pending', 'approved', 'fulfilled', 'rejected']
+    const orderStatuses = ['approved', 'fulfilled', 'rejected']
 
     const setRef = (el) => {
         if (dropdownRefs) dropdownRefs(el)
@@ -29,9 +29,9 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDr
                         <ul className="status-dropdown">
                             {orderStatuses
                                 .filter(status => status !== 'pending')
-                                .map(st => (
-                                    <li key={st} onClick={ev => updateOrderStatus(ev, order, st)}>
-                                        {getStatusMeta(st, 'dropdown')}
+                                .map(statusOption => (
+                                    <li key={statusOption} onClick={ev => updateOrderStatus(ev, order, statusOption)}  className={statusOption}>
+                                        {getStatusMeta(statusOption, 'dropdown')}
                                     </li>
                                 ))}
                         </ul>
@@ -57,7 +57,7 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDr
                             {orderStatuses
                                 .filter(status => status !== 'pending')
                                 .map(statusOption => (
-                                    <li key={statusOption} onClick={ev => updateOrderStatus(ev, order, statusOption)}>
+                                    <li key={statusOption} onClick={ev => updateOrderStatus(ev, order, statusOption)} className={statusOption}>
                                         {getStatusMeta(statusOption, 'dropdown')}
                                     </li>
                                 ))}

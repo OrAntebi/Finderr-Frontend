@@ -39,15 +39,28 @@
             background-color: #fff;
             border-radius: rem(8px);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
             z-index: 1;
 
             li {
                 width: 100%;
                 padding: rem(8px) rem(12px);
                 line-height: 1.5;
+                transition: all 0.2s ease-in-out;
 
-                &:hover {
-                    background-color: #f0f0f0;
+                &.approved:hover {
+                    color: $clr1;
+                    background-color: rgba(243, 157, 18, 0.5);
+                }
+
+                &.fulfilled:hover {
+                    color: $clr1;
+                    background-color: rgba(29, 191, 115, 0.5);
+                }
+
+                &.rejected:hover {
+                    color: $clr1;
+                    background-color: rgb(231, 76, 60, 0.5);
                 }
             }
         }
