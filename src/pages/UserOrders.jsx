@@ -50,15 +50,30 @@ export function UserOrders() {
 
     return (
         <section className={`user-orders ${isModalOpen ? 'modal-open' : ''}`}>
-            {isModalOpen && <div className="modal-overlay" onClick={handleCloseModal}></div>}
+            {isModalOpen && (
+                <div className="modal-overlay" onClick={handleCloseModal}></div>
+            )}
 
             <div className="title flex align-center">
                 <img src={orderSvg} alt="order-icon" />
                 <h1>my orders</h1>
             </div>
 
-            <OrderList orders={sortedUserOrders} onOrderClicked={handleOrderClicked} />
-            <OrderModal order={selectedOrder} userSeller={false} closeModal={handleCloseModal} />
+            {sortedUserOrders.length === 0 ? (
+                <h3 className="empty-msg">You have no orders yet.</h3>
+            ) : (
+                <>
+                    <OrderList
+                        orders={sortedUserOrders}
+                        onOrderClicked={handleOrderClicked}
+                    />
+                    <OrderModal
+                        order={selectedOrder}
+                        userSeller={false}
+                        closeModal={handleCloseModal}
+                    />
+                </>
+            )}
         </section>
     )
 }
