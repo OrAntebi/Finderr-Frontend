@@ -8,7 +8,7 @@ const subheadingMap = {
     "music-audio": "From voice-overs to custom beats – explore audio services that sound amazing.",
     "programming-tech": "Hire developers to build, fix, and launch your next digital product with confidence.",
     "business": "Take your business further with expert services – plans, consulting, and virtual assistants.",
-    "lifestyle": "Explore personalized services that add value to your day-to-day life.",
+    "consulting": "Get expert advice from industry professionals to grow your business, strategy, or career.",
     "data": "Transform raw data into smart decisions with analytics, dashboards, and more.",
     "photography": "Enhance your brand with high-quality images, editing, and professional photo services.",
     "ai-services": "Discover AI-powered solutions – from image generation to smart automation.",
