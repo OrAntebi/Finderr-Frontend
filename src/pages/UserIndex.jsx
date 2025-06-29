@@ -141,7 +141,7 @@ export function UserIndex() {
 
     return (
         <main className="user-index user-profile-grid">
-            <UserDetails user={userToShow} onChangeImg={onChangeImg} />
+            <UserDetails user={userToShow} isOwnProfile={isOwnProfile} onChangeImg={onChangeImg} />
 
             <section className="user-dashboard flex column">
                 {!isOwnProfile ?

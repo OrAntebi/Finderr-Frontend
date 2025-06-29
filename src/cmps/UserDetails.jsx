@@ -1,10 +1,11 @@
 import { useRef } from 'react'
 import UserAvatar from './UserAvatar'
 
-export function UserDetails({ user, onChangeImg }) {
+export function UserDetails({ user, isOwnProfile, onChangeImg }) {
     const fileInputRef = useRef()
 
     function onAvatarClick() {
+        if (!isOwnProfile) return
         fileInputRef.current.click()
     }
 
@@ -17,7 +18,7 @@ export function UserDetails({ user, onChangeImg }) {
 
             <section className="card user-card flex column">
 
-                <div className="user-img flex align-center justify-center">
+                <div className={`user-img flex align-center justify-center ${isOwnProfile ? "ownProfile" : ""}`}>
                     <UserAvatar user={user} size={{ width: 150, height: 150 }} dot="variant" fontSize="4rem" onAvatarClick={onAvatarClick} />
                     <input
                         ref={fileInputRef}

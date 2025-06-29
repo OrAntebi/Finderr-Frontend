@@ -24,9 +24,12 @@
 
             align-self: center;
             margin-block-end: rem(15px);
-
+            
             img {
                 border-radius: 100vh;
+            }
+            
+            &.ownProfile img {
                 cursor: pointer;
             }
         }
