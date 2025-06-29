@@ -23,25 +23,18 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }))
 
-export default function UserAvatar({
-    user,
-    onAvatarClick,
-    size = { width: 32, height: 32 },
-    dot = "dot",
-    fontSize = 'auto'
-}) {
+export default function UserAvatar({ user, onAvatarClick, size = { width: 32, height: 32 }, dot = "dot", fontSize = "1rem" }) {
     const { imgUrl, fullname } = user
     const avatarSx = {
         width: `${size.width}px`,
         height: `${size.height}px`,
         bgcolor: !imgUrl ? deepPurple[500] : undefined,
-        fontSize: { fontSize },
+        fontSize,
         '& img': {
             width: '100%',
             height: '100%',
         },
     }
-
 
     return (
         <Stack direction="row" spacing={2} className="user-avatar">

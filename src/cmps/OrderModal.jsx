@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
 import { calculateDueDate } from '../services/util.service'
-import { Link } from "react-router-dom"
+import UserAvatar from "./UserAvatar"
 
 export function OrderModal({ order, userSeller, closeModal }) {
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ export function OrderModal({ order, userSeller, closeModal }) {
         navigate(`/user/${seller._id}`)
         closeModal()
     }
-    console.log('buyer', buyer)
+
     return (
         <div className="order-modal">
             <div className="header flex">
@@ -31,7 +31,7 @@ export function OrderModal({ order, userSeller, closeModal }) {
                 <div className="mini-user flex align-center justify-center">
                     {userSeller ? (
                         <>
-                            <img src={buyer.imgUrl} alt="Buyer" onClick={navigateToBuyer} />
+                            <UserAvatar user={buyer} onClick={navigateToBuyer} dot="variant" />
                             <p className="">
 
                                 <a onClick={navigateToBuyer} className="underline">

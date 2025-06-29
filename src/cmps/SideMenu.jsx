@@ -23,6 +23,7 @@ export default function SideMenu({ user, onLogout, onMenuClick }) {
                                     user={user}
                                     onAvatarClick={handleUserClick}
                                     size={{ width: 54, height: 54 }}
+                                    fontSize="1.5rem"
                                 />
                                 <p className="user-full-name" onClick={handleUserClick}>{user.fullname}</p>
                             </li>

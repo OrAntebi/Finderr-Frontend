@@ -1,4 +1,5 @@
 import { formatTimestamp, getStatusMeta } from '../services/util.service.js';
+import UserAvatar from './UserAvatar.jsx';
 
 export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDropdownOpen, toggleStatusDropdown, updateOrderStatus, dropdownRefs }) {
     const { buyer, gig, createdAt, totalPrice, status } = order;
@@ -13,7 +14,7 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDr
         isMobile ? (
             <article className="order-card user-order-preview" onClick={ev => handleOrderClicked(order, ev)}>
                 <div className="buyer-cell">
-                    <img src={buyer.imgUrl} alt="buyer image" />
+                    <UserAvatar user={buyer} dot="variant" />
                     <span>{buyer.fullname}</span>
                 </div>
                 <div className="gig-cell">{gig.title}</div>
@@ -40,14 +41,14 @@ export function UserOrderPreview({ order, handleOrderClicked, isMobile, statusDr
         ) : (
             <tr className="order-row user-order-preview" onClick={ev => handleOrderClicked(order, ev)}>
                 <td className="cell buyer-cell">
-                    <img src={buyer.imgUrl} alt="buyer image" />
+                    <UserAvatar user={buyer} dot="variant" />
                     <span>{buyer.fullname}</span>
                 </td>
                 <td className="cell gig-cell">{gig.title}</td>
                 <td className="cell dueon-cell">{formatTimestamp(createdAt)}</td>
                 <td className="cell price-cell">${totalPrice}</td>
                 <td className="cell status-cell" ref={setRef}>
-                    <label className="status" style={{ backgroundColor: getStatusMeta(status, 'color')  }} onClick={ev => toggleStatusDropdown(ev, order._id)}>
+                    <label className="status" style={{ backgroundColor: getStatusMeta(status, 'color') }} onClick={ev => toggleStatusDropdown(ev, order._id)}>
                         {status}
                     </label>
 
