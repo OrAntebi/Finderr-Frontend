@@ -20,8 +20,7 @@ export default function SideMenu({ user, onLogout, onMenuClick }) {
                         <>
                             <li className="user-info flex align-center">
                                 <UserAvatar
-                                    imgUrl={user.imgUrl}
-                                    userName={user.fullname}
+                                    user={user}
                                     onAvatarClick={handleUserClick}
                                     size={{ width: 54, height: 54 }}
                                 />

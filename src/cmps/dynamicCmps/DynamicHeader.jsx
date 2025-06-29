@@ -41,7 +41,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                 <nav>
                     {user ? (
                         <>
-                            <UserAvatar imgUrl={user.imgUrl} userName={user.fullname} onAvatarClick={(ev) => { ev.stopPropagation(); toggleDropdown('avatar') }} />
+                            <UserAvatar user={user} onAvatarClick={(ev) => { ev.stopPropagation(); toggleDropdown('avatar') }} />
                             <DropdownMenu
                                 isOpen={dropdownOpen.avatar}
                                 onClose={() => closeDropdown('avatar')}
@@ -121,7 +121,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                             </div>
 
                             <div className="dropdown-wrapper flex">
-                                <UserAvatar imgUrl={user.imgUrl} userName={user.fullname} onAvatarClick={(ev) => { ev.stopPropagation(); toggleDropdown('avatar') }} />
+                                <UserAvatar user={user} onAvatarClick={(ev) => { ev.stopPropagation(); toggleDropdown('avatar') }} />
                                 <DropdownMenu
                                     isOpen={dropdownOpen.avatar}
                                     onClose={() => closeDropdown('avatar')}

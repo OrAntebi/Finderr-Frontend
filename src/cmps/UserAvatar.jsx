@@ -24,36 +24,39 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }))
 
 export default function UserAvatar({
-    imgUrl,
-    userName,
+    user,
     onAvatarClick,
     size = { width: 32, height: 32 },
+    dot = "dot",
+    fontSize = 'auto'
 }) {
+    const { imgUrl, fullname } = user
     const avatarSx = {
         width: `${size.width}px`,
         height: `${size.height}px`,
         bgcolor: !imgUrl ? deepPurple[500] : undefined,
+        fontSize: { fontSize },
         '& img': {
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
         },
     }
+
 
     return (
         <Stack direction="row" spacing={2} className="user-avatar">
             <StyledBadge
                 overlap="circular"
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                variant="dot"
+                variant={dot}
             >
                 <Avatar
-                    alt={userName}
+                    alt={fullname}
                     src={imgUrl || undefined}
                     onClick={onAvatarClick}
                     sx={avatarSx}
                 >
-                    {!imgUrl && getInitials(userName)}
+                    {!imgUrl && getInitials(fullname)}
                 </Avatar>
             </StyledBadge>
         </Stack>

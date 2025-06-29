@@ -1,4 +1,4 @@
-
+import UserAvatar from './UserAvatar'
 
 export function UserDetails({ user }) {
 
@@ -11,7 +11,7 @@ export function UserDetails({ user }) {
             <section className="card user-card flex column">
 
                 <div className="user-img flex align-center justify-center">
-                    <img src={imgUrl} alt="user image" />
+                    <UserAvatar user={user} size={{ width: 150, height: 150 }} dot="variant" fontSize={"3rem"}/>
                 </div>
 
                 <div className="user-info flex column align-center justify-center">
