@@ -23,6 +23,7 @@ import { setGigFilter } from './store/gig/gig.actions.js'
 import { useCallback } from 'react'
 import { Checkout } from './pages/Checkout.jsx'
 import { Backdrop } from './cmps/Backdrop.jsx'
+import { AddGig } from './pages/AddGig.jsx'
 
 
 export function RootCmp() {
@@ -46,11 +47,12 @@ export function RootCmp() {
 
             <main className={`main-content main-container full ${currentPage.startsWith("/categories") ? 'categories-page-shown' : ''}`}>
                 <Routes>
-                    <Route path="" element={<HomePage onSearch={handleSearch} />} />
+                    <Route path="/" element={<HomePage onSearch={handleSearch} />} />
                     <Route path="categories" element={<GigIndex />} />
                     <Route path="categories/:gigId" element={<GigDetails />} />
                     <Route path="checkout/:gigId/:packageType" element={<Checkout />} />
                     <Route path="user/:id" element={<UserIndex />} />
+                    <Route path="user/:id/newGig" element={<AddGig />} />
                     <Route path="user/orders" element={<UserOrders />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />

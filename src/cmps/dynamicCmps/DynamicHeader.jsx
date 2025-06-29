@@ -20,7 +20,7 @@ function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
     return (
         <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
-                <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick} />
+                <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick}/>
                 <SiteLogo />
                 {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
             </section>
@@ -47,6 +47,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                 onClose={() => closeDropdown('avatar')}
                                 items={[
                                     { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
+                                    { type: 'link', to: `/user/${user._id}/newGig`, label: 'New gig' },
                                     { type: 'button', onClick: onLogout, label: 'Logout' }
                                 ]}
                                 className="avatar-menu"
@@ -127,6 +128,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                     onClose={() => closeDropdown('avatar')}
                                     items={[
                                         { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
+                                        { type: 'link', to: `/user/${user._id}/newGig` , label: 'New gig' },
                                         { type: 'button', onClick: onLogout, label: 'Logout' }
                                     ]}
                                     className="avatar-menu"
