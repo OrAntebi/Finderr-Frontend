@@ -2,13 +2,14 @@ import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { gigService } from '../services/gig'
 import { getRandomDemoUser } from "../services/util.service"
 import { loadWatchedUser } from '../store/user/user.actions'
 import { loadOrders, updateOrder } from '../store/order/order.actions'
 import { loadGigs } from '../store/gig/gig.actions'
 import { removeGig } from '../store/gig/gig.actions'
+import { updateUser } from '../store/user/user.actions'
 
+import { uploadService } from '../services/upload.service'
 import { GigList } from '../cmps/GigList'
 import { UserDetails } from '../cmps/UserDetails'
 import { UserGigList } from '../cmps/UserGigList'
@@ -31,6 +32,7 @@ export function UserIndex() {
     const loggedInUser = useSelector(store => store.userModule.user)
     const watchedUser = useSelector(store => store.userModule.watchedUser)
     const orders = useSelector(store => store.orderModule.orders)
+    const isOwnProfile = loggedInUser?._id === userIdFromParams
 
     const dropdownRefs = useRef({})
     const navigate = useNavigate()
@@ -51,7 +53,7 @@ export function UserIndex() {
                 setIsLoading(false)
             })
 
-    }, [userIdFromParams])
+    }, [userIdFromParams, loggedInUser?.imgUrl])
 
     useEffect(() => {
         function handleClickOutside(ev) {
@@ -70,6 +72,10 @@ export function UserIndex() {
         }
     }, [statusDropdownOpen])
 
+    function getFullUserProfile() {
+        const baseUser = isOwnProfile ? loggedInUser : watchedUser
+        return { ...baseUser, ...userInfo }
+    }
 
     function handleOrderClicked(order, ev) {
         ev.stopPropagation()
@@ -115,20 +121,27 @@ export function UserIndex() {
             })
     }
 
+    async function onChangeImg(ev) {
+        try {
+            const { secure_url: imgUrl } = await uploadService.uploadImg(ev)
+            if (!imgUrl) return
+            console.log(loggedInUser)
+            await updateUser({ ...loggedInUser, imgUrl })
+        } catch (err) {
+            console.error('Failed to upload image:', err)
+        }
+    }
+
 
     if (isLoading || !watchedUser) return <Loader />
 
-    const detailedUser = {
-        ...watchedUser,
-        ...userInfo
-    }
-    const isOwnProfile = loggedInUser?._id === userIdFromParams
+    const userToShow = getFullUserProfile()
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
         .sort((a, b) => b.createdAt - a.createdAt)
 
     return (
         <main className="user-index user-profile-grid">
-            <UserDetails user={detailedUser} />
+            <UserDetails user={userToShow} onChangeImg={onChangeImg} />
 
             <section className="user-dashboard flex column">
                 {!isOwnProfile ?

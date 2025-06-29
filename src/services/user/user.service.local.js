@@ -37,17 +37,17 @@ function remove(userId) {
     return storageService.remove(USER_KEY, userId)
 }
 
-async function update({ _id, score }) {
-    const user = await storageService.get(USER_KEY, _id)
-    user.score = score
-    await storageService.put(USER_KEY, user)
+async function update(userToUpdate) {
+    await storageService.put(USER_KEY, userToUpdate)
 
-    // When admin updates other user's details, do not update loggedinUser
     const loggedinUser = getLoggedinUser()
-    if (loggedinUser._id === user._id) _saveLocalUser(user)
+    if (loggedinUser?._id === userToUpdate._id) {
+        _saveLocalUser(userToUpdate)
+    }
 
-    return user
+    return userToUpdate
 }
+
 
 async function login(userCred) {
     const users = await storageService.query(USER_KEY)

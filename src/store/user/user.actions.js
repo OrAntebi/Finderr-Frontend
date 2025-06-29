@@ -90,3 +90,14 @@ export async function loadWatchedUser(userId) {
         console.error('Cannot load watched user', err)
     }
 }
+
+export async function updateUser(user) {
+    try {
+        const updatedUser = await userService.update(user)
+        store.dispatch({ type: SET_USER, user: updatedUser })
+    } catch (err) {
+        showErrorMsg('Cannot update user')
+        console.error('Cannot change user', err)
+        throw err
+    }
+}

@@ -1,8 +1,15 @@
+import { useRef } from 'react'
 import UserAvatar from './UserAvatar'
 
-export function UserDetails({ user }) {
+export function UserDetails({ user, onChangeImg }) {
+    const fileInputRef = useRef()
 
-    const { fullname, username, imgUrl, from, memberSince, avgResponseTime,
+    function onAvatarClick() {
+        fileInputRef.current.click()
+    }
+
+
+    const { fullname, username, from, memberSince, avgResponseTime,
         lastDelivery, description, languages, skills, education } = user
 
     return (
@@ -11,7 +18,14 @@ export function UserDetails({ user }) {
             <section className="card user-card flex column">
 
                 <div className="user-img flex align-center justify-center">
-                    <UserAvatar user={user} size={{ width: 150, height: 150 }} dot="variant" fontSize="4rem"/>
+                    <UserAvatar user={user} size={{ width: 150, height: 150 }} dot="variant" fontSize="4rem" onAvatarClick={onAvatarClick} />
+                    <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        onChange={ev => onChangeImg(ev)}
+                    />
                 </div>
 
                 <div className="user-info flex column align-center justify-center">
