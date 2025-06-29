@@ -1,7 +1,7 @@
 import { storageService } from '../async-storage.service'
 import { saveToStorage } from '../util.service'
 import { userService } from '../user'
-import gigs from '../data/gigs.json' assert { type: 'json' }
+import gigs from '../data/gig.json' assert { type: 'json' }
 
 const GIG_KEY = 'gigDB'
 
