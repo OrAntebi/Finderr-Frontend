@@ -11,6 +11,8 @@ import { ReviewEdit } from '../cmps/ReviewEdit'
 
 export function ReviewIndex() {
     const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    console.log('loggedInUser:', loggedInUser)
+
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     console.log('reviews:', reviews)
 

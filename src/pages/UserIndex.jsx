@@ -5,12 +5,13 @@ import { useParams } from 'react-router-dom'
 import { getRandomDemoUser } from "../services/util.service"
 import { loadWatchedUser } from '../store/user/user.actions'
 import { loadOrders, updateOrder } from '../store/order/order.actions'
-import { loadGigs } from '../store/gig/gig.actions'
-import { removeGig } from '../store/gig/gig.actions'
+import { loadGigs, removeGig } from '../store/gig/gig.actions'
+import { loadReviews } from '../store/review/review.actions'
 import { updateUser } from '../store/user/user.actions'
 
 import { uploadService } from '../services/upload.service'
 import { GigList } from '../cmps/GigList'
+import { ReviewList } from '../cmps/ReviewList'
 import { UserDetails } from '../cmps/UserDetails'
 import { UserGigList } from '../cmps/UserGigList'
 import { Loader } from '../cmps/Loader'
@@ -32,6 +33,7 @@ export function UserIndex() {
     const loggedInUser = useSelector(store => store.userModule.user)
     const watchedUser = useSelector(store => store.userModule.watchedUser)
     const orders = useSelector(store => store.orderModule.orders)
+    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const isOwnProfile = loggedInUser?._id === userIdFromParams
 
     const dropdownRefs = useRef({})
@@ -44,7 +46,8 @@ export function UserIndex() {
             Promise.all([
                 loadWatchedUser(userIdFromParams),
                 loadOrders(),
-                loadGigs({ userId: userIdFromParams })
+                loadGigs({ userId: userIdFromParams }),
+                loadReviews({ userId: userIdFromParams })
             ])
                 .catch(() => {
                     showErrorMsg('Failed to load user data')
@@ -134,6 +137,10 @@ export function UserIndex() {
         }
     }
 
+    function onRemoveReview() {
+        return null
+    }
+
 
     if (isLoading || !watchedUser) return <Loader />
 
@@ -147,7 +154,10 @@ export function UserIndex() {
 
             <section className="user-dashboard flex column">
                 {!isOwnProfile ?
-                    <GigList gigs={userGigs} />
+                    <>
+                        <GigList gigs={userGigs} />
+                        <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
+                    </>
                     :
                     <>
                         <h2>Manage Orders</h2>

@@ -5,6 +5,7 @@ import { useScreenSize } from '../customHooks/useScreenSize'
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { loadGig } from '../store/gig/gig.actions'
+import { loadReviews } from '../store/review/review.actions'
 
 import { OwnerDetails } from '../cmps/OwnerDetails'
 import { PricingPackages } from '../cmps/PricingPackages'
@@ -12,12 +13,14 @@ import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { Loader } from '../cmps/Loader'
 import { GigSlider } from '../cmps/GigSlider'
 import { PaymentModal } from '../cmps/PaymentModal'
+import { ReviewList } from '../cmps/ReviewList'
 import { icons } from '../assets/icons/icons'
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const gig = useSelector(storeState => storeState.gigModule.gig)
+    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const loggedUser = useSelector(storeState => storeState.userModule.user)
     const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
@@ -26,14 +29,19 @@ export function GigDetails() {
 
     useEffect(() => {
         setIsLoading(true)
-        loadGig(gigId).finally(() => setIsLoading(false))
-    }, [gigId])
 
+        Promise.all([
+            loadGig(gigId),
+            loadReviews({ gigId })
+        ])
+            .catch(() => showErrorMsg('Failed to load gig data'))
+            .finally(() => setIsLoading(false))
+    }, [gigId])
 
     if (isLoading || !gig) return <Loader />
 
     const { owner } = gig
-    
+
     const selectedPack = {
         ...gig.packages[selectedPackage],
         packageName: selectedPackage,
@@ -61,8 +69,12 @@ export function GigDetails() {
             setIsModalOpen(false)
             return
         }
-        
+
         navigate(`/checkout/${gigId}/${selectedPackage}`)
+    }
+
+    function onRemoveReview() {
+        return null
     }
 
     const renderMainContent = () => (
@@ -86,6 +98,7 @@ export function GigDetails() {
             <p className="gig-description">{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
             <OwnerDetails owner={owner} isLarge={true} />
+            <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
         </>
     )
 
