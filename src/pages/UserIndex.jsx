@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { getRandomDemoUser } from "../services/util.service"
 import { loadWatchedUser } from '../store/user/user.actions'
@@ -35,23 +35,24 @@ export function UserIndex() {
     const isOwnProfile = loggedInUser?._id === userIdFromParams
 
     const dropdownRefs = useRef({})
-    const navigate = useNavigate()
+
 
     useEffect(() => {
-        setIsLoading(true)
+        if (loggedInUser) {
+            setIsLoading(true)
 
-        Promise.all([
-            loadWatchedUser(userIdFromParams),
-            loadOrders(),
-            loadGigs({ userId: userIdFromParams })
-        ])
-            .catch(() => {
-                navigate('/')
-                showErrorMsg('Failed to load user data')
-            })
-            .finally(() => {
-                setIsLoading(false)
-            })
+            Promise.all([
+                loadWatchedUser(userIdFromParams),
+                loadOrders(),
+                loadGigs({ userId: userIdFromParams })
+            ])
+                .catch(() => {
+                    showErrorMsg('Failed to load user data')
+                })
+                .finally(() => {
+                    setIsLoading(false)
+                })
+        }
 
     }, [userIdFromParams, loggedInUser?.imgUrl])
 
@@ -72,8 +73,10 @@ export function UserIndex() {
         }
     }, [statusDropdownOpen])
 
+
     function getFullUserProfile() {
         const baseUser = isOwnProfile ? loggedInUser : watchedUser
+        console.log('baseUser', baseUser)
         return { ...baseUser, ...userInfo }
     }
 

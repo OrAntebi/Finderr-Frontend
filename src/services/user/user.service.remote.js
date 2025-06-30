@@ -31,7 +31,7 @@ async function update(userToUpdate) {
 
 	const loggedinUser = getLoggedinUser()
 	if (loggedinUser?._id === user._id) _saveLocalUser(user)
-	
+
 	return userToUpdate
 }
 
@@ -58,7 +58,12 @@ function getLoggedinUser() {
 }
 
 function _saveLocalUser(user) {
-	user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score, isAdmin: user.isAdmin }
+	user = {
+		_id: user._id,
+		fullname: user.fullname,
+		imgUrl: user.imgUrl,
+		username: user.username
+	}
 	sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 	return user
 }
