@@ -4,8 +4,9 @@ import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_GI
 
 export async function loadGigs(runtimeFilter = {}) {
     try {
-        const { filterBy } = store.getState().gigModule
-        const finalFilter = { ...filterBy, ...runtimeFilter }
+        const finalFilter = runtimeFilter.userId
+            ? { userId: runtimeFilter.userId }
+            : { ...store.getState().gigModule.filterBy, ...runtimeFilter }
 
         const gigs = await gigService.query(finalFilter)
         store.dispatch(getCmdSetGigs(gigs))
@@ -18,7 +19,7 @@ export async function loadGigs(runtimeFilter = {}) {
 export async function loadGig(gigId) {
     try {
         const gig = await gigService.getById(gigId)
-        const updatedGig = await gigService.save({...gig, impressions: gig.impressions += 1})
+        const updatedGig = await gigService.save({ ...gig, impressions: gig.impressions += 1 })
         store.dispatch(getCmdSetGig(updatedGig))
     } catch (err) {
         console.log('Cannot load gig', err)

@@ -76,7 +76,6 @@ export function UserIndex() {
 
     function getFullUserProfile() {
         const baseUser = isOwnProfile ? loggedInUser : watchedUser
-        console.log('baseUser', baseUser)
         return { ...baseUser, ...userInfo }
     }
 
