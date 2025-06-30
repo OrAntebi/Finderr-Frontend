@@ -1,0 +1,470 @@
+[
+  {
+    "_id": "r001",
+    "txt": "Taylor delivered an exceptional logo design that perfectly captured our brand vision. The Bronze package was great value and the final mockup looked professional. Communication was smooth throughout the process.",
+    "rate": 5,
+    "createdAt": 1698145000000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "e0acd7d7ae89473a85edf10b",
+      "fullname": "Aaron B",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679389/aa_nzzujn.webp",
+      "location": "USA"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r002",
+    "txt": "The Gold package was worth every penny! Three amazing concepts to choose from and the social media kit was exactly what we needed. Taylor's expertise really shows in the final product.",
+    "rate": 5,
+    "createdAt": 1698231400000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "beed063b8584441f887c372c",
+      "fullname": "Abdul R",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816826/df92e126-6724-44c5-ba27-fbcfabf7f814_jnxjkk.webp",
+      "location": "UK"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r003",
+    "txt": "Julia's creativity exceeded our expectations! The traditional paper and pencil approach gave our logo a unique character. Minor delay but the quality made up for it completely.",
+    "rate": 4.5,
+    "createdAt": 1698317800000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "d3d6df0d42b1400a93f2320b",
+      "fullname": "Adnan Adnani",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678722/adnan_nvjxgd.webp",
+      "location": "Germany"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r004",
+    "txt": "Fantastic work on our company logo! The Silver package provided excellent value with two solid concepts. Taylor's 24-hour response time was impressive and professional.",
+    "rate": 5,
+    "createdAt": 1698404200000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "98622c11e6d14a5ba30635d6",
+      "fullname": "Alvin T",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749820016/19dc03d7-8060-48e0-9442-6b260df9e122_v52g0e.webp",
+      "location": "Canada"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r005",
+    "txt": "Micky's linocut illustration style is absolutely unique! The Japanese handwriting elements added a special touch to our brand identity. Highly recommend the VIP package.",
+    "rate": 5,
+    "createdAt": 1698490600000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "dc3b288460ca4da8b6d861ee",
+      "fullname": "Brenn K",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816911/68d21140-75bb-4db9-a43e-1ceb05768073_s1x6no.webp",
+      "location": "Australia"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r006",
+    "txt": "The Deluxe package from Julia was comprehensive and well-executed. The brand guidelines and color palettes were spot on. Communication could have been slightly faster but overall excellent service.",
+    "rate": 4.5,
+    "createdAt": 1698577000000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "def271ab7de94f38978730a5",
+      "fullname": "Christoph",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818718/b4e0cd55-c788-4191-b9d3-008c08b20c23_edbzkk.webp",
+      "location": "Austria"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r007",
+    "txt": "Justin's minimalist approach was perfect for our tech startup. The Diamond package included everything we needed and the 3D mockups looked fantastic. Great value for money!",
+    "rate": 4.8,
+    "createdAt": 1698663400000,
+    "gigId": "65662110138ed5652dd89a3c",
+    "by": {
+      "_id": "d8fae6fb0808400686f2c295",
+      "fullname": "David Iz",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678832/david-1_pptqxf.webp",
+      "location": "Israel"
+    },
+    "aboutUser": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp"
+    }
+  },
+  {
+    "_id": "r008",
+    "txt": "Outstanding work by Taylor! The research phase really paid off and the final logo perfectly represents our industry. Fast delivery and excellent communication throughout.",
+    "rate": 5,
+    "createdAt": 1698749800000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "acbbe774476e4b1d90662b2b",
+      "fullname": "Elena",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679004/elena_hhosym.webp",
+      "location": "Spain"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r009",
+    "txt": "The Best Package from Micky delivered exactly what was promised. The botanical illustrations were beautifully crafted and the source files were well organized. Highly professional!",
+    "rate": 5,
+    "createdAt": 1698836200000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "5a5641c346f84f7a8b06d236",
+      "fullname": "Faisal Mehmood",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819398/917FE849-93D7-4552-811F-B5E5ADD8EC5A_f6lhbi.webp",
+      "location": "Pakistan"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r010",
+    "txt": "Julia's vision planning service was exceptional. The Normal Package provided great value and the final concepts were creative and well-thought-out. Would definitely work with her again.",
+    "rate": 4.7,
+    "createdAt": 1698922600000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "158c0190a11e4e41b147197f",
+      "fullname": "Faz",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749816324/fded8627-1182-4aba-89f0-a2d5ad624e36_ph0moq.webp",
+      "location": "Netherlands"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r011",
+    "txt": "The Professional Package exceeded expectations! Justin's modern minimalist approach was perfect for our brand. The vector files and printable formats were exactly what we needed.",
+    "rate": 4.9,
+    "createdAt": 1699009000000,
+    "gigId": "65662110138ed5652dd89a3c",
+    "by": {
+      "_id": "8a9679c0225f49d0942aea76",
+      "fullname": "Fendi",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818441/ba2c8312-3fab-4281-b618-69c3cfce40e2_w8gfm4.webp",
+      "location": "Indonesia"
+    },
+    "aboutUser": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp"
+    }
+  },
+  {
+    "_id": "r012",
+    "txt": "Taylor's Gold package was comprehensive and delivered on time. The strategic foundation behind each concept was evident. The social media kit was a great bonus!",
+    "rate": 5,
+    "createdAt": 1699095400000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "d7cdb732c3274a0b8300f6ed",
+      "fullname": "Fiday",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818510/d2b9df67-6b55-401c-985d-5cbe92cb6b00_fvo6wf.webp",
+      "location": "Malaysia"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r013",
+    "txt": "Micky's artistic vision is remarkable! The landscape illustrations were stunning and the 2-hour response time was incredibly helpful. The Beginner Package was perfect for our needs.",
+    "rate": 4.8,
+    "createdAt": 1699181800000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "a85c52f6936342dda3a04104",
+      "fullname": "Fredrick F",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678915/fred-1_pvhlr6.webp",
+      "location": "Sweden"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r014",
+    "txt": "Julia's transparent collaboration approach made the whole process smooth. The Deluxe Package included everything promised and the final brand guidelines were comprehensive.",
+    "rate": 4.6,
+    "createdAt": 1699268200000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "d77e6d5d53c74cc19f17921b",
+      "fullname": "Ghyaas K",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819620/99e95277-284e-4c52-ada9-b3c96cbb56af_cejcec.webp",
+      "location": "India"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r015",
+    "txt": "The Starter Package from Justin was exactly what we needed for our minimalist brand. Clean design, fast delivery, and great communication. Will definitely use again!",
+    "rate": 4.7,
+    "createdAt": 1699354600000,
+    "gigId": "65662110138ed5652dd89a3c",
+    "by": {
+      "_id": "f469ee99c4694ec9b05acf89",
+      "fullname": "Haseeb",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679182/as_mqqeng.webp",
+      "location": "Bangladesh"
+    },
+    "aboutUser": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp"
+    }
+  },
+  {
+    "_id": "r016",
+    "txt": "Taylor's Silver package provided excellent value! The 3D mockups were impressive and the logo transparency was perfect. The research phase really shows in the final product.",
+    "rate": 4.9,
+    "createdAt": 1699441000000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "2f360df4750543d98d179e65",
+      "fullname": "Haya Ch",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698678569/haya-1_caoqil.webp",
+      "location": "Jordan"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r017",
+    "txt": "Incredible work by Micky! The animal illustrations were beautifully detailed and the Best Package included everything we needed. The Japanese elements added a unique touch.",
+    "rate": 5,
+    "createdAt": 1699527400000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "6d2b22f526a147698e93037b",
+      "fullname": "Jakob M",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819810/b0ea5653-d660-4ded-aca0-8681990f9fc8_vp39sq.webp",
+      "location": "Denmark"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r018",
+    "txt": "Julia's Low Cost Package was surprisingly comprehensive! The traditional approach with paper and pencil gave our logo character. Minor revisions needed but overall very satisfied.",
+    "rate": 4.3,
+    "createdAt": 1699613800000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "d8c6aef336d84710bee5129a",
+      "fullname": "Jason Cook",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698676246/jason-1_lroa1e.webp",
+      "location": "New Zealand"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r019",
+    "txt": "Justin's Diamond Package was worth every penny! The modern minimalist design perfectly captured our brand essence. The source files were well organized and professional.",
+    "rate": 4.8,
+    "createdAt": 1699700200000,
+    "gigId": "65662110138ed5652dd89a3c",
+    "by": {
+      "_id": "7de1eee8a58a48d1a3f1389d",
+      "fullname": "Jesus S",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698679480/je_rwwd0t.jpg",
+      "location": "Mexico"
+    },
+    "aboutUser": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp"
+    }
+  },
+  {
+    "_id": "r020",
+    "txt": "Taylor's Bronze package exceeded expectations! The high-quality mockup was professional and the logo transparency was perfect. Great communication and fast delivery.",
+    "rate": 4.9,
+    "createdAt": 1699786600000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp",
+      "location": "Italy"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r021",
+    "txt": "Micky's VIP Package was fantastic! The linocut illustration style is unique and the French communication was smooth. The printable files were exactly what we needed.",
+    "rate": 4.7,
+    "createdAt": 1699873000000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp",
+      "location": "Canada"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r022",
+    "txt": "Julia's Normal Package delivered solid results! The concepts were well-developed and the 3D mockups looked professional. Good value for money and reliable service.",
+    "rate": 4.4,
+    "createdAt": 1699959400000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "e2a8e665a1ac48c794047395",
+      "fullname": "Karen M",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698706620/karenM_axc4rw.webp",
+      "location": "South Africa"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  },
+  {
+    "_id": "r023",
+    "txt": "Outstanding work by Justin! The Professional Package was comprehensive and the minimalist approach was perfect for our tech brand. Fast response time and great communication.",
+    "rate": 4.9,
+    "createdAt": 1700045800000,
+    "gigId": "65662110138ed5652dd89a3c",
+    "by": {
+      "_id": "5104adc0404e4c1ebff86f21",
+      "fullname": "Karen R",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749818832/f3e2c6fc-b390-4cf4-948f-4f90a86e3c43_rtq5hi.webp",
+      "location": "Ireland"
+    },
+    "aboutUser": {
+      "_id": "187ea0b46b7947febd42e720",
+      "fullname": "Justin Timber",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675693/justin-1_ch5ljv.webp"
+    }
+  },
+  {
+    "_id": "r024",
+    "txt": "Taylor's Gold package was exceptional! The strategic foundation and industry research really paid off. The social media kit was comprehensive and well-designed.",
+    "rate": 5,
+    "createdAt": 1700132200000,
+    "gigId": "cdb31272d99872222e6bd4f4",
+    "by": {
+      "_id": "b406f71241604ecdb8289532",
+      "fullname": "Katsuhiro K",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749820125/d3529073-ce13-460a-9be6-44dae8c286c0_smbt2s.webp",
+      "location": "Japan"
+    },
+    "aboutUser": {
+      "_id": "e1607aaa912649169646078f",
+      "fullname": "Taylor P",
+      "imgUrl": "https://res.cloudinary.com/de2rdmsca/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1696177526/cld-sample.jpg"
+    }
+  },
+  {
+    "_id": "r025",
+    "txt": "Micky's Best Package was incredible! The landscape and botanical illustrations were beautifully crafted. The Japanese handwriting elements added a special artistic touch.",
+    "rate": 4.8,
+    "createdAt": 1700218600000,
+    "gigId": "90a83547aa9cfe8048b42142",
+    "by": {
+      "_id": "122965914df54c498c2496a6",
+      "fullname": "Katy M",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819707/5421f693-a074-49dd-a499-1886db56f9a5_tn5bok.webp",
+      "location": "Scotland"
+    },
+    "aboutUser": {
+      "_id": "92d96076618b41bfaa044a3b",
+      "fullname": "Micky Smith",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675356/kfc-prof_iykiuz.jpg"
+    }
+  },
+  {
+    "_id": "r026",
+    "txt": "Julia's Deluxe Package was comprehensive and well-executed! The traditional approach with paper and pencil gave our logo a unique character. Excellent brand guidelines included.",
+    "rate": 4.6,
+    "createdAt": 1700305000000,
+    "gigId": "2c0d8b8e865667ce8e6c029e",
+    "by": {
+      "_id": "f6a0db30bb6b49e4917078f0",
+      "fullname": "Maaz",
+      "imgUrl": "https://res.cloudinary.com/dhxnsowkl/image/upload/v1749819475/47e6da7c-6d53-4e3c-9484-64c2b20faf3e_iprmno.webp",
+      "location": "UAE"
+    },
+    "aboutUser": {
+      "_id": "c08d648d633d4c5eaad64f2a",
+      "fullname": "Julia Carter",
+      "imgUrl": "https://res.cloudinary.com/dgsfbxsed/image/upload/v1698675021/julia-logo_ahamun.webp"
+    }
+  }
+]

@@ -1,5 +1,10 @@
 import { storageService } from '../async-storage.service'
 import { userService } from '../user'
+import { saveToStorage } from '../util.service'
+
+import reviews from '../data/review.json' assert { type: 'json' }
+
+const REVIEW_KEY = 'reviewDB'
 
 export const reviewService = {
 	add,
@@ -7,29 +12,58 @@ export const reviewService = {
 	remove,
 }
 
-function query(filterBy) {
-	return storageService.query('review')
+_initReviewDB()
+
+function _initReviewDB() {
+	const stored = JSON.parse(localStorage.getItem(REVIEW_KEY))
+	if (!stored || !stored.length) saveToStorage(REVIEW_KEY, reviews)
+}
+
+async function query(filterBy = {}) {
+	let reviews = await storageService.query(REVIEW_KEY)
+
+	if (filterBy.gigId) {
+		reviews = reviews.filter(review => review.gigId === filterBy.gigId)
+	}
+
+	if (filterBy.userId) {
+		reviews = reviews.filter(review => review.aboutUser._id === filterBy.userId)
+	}
+
+	if (filterBy.byUserId) {
+		reviews = reviews.filter(review => review.by._id === filterBy.byUserId)
+	}
+
+	return reviews
+
 }
 
 async function remove(reviewId) {
-	await storageService.remove('review', reviewId)
+	await storageService.remove(REVIEW_KEY, reviewId)
 }
 
-async function add({ txt, aboutUserId }) {
+async function add({ txt, rate, aboutUserId, gigId }) {
+	const loggedinUser = userService.getLoggedinUser()
 	const aboutUser = await userService.getById(aboutUserId)
+
 	const reviewToAdd = {
 		txt,
-		byUser: userService.getLoggedinUser(),
+		rate,
+		createdAt: Date.now(),
+		gigId,
+		by: {
+			_id: loggedinUser._id,
+			fullname: loggedinUser.fullname,
+			imgUrl: loggedinUser.imgUrl,
+			location: loggedinUser.location || 'Italy'
+		},
 		aboutUser: {
 			_id: aboutUser._id,
 			fullname: aboutUser.fullname,
 			imgUrl: aboutUser.imgUrl,
-		},
+		}
 	}
 
-	reviewToAdd.byUser.score += 10
-	await userService.update(reviewToAdd.byUser)
-
-	const addedReview = await storageService.post('review', reviewToAdd)
+	const addedReview = await storageService.post(REVIEW_KEY, reviewToAdd)
 	return addedReview
 }
