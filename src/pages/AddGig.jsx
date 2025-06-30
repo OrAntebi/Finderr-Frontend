@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AddGigStepper } from '../cmps/AddGigStepper'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
+import { DynamicForm } from '../cmps/dynamicCmps/DynamicForm'
 
 export function AddGig() {
     const [activeStep, setActiveStep] = useState(0)
@@ -24,13 +25,19 @@ export function AddGig() {
     }
 
     return (
-        <main className="add-gig">
-            <section className="add-gig-stepper">
-                <AddGigStepper
-                    activeStep={activeStep}
-                    maxStepReached={maxStepReached}
-                    onStepClick={setActiveStep}
-                />
+        <section className="add-gig full main-container">
+            <div className="add-gig-stepper-container full main-container">
+                <section className="add-gig-stepper">
+                    <AddGigStepper
+                        activeStep={activeStep}
+                        maxStepReached={maxStepReached}
+                        onStepClick={setActiveStep}
+                    />
+                </section>
+            </div>
+
+            <section className="add-gig-form-container">
+                <DynamicForm activeStep={activeStep} />
             </section>
 
 
@@ -56,7 +63,7 @@ export function AddGig() {
                     </Box>
                 </Box>
             </section>
-        </main>
+        </section>
 
     )
 }

@@ -26,6 +26,7 @@
 @import "pages/LoginSignup";
 @import "pages/Chat";
 @import "pages/Checkout";
+@import "pages/AddGig";
 
 
 // Components
@@ -54,7 +55,6 @@
 @import "cmps/UserOrderPreview";
 @import "cmps/UserGigList";
 @import "cmps/UserGigPreview";
-@import "cmps/AddGigStepper";
 
 @import "cmps/Loader";
 @import "cmps/NoGigsFound";

@@ -2,7 +2,6 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import CheckIcon from '@mui/icons-material/Check'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
 const steps = ['Overview', 'Pricing', 'Description & FAQ', 'Requirements', 'Gallery', 'Publish']
@@ -16,7 +15,6 @@ export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     columnGap: '40px',
-                    mb: "35px",
                 }}
             >
                 <Box

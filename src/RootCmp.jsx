@@ -28,6 +28,7 @@ import { AddGig } from './pages/AddGig.jsx'
 
 export function RootCmp() {
     const currentPage = useLocation().pathname
+    const currentPageClass = currentPageToClass(currentPage)
     const navigate = useNavigate()
 
     const handleSearch = useCallback((rawQuery) => {
@@ -45,7 +46,7 @@ export function RootCmp() {
             <AppHeader onSearch={handleSearch} />
             <UserMsg />
 
-            <main className={`main-content main-container full ${currentPage.startsWith("/categories") ? 'categories-page-shown' : ''}`}>
+            <main className={`main-content main-container full ${currentPageClass}`}>
                 <Routes>
                     <Route path="/" element={<HomePage onSearch={handleSearch} />} />
                     <Route path="categories" element={<GigIndex />} />
@@ -81,4 +82,15 @@ function AuthGuard({ children, checkAdmin = false }) {
         return <Navigate to="/" />
     }
     return children
+}
+
+
+function currentPageToClass(pathname) {
+    const rules = [
+        { re: /^\/categories/, className: 'categories-page-shown' },
+        { re: /\/newGig$/, className: 'add-gig-page-shown' },
+    ];
+
+    const match = rules.find(({ re }) => re.test(pathname));
+    return match ? match.className : '';
 }
