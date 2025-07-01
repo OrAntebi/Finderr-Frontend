@@ -38,7 +38,7 @@
   {
     "_id": "r003",
     "txt": "Julia's creativity exceeded our expectations! The traditional paper and pencil approach gave our logo a unique character. Minor delay but the quality made up for it completely.",
-    "rate": 4.5,
+    "rate": 4,
     "createdAt": 1698317800000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -92,7 +92,7 @@
   {
     "_id": "r006",
     "txt": "The Deluxe package from Julia was comprehensive and well-executed. The brand guidelines and color palettes were spot on. Communication could have been slightly faster but overall excellent service.",
-    "rate": 4.5,
+    "rate": 4,
     "createdAt": 1698577000000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -110,7 +110,7 @@
   {
     "_id": "r007",
     "txt": "Justin's minimalist approach was perfect for our tech startup. The Diamond package included everything we needed and the 3D mockups looked fantastic. Great value for money!",
-    "rate": 4.8,
+    "rate": 3,
     "createdAt": 1698663400000,
     "gigId": "65662110138ed5652dd89a3c",
     "by": {
@@ -164,7 +164,7 @@
   {
     "_id": "r010",
     "txt": "Julia's vision planning service was exceptional. The Normal Package provided great value and the final concepts were creative and well-thought-out. Would definitely work with her again.",
-    "rate": 4.7,
+    "rate": 4,
     "createdAt": 1698922600000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -182,7 +182,7 @@
   {
     "_id": "r011",
     "txt": "The Professional Package exceeded expectations! Justin's modern minimalist approach was perfect for our brand. The vector files and printable formats were exactly what we needed.",
-    "rate": 4.9,
+    "rate": 4,
     "createdAt": 1699009000000,
     "gigId": "65662110138ed5652dd89a3c",
     "by": {
@@ -218,7 +218,7 @@
   {
     "_id": "r013",
     "txt": "Micky's artistic vision is remarkable! The landscape illustrations were stunning and the 2-hour response time was incredibly helpful. The Beginner Package was perfect for our needs.",
-    "rate": 4.8,
+    "rate": 4,
     "createdAt": 1699181800000,
     "gigId": "90a83547aa9cfe8048b42142",
     "by": {
@@ -236,7 +236,7 @@
   {
     "_id": "r014",
     "txt": "Julia's transparent collaboration approach made the whole process smooth. The Deluxe Package included everything promised and the final brand guidelines were comprehensive.",
-    "rate": 4.6,
+    "rate": 4,
     "createdAt": 1699268200000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -254,7 +254,7 @@
   {
     "_id": "r015",
     "txt": "The Starter Package from Justin was exactly what we needed for our minimalist brand. Clean design, fast delivery, and great communication. Will definitely use again!",
-    "rate": 4.7,
+    "rate": 5,
     "createdAt": 1699354600000,
     "gigId": "65662110138ed5652dd89a3c",
     "by": {
@@ -272,7 +272,7 @@
   {
     "_id": "r016",
     "txt": "Taylor's Silver package provided excellent value! The 3D mockups were impressive and the logo transparency was perfect. The research phase really shows in the final product.",
-    "rate": 4.9,
+    "rate": 4,
     "createdAt": 1699441000000,
     "gigId": "cdb31272d99872222e6bd4f4",
     "by": {
@@ -308,7 +308,7 @@
   {
     "_id": "r018",
     "txt": "Julia's Low Cost Package was surprisingly comprehensive! The traditional approach with paper and pencil gave our logo character. Minor revisions needed but overall very satisfied.",
-    "rate": 4.3,
+    "rate": 4,
     "createdAt": 1699613800000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -326,7 +326,7 @@
   {
     "_id": "r019",
     "txt": "Justin's Diamond Package was worth every penny! The modern minimalist design perfectly captured our brand essence. The source files were well organized and professional.",
-    "rate": 4.8,
+    "rate": 4,
     "createdAt": 1699700200000,
     "gigId": "65662110138ed5652dd89a3c",
     "by": {
@@ -344,7 +344,7 @@
   {
     "_id": "r020",
     "txt": "Taylor's Bronze package exceeded expectations! The high-quality mockup was professional and the logo transparency was perfect. Great communication and fast delivery.",
-    "rate": 4.9,
+    "rate": 5,
     "createdAt": 1699786600000,
     "gigId": "cdb31272d99872222e6bd4f4",
     "by": {
@@ -362,7 +362,7 @@
   {
     "_id": "r021",
     "txt": "Micky's VIP Package was fantastic! The linocut illustration style is unique and the French communication was smooth. The printable files were exactly what we needed.",
-    "rate": 4.7,
+    "rate": 4,
     "createdAt": 1699873000000,
     "gigId": "90a83547aa9cfe8048b42142",
     "by": {
@@ -380,7 +380,7 @@
   {
     "_id": "r022",
     "txt": "Julia's Normal Package delivered solid results! The concepts were well-developed and the 3D mockups looked professional. Good value for money and reliable service.",
-    "rate": 4.4,
+    "rate": 3,
     "createdAt": 1699959400000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
@@ -398,7 +398,7 @@
   {
     "_id": "r023",
     "txt": "Outstanding work by Justin! The Professional Package was comprehensive and the minimalist approach was perfect for our tech brand. Fast response time and great communication.",
-    "rate": 4.9,
+    "rate": 4,
     "createdAt": 1700045800000,
     "gigId": "65662110138ed5652dd89a3c",
     "by": {
@@ -434,7 +434,7 @@
   {
     "_id": "r025",
     "txt": "Micky's Best Package was incredible! The landscape and botanical illustrations were beautifully crafted. The Japanese handwriting elements added a special artistic touch.",
-    "rate": 4.8,
+    "rate": 5,
     "createdAt": 1700218600000,
     "gigId": "90a83547aa9cfe8048b42142",
     "by": {
@@ -452,7 +452,7 @@
   {
     "_id": "r026",
     "txt": "Julia's Deluxe Package was comprehensive and well-executed! The traditional approach with paper and pencil gave our logo a unique character. Excellent brand guidelines included.",
-    "rate": 4.6,
+    "rate": 5,
     "createdAt": 1700305000000,
     "gigId": "2c0d8b8e865667ce8e6c029e",
     "by": {
