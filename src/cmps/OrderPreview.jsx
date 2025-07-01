@@ -46,7 +46,7 @@ export function OrderPreview({ order, onOrderClicked }) {
                         <h3 className="gig-title">{gig.title}</h3>
                     </Link>
 
-                    <Link to={`/categories/?category=${gig.category}`}>
+                    <Link to={`/categories?category=${gig.category}`}>
                         <p className="gig-category">{gig.categoryLabel}</p>
                     </Link>
 
