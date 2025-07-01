@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 import { gigService } from "../services/gig"
 import { useScreenSize } from '../customHooks/useScreenSize'
-import starSvg from '../assets/img/star-icon.svg'
+import Rating from '@mui/material/Rating'
+import GradeIcon from '@mui/icons-material/Grade'
+import StarOutlineIcon from '@mui/icons-material/StarOutline'
 
 
 export function OwnerDetails({ owner, isLarge }) {
@@ -53,9 +55,20 @@ export function OwnerDetails({ owner, isLarge }) {
                     <div className="rate flex align-center">
                         <div className="flex align-center">
                             <div className="stars flex">
-                                {Array.from({ length: isMobile ? 1 : 5 }, (_, index) => (
-                                    <img key={index} className="star" src={starSvg} alt="star-icon" />
-                                ))}
+                                <Rating
+                                    value={isMobile ? 1 : rate}
+                                    precision={0.5}
+                                    readOnly
+                                    icon={<GradeIcon />}
+                                    emptyIcon={<StarOutlineIcon />}
+                                    sx={{
+                                        color: '#222325',
+                                        '& .MuiRating-iconEmpty': {
+                                            display: isMobile ? 'none' : 'inline-block',
+                                            color: 'inherit'
+                                        }
+                                    }}
+                                />
                             </div>
                             <span className="rating">{rate}</span>
                         </div>

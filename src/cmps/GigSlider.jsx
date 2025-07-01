@@ -13,14 +13,13 @@ const defaults = [
 export function GigSlider({ gig, showThumbnails = false }) {
     const screenWidth = useScreenSize()
     const images = gig.imgUrls?.length ? gig.imgUrls : defaults
-    const isWide = screenWidth >= 964
-    const isSingleImage = images.length === 1
-
+    const isDeskop = screenWidth >= 964
+    const hasMultipleImages  = images.length > 1
     const sliderRef = useRef()
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const settings = {
-        dots: !isSingleImage,
+        dots: hasMultipleImages ,
         arrows: false,
         infinite: false,
         speed: 500,
@@ -40,7 +39,7 @@ export function GigSlider({ gig, showThumbnails = false }) {
 
     return (
         <div className={`gig-slider ${showThumbnails ? 'with-thumbnails' : ''}`}>
-            {isWide && !isSingleImage && currentSlide > 0 && (
+            {isDeskop && hasMultipleImages  && currentSlide > 0 && (
                 <button className="gallery-btn prev" onClick={ev => { ev.stopPropagation(); sliderRef.current.slickPrev() }}>
                     <i className="fa-solid fa-chevron-left"></i>
                 </button>
@@ -58,7 +57,7 @@ export function GigSlider({ gig, showThumbnails = false }) {
                 ))}
             </Slider>
 
-            {isWide && !isSingleImage && currentSlide < images.length - 1 && (
+            {isDeskop && hasMultipleImages  && currentSlide < images.length - 1 && (
                 <button className="gallery-btn next" onClick={ev => { ev.stopPropagation(); sliderRef.current.slickNext() }}>
                     <i className="fa-solid fa-chevron-right"></i>
                 </button>

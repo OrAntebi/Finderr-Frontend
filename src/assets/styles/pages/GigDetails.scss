@@ -87,6 +87,17 @@
                 line-height: lh(24px);
                 column-gap: rem(8px);
 
+                .stars span {
+                    svg {
+                        font-size: rem(22px);
+                    }
+
+                    @include for-narrow-layout {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
                 .star:not(:first-child) {
                     padding-left: .25rem;
                 }

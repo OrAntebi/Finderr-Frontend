@@ -1,0 +1,62 @@
+.review-chart {
+    max-width: 450px;
+    margin-block-end: 2rem;
+    
+    .review-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        h4 {
+            margin: 0;
+        }
+        
+        .stars span {
+            svg {
+                font-size: rem(18px);
+            }
+        
+            @include for-narrow-layout {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        
+    }
+
+    .review-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 4px 0;
+
+        .star-number {
+            width: 60px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .review-bar-background {
+            flex: 1;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+
+            .review-bar-fill {
+                height: 100%;
+                background-color: #222;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+
+        .review-number {
+            min-width: 30px;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    }
+}

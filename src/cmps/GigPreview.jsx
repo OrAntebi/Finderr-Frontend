@@ -1,6 +1,7 @@
 import { gigService } from "../services/gig"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { GigSlider } from "./GigSlider"
+import starIcon from '../assets/img/star-icon.svg'
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
@@ -44,7 +45,7 @@ export function GigPreview({ gig }) {
             <p className="gig-title">{gig.title}</p>
 
             <div className="rating-row flex align-center">
-                <span className="star">★</span>
+                <img src={starIcon} alt="star icon" />
                 <span className="rate-num">{gig.owner.rate.toFixed(1)}</span>
                 <span className="rate-count">({gig.owner.reviews})</span>
             </div>

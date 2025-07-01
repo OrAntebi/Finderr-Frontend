@@ -138,7 +138,7 @@ export function UserIndex() {
         return null
     }
 
-    if (isLoading) return <Loader />
+    if (isLoading || !watchedUser) return <Loader />
 
     const userToShow = getFullUserProfile()
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)

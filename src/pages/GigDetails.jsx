@@ -15,6 +15,7 @@ import { GigSlider } from '../cmps/GigSlider'
 import { PaymentModal } from '../cmps/PaymentModal'
 import { ReviewList } from '../cmps/ReviewList'
 import { icons } from '../assets/icons/icons'
+import { ReviewChart } from '../cmps/ReviewChart'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -98,6 +99,8 @@ export function GigDetails() {
             <p className="gig-description">{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
             <OwnerDetails owner={owner} isLarge={true} />
+            <h2>Reviews</h2>
+            <ReviewChart reviews={reviews} />
             <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
         </>
     )
