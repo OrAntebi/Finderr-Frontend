@@ -40,21 +40,19 @@ export function UserIndex() {
 
 
     useEffect(() => {
-        if (loggedInUser || watchedUser) {
-            setIsLoading(true)
-            Promise.all([
-                loadWatchedUser(userIdFromParams),
-                loadOrders(),
-                loadGigs({ userId: userIdFromParams }),
-                loadReviews({ userId: userIdFromParams })
-            ])
-                .catch(() => {
-                    showErrorMsg('Failed to load user data')
-                })
-                .finally(() => {
-                    setIsLoading(false)
-                })
-        }
+        setIsLoading(true)
+        Promise.all([
+            loadWatchedUser(userIdFromParams),
+            loadOrders(),
+            loadGigs({ userId: userIdFromParams }),
+            loadReviews({ userId: userIdFromParams })
+        ])
+            .catch(() => {
+                showErrorMsg('Failed to load user data')
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
 
     }, [userIdFromParams, loggedInUser?.imgUrl])
 
@@ -139,7 +137,7 @@ export function UserIndex() {
     function onRemoveReview() {
         return null
     }
-    
+
     if (isLoading) return <Loader />
 
     const userToShow = getFullUserProfile()
