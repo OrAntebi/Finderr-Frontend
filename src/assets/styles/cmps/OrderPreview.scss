@@ -134,6 +134,7 @@
             font-size: rem(14px);
             font-weight: 600;
             letter-spacing: 0.5px;
+            overflow: hidden;
 
             @include for-narrow-layout {
                 justify-content: start;
@@ -149,6 +150,9 @@
                 font-size: rem(15px);
                 margin-inline-start: rem(4px);
                 font-weight: 500;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
 
                 &.delivery {
                     gap: rem(4px);
