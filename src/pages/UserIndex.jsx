@@ -40,9 +40,8 @@ export function UserIndex() {
 
 
     useEffect(() => {
-        if (loggedInUser) {
+        if (loggedInUser || watchedUser) {
             setIsLoading(true)
-
             Promise.all([
                 loadWatchedUser(userIdFromParams),
                 loadOrders(),
@@ -140,9 +139,8 @@ export function UserIndex() {
     function onRemoveReview() {
         return null
     }
-
-
-    if (isLoading || !watchedUser) return <Loader />
+    
+    if (isLoading) return <Loader />
 
     const userToShow = getFullUserProfile()
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
