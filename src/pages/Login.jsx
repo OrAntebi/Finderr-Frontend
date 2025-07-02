@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { userService } from '../services/user'
 import { login } from '../store/user/user.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
 export function Login() {
     const [users, setUsers] = useState([])
@@ -24,8 +25,13 @@ export function Login() {
         if (ev) ev.preventDefault()
 
         if (!credentials.username) return
-        await login(credentials)
-        navigate('/categories')
+        try {
+            const user = await login(credentials)
+            showSuccessMsg(`Welcome ${user.fullname}`)
+            navigate('/categories')
+        } catch {
+            showErrorMsg('Cannot login')
+        }
     }
 
     function handleChange(ev) {
