@@ -1,55 +1,39 @@
+import { eventBus, showSuccessMsg } from "../services/event-bus.service.js"
 import { useState, useEffect, useRef } from 'react'
-import { eventBus, showSuccessMsg } from '../services/event-bus.service'
-import { socketService, SOCKET_EVENT_REVIEW_ABOUT_YOU } from '../services/socket.service'
 
 export function UserMsg() {
+
     const [msg, setMsg] = useState(null)
-    const [anim, setAnim] = useState('')
-    const timer = useRef()
+    const timeoutIdRef = useRef()
 
     useEffect(() => {
-        const unsub = eventBus.on('show-msg', newMsg => {
-            clearTimeout(timer.current)
-            setMsg(newMsg)
-            setAnim('')
-            timer.current = setTimeout(autoClose, 3000)
+        const unsubscribe = eventBus.on('show-msg', (msg) => {
+            setMsg(msg)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (timeoutIdRef.current) {
+                timeoutIdRef.current = null
+                clearTimeout(timeoutIdRef.current)
+            }
+            timeoutIdRef.current = setTimeout(closeMsg, 4000)
         })
-
-        socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, r =>
-            showSuccessMsg(`New review about me – ${r.txt}`)
-        )
-
-        return () => {
-            unsub()
-            socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
-            clearTimeout(timer.current)
-        }
     }, [])
 
-    const autoClose = () => {
-        setAnim('slide')
-        setTimeout(() => setMsg(null), 400)
+    function closeMsg() {
+        setMsg(null)
     }
 
-    const manualClose = () => {
-        clearTimeout(timer.current)
-        setAnim('fade')
-        setTimeout(() => setMsg(null), 300)
-    }
-
+    if (!msg) return <span style={{ position: 'absolute' }}></span>
     return (
-        <section className={`user-msg ${msg ? 'show' : ''} ${anim} ${msg?.type || ''}`}>
-            <span className="icon" aria-hidden="true">
-                {msg?.type === 'success'
-                    ? '✔'
-                    : msg?.type === 'error'
-                        ? '✖'
-                        : msg?.type === 'warning'
-                            ? '⚠'
-                            : 'ℹ'}
-            </span>
-            <span>{msg?.txt}</span>
-            <button onClick={manualClose} aria-label="Close">×</button>
+        <section className={`user-msg ${msg.type}`}>
+            {msg.type === 'success'
+                ? <i className="fa-solid fa-circle-check check-icon"></i>
+                : <i className="fa-regular fa-circle-xmark x-icon"></i>}
+
+            {msg.txt}
+
+            <a className="btn close" onClick={closeMsg}>
+                <i className="fa-solid fa-x"></i>
+            </a>
         </section>
     )
 }
