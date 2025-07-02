@@ -133,10 +133,6 @@ export function UserIndex() {
         }
     }
 
-    function onRemoveReview() {
-        return null
-    }
-
     if (isLoading || !watchedUser) return <Loader />
 
     const userToShow = getFullUserProfile()

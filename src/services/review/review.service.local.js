@@ -66,7 +66,6 @@ async function add({ txt, rate, aboutUserId, gigId }) {
 			_id: loggedinUser._id,
 			fullname: loggedinUser.fullname,
 			imgUrl: loggedinUser.imgUrl,
-			location: loggedinUser.location || 'Italy'
 		},
 		aboutUser: {
 			_id: aboutUser._id,
