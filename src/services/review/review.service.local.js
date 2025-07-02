@@ -35,18 +35,17 @@ async function query(filterBy = {}) {
 	}
 
 	switch (filterBy.sortBy) {
-		case 'most relevant':
+		case 'most-relevant':
 			reviews = [...reviews].sort((a, b) => b.rate - a.rate)
 			break
-		case 'most recent':
+		case 'most-recent':
 			reviews = [...reviews].sort((a, b) => b.createdAt - a.createdAt)
 			break
 		default:
 			reviews = [...reviews].sort((a, b) => b.rate - a.rate)
 	}
-
+	
 	return reviews
-
 }
 
 async function remove(reviewId) {

@@ -33,16 +33,13 @@ export function UserIndex() {
     const loggedInUser = useSelector(store => store.userModule.user)
     const watchedUser = useSelector(store => store.userModule.watchedUser)
     const orders = useSelector(store => store.orderModule.orders)
-    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const isOwnProfile = loggedInUser?._id === userIdFromParams
     const dropdownRefs = useRef({})
-
 
     useEffect(() => {
         setIsLoading(true)
         Promise.all([
             loadWatchedUser(userIdFromParams),
-            loadOrders(),
             loadGigs({ userId: userIdFromParams }),
             loadReviews({ userId: userIdFromParams })
         ])
@@ -148,7 +145,7 @@ export function UserIndex() {
                     <>
                         <GigList gigs={userGigs} />
                         <h2 className="reviews-title">Reviews</h2>
-                        <ReviewIndex reviews={reviews} isProfile={true} />
+                        <ReviewIndex userId={userIdFromParams} isProfile={true} />
                     </>
                     :
                     <>

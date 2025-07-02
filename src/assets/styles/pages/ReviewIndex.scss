@@ -1,5 +1,96 @@
 .review-index {
 
+    .dropdown-filter {
+        position: relative;
+        white-space: nowrap;
+        max-width: fit-content;
+        gap: 5px;
+
+        margin-block: rem(20px);
+
+        p {
+            color: #404145;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: em(8px);
+
+            color: #404145;
+            font-family: Macan-Bold, sans-serif;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: rem(6px);
+            font-size: rem(16px);
+            transition: background 0.25s, border-color 0.25s, color 0.25s;
+
+            &.sort-btn {
+                border: none;
+            }
+
+            .arrow-icon {
+                height: fit-content;
+                width: em(12px);
+                object-fit: contain;
+                transition: transform 0.25s;
+
+                &.rotate {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: calc(100% + rem(10px));
+            right: -3px;
+
+            display: flex;
+            flex-direction: column;
+
+            padding-block: rem(8px);
+            width: 100%;
+
+            opacity: 0;
+            background: #fff;
+            font-family: Macan-Medium, sans-serif;
+            border: 1px solid #e5e5e5;
+            border-radius: rem(8px);
+            box-shadow: 0 rem(6px) rem(18px) rgba(0, 0, 0, 0.08);
+            transform: translateY(rem(-8px));
+            animation: dropdownIn 0.25s forwards ease-out;
+            z-index: 10;
+
+            li {
+                padding: 13px 30px 13px 15px;
+                gap: rem(12px);
+                transition: .15s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f5f5f5fa;
+                }
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: rem(8px);
+
+                cursor: pointer;
+                font-size: rem(16px);
+                color: #404145;
+                transition: color 0.25s;
+                border-radius: 8px;
+                transition: 0.3s ease;
+
+            }
+        }
+    }
+
     .show-more-btn {
         margin-block-start: rem(32px);
         padding: rem(8px) rem(16px);
@@ -14,8 +105,7 @@
         white-space: nowrap;
 
         &:hover {
-            background-color: #f5f5f5
-;
+            background-color: #f5f5f5;
         }
     }
 }

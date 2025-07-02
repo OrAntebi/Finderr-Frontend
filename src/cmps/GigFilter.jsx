@@ -203,8 +203,6 @@ function DropdownWrapper({ isOpen, toggle, register, wrapperClasses, contentClas
     )
 }
 
-
-
 function DeliveryDropdown({ isOpen, toggle, register, draft, options, onApply, onClear }) {
     const [temp, setTemp] = useState(draft)
     useEffect(() => { if (isOpen) setTemp(draft) }, [isOpen, draft])

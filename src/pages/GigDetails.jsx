@@ -40,6 +40,7 @@ export function GigDetails() {
     useEffect(() => {
         loadReviews({ gigId })
             .catch(() => {
+                showErrorMsg('Cannot load reviews')
                 console.error('Failed to load reviews')
             })
     }, [])
@@ -113,7 +114,7 @@ export function GigDetails() {
             <h2>Get to know {owner.fullname}</h2>
             <OwnerDetails owner={owner} isLarge={true} scrollToReviews={scrollToReviews} />
             <h2 ref={reviewsRef} className="reviews-title">Reviews</h2>
-            <ReviewIndex reviews={reviews} />
+            <ReviewIndex gigId={gigId} />
         </>
     )
 
