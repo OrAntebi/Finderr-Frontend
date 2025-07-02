@@ -24,7 +24,7 @@ export function UserMsg() {
 
     if (!msg) return <span style={{ position: 'absolute' }}></span>
     return (
-        <section className={`user-msg ${msg.type}`}>
+        <section className={`user-msg flex align-center ${msg.type}`}>
             {msg.type === 'success'
                 ? <i className="fa-solid fa-circle-check check-icon"></i>
                 : <i className="fa-regular fa-circle-xmark x-icon"></i>}

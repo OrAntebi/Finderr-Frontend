@@ -19,6 +19,10 @@
     border-radius: 7px;
     animation: fade-in-down 1s ease-in-out;
 
+    i {
+        margin-block-start: 1px;
+    }
+
     &.success {
         border-inline-start: 7px solid #1dbf73;
 
