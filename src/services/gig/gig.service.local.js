@@ -59,12 +59,12 @@ async function query(filterBy = {}) {
                     const aScore =
                         (a.owner.rate || 0) * 200 +
                         (a.owner.level || 0) * 100 +
-                        (a.owner.reviews || 0) * 0.1
+                        (a.owner.reviewsCount || 0) * 0.1
 
                     const bScore =
                         (b.owner.rate || 0) * 200 +
                         (b.owner.level || 0) * 100 +
-                        (b.owner.reviews || 0) * 0.1
+                        (b.owner.reviewsCount || 0) * 0.1
 
                     return bScore - aScore
                 case 'best-selling':

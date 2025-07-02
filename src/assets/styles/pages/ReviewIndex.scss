@@ -1,5 +1,21 @@
 .review-index {
-    h2 {
-        margin: 0;
+
+    .show-more-btn {
+        margin-block-start: rem(32px);
+        padding: rem(8px) rem(16px);
+
+        font-size: rem(16px);
+        font-family: Macan-Bold;
+        color: #222325;
+        border: 1px solid #222325;
+        border-radius: 8px;
+        line-height: 24px;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: #f5f5f5
+;
+        }
     }
 }

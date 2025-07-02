@@ -34,6 +34,17 @@ async function query(filterBy = {}) {
 		reviews = reviews.filter(review => review.by._id === filterBy.byUserId)
 	}
 
+	switch (filterBy.sortBy) {
+		case 'most relevant':
+			reviews = [...reviews].sort((a, b) => b.rate - a.rate)
+			break
+		case 'most recent':
+			reviews = [...reviews].sort((a, b) => b.createdAt - a.createdAt)
+			break
+		default:
+			reviews = [...reviews].sort((a, b) => b.rate - a.rate)
+	}
+
 	return reviews
 
 }

@@ -1,7 +1,7 @@
 import { reviewService } from '../../services/review'
 
 import { store } from '../store'
-import { ADD_REVIEW, REMOVE_REVIEW, SET_REVIEWS } from '../review/review.reducer'
+import { ADD_REVIEW, REMOVE_REVIEW, SET_REVIEWS, SET_GIG_REVIEWS } from '../review/review.reducer'
 import { SET_SCORE } from '../user/user.reducer'
 
 export async function loadReviews(filterBy) {
@@ -43,4 +43,10 @@ export function getActionRemoveReview(reviewId) {
 }
 export function getActionAddReview(review) {
     return { type: ADD_REVIEW, review }
+}
+
+export async function loadReviewsByGig(gigId) {
+    const reviews = await reviewService.query({ gigId })
+    store.dispatch({ type: SET_GIG_REVIEWS, gigId, reviews })
+    return reviews
 }

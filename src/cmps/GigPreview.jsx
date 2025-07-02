@@ -2,11 +2,23 @@ import { gigService } from "../services/gig"
 import { useNavigate } from "react-router-dom"
 import { GigSlider } from "./GigSlider"
 import starIcon from '../assets/img/star-icon.svg'
+import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { loadReviewsByGig } from "../store/review/review.actions"
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
     const starsArr = gigService.convertLvlToStars(gig.owner.level)
+    const gigReviews = useSelector(storeState => storeState.reviewModule.gigReviews)
 
+    useEffect(() => {
+        loadReviewsByGig(gig._id)
+            .catch(() => {
+                console.error('Failed to load reviews')
+            })
+    }, [gig._id])
+
+    const reviewCount = gigReviews[gig._id]?.length || 0
     const level = Number(gig.owner.level)
     const isTopRated = level === 3
 
@@ -47,7 +59,7 @@ export function GigPreview({ gig }) {
             <div className="rating-row flex align-center">
                 <img src={starIcon} alt="star icon" />
                 <span className="rate-num">{gig.owner.rate.toFixed(1)}</span>
-                <span className="rate-count">({gig.owner.reviews})</span>
+                <span className="rate-count">({reviewCount})</span>
             </div>
 
             <div className="price-row flex align-center">

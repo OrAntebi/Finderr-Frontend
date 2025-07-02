@@ -3,6 +3,7 @@
         font-size: rem(28px);
         line-height: lh(38px, 28px);
         font-family: Macan-Bold, sans-serif;
+        font-weight: 500;
         color: $caregories-clr;
         margin-block-start: rem(28px);
         padding-bottom: rem(16px);
@@ -11,6 +12,10 @@
     .gig-slider,
     .gig-description {
         margin-bottom: rem(32px);
+    }
+
+    .reviews-title {
+        color: #404145;
     }
 
     .owner-details {
@@ -30,7 +35,6 @@
 
         .owner-info {
             color: $caregories-clr;
-            font-family: Macan-Bold, sans-serif;
             gap: rem(4px);
 
             @include for-narrow-layout {
@@ -115,6 +119,7 @@
                     font-family: Macan-Regular;
 
                     label {
+                        cursor: pointer;
                         text-decoration: underline;
                     }
                 }
@@ -144,7 +149,6 @@
 
         nav button {
             flex: 1;
-            font-family: Macan-Bold, sans-serif;
             font-size: 1rem;
             font-weight: 700;
             background-color: #fafafa;
@@ -421,6 +425,7 @@
 
                 strong {
                     font-family: Macan-Bold, sans-serif;
+                    font-weight: 500;
                     color: #62646a;
                     margin-top: rem(4px);
                 }

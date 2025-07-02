@@ -1,31 +1,107 @@
-// .review-preview {
-//     display: grid;
-//     grid-template-columns: subgrid;
-//     grid-column: 1 / -1;
+.review-preview {
+    padding: rem(16px) rem(24px);
+    border: 1px solid #dadbdd;
+    border-radius: 16px;
 
-//     p {
-//         grid-column: 1;
-//     }
+    .review-header {
+        gap: 16px;
+        padding-block-end: rem(16px);
+        margin-block-end: rem(16px);
 
-//     .review-by {
-//         margin-block-end: 1em;
-//     }
+        border-block-end: 1px solid #dadbdd;
 
-//     .review-txt {
-//         grid-column: 1 / 3;
-//         padding: 0.2em;
-//         background-color: $gray2;
-//         color: $gray4;
+        .review-by {
 
-//         pre {
-//             font-family: inherit;
-//         }
-//     }
+            .fullname {
+                color: #222325;
+                font-family: Macan-Bold;
+            }
 
-//     .created-at {
-//         margin-top: 1em;
-//         h4 {
-//             margin: 0;
-//         }
-//     }
-// }
+            .location {
+                color: #6c6e71;
+                font-size: rem(14px);
+            }
+        }
+    }
+
+    .review-content {
+        gap: 12px;
+
+        .rate-and-date {
+            gap: 12px;
+
+            svg {
+                width: 19px;
+                height: 19px;
+            }
+
+            .rate {
+                padding-inline-start: rem(4px);
+                color: #222325;
+            }
+
+            .partition {
+                width: 4px;
+                height: 4px;
+                border-radius: 100vh;
+                background-color: #dadbdd;
+            }
+
+            .created-at {
+                color: #747680;
+                font-size: rem(12px);
+                line-height: 18px;
+            }
+        }
+
+        .review-txt {
+            color: #404145;
+        }
+
+        .gig-info {
+            gap: 40px;
+
+
+            .price {
+
+                span {
+                    color: #222325;
+                    font-weight: 600;
+                    font-size: rem(14px);
+                    line-height: 22px;
+                }
+
+                label {
+                    color: #747680;
+                    font-size: rem(12px);
+                }
+
+            }
+
+            .partition {
+                margin-block: 8px;
+
+                height: auto;
+                width: 1px;
+
+                background-color: #dadbdd;
+            }
+
+            .duration {
+
+                span {
+                    color: #222325;
+                    font-weight: 600;
+                    font-size: rem(14px);
+                    line-height: 22px;
+                }
+
+                label {
+                    color: #747680;
+                    font-size: rem(12px);
+                }
+
+            }
+        }
+    }
+}

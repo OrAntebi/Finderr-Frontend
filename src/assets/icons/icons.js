@@ -7,6 +7,9 @@ import shareSvg from '../img/share-icon.svg'
 import dotsSvg from '../img/three-btns-icon.svg'
 import closeSvg from '../img/close-icon.svg'
 import packageSvg from '../img/package-icon.svg'
+import likeSvg from '../img/like-icon.svg'
+import dislikeSvg from '../img/dislike-icon.svg'
+
 
 export const icons = {
   clock: clockSvg,
@@ -18,4 +21,6 @@ export const icons = {
   dots: dotsSvg,
   close: closeSvg,
   package: packageSvg,
+  like: likeSvg,
+  dislike: dislikeSvg
 }

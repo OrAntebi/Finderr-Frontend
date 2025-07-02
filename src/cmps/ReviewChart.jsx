@@ -1,9 +1,11 @@
 import Rating from '@mui/material/Rating'
 import GradeIcon from '@mui/icons-material/Grade'
 import StarOutlineIcon from '@mui/icons-material/StarOutline'
+import { useSelector } from 'react-redux'
 
 
-export function ReviewChart({ reviews }) {
+export function ReviewChart({ isProfile }) {
+    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const totalReviews = reviews.length
 
     const ratingCounts = [1, 2, 3, 4, 5].reduce((acc, star) => {
@@ -11,14 +13,13 @@ export function ReviewChart({ reviews }) {
         return acc
     }, {})
 
-    const avgRating = (
-        reviews.reduce((sum, r) => sum + r.rate, 0) / totalReviews || 0
-    ).toFixed(1)
+    const avgRating = +((reviews.reduce((s, r) => s + r.rate, 0) / totalReviews || 0).toFixed(1))
+
 
     return (
         <section className="review-chart">
             <div className="review-summary flex alin-center justify-between">
-                <h4>{totalReviews} reviews for this seller</h4>
+                <h4>{`${totalReviews} ${isProfile? 'Reviews' : 'reviews for this Gig'}`}</h4>
                 <div className="stars flex align-center">
                     <Rating
                         value={avgRating}

@@ -23,7 +23,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }))
 
-export default function UserAvatar({ user, onAvatarClick, size = { width: 32, height: 32 }, dot = "dot", fontSize = "1rem" }) {
+export default function UserAvatar({ user, onAvatarClick = null, size = { width: 32, height: 32 }, dot = "dot", fontSize = "1rem" }) {
     const { imgUrl, fullname } = user
     const avatarSx = {
         width: `${size.width}px`,

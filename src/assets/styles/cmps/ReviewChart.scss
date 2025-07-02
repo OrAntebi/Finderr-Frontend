@@ -1,12 +1,17 @@
 .review-chart {
     max-width: 450px;
     margin-block-end: 2rem;
+    font-weight: 600;
     
     .review-summary {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: .5rem;
+
         margin-bottom: 1rem;
+
+        color: #404145;
 
         h4 {
             margin: 0;
@@ -35,7 +40,7 @@
         .star-number {
             width: 60px;
             font-size: 0.9rem;
-            color: #444;
+            color: #222325;
         }
 
         .review-bar-background {
@@ -56,7 +61,7 @@
             min-width: 30px;
             text-align: right;
             font-size: 0.85rem;
-            color: #666;
+            color: #222325;
         }
     }
 }

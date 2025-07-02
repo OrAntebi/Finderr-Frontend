@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { gigService } from "../services/gig"
 import { useScreenSize } from '../customHooks/useScreenSize'
@@ -8,13 +9,14 @@ import GradeIcon from '@mui/icons-material/Grade'
 import StarOutlineIcon from '@mui/icons-material/StarOutline'
 
 
-export function OwnerDetails({ owner, isLarge }) {
+export function OwnerDetails({ owner, isLarge, scrollToReviews }) {
     const isMobile = useScreenSize() < 664
     const [expanded, setExpanded] = useState(false)
+    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
 
     const {
         about, imgUrl, level, fullname, rate,
-        reviews, loc, memberSince, avgResponseTime,
+        loc, memberSince, avgResponseTime,
         lastDelivery, languages, _id
     } = owner
 
@@ -33,6 +35,7 @@ export function OwnerDetails({ owner, isLarge }) {
         .map((src, idx) => (
             <img key={idx} src={src} alt="star" className="star" />
         ))
+
 
     return (
         <>
@@ -73,7 +76,7 @@ export function OwnerDetails({ owner, isLarge }) {
                             <span className="rating">{rate}</span>
                         </div>
                         <span className="reviews">
-                            (<label>{reviews} reviews</label>)
+                            (<label onClick={scrollToReviews}>{reviews.length} reviews</label>)
                         </span>
                     </div>
 

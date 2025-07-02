@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
@@ -13,31 +13,38 @@ import { BreadCrumbs } from '../cmps/BreadCrumbs'
 import { Loader } from '../cmps/Loader'
 import { GigSlider } from '../cmps/GigSlider'
 import { PaymentModal } from '../cmps/PaymentModal'
-import { ReviewList } from '../cmps/ReviewList'
 import { icons } from '../assets/icons/icons'
-import { ReviewChart } from '../cmps/ReviewChart'
+import { ReviewIndex } from '../pages/ReviewIndex'
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const gig = useSelector(storeState => storeState.gigModule.gig)
-    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const loggedUser = useSelector(storeState => storeState.userModule.user)
     const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const screenWidth = useScreenSize()
+    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
+    const reviewsRef = useRef()
 
     useEffect(() => {
         setIsLoading(true)
 
-        Promise.all([
-            loadGig(gigId),
-            loadReviews({ gigId })
-        ])
+        loadGig(gigId)
             .catch(() => showErrorMsg('Failed to load gig data'))
             .finally(() => setIsLoading(false))
     }, [gigId])
+
+
+    useEffect(() => {
+        loadReviews({ gigId })
+            .catch(() => {
+                console.error('Failed to load reviews')
+            })
+    }, [])
+
+
 
     if (isLoading || !gig) return <Loader />
 
@@ -78,11 +85,17 @@ export function GigDetails() {
         return null
     }
 
+    function scrollToReviews() {
+        if (reviewsRef.current) {
+            reviewsRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     const renderMainContent = () => (
         <>
             <BreadCrumbs />
             <h1 className="gig-title">{gig.title}</h1>
-            <OwnerDetails owner={owner} isLarge={false} />
+            <OwnerDetails owner={owner} isLarge={false} scrollToReviews={scrollToReviews} />
             <GigSlider gig={gig} showThumbnails={screenWidth >= 664} />
             {screenWidth < 964 && (
                 <PricingPackages
@@ -98,10 +111,9 @@ export function GigDetails() {
             <h2>About this gig</h2>
             <p className="gig-description">{gig.description}</p>
             <h2>Get to know {owner.fullname}</h2>
-            <OwnerDetails owner={owner} isLarge={true} />
-            <h2>Reviews</h2>
-            <ReviewChart reviews={reviews} />
-            <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
+            <OwnerDetails owner={owner} isLarge={true} scrollToReviews={scrollToReviews} />
+            <h2 ref={reviewsRef} className="reviews-title">Reviews</h2>
+            <ReviewIndex reviews={reviews} />
         </>
     )
 

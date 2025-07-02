@@ -11,13 +11,13 @@ import { updateUser } from '../store/user/user.actions'
 
 import { uploadService } from '../services/upload.service'
 import { GigList } from '../cmps/GigList'
-import { ReviewList } from '../cmps/ReviewList'
 import { UserDetails } from '../cmps/UserDetails'
 import { UserGigList } from '../cmps/UserGigList'
 import { Loader } from '../cmps/Loader'
 import { OrderModal } from '../cmps/OrderModal'
 import { UserOrderList } from '../cmps/UserOrderList'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { ReviewIndex } from './ReviewIndex'
 
 export function UserIndex() {
     const { id: userIdFromParams } = useParams()
@@ -35,7 +35,6 @@ export function UserIndex() {
     const orders = useSelector(store => store.orderModule.orders)
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const isOwnProfile = loggedInUser?._id === userIdFromParams
-
     const dropdownRefs = useRef({})
 
 
@@ -152,7 +151,8 @@ export function UserIndex() {
                 {!isOwnProfile ?
                     <>
                         <GigList gigs={userGigs} />
-                        <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
+                        <h2 className="reviews-title">Reviews</h2>
+                        <ReviewIndex reviews={reviews} isProfile={true} />
                     </>
                     :
                     <>

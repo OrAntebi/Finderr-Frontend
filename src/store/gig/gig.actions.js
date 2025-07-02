@@ -21,6 +21,7 @@ export async function loadGig(gigId) {
         const gig = await gigService.getById(gigId)
         const updatedGig = await gigService.save({ ...gig, impressions: gig.impressions += 1 })
         store.dispatch(getCmdSetGig(updatedGig))
+        return gig
     } catch (err) {
         console.log('Cannot load gig', err)
         throw err

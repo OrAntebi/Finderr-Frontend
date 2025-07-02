@@ -1,4 +1,40 @@
 .review-list {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    gap: rem(40px);
+
+    max-width: 700px;
+
+    .helpful-thumbs {
+        gap: rem(12px);
+
+        padding: rem(8px) rem(12px);
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: rem(14px);
+        font-weight: 600;
+        line-height: rem(24px);
+        user-select: none;
+
+        .like,
+        .dislike {
+            cursor: pointer;
+            gap: rem(4px);
+        }
+
+        .like.selected {
+            color: #1dbf73;
+        }
+
+        .dislike.selected {
+            color: #f74040;
+        }
+
+        .confirmation {
+            font-size: .875rem;
+            font-weight: 500;
+            color: #95979d;
+        }
+    }
+
 }

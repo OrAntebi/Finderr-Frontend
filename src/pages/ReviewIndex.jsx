@@ -1,57 +1,29 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { loadReviews, removeReview, getActionAddReview, getActionRemoveReview } from '../store/review/review.actions'
-import { loadUsers } from '../store/user/user.actions'
-
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { socketService, SOCKET_EVENT_REVIEW_ADDED, SOCKET_EVENT_REVIEW_REMOVED } from '../services/socket.service'
+import { removeReview } from '../store/review/review.actions'
 import { ReviewList } from '../cmps/ReviewList'
-import { ReviewEdit } from '../cmps/ReviewEdit'
+import { ReviewChart } from '../cmps/ReviewChart'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
-export function ReviewIndex() {
-    const loggedInUser = useSelector(storeState => storeState.userModule.user)
-    console.log('loggedInUser:', loggedInUser)
-
-    const reviews = useSelector(storeState => storeState.reviewModule.reviews)
-    console.log('reviews:', reviews)
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        loadReviews()
-        loadUsers()
-
-        socketService.on(SOCKET_EVENT_REVIEW_ADDED, review => {
-            console.log('GOT from socket', review)
-            dispatch(getActionAddReview(review))
-        })
-
-        socketService.on(SOCKET_EVENT_REVIEW_REMOVED, reviewId => {
-            console.log('GOT from socket', reviewId)
-            dispatch(getActionRemoveReview(reviewId))
-        })
-
-        return () => {
-            socketService.off(SOCKET_EVENT_REVIEW_ADDED)
-            socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
-        }
-    }, [])
+export function ReviewIndex({ reviews, isProfile = false }) {
 
     async function onRemoveReview(reviewId) {
         try {
             await removeReview(reviewId)
-            showSuccessMsg('Review removed')
+            showSuccessMsg('Review removed successfully')
         } catch (err) {
-            showErrorMsg('Cannot remove')
+            showErrorMsg('Cannot remove review')
         }
     }
 
-    return <div className="review-index">
-        <h2>Reviews and Gossip</h2>
-        {loggedInUser && <ReviewEdit />}
-        <ReviewList
-            reviews={reviews}
-            onRemoveReview={onRemoveReview} />
-    </div>
+    return (
+        <section className="review-index">
+            {reviews ?
+                <>
+                    <ReviewChart reviews={reviews} isProfile={isProfile} />
+                    <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
+                </>
+                :
+                <h4 className="no-reviews-msg">No reviews for this gig yet.</h4>
+            }
+        </section>
+    )
 }

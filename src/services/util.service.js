@@ -25,7 +25,6 @@ export function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
 }
 
-
 export function randomPastTime() {
   const HOUR = 1000 * 60 * 60
   const DAY = 1000 * 60 * 60 * 24
@@ -214,4 +213,31 @@ export const getStatusMeta = (status, type = 'label') => {
 
   const statusData = statusMap[status] || statusMap.default
   return statusData[type]
+}
+
+
+export function timeAgo(createdAt) {
+  const now = Date.now()
+  const then = new Date(createdAt).getTime()
+  const diff = Math.max(now - then, 0)
+  const day = 86_400_000
+
+  const days = Math.floor(diff / day)
+
+  if (days < 7) {
+    return days ? `${days} day${days > 1 ? 's' : ''} ago` : 'Today'
+  }
+
+  const weeks = Math.floor(days / 7)
+  if (weeks < 4) {
+    return `${weeks} week${weeks > 1 ? 's' : ''} ago`
+  }
+
+  const months = Math.floor(days / 30.44)
+  if (months < 12) {
+    return `${months} month${months > 1 ? 's' : ''} ago`
+  }
+
+  const years = Math.floor(months / 12)
+  return `${years} year${years > 1 ? 's' : ''} ago`
 }
