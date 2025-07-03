@@ -78,8 +78,6 @@
                 margin-block-start: rem(8px);
             }
 
-
-
             .gig-title {
                 font-size: rem(16px);
                 font-weight: 600;
@@ -167,24 +165,51 @@
                 grid-row: 2;
                 grid-column: 2;
             }
+        }
 
-            .show-order {
-                flex-grow: 1;
+        .add-review-btn {
+            grid-row: 4;
+            margin-block-start: rem(8px);
+
+            @include for-narrow-layout {
+                grid-row: 1;
+                grid-column: 2;
+            }
+        }
+
+        // Shared button styles
+        .action-btn {
+            font-weight: 500;
+            padding: rem(8px) rem(12px);
+            border-radius: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            flex: 1;
+
+            @include for-narrow-layout {
+                flex: 0 0 auto;
+            }
+
+            &.view-order {
                 background-color: #1dbf73;
                 color: white;
-                font-weight: 500;
-                padding: rem(8px) rem(12px);
-                border-radius: 4px;
-                font-size: 12px;
-                text-transform: uppercase;
-                transition: background-color 0.3s ease;
-
-                @include for-narrow-layout {
-                    flex-grow: 0;
-                }
+                border-color: #1dbf73;
 
                 &:hover {
                     background-color: #17a060;
+                    border-color: #17a060;
+                }
+            }
+
+            &.add-review {
+                background-color: white;
+                border-color: #1dbf73;
+                color: #1dbf73;
+
+                &:hover {
+                    background-color: whitesmoke;
                 }
             }
         }

@@ -69,8 +69,13 @@ export function OrderPreview({ order, onOrderClicked }) {
                     </div>
                 </div>
                 <div className="view-order-btn flex align-center justify-end">
-                    <button onClick={(ev) => onOrderClicked(order, ev)} className="show-order btn">view order</button>
+                    <button onClick={(ev) => onOrderClicked(order, ev)} className="action-btn view-order">view order</button>
                 </div>
+                {status === 'fulfilled' &&
+                    <div className="add-review-btn flex align-center justify-end">
+                        <Link to={`/review/${_id}`} className="action-btn add-review">add a review</Link>
+                    </div>
+                }
             </div>
         </div>
     )
