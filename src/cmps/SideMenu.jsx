@@ -53,7 +53,7 @@ export default function SideMenu({ user, onLogout, onMenuClick }) {
                                 <NavLink to={`/user/${user._id}/newGig`} className="main-nav-link" onClick={onMenuClick}>New gig</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/user/${user._id}/orders`} className="main-nav-link" onClick={onMenuClick}>Orders</NavLink>
+                                <NavLink to={`/user/orders`} className="main-nav-link" onClick={onMenuClick}>Orders</NavLink>
                             </li>
                             <li>
                                 <a className="main-nav-link" onClick={onLogout}>Logout</a>
