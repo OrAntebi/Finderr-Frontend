@@ -24,6 +24,7 @@ import { useCallback } from 'react'
 import { Checkout } from './pages/Checkout.jsx'
 import { Backdrop } from './cmps/Backdrop.jsx'
 import { AddGig } from './pages/AddGig.jsx'
+import { AddReview } from './pages/AddReview.jsx'
 
 
 export function RootCmp() {
@@ -56,6 +57,7 @@ export function RootCmp() {
                     <Route path="user/:id/newGig" element={<AddGig />} />
                     <Route path="user/orders" element={<UserOrders />} />
                     <Route path="review" element={<ReviewIndex />} />
+                    <Route path="review/:orderId" element={<AddReview />} />
                     <Route path="chat" element={<ChatApp />} />
                     <Route path="admin" element={
                         <AuthGuard checkAdmin={true}>
