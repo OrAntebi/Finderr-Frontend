@@ -19,7 +19,6 @@ import infoIcon from '../assets/img/info-icon.svg'
 
 
 export function Checkout() {
-
     const user = useSelector(storeState => storeState.userModule.user)
     const gig = useSelector(storeState => storeState.gigModule.gig)
     const { gigId, packageType } = useParams()
