@@ -88,6 +88,10 @@
                 transition: 0.3s ease;
 
             }
+
+            img.hidden {
+                visibility: hidden;
+            }
         }
     }
 
