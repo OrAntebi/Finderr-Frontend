@@ -6,7 +6,7 @@ import { loadOrder } from '../store/order/order.actions'
 
 
 export function AddReview() {
-    const order = useSelector(storeState => storeState.userModule.order)
+    const order = useSelector(storeState => storeState.orderModule.order)
     const [isLoading, setIsLoading] = useState(true)
 
     const { orderId } = useParams()
@@ -34,7 +34,6 @@ export function AddReview() {
                 <label className="rate-label flex">
                     Rate your overall satisfaction of the provided service
                     <section className="stars flex">
-                        {/* כוכבים לדירוג */}
                         {[1, 2, 3, 4, 5].map((star) => (
                             <span key={star}>★</span>
                         ))}

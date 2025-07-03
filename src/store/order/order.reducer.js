@@ -4,6 +4,7 @@ export const UPDATE_ORDER = 'UPDATE_ORDER'
 
 const initialState = {
     orders: [],
+    order: null,
 }
 
 export function orderReducer(state = initialState, action) {

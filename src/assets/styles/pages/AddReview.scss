@@ -1,0 +1,148 @@
+.add-review {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32px);
+  padding: rem(24px);
+
+  form.add-review {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+
+    .heading-container {
+      .heading {
+        font-size: rem(20px);
+        font-weight: 600;
+        color: #404145;
+      }
+
+      .sub-heading {
+        font-size: rem(14px);
+        color: #74767e;
+        margin-top: rem(4px);
+      }
+    }
+
+    .rate-label {
+      display: flex;
+      flex-direction: column;
+      font-size: rem(14px);
+      font-weight: 500;
+
+      .stars {
+        display: flex;
+        margin-top: rem(8px);
+
+        span {
+          font-size: rem(24px);
+          color: #ffb400;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    .txt-label {
+      display: flex;
+      flex-direction: column;
+      font-size: rem(14px);
+      font-weight: 500;
+
+      .review-txt {
+        margin-top: rem(8px);
+        min-height: rem(100px);
+        padding: rem(12px);
+        font-size: rem(14px);
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: rem(6px);
+        resize: vertical;
+      }
+
+      .letter-count {
+        margin-top: rem(6px);
+        font-size: rem(12px);
+        color: #888;
+        text-align: right;
+      }
+    }
+
+    .send {
+      align-self: flex-start;
+      font-weight: 500;
+      font-size: rem(13px);
+      padding: rem(10px) rem(16px);
+      background-color: #1dbf73;
+      color: #fff;
+      border: none;
+      border-radius: rem(4px);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #17a060;
+      }
+    }
+  }
+
+  .big-order-preview {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12px);
+    padding: rem(16px);
+    border: 1px solid #e0e0e0;
+    border-radius: rem(8px);
+    background-color: #f9f9f9;
+
+    .preview-heading {
+      font-size: rem(16px);
+      font-weight: 600;
+      color: #404145;
+    }
+
+    .gig-img {
+      width: 100%;
+      border-radius: rem(6px);
+      object-fit: cover;
+    }
+
+    .gig-title {
+      font-size: rem(15px);
+      font-weight: 500;
+      color: #404145;
+    }
+
+    .order-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: rem(6px);
+      font-size: rem(14px);
+      color: #74767e;
+
+      .detail-container {
+        font-weight: 500;
+
+        &.price {
+          color: #1dbf73;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  @include for-narrow-layout {
+    flex-direction: row;
+    align-items: flex-start;
+
+    form.add-review {
+      flex: 2;
+    }
+
+    .big-order-preview {
+      flex: 1;
+    }
+  }
+}

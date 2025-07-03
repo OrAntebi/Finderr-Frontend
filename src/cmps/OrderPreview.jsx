@@ -73,7 +73,7 @@ export function OrderPreview({ order, onOrderClicked }) {
                 </div>
                 {status === 'fulfilled' &&
                     <div className="add-review-btn flex align-center justify-end">
-                        <Link to={`/review/${_id}`} className="action-btn add-review">add a review</Link>
+                        <Link to={`/review/${_id}`} className="action-btn add-review">add review</Link>
                     </div>
                 }
             </div>
