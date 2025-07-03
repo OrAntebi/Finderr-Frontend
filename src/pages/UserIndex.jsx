@@ -41,6 +41,7 @@ export function UserIndex() {
         Promise.all([
             loadWatchedUser(userIdFromParams),
             loadGigs({ userId: userIdFromParams }),
+            loadOrders(),
             loadReviews({ userId: userIdFromParams })
         ])
             .catch(() => {
