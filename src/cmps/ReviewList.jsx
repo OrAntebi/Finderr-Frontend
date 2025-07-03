@@ -7,7 +7,8 @@ export function ReviewList({
     helpfulMap,
     onMarkHelpful,
     onRemoveReview,
-    loggedUser
+    loggedUser,
+    totalReviews
 }) {
 
     return (
@@ -57,7 +58,7 @@ export function ReviewList({
                 })}
             </ul>
 
-            {reviews.length > 5 && (
+            {totalReviews > 5 && (
                 <button className="show-more-btn" onClick={onToggleShow}>
                     {isAllVisible ? 'Show Less Reviews' : 'Show More Reviews'}
                 </button>

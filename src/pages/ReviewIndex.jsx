@@ -25,7 +25,7 @@ export function ReviewIndex({ userId, gigId, isProfile = false }) {
         loadReviews(filterBy)
     }, [sortBy])
 
-    const allVisible = visible >= reviews
+    const allVisible = visible >= reviews.length
     const displayed = reviews.slice(0, allVisible ? reviews.length : visible)
 
     const onSortChange = (val) => {
@@ -65,6 +65,7 @@ export function ReviewIndex({ userId, gigId, isProfile = false }) {
                         onMarkHelpful={markHelpful}
                         onRemoveReview={onRemoveReview}
                         loggedUser={loggedUser}
+                        totalReviews={reviews.length}
                     />
                 </>
             ) : (
