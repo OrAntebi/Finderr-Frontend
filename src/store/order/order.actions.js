@@ -7,12 +7,13 @@ import { SET_ORDERS, SET_ORDER, UPDATE_ORDER } from '../order/order.reducer.js';
 export async function loadOrders() {
     try {
         let orders = await orderService.query()
-        store.dispatch(getCmdSetOrders(orders))
+        store.dispatch({ type: SET_ORDERS, orders })
     } catch (err) {
         console.log('Cannot load orders', err)
         throw err
     }
 }
+
 
 export async function loadOrder(orderId) {
     try {
@@ -28,18 +29,10 @@ export async function loadOrder(orderId) {
 export async function updateOrder(order) {
     try {
         const savedOrder = await orderService.save(order)
-        store.dispatch(getCmdUpdateOrder(savedOrder))
+        store.dispatch({ type: UPDATE_ORDER, savedOrder })
     } catch (err) {
         console.log('Cannot save order', err)
         throw err
-    }
-}
-
-// Command Creators:
-function getCmdSetOrders(orders) {
-    return {
-        type: SET_ORDERS,
-        orders
     }
 }
 
@@ -47,13 +40,6 @@ function getCmdSetOrders(orders) {
 function getCmdSetOrder(order) {
     return {
         type: SET_ORDER,
-        order
-    }
-}
-
-function getCmdUpdateOrder(order) {
-    return {
-        type: UPDATE_ORDER,
         order
     }
 }

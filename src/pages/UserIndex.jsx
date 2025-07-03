@@ -137,6 +137,7 @@ export function UserIndex() {
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
         .sort((a, b) => b.createdAt - a.createdAt)
 
+        console.log('orders', orders)
     return (
         <main className="user-index user-profile-grid">
             <UserDetails user={userToShow} isOwnProfile={isOwnProfile} onChangeImg={onChangeImg} />
