@@ -19,6 +19,14 @@ function getDefaultFilter() {
   return { txt: '', minPrice: '', maxPrice: '', daysToMake: '', category: '', tags: [], sortBy: 'recommended' }
 }
 
+function getDefaultImgs() {
+  return [
+    'https://res.cloudinary.com/dgsfbxsed/image/upload/v1698663092/defaultGigImg_vjtk9e.webp',
+    'https://res.cloudinary.com/dgsfbxsed/image/upload/v1698914668/default-img-3_afl2mb.webp',
+    'https://res.cloudinary.com/dgsfbxsed/image/upload/v1698914668/default-img-1_qhfps6.webp'
+  ]
+}
+
 function convertLvlToStars(level) {
   const maxStars = 3
 
@@ -102,6 +110,7 @@ const service = VITE_LOCAL === 'true' ? local : remote
 export const gigService = {
   getEmptyGig,
   getDefaultFilter,
+  getDefaultImgs,
   convertLvlToStars,
   getCategoryList,
   getCategoryTitleFromPath,
