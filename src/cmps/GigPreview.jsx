@@ -7,7 +7,7 @@ export function GigPreview({ gig }) {
     const navigate = useNavigate()
     const starsArr = gigService.convertLvlToStars(gig.owner.level)
 
-    const reviewCount = gig.reviewCount || 0
+    const reviewCount = gig.owner.reviewsCount || 0
     const level = Number(gig.owner.level)
     const isTopRated = level === 3
 

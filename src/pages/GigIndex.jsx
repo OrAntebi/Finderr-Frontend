@@ -56,7 +56,7 @@ export function GigIndex() {
             ) : (
                 <>
                     <BreadCrumbs />
-                    <CategoryGreetBanner user={user} filter={filter}/>
+                    <CategoryGreetBanner user={user} filter={filter} />
                     <GigFilter filter={filter} />
                     <GigList
                         gigs={gigs}

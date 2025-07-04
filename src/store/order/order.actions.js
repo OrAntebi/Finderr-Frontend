@@ -26,6 +26,18 @@ export async function loadOrder(orderId) {
     }
 }
 
+export async function addOrder(order) {
+    try {
+        const savedOrder = await orderService.save(order)
+        store.dispatch({ type: SET_ORDER, order: savedOrder })
+        return savedOrder
+    } catch (err) {
+        console.error('Cannot save order', err)
+        throw err
+    }
+}
+
+
 export async function updateOrder(order) {
     try {
         const savedOrder = await orderService.save(order)

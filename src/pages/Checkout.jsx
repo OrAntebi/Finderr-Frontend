@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
-import { IMaskInput } from 'react-imask'
-import { useScreenSize } from '../customHooks/useScreenSize'
-import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useNavigate, useParams } from 'react-router'
-import { Loader } from '../cmps/Loader'
-import { loadGig } from '../store/gig/gig.actions'
-import { orderService } from '../services/order/index'
+import { useSelector } from 'react-redux'
+
 import { gigService } from '../services/gig'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { genRandomCardNumber, genRandomCvv, genRandomExpiration, getRandomIntInclusive } from '../services/util.service'
+
+import { loadGig, updateGig } from '../store/gig/gig.actions'
+import { addOrder } from '../store/order/order.actions'
+
+import { useScreenSize } from '../customHooks/useScreenSize'
+import { Loader } from '../cmps/Loader'
+import { IMaskInput } from 'react-imask'
+
 import paypalIcon from '../assets/img/paypal-icon.svg'
 import checkIcon from '../assets/img/check-icon.svg'
 import checkIcon3 from '../assets/img/check-icon-3.svg'
@@ -75,7 +79,9 @@ export function Checkout() {
                 createdAt: Date.now()
             }
 
-            await orderService.save(order)
+            await addOrder(order)
+            await updateGig({ ...gig, orders: (gig.orders || 0) + 1 })
+
             showSuccessMsg('Purchased service successfully!')
             navigate(`/user/orders`)
         } catch (err) {
