@@ -44,23 +44,23 @@
 
             li {
                 width: 100%;
+
                 padding: rem(8px) rem(12px);
+
+                font-family: Macan-Medium, sans-serif;
                 line-height: 1.5;
                 transition: all 0.2s ease-in-out;
 
                 &.approved:hover {
-                    color: $clr1;
-                    background-color: rgba(243, 157, 18, 0.5);
+                    color: rgba(243, 157, 18);
                 }
 
                 &.fulfilled:hover {
-                    color: $clr1;
-                    background-color: rgba(29, 191, 115, 0.5);
+                    color: rgba(29, 191, 115);
                 }
 
                 &.rejected:hover {
-                    color: $clr1;
-                    background-color: rgb(231, 76, 60, 0.5);
+                    color: rgb(231, 76, 60);
                 }
             }
         }

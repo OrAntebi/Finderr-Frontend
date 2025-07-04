@@ -124,7 +124,7 @@ export function UserIndex() {
         try {
             const { secure_url: imgUrl } = await uploadService.uploadImg(ev)
             if (!imgUrl) return
-            console.log(loggedInUser)
+
             await updateUser({ ...loggedInUser, imgUrl })
         } catch (err) {
             console.error('Failed to upload image:', err)
@@ -137,7 +137,6 @@ export function UserIndex() {
     const ordersSold = orders.filter(order => order?.seller?._id === userIdFromParams)
         .sort((a, b) => b.createdAt - a.createdAt)
 
-        console.log('orders', orders)
     return (
         <main className="user-index user-profile-grid">
             <UserDetails user={userToShow} isOwnProfile={isOwnProfile} onChangeImg={onChangeImg} />
