@@ -1,0 +1,63 @@
+.dynamic-form {
+    padding: rem(28px);
+
+    background: #fff;
+    border: 1px solid #dadbdd;
+    border-radius: 5px;
+    gap: rem(32px);
+
+    select {
+        border: 1px solid #dadbdd;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 0.5em 0.75em;
+        overflow: scroll;
+
+        &:focus {
+            border-color: #95979d;
+            outline: none;
+        }
+    }
+
+    input,
+    textarea {
+        &:focus {
+            border-color: #95979d;
+            outline: none;
+        }
+    }
+
+    >section {
+        gap: 32px;
+    }
+
+    .gig-title-container,
+    .gig-category-container,
+    .gig-tags-container {
+        flex-direction: column;
+
+        @include for-narrow-layout {
+            flex-direction: row;
+        }
+    }
+
+    .gig-tags-container .tags-container {
+        width: 100%;
+    }
+
+
+    .label-container {
+        max-width: 250px;
+
+        label {
+            font-weight: 600;
+            color: #222325;
+        }
+
+        p {
+            margin-block-start: em(8px);
+            color: #404145;
+        }
+    }
+}

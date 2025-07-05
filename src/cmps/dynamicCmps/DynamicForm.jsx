@@ -1,59 +1,75 @@
 
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { gigService } from '../../services/gig'
+import InputAdornment from '@mui/material/InputAdornment'
+import Typography from '@mui/material/Typography'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { Autocomplete, TextField, Chip, CircularProgress } from '@mui/material'
 
 
-export function DynamicForm({ activeStep }) {
-    const [titleSuffix, setTitleSuffix] = useState('')
+export function DynamicForm({ activeStep, gigData, onChange }) {
+
+    const label = (labelValue, paragraphValue) => {
+        return (
+            <div className="label-container flex column">
+                <label>{labelValue}</label>
+                <p>{paragraphValue}</p>
+            </div>
+        )
+    }
 
     return (
-        <form className="dynamic-form">
+        <form className="dynamic-form flex column">
             {activeStep === 0 && (
-                <section className="gig-title-container flex">
-                    <div className="flex column">
-                        <label className="gig-title-label">Gig Title</label>
-                        <p className="gig-title-p">As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.</p>
-                    </div>
+                <>
+                    <section className="gig-title-container flex">
+                        {label(
+                            "Gig Title",
+                            "As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours."
+                        )}
 
-                    <GigTitleInput
-                        value={titleSuffix}
-                        onChange={setTitleSuffix}
-                        maxLength={80}
-                        name="gigTitle"
-                    />
-                </section>
-            )}
+                        <GigTitleInput
+                            value={gigData.title}
+                            onChange={(val) => onChange('title', val)}
+                        />
+                    </section>
 
-            {activeStep === 1 && (
-                <div>
-                    <label>
-                        Price:
-                        <input type="number" name="price" required />
-                    </label>
-                </div>
-            )}
+                    <section className="gig-category-container flex">
+                        {label(
+                            "Category",
+                            "Choose the category and sub-category most suitable for your Gig."
+                        )}
 
-            {activeStep === 2 && (
-                <div>
-                    <label>
-                        Description:
-                        <textarea name="description" required></textarea>
-                    </label>
-                </div>
+                        <SelectCategory
+                            value={gigData.category}
+                            onChange={(val) => onChange('category', val)}
+                        />
+                    </section>
+
+                    <section className="gig-tags-container flex">
+                        {label(
+                            "Search tags",
+                            "Tag your Gig with buzz words that are relevant to the services you offer. Use all 5 tags to get found."
+                        )}
+
+                        <TagInput
+                            value={gigData.tags}
+                            onChange={(val) => onChange('tags', val)}
+                        />
+                    </section>
+                </>
             )}
         </form>
     )
 }
 
+export function GigTitleInput({ value, onChange }) {
+    const PREFIX = 'I will '
+    const MAX_LEN = 80
+    const MIN_LEN = 15
 
-import { useCallback, useState } from 'react'
-import TextField from '@mui/material/TextField'
-import InputAdornment from '@mui/material/InputAdornment'
-import Typography from '@mui/material/Typography'
-
-const PREFIX = 'I will '
-const MAX_LEN = 80
-const MIN_LEN = 15
-
-export default function GigTitleInput({ value = '', onChange, ...rest }) {
     const handleChange = useCallback(ev => {
         const full = ev.target.value.startsWith(PREFIX)
             ? ev.target.value
@@ -61,49 +77,421 @@ export default function GigTitleInput({ value = '', onChange, ...rest }) {
         onChange(full.slice(PREFIX.length))
     }, [onChange])
 
-    const tooShort = value.length < MIN_LEN
-    const showError = tooShort && value.length > 0
+    const { validation } = useValidation({
+        value,
+        minLen: MIN_LEN,
+        maxLen: MAX_LEN,
+        successMsg: 'Just perfect!',
+        errorMsg: '15 characters minimum'
+    })
+
+    const baseStyle = {
+        fontFamily: 'inherit',
+        fontWeight: 700
+    }
+
+    const inputWrapperStyle = {
+        ...baseStyle,
+        height: '82px',
+        alignItems: 'start',
+        borderRadius: '8px',
+    }
+
+    const inputWrapperBorderStyle = {
+        '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#dadbdd',
+        },
+
+        '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+        },
+
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+            borderWidth: '1px',
+        },
+    }
+
+    const inputStyle = {
+        ...baseStyle,
+        whiteSpace: 'pre-wrap',
+        overflowWrap: 'break-word',
+        paddingLeft: '40px',
+        color: '#404145'
+    }
+
+    const adornmentStyle = {
+        position: 'absolute',
+        top: '16px',
+        left: '14px'
+    }
+
+    const adornmentTextStyle = {
+        ...baseStyle,
+        color: '#74767e'
+    }
+
+    const formHelperStyle = {
+        marginInline: 0
+    }
 
     return (
         <TextField
             fullWidth
+            multiline
+            rows={2}
             variant="outlined"
-            placeholder="do something Im really good at"
+            placeholder="do something I'm really good at"
             value={value}
+            className="gig-title-input"
             onChange={handleChange}
-            helperText={
-                <span style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                    <span style={{ color: '#ab2d2d' }}>{showError ? '15 characters minimum' : ''}</span>
-                    <span>{value.length} / {MAX_LEN}</span>
-                </span>
-            }
-            slotProps={{
-                input: {
-                    maxLength: MAX_LEN,
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <Typography component="span" fontWeight={700} fontFamily="inherit" color="#74767e">
-                                I&nbsp;will
-                            </Typography>
-                        </InputAdornment>
-                    )
-                },
-                root: {
-                    sx: {
-                        '& .MuiOutlinedInput-root': {
-                            borderRadius: '8px',
-                            fontFamily: 'inherit',
-                            fontWeight: 700,
-                            border: '1px solid #dadbdd',
-                            '& fieldset': { borderColor: '#95979d' },
-                            '&:hover fieldset': { borderColor: '#95979d' },
-                            '&.Mui-focused fieldset': { borderColor: '#95979d' }
-                        }
-                    }
-                }
+            helperText={validation}
+            sx={inputWrapperBorderStyle}
+            inputProps={{
+                maxLength: MAX_LEN,
+                style: inputStyle
             }}
-            error={showError}
-            {...rest}
+            InputProps={{
+                startAdornment: (
+                    <InputAdornment position="start" style={adornmentStyle}>
+                        <Typography component="span" style={adornmentTextStyle}>
+                            I&nbsp;will
+                        </Typography>
+                    </InputAdornment>
+                ),
+                style: inputWrapperStyle
+            }}
+            FormHelperTextProps={{
+                style: formHelperStyle
+            }}
         />
     )
 }
+
+export function useValidation({
+    value = '',
+    minLen = 0,
+    maxLen = 100,
+    successMsg = '',
+    errorMsg = ''
+}) {
+    const showSuccess = value.length >= minLen
+    const showError = value.length > 0 && !showSuccess
+
+    const helperColor = showError ? '#ab2d2d' : showSuccess ? '#1dbf73' : 'inherit'
+    const helperText = showError
+        ? errorMsg || `Minimum ${minLen} characters required`
+        : showSuccess
+            ? successMsg
+            : ''
+
+    const validation = useMemo(() => {
+        const wrapperStyle = {
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%',
+            margin: 0
+        }
+        const textStyle = {
+            color: helperColor
+        }
+
+        return (
+            <span style={wrapperStyle}>
+                <span style={textStyle}>{helperText}</span>
+                <span>{value.length} / {maxLen} max</span>
+            </span>
+        )
+    }, [helperText, helperColor, value.length, maxLen])
+
+    return {
+        showError,
+        showSuccess,
+        validation,
+        helperText,
+        helperColor
+    }
+}
+
+export function SelectCategory({ value, onChange }) {
+    const categoryList = gigService.getCategoryList().map(item => item.categoryName)
+
+    const { helperText, helperColor } = useValidation({
+        value,
+        minLen: 1,
+        errorMsg: 'Category is required'
+    })
+
+    const baseStyle = {
+        display: 'flex',
+        alignItems: 'start',
+        color: '#74767e',
+        fontSize: '13px',
+        fontFamily: 'Macan-Regular',
+        fontStyle: 'normal',
+    }
+
+    const formControlStyle = {
+        ...baseStyle,
+        alignSelf: 'start',
+        width: '100%',
+        maxWidth: '320px',
+        '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#dadbdd',
+        },
+        '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+        },
+        '& .MuiOutlinedInput-root.MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+            borderWidth: '1px',
+        },
+    }
+
+    const selectStyle = {
+        '& .MuiSelect-select': {
+            ...baseStyle,
+            textTransform: 'uppercase',
+            padding: '10px',
+            display: 'flex',
+            alignItems: 'center',
+        }
+    }
+
+    const menuItemStyle = {
+        ...baseStyle,
+        textTransform: 'uppercase',
+        '&.Mui-selected': {
+            backgroundColor: 'transparent',
+        },
+        '&.Mui-selected:hover': {
+            backgroundColor: '#eee',
+        },
+        '&:hover': {
+            backgroundColor: '#eee',
+        },
+    }
+
+    const validationStyle = {
+        fontSize: '12px',
+        color: helperColor,
+        marginBlockStart: '3px'
+    }
+
+    return (
+        <FormControl sx={formControlStyle}>
+            <Select
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                displayEmpty
+                fullWidth
+                inputProps={{ 'aria-label': 'select a category' }}
+                renderValue={(selected) => {
+                    if (!selected) return <em style={baseStyle}>Select a category</em>
+                    return selected
+                }}
+                MenuProps={{
+                    PaperProps: {
+                        style: {
+                            maxHeight: 150,
+                            overflowY: 'auto',
+                            marginBlockStart: '8px',
+                        }
+                    },
+                    MenuListProps: {
+                        disablePadding: true
+                    }
+                }}
+                slotProps={{
+                    root: {
+                        sx: selectStyle,
+                    }
+                }}
+            >
+                {categoryList.map((name, idx) => (
+                    <MenuItem
+                        key={idx}
+                        value={name}
+                        selected={false}
+                        disableRipple
+                        sx={menuItemStyle}
+                    >
+                        {name}
+                    </MenuItem>
+                ))}
+            </Select>
+
+            <div style={validationStyle}>
+                {helperText}
+            </div>
+
+        </FormControl>
+    )
+}
+
+export function TagInput({ value = [], onChange }) {
+    const [input, setInput] = useState('')
+    const [suggestedTags, setSuggestedTags] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const { helperText, helperColor } = useValidation({
+        value,
+        minLen: 1,
+        errorMsg: 'Tag list must contain at least 1 tag'
+    })
+
+    useEffect(() => {
+        if (input.length < 2) return
+        const controller = new AbortController()
+
+        const fetchSuggestions = async () => {
+            try {
+                setLoading(true)
+                const res = await fetch(
+                    `https://api.datamuse.com/words?sp=${input}*&max=10`,
+                    { signal: controller.signal }
+                )
+                const data = await res.json()
+                const words = data.map(item => item.word).slice(0, 10)
+                setSuggestedTags(words)
+            } catch (err) {
+                if (err.name !== 'AbortError') console.error(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchSuggestions()
+        return () => controller.abort()
+    }, [input])
+
+    const onAddTag = (_, newValue) => {
+        const unique = [...new Set(newValue)].slice(0, 5)
+        onChange(unique)
+    }
+
+    const onRemoveTag = (index) => {
+        const updated = [...value]
+        updated.splice(index, 1)
+        onChange(updated)
+    }
+
+    const inputStyle = {
+        textTransform: 'uppercase',
+        width: '100%',
+        '& .MuiOutlinedInput-root': {
+            gap: '8px',
+            paddingY: '8px',
+            minHeight: '47px',
+            flexWrap: 'wrap',
+        },
+        '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#dadbdd',
+        },
+        '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#b3b3b3',
+            borderWidth: '1px',
+        }
+    }
+
+    const chipStyle = {
+        borderRadius: '4px',
+        backgroundColor: '#f5f5f5',
+        color: '#74767e',
+        fontWeight: 600,
+        fontSize: '14px',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '4px 8px',
+        gap: '8px',
+        fontFamily: 'Macan-Regular',
+        '&:hover': {
+            backgroundColor: '#f5f5f5'
+        },
+        '& .MuiChip-label': {
+            padding: 0,
+            margin: 0,
+        },
+        '& .MuiChip-deleteIcon': {
+            margin: 0,
+        }
+    }
+
+    const validationStyle = {
+        fontSize: '12px',
+        color: helperColor,
+        marginBlockStart: '3px'
+    }
+
+    return (
+        <section className="tags-container flex column">
+            <Autocomplete
+                multiple
+                freeSolo
+                options={input.length >= 2 ? suggestedTags : []}
+                value={value}
+                onChange={onAddTag}
+                inputValue={input}
+                onInputChange={(_, newInput) => {
+                    if (value.length < 5) setInput(newInput)
+                }}
+                filterSelectedOptions
+                loading={loading}
+                sx={inputStyle}
+                renderValue={(value) =>
+                    value.map((option, index) => (
+                        <Chip
+                            key={option}
+                            label={option}
+                            onClick={() => onRemoveTag(index)}
+                            onDelete={() => onRemoveTag(index)}
+                            deleteIcon={
+                                <span style={{
+                                    color: '#74767e',
+                                    fontSize: '14px',
+                                    lineHeight: 1,
+                                    margin: 0
+                                }}>
+                                    ✕
+                                </span>
+                            }
+                            sx={chipStyle}
+                        />
+                    ))
+                }
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        variant="outlined"
+                        placeholder={value.length >= 1 ? '' : 'Add a tag'}
+                        inputProps={{
+                            ...params.inputProps,
+                            disabled: value.length >= 5,
+                        }}
+                        InputProps={{
+                            ...params.InputProps,
+                            endAdornment: (
+                                <>
+                                    {loading && <CircularProgress color="inherit" size={16} />}
+                                    {params.InputProps.endAdornment}
+                                </>
+                            )
+                        }}
+                    />
+                )}
+            />
+
+            <div style={{ fontSize: '13px', color: '#6b6b6b', marginTop: '6px' }}>
+                5 tags maximum. Type to get automatic suggestions.
+            </div>
+
+            <div style={validationStyle}>
+                {helperText}
+            </div>
+        </section>
+    )
+}
+

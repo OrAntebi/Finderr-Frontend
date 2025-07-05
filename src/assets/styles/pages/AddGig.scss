@@ -4,42 +4,26 @@
 
     .add-gig-stepper-container {
         place-content: center;
+
         min-height: 60px;
+        padding-block: rem(12px);
+
         border-block-end: 1px solid #dadbdd;
         background: #fff;
     }
 
 
     .add-gig-form-container {
-        max-width: 1000px;
-
+        width: 100%;
+        height: fit-content;
         margin: rem(60px) auto;
-        padding: rem(28px);
 
-        background: #fff;
-        border: 1px solid #dadbdd;
-        border-radius: 5px;
-
-        .gig-title-container {
-
-            
-
-            input {
-
-                &::placeholder {
-                    color: #929292;
-                }
-            }
+        @include for-normal-layout {
+            width: 850px
         }
+    }
 
-        label {
-            font-weight: 600;
-            color: #222325;
-        }
-
-        p {
-            margin-block-start: em(8px);
-            color: #404145;
-        }
+    .add-gig-stepper-btns {
+        
     }
 }

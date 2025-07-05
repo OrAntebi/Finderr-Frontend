@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
-const steps = ['Overview', 'Pricing', 'Description & FAQ', 'Requirements', 'Gallery', 'Publish']
+const steps = ['Overview', 'Pricing', 'Requirements', 'Gallery', 'Summary']
 
 export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
     return (
@@ -23,7 +23,6 @@ export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
                         alignItems: 'center',
                         flexWrap: 'wrap',
                         rowGap: '2.1875rem',
-                        width: 'fit-content',
                         flex: '1 1 auto',
                     }}
                 >
@@ -42,9 +41,12 @@ export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
                                         display: 'flex',
                                         alignItems: 'center',
                                         cursor: isClickable ? 'pointer' : 'default',
-                                        width: 'fit-content',
+                                        flexWrap: 'nowrap',
+                                        flexShrink: 0,
                                     }}
-                                    onClick={() => onStepClick(idx)}
+                                    onClick={isClickable ? () => onStepClick(idx) : undefined}
+                                    tabIndex={isClickable ? 0 : -1}
+                                    aria-disabled={!isClickable}
                                 >
                                     <Box
                                         sx={{
@@ -115,30 +117,6 @@ export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
                             </React.Fragment>
                         )
                     })}
-                </Box>
-
-                {/* Save button aligned right */}
-                <Box>
-                    <Button
-                        variant="outlined"
-                        sx={{
-                            fontFamily: 'inherit',
-                            fontSize: '0.875rem',
-                            fontWeight: '600',
-                            color: '#222325',
-                            borderColor: '#e4e5e7',
-                            backgroundColor: 'transparent',
-                            padding: '0.375rem 0.75rem',
-                            borderRadius: '8px',
-                            textTransform: 'none',
-                            '&:hover': {
-                                backgroundColor: '#f5f5f5',
-                                borderColor: '#e4e5e7',
-                            },
-                        }}
-                    >
-                        Save
-                    </Button>
                 </Box>
             </Box>
         </Box>
