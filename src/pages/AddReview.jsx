@@ -18,29 +18,26 @@ export function AddReview() {
     }, [orderId])
 
     if (isLoading || !order) return <Loader />
-    const { gig, price, seller, daysToMake } = order
+    const { gig, totalPrice, seller, daysToMake } = order
 
 
     return (
-        <section className="add-review grid">
-            <form className="add-review">
-                <div className="heading-container">
-                    <h1 className="heading">Public review</h1>
-                    <h2 className="sub-heading">
-                        Share your experience with the community, to help them make better decisions.
-                    </h2>
-                </div>
+        <section className="add-review">
+            <form className="review-details">
+                <h1 className="title">Public review</h1>
+                <h2 className="sub-title">Share your experience with the community, to help them make better decisions.</h2>
 
-                <label className="rate-label flex">
+
+                <label className="rate-label">
                     Rate your overall satisfaction of the provided service
-                    <section className="stars flex">
+                    <section className="stars">
                         {[1, 2, 3, 4, 5].map((star) => (
                             <span key={star}>★</span>
                         ))}
                     </section>
                 </label>
 
-                <label className="txt-label flex">
+                <label className="txt-label">
                     What was it like working with this seller?
                     <textarea
                         className="review-txt"
@@ -51,12 +48,14 @@ export function AddReview() {
                     <span className="letter-count">0 / 700</span>
                 </label>
 
-                <button className="send" title="Send your review">
+
+                <button className="send-btn" title="Send your review">
                     Send feedback
                 </button>
             </form>
 
-            <article className="big-order-preview flex">
+
+            <article className="review-order-preview">
                 <h2 className="preview-heading">Your order</h2>
                 <img
                     src={gig.imgUrl}
@@ -64,10 +63,10 @@ export function AddReview() {
                     className="gig-img"
                 />
                 <h2 className="gig-title">{gig.title}</h2>
-                <section className="order-details grid">
-                    <span className="detail-container seller">{seller.fullname}</span>
-                    <span className="detail-container delivery">{daysToMake}</span>
-                    <span className="detail-container price">{price}</span>
+                <section className="order-details">
+                    <span className="detail-seller">{seller.fullname}</span>
+                    <span className="detail-delivery">{daysToMake}</span>
+                    <span className="detail-price">{totalPrice}$</span>
                 </section>
             </article>
         </section>
