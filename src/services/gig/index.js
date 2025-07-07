@@ -1,18 +1,65 @@
 const { DEV, VITE_LOCAL } = import.meta.env
-import { getRandomIntInclusive, makeId } from '../util.service'
+import { getRandomDemoUser, getRandomIntInclusive, makeId } from '../util.service'
 import fullStar from '../../assets/img/owner-level-full.svg'
 import emptyStar from '../../assets/img/owner-level-empty.svg'
 
 import { gigService as local } from './gig.service.local'
 import { gigService as remote } from './gig.service.remote'
+import { userService } from '../user'
 
 function getEmptyGig() {
-  return {
-    vendor: makeId(),
-    price: getRandomIntInclusive(1000, 9000),
-    speed: getRandomIntInclusive(80, 240),
-    msgs: [],
+  const loggedInUser = userService.getLoggedinUser()
+  const userDemoData = getRandomDemoUser()
+
+  const gig = {
+    title: '',
+    price: 0,
+    createdAt: Date.now(),
+    packages: {
+      basic: {
+        packPrice: 0,
+        packDaysToMake: 0,
+        desc: '',
+        features: []
+      },
+      standard: {
+        packPrice: 0,
+        packDaysToMake: 0,
+        desc: '',
+        features: []
+      },
+      premium: {
+        packPrice: 0,
+        packDaysToMake: 0,
+        desc: '',
+        features: []
+      }
+    },
+    owner: {
+      _id: loggedInUser._id,
+      fullname: loggedInUser.fullname,
+      imgUrl: loggedInUser.imgUrl || '',
+      level: getRandomIntInclusive(1, 3),
+      rate: getRandomIntInclusive(3, 5),
+      memberSince: userDemoData.memberSince,
+      loc: userDemoData.from,
+      languages: ['Hebrew', 'English'],
+      avgResponseTime: userDemoData.avgResponseTime,
+      lastDelivery: userDemoData.lastDelivery,
+      about: userDemoData.description,
+      reviewsCount: 0
+    },
+    daysToMake: '',
+    description: '',
+    imgUrls: getDefaultImgs() || [],
+    category: '',
+    tags: [],
+    orders: 0,
+    impressions: 0
   }
+
+  if (VITE_LOCAL === 'true') gig._id = makeId()
+  return gig
 }
 
 function getDefaultFilter() {

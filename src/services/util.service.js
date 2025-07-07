@@ -220,24 +220,64 @@ export function timeAgo(createdAt) {
   const now = Date.now()
   const then = new Date(createdAt).getTime()
   const diff = Math.max(now - then, 0)
-  const day = 86_400_000
+
+  const second = 1000
+  const minute = 60 * second
+  const hour = 60 * minute
+  const day = 24 * hour
+
+  const format = (val, unit) => `${val} ${unit}${val !== 1 ? 's' : ''} ago`
+
+  if (diff < minute) return 'few seconds ago'
+
+  if (diff < hour) return format(Math.floor(diff / minute), 'minute')
+
+  if (diff < day) return format(Math.floor(diff / hour), 'hour')
 
   const days = Math.floor(diff / day)
-
-  if (days < 7) {
-    return days ? `${days} day${days > 1 ? 's' : ''} ago` : 'Today'
-  }
+  if (days < 7) return format(days, 'day')
 
   const weeks = Math.floor(days / 7)
-  if (weeks < 4) {
-    return `${weeks} week${weeks > 1 ? 's' : ''} ago`
-  }
+  if (weeks < 4) return format(weeks, 'week')
 
   const months = Math.floor(days / 30.44)
-  if (months < 12) {
-    return `${months} month${months > 1 ? 's' : ''} ago`
-  }
+  if (months < 12) return format(months, 'month')
 
   const years = Math.floor(months / 12)
-  return `${years} year${years > 1 ? 's' : ''} ago`
+  return format(years, 'year')
+}
+
+
+export function getFlagUrl(countryName) {
+  const countryToCode = {
+    'israel': 'IL',
+    'united states': 'US',
+    'united kingdom': 'GB',
+    'germany': 'DE',
+    'france': 'FR',
+    'spain': 'ES',
+    'italy': 'IT',
+    'canada': 'CA',
+    'australia': 'AU',
+    'japan': 'JP',
+    'china': 'CN',
+    'india': 'IN',
+    'brazil': 'BR',
+    'russia': 'RU',
+    'mexico': 'MX',
+    'netherlands': 'NL',
+    'sweden': 'SE',
+    'switzerland': 'CH',
+    'south korea': 'KR',
+    'ukraine': 'UA',
+  }
+
+  const normalized = countryName?.toLowerCase().trim()
+  const code = countryToCode[normalized]
+
+  const fallbackFlagUrl = 'https://flagcdn.com/w20/un.png'
+
+  return code
+    ? `https://flagcdn.com/w20/${code.toLowerCase()}.png`
+    : fallbackFlagUrl
 }

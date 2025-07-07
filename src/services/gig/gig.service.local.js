@@ -10,7 +10,6 @@ export const gigService = {
     getById,
     save,
     remove,
-    getEmptyGig,
     addGigMsg,
     getAllTags
 }
@@ -104,27 +103,6 @@ async function save(gig) {
         msgs: []
     }
     return storageService.post(GIG_KEY, gigToSave)
-}
-
-function getEmptyGig() {
-    return {
-        title: '',
-        price: '',
-        createdAt: Date.now(),
-        packages: {
-            basic: { title: '', packPrice: 0, packDaysToMake: 0, desc: '', features: [] },
-            standard: { title: '', packPrice: 0, packDaysToMake: 0, desc: '', features: [] },
-            premium: { title: '', packPrice: 0, packDaysToMake: 0, desc: '', features: [] }
-        },
-        owner: userService.getLoggedinUser(),
-        daysToMake: 3,
-        description: '',
-        imgUrls: [],
-        category: '',
-        tags: [],
-        likedByUsers: [],
-        reviews: []
-    }
 }
 
 async function addGigMsg(gigId, txt) {

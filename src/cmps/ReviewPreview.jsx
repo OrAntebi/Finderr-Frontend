@@ -4,6 +4,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline'
 import { getRandomIntInclusive, timeAgo } from '../services/util.service'
 import UserAvatar from "./UserAvatar"
 import { useRef } from 'react'
+import { getFlagUrl } from '../services/util.service'
 
 export function ReviewPreview({ review }) {
     const { by } = review
@@ -18,7 +19,10 @@ export function ReviewPreview({ review }) {
                 <UserAvatar user={by} size={{ width: 48, height: 48 }} dot="variant" />
                 <div className="review-by flex column justify-between">
                     <span className="fullname">{by.fullname}</span>
-                    <span className="location">{by.location}</span>
+                    <span className="location flex align-center">
+                        <img src={getFlagUrl(by.location)} alt="flag" />
+                        {by.location}
+                    </span>
                 </div>
             </header>
 
