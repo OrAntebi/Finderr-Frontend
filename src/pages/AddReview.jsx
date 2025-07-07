@@ -22,7 +22,7 @@ export function AddReview() {
 
 
     return (
-        <section className="add-review">
+        <section className="add-review-page">
             <form className="review-details">
                 <h1 className="title">Public review</h1>
                 <h2 className="sub-title">Share your experience with the community, to help them make better decisions.</h2>

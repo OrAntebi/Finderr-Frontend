@@ -1,6 +1,20 @@
-.add-review {
+.add-review-page {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 3rem;
+  gap: rem(32px);
 
+  .review-details {
+    .title {
+      color: $gig-text-primary;
+      font-size: rem(28px);
+      font-weight: 600;
+    }
+
+    .sub-title {
+      color: $services-title-clr;
+      font-size: rem(19px);
+      font-weight: 400;
+      line-height: rem(23px);
+    }
+  }
 }
