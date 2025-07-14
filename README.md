@@ -3,7 +3,7 @@
 Welcome to the Frontend of Finderr — a Fiverr-inspired freelance marketplace web application.
 This project was built using React.js + Vite as part of a full-stack web development course.
 
-<img width="1820" height="905" alt="image" src="https://github.com/user-attachments/assets/4754c3e8-31ba-4597-ae27-202ca5941437" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/4754c3e8-31ba-4597-ae27-202ca5941437" />
 
 ## ✨ Features
 
@@ -138,17 +138,30 @@ http://localhost:3030/api
 ---
 
 ## 📸 Preview
-<img width="1706" height="905" alt="image" src="https://github.com/user-attachments/assets/dda9fb54-f650-494c-bbd7-288da58dbd0e" />
-<img width="1682" height="901" alt="image" src="https://github.com/user-attachments/assets/7f5c782c-be06-46f9-b0cf-78b654794b60" />
-<img width="1648" height="903" alt="image" src="https://github.com/user-attachments/assets/8ac82c01-63df-45f8-bcda-ac47837508f4" />
-<img width="1750" height="900" alt="image" src="https://github.com/user-attachments/assets/1c718319-916d-4372-b7c8-b74bf4e58a61" />
-<img width="1713" height="903" alt="image" src="https://github.com/user-attachments/assets/887f9225-186b-41d1-94ff-159c6b188fc2" />
-<img width="1734" height="902" alt="image" src="https://github.com/user-attachments/assets/9a582cd3-226b-4f5f-9520-a85b122a50a2" />
 
+<div align="center">
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/dda9fb54-f650-494c-bbd7-288da58dbd0e" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/7f5c782c-be06-46f9-b0cf-78b654794b60" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/8ac82c01-63df-45f8-bcda-ac47837508f4" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/1c718319-916d-4372-b7c8-b74bf4e58a61" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/887f9225-186b-41d1-94ff-159c6b188fc2" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/9a582cd3-226b-4f5f-9520-a85b122a50a2" />
+</div>
 
 ### 📱 Mobile
-<img width="412" height="829" alt="image" src="https://github.com/user-attachments/assets/083fca2d-d82c-409f-b46d-cd935eee8017" />
-<img width="404" height="824" alt="image" src="https://github.com/user-attachments/assets/1a108b52-1fc0-4460-a038-c90b1afbbf8e" />
-<img width="404" height="823" alt="image" src="https://github.com/user-attachments/assets/3234b390-a3bb-4fc6-946e-2fb61e8c33f7" />
 
+<div align="center">
+  <img width="250" alt="image" src="https://github.com/user-attachments/assets/083fca2d-d82c-409f-b46d-cd935eee8017" />
+  &nbsp;
+  <img width="250" alt="image" src="https://github.com/user-attachments/assets/1a108b52-1fc0-4460-a038-c90b1afbbf8e" />
+  &nbsp;
+  <img width="250" alt="image" src="https://github.com/user-attachments/assets/3234b390-a3bb-4fc6-946e-2fb61e8c33f7" />
+</div>
 
+---
+
+## 👥 Team
+
+* [Or Antebi](https://www.linkedin.com/in/orantebi/)
+* [Shay Isso](https://www.linkedin.com/in/shayisso/)
+* [Farhan Ganayim](https://www.linkedin.com/in/farhan-ganayim-4b1647173/)
