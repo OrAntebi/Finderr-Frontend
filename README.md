@@ -1,6 +1,7 @@
 # 🌟 Finderr (Frontend) — Freelance Marketplace
 
-Frontend application for the **Finderr** platform — a freelance marketplace connecting clients and service providers.
+Welcome to the Frontend of Finderr — a Fiverr-inspired freelance marketplace web application.
+This project was built using React.js + Vite as part of a full-stack web development course.
 
 <img width="1820" height="905" alt="image" src="https://github.com/user-attachments/assets/4754c3e8-31ba-4597-ae27-202ca5941437" />
 
