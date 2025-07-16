@@ -61,48 +61,280 @@
         }
     }
 
-    .gig-description-container {
-        .quill {
+    .pricing-packages {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        .tabs-container {
+            display: flex;
+            justify-content: space-between;
+            margin-block-end: rem(24px);
+            border-block-end: 1px solid #dadbdd;
+
+            @media (min-width: 400px) {
+                justify-content: space-evenly;
+            }
+        }
+
+        .tab-button {
+            padding: rem(6px) rem(12px);
+            font-size: rem(14px);
+            color: #74767e;
+            font-weight: normal;
+            font-family: inherit;
+            border-block-end: 2px solid transparent;
+            cursor: pointer;
+
+            @media (min-width: 400px) {
+                padding: rem(12px) rem(16px);
+                font-size: rem(16px);
+            }
+
+            &.active {
+                font-weight: bold;
+                color: #1dbf73;
+                border-block-end: 2px solid #1dbf73;
+            }
+        }
+
+        .package-card {
+            align-self: center;
             width: 100%;
+        }
 
-            .ql-toolbar {
+        .package-header {
+            margin-block-end: rem(8px);
+
+            font-size: rem(20px);
+            font-weight: bold;
+            color: #404145;
+
+            @include for-narrow-layout {
+                font-size: rem(24px);
+
+            }
+        }
+
+        .package-description {
+            margin-block-end: rem(30px);
+
+            color: #74767e;
+            font-size: rem(14px);
+        }
+
+        .field-group {
+            label {
+                display: block;
+
+                margin-block-end: rem(6px);
+
+                font-size: rem(14px);
+                font-weight: 600;
+                color: #404145;
+            }
+
+            input[type="number"] {
+                padding: rem(12px);
+                margin-block-end: rem(20px);
+
+                width: 100%;
+
                 border: 1px solid #dadbdd;
-                border-radius: 8px 8px 0 0;
-                background: #f5f5f5;
-                display: flex;
-                align-items: center;
+                border-radius: 6px;
+                font-size: rem(14px);
+                font-family: inherit;
+                transition: border-color 0.3s ease;
+            }
 
-                button {
-                    width: 32px;
-                    height: 32px;
-                    padding: 4px;
-                    border-radius: 4px;
-                    transition: background 0.2s ease;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+            textarea {
+                padding: rem(12px);
+                margin-block-end: rem(20px);
 
-                    &:hover {
-                        background: #e0e0e0;
-                    }
+                width: 100%;
 
-                    svg {
-                        width: 18px;
-                        height: 18px;
-                    }
-                }
+                border: 1px solid #dadbdd;
+                border-radius: 6px;
+                font-size: rem(14px);
+                font-family: inherit;
+                resize: none;
+                min-height: 80px;
+                transition: border-color 0.3s ease;
+            }
+        }
 
-                .ql-clean,
-                .ql-underline,
-                .ql-link,
-                .ql-header {
-                    display: none;
-                }
+        .feature-input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
 
-                .ql-formats {
-                    margin: 0;
+            .feature-input {
+                flex: 1;
+                padding: 12px;
+                border: 1px solid #dadbdd;
+                border-radius: 6px;
+                font-size: 14px;
+                font-family: inherit;
+                transition: border-color 0.3s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: #1dbf73;
                 }
             }
+
+            .add-feature-button {
+                padding: 12px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 600;
+                font-family: inherit;
+                transition: all 0.3s ease;
+                background-color: #1dbf73;
+                color: white;
+                white-space: nowrap;
+
+                &:hover:not(:disabled) {
+                    background-color: #19a865;
+                }
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .features-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            border: 1px solid #f0f0f0;
+            border-radius: 6px;
+            min-height: 60px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 8px 12px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .feature-text {
+                flex: 1;
+                font-size: 14px;
+                color: #404145;
+            }
+
+            .remove-button {
+                width: 24px;
+                height: 24px;
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                color: #676768;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 10px;
+            }
+        }
+
+        .add-feature-button {
+            padding: rem(10px) rem(20px);
+
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: rem(14px);
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #1dbf73;
+            color: white;
+
+            @media (max-width: 450px) {
+                display: none;
+            }
+        }
+
+        .error-message {
+            color: #ab2d2d;
+            font-size: rem(14px);
+            margin-block-start: rem(6px);
+        }
+    }
+
+    .gig-description-container {
+        .ql-toolbar {
+            display: flex;
+            align-items: center;
+
+            border: 1px solid #dadbdd;
+            border-radius: 8px 8px 0 0;
+            background: #f5f5f5;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 32px;
+                height: 32px;
+
+                padding: 4px;
+
+                border-radius: 4px;
+                transition: background 0.2s ease;
+
+                &:hover {
+                    background: #e0e0e0;
+                }
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            .ql-clean,
+            .ql-underline,
+            .ql-link,
+            .ql-header {
+                display: none;
+            }
+
+            .ql-formats {
+                margin: 0;
+            }
+
+
+        }
+
+        .quill {
+            width: 100%;
 
             .ql-container {
                 border: 1px solid #dadbdd;
@@ -128,15 +360,27 @@
                 }
             }
         }
-    }
 
+        .description-count {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
 
+            width: 100%;
 
-    .description-count {
-        text-align: right;
-        font-size: 12px;
-        color: #74767e;
-        margin-top: 6px;
+            font-size: 12px;
+            color: #74767e;
+            margin-top: 3px;
+
+            &:last-child {
+                justify-self: flex-end;
+            }
+
+            &:has(> :nth-child(2)) {
+                justify-content: space-between;
+            }
+        }
+
     }
 
 }

@@ -47,7 +47,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                 onClose={() => closeDropdown('avatar')}
                                 items={[
                                     { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
-                                    { type: 'link', to: `/user/${user._id}/newGig`, label: 'New gig' },
+                                    { type: 'link', to: `/user/${user._id}/addGig`, label: 'Add Gig' },
                                     { type: 'button', onClick: onLogout, label: 'Logout' }
                                 ]}
                                 className="avatar-menu"
@@ -128,7 +128,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                     onClose={() => closeDropdown('avatar')}
                                     items={[
                                         { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
-                                        { type: 'link', to: `/user/${user._id}/newGig` , label: 'New gig' },
+                                        { type: 'link', to: `/user/${user._id}/addGig` , label: 'Add Gig' },
                                         { type: 'button', onClick: onLogout, label: 'Logout' }
                                     ]}
                                     className="avatar-menu"
