@@ -90,7 +90,6 @@ export function AddGig() {
         }
     }
 
-
     return (
         <section className="add-gig full main-container">
             <div className="add-gig-stepper-container full main-container">
@@ -106,7 +105,7 @@ export function AddGig() {
             <section className="add-gig-form-container">
                 <DynamicForm
                     activeStep={activeStep}
-                    gigToSave={gigToSave}
+                    gigData={gigToSave}
                     onChange={updateField}
                 />
 

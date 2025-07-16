@@ -1,5 +1,5 @@
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { gigService } from '../../services/gig'
 import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
@@ -7,6 +7,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Autocomplete, TextField, Chip, CircularProgress } from '@mui/material'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 export function DynamicForm({ activeStep, gigData, onChange }) {
@@ -57,6 +59,17 @@ export function DynamicForm({ activeStep, gigData, onChange }) {
                         <TagInput
                             value={gigData.tags}
                             onChange={(val) => onChange('tags', val)}
+                        />
+                    </section>
+                </>
+            )}
+
+            {activeStep === 2 && (
+                <>
+                    <section className="gig-description-container flex column">
+                        < DescriptionEditor
+                            value={gigData.description}
+                            onChange={(val) => onChange('description', val)}
                         />
                     </section>
                 </>
@@ -495,3 +508,67 @@ export function TagInput({ value = [], onChange }) {
     )
 }
 
+export function DescriptionEditor({ value, onChange, maxChars = 1200 }) {
+    const quillRef = useRef(null);
+    const [charCount, setCharCount] = useState(0);
+
+    useEffect(() => {
+        if (quillRef.current) {
+            const editor = quillRef.current.getEditor();
+
+            const handleTextChange = () => {
+                const text = editor.getText();
+                const realLength = text.replace(/\n$/, '').length;
+                if (realLength > maxChars) {
+                    editor.deleteText(maxChars, editor.getLength());
+                } else {
+                    setCharCount(realLength);
+                }
+            };
+
+            editor.on('text-change', handleTextChange);
+            handleTextChange();
+
+            return () => {
+                editor.off('text-change', handleTextChange);
+            };
+        }
+    }, [maxChars]);
+
+    const modules = {
+        toolbar: {
+            container: '#custom-toolbar'
+        }
+    };
+
+    return (
+        <div className="limited-quill-editor gig-description-container">
+            <div id="custom-toolbar">
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-highlightText">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 426.667 426.667">
+                        <polygon points="85.36,256 149.36,320 149.36,426.667 277.36,426.667 277.36,320 341.36,256 341.36,149.333 85.36,149.333"></polygon>
+                        <polygon points="62.192,52.501 32.027,82.667 77.371,127.925 107.451,97.76"></polygon>
+                        <polygon points="364.453,52.587 319.205,97.835 349.36,128 394.64,82.752"></polygon>
+                        <rect x="192.027" y="0" width="42.667" height="64"></rect>
+                    </svg>
+                </button>
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+            </div>
+
+
+            <ReactQuill
+                ref={quillRef}
+                value={value}
+                onChange={onChange}
+                modules={modules}
+            />
+
+            <div className="description-count">
+                {charCount} / {maxChars} Characters
+            </div>
+        </div>
+    );
+}
