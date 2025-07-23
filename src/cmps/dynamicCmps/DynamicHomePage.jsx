@@ -2,13 +2,14 @@ import SearchInput from "../../cmps/SearchInput"
 import { Link } from "react-router-dom"
 import heroVideo from "../../assets/video/hero-video.mp4"
 import { useRef, useState } from "react"
+import { CategoriesCards } from "../CategoriesCards"
 
 export function DynamicHomePage({ screenWidth, ...props }) {
     if (screenWidth < 964) return <MobileHomePage {...props} />
     return <NormalHomePage {...props} />
 }
 
-function MobileHomePage({ onSearch }) {
+function MobileHomePage({ onSearch, categoriesCards }) {
     return (
         <section className="home-page main-container full">
             <section className="hero-container main-container full">
@@ -84,6 +85,8 @@ function NormalHomePage({ onSearch }) {
                     </section>
                 </section>
             </section>
+
+            <CategoriesCards />
         </section>
     )
 }
