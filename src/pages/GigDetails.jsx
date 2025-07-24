@@ -21,21 +21,20 @@ export function GigDetails() {
     const navigate = useNavigate()
     const gig = useSelector(storeState => storeState.gigModule.gig)
     const loggedUser = useSelector(storeState => storeState.userModule.user)
-    const [selectedPackage, setSelectedPackage] = useState('standard')
-    const [isLoading, setIsLoading] = useState(true)
-    const [isModalOpen, setIsModalOpen] = useState(false)
     const screenWidth = useScreenSize()
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const reviewsRef = useRef()
 
+    const [selectedPackage, setSelectedPackage] = useState('standard')
+    const [isLoading, setIsLoading] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     useEffect(() => {
         setIsLoading(true)
-
         loadGig(gigId)
             .catch(() => showErrorMsg('Failed to load gig data'))
             .finally(() => setIsLoading(false))
     }, [gigId])
-
 
     useEffect(() => {
         loadReviews({ gigId })
@@ -45,14 +44,19 @@ export function GigDetails() {
             })
     }, [])
 
-
+    useEffect(() => {
+        if (!gig?.packages) return
+        const availablePackages = Object.keys(gig.packages)
+        const fallback = availablePackages.includes('standard') ? 'standard' : availablePackages[0]
+        setSelectedPackage(fallback)
+    }, [gig])
 
     if (isLoading || !gig) return <Loader />
 
     const { owner } = gig
 
     const selectedPack = {
-        ...gig.packages[selectedPackage],
+        ...gig.packages?.[selectedPackage],
         packageName: selectedPackage,
         packageNameCapitalized: selectedPackage.charAt(0).toUpperCase() + selectedPackage.slice(1)
     }
@@ -98,6 +102,7 @@ export function GigDetails() {
             <h1 className="gig-title">{gig.title}</h1>
             <OwnerDetails owner={owner} isLarge={false} scrollToReviews={scrollToReviews} />
             <GigSlider gig={gig} showThumbnails={screenWidth >= 664} />
+
             {screenWidth < 964 && (
                 <PricingPackages
                     gig={gig}
@@ -109,10 +114,14 @@ export function GigDetails() {
                     onContinueClick={() => setIsModalOpen(true)}
                 />
             )}
+
             <h2>About this gig</h2>
-            <p className="gig-description">{gig.description}</p>
+            <div className="gig-description" dangerouslySetInnerHTML={{ __html: normalizeDescription(gig.description) }} />
+
+
             <h2>Get to know {owner.fullname}</h2>
             <OwnerDetails owner={owner} isLarge={true} scrollToReviews={scrollToReviews} />
+
             <h2 ref={reviewsRef} className="reviews-title">Reviews</h2>
             <ReviewIndex gigId={gigId} />
         </>
@@ -150,3 +159,9 @@ export function GigDetails() {
         </section>
     )
 }
+
+function normalizeDescription(description = '') {
+    const isWrappedWithP = description.trim().startsWith('<p') && description.trim().endsWith('</p>')
+    return isWrappedWithP ? description : `<p>${description}</p>`
+}
+

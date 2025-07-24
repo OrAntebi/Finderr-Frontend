@@ -96,11 +96,7 @@ async function save(gig) {
     if (gig._id) return storageService.put(GIG_KEY, { ...gig })
     const gigToSave = {
         ...gig,
-        owner: userService.getLoggedinUser(),
         createdAt: Date.now(),
-        likedByUsers: [],
-        reviews: [],
-        msgs: []
     }
     return storageService.post(GIG_KEY, gigToSave)
 }

@@ -14,7 +14,6 @@ function getEmptyGig() {
   const gig = {
     title: '',
     price: 0,
-    createdAt: Date.now(),
     packages: {
       basic: {
         packPrice: 0,
@@ -51,14 +50,13 @@ function getEmptyGig() {
     },
     daysToMake: '',
     description: '',
-    imgUrls: getDefaultImgs() || [],
+    imgUrls: [],
     category: '',
     tags: [],
     orders: 0,
     impressions: 0
   }
 
-  if (VITE_LOCAL === 'true') gig._id = makeId()
   return gig
 }
 

@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
 
 export function AddGigStepper({ activeStep, maxStepReached, onStepClick }) {
-    const steps = ['Overview', 'Pricing', 'Requirements', 'Gallery', 'Summary']
+    const steps = ['Gig Basics', 'Pricing', 'Description', 'Gallery', 'Review & Publish']
     
     const numPadSx = {
         padding: '0 0 1px 0'

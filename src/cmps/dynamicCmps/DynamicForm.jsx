@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo, useRef, useCallback } from 'react'
 import { gigService } from '../../services/gig'
+import { uploadService } from '../../services/upload.service'
 import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
 import MenuItem from '@mui/material/MenuItem'
@@ -8,6 +9,7 @@ import Select from '@mui/material/Select'
 import { Autocomplete, TextField, Chip, CircularProgress } from '@mui/material'
 import ReactQuill from 'react-quill-new'
 import 'react-quill-new/dist/quill.snow.css'
+import imageIcon from '../../assets/img/image-icon.svg'
 
 export function DynamicForm({ activeStep, gigData, onChange, errors = {} }) {
     const label = (labelValue, paragraphValue) => {
@@ -84,6 +86,19 @@ export function DynamicForm({ activeStep, gigData, onChange, errors = {} }) {
                     </section>
                 </>
             )}
+
+            {activeStep === 3 && (
+                <>
+                    <section className="gig-gallery-container flex column">
+                        <GalleryUploader
+                            value={gigData.imgUrls}
+                            onChange={val => onChange('imgUrls', val)}
+                            error={errors.imgUrls}
+                        />
+                    </section>
+                </>
+            )}
+
         </form>
     )
 }
@@ -234,7 +249,7 @@ export function useValidation({
 }
 
 export function SelectCategory({ value, onChange, error }) {
-    const categoryList = gigService.getCategoryList().map(item => item.categoryName)
+    const categoryList = gigService.getCategoryList()
 
     const { helperText, helperColor } = useValidation({
         value,
@@ -340,15 +355,15 @@ export function SelectCategory({ value, onChange, error }) {
                     }
                 }}
             >
-                {categoryList.map((name, idx) => (
+                {categoryList.map(({ categoryRoute, categoryName }, idx) => (
                     <MenuItem
                         key={idx}
-                        value={name}
+                        value={categoryRoute}
                         selected={false}
                         disableRipple
                         sx={menuItemStyle}
                     >
-                        {name}
+                        {categoryName}
                     </MenuItem>
                 ))}
             </Select>
@@ -546,39 +561,57 @@ export function TagInput({ value = [], onChange, error }) {
     )
 }
 
-
 export function PricingPackages({ value = {}, onChange, error }) {
     const [activeTab, setActiveTab] = useState('basic')
     const [newFeature, setNewFeature] = useState('')
-    
+    const [localPackages, setLocalPackages] = useState(value)
+
     const packageTypes = [
         { key: 'basic', name: 'Basic', description: 'A basic package for starters' },
         { key: 'standard', name: 'Standard', description: 'A standard package with more features' },
         { key: 'premium', name: 'Premium', description: 'A premium package with all features' }
     ]
 
+    const isComplete = (pkg) =>
+        pkg?.packPrice?.toString().trim() &&
+        pkg?.packDaysToMake?.toString().trim() &&
+        pkg?.desc?.trim() &&
+        Array.isArray(pkg?.features) &&
+        pkg.features.length > 0
+
     const updatePackage = (packageType, field, newValue) => {
-        const updatedPackages = {
-            ...value,
+        const updated = {
+            ...localPackages,
             [packageType]: {
-                ...value[packageType],
+                ...localPackages[packageType],
                 [field]: newValue
             }
         }
-        onChange(updatedPackages)
+
+        setLocalPackages(updated)
+
+        const completePackages = {}
+        for (const key in updated) {
+            if (isComplete(updated[key])) {
+                completePackages[key] = updated[key]
+            }
+        }
+
+        onChange(completePackages)
     }
 
     const addFeature = (packageType) => {
-        if (newFeature.trim()) {
-            const currentFeatures = value[packageType]?.features || []
-            updatePackage(packageType, 'features', [...currentFeatures, newFeature.trim()])
-            setNewFeature('')
-        }
+        if (!newFeature.trim()) return
+
+        const current = localPackages[packageType]?.features || []
+        const updatedFeatures = [...current, newFeature.trim()]
+        updatePackage(packageType, 'features', updatedFeatures)
+        setNewFeature('')
     }
 
     const removeFeature = (packageType, featureIndex) => {
-        const currentFeatures = value[packageType]?.features || []
-        const updatedFeatures = currentFeatures.filter((_, index) => index !== featureIndex)
+        const current = localPackages[packageType]?.features || []
+        const updatedFeatures = current.filter((_, index) => index !== featureIndex)
         updatePackage(packageType, 'features', updatedFeatures)
     }
 
@@ -590,11 +623,10 @@ export function PricingPackages({ value = {}, onChange, error }) {
     }
 
     const activePackage = packageTypes.find(pkg => pkg.key === activeTab)
-    const packageData = value[activeTab] || {}
+    const packageData = localPackages[activeTab] || {}
 
     return (
         <div className="pricing-packages">
-            
             <div className="tabs-container">
                 {packageTypes.map(({ key, name }) => (
                     <button
@@ -649,8 +681,7 @@ export function PricingPackages({ value = {}, onChange, error }) {
 
                 <div className="field-group">
                     <label>Features</label>
-                    
-                    {/* Feature Input */}
+
                     <div className="feature-input-container">
                         <input
                             type="text"
@@ -670,7 +701,6 @@ export function PricingPackages({ value = {}, onChange, error }) {
                         </button>
                     </div>
 
-                    {/* Features List */}
                     {packageData.features && packageData.features.length > 0 && (
                         <div className="features-list">
                             {packageData.features.map((feature, index) => (
@@ -698,7 +728,6 @@ export function PricingPackages({ value = {}, onChange, error }) {
         </div>
     )
 }
-
 
 export function DescriptionEditor({ value, onChange, maxChars = 1200, error }) {
     const [charCount, setCharCount] = useState(() => {
@@ -769,6 +798,107 @@ export function DescriptionEditor({ value, onChange, maxChars = 1200, error }) {
                 )}
                 <p>{charCount} / {maxChars} Characters</p>
             </div>
+        </div>
+    )
+}
+
+export function GalleryUploader({ value = [], onChange, error }) {
+    const fileInputRef = useRef(null)
+    const [isUploading, setIsUploading] = useState(false)
+    const [dragActive, setDragActive] = useState(false)
+
+    const handleFileInputClick = () => {
+        if (value.length >= 3 || isUploading) return
+        fileInputRef.current.click()
+    }
+
+    const handleFileChange = async (ev) => {
+        const file = ev.target.files?.[0]
+        if (!file || value.length >= 3) return
+        await uploadImage(file)
+        fileInputRef.current.value = null
+    }
+
+    const handleDrop = async (ev) => {
+        ev.preventDefault()
+        ev.stopPropagation()
+        setDragActive(false)
+        if (value.length >= 3 || isUploading) return
+        const file = ev.dataTransfer.files?.[0]
+        if (file) await uploadImage(file)
+    }
+
+    const uploadImage = async (file) => {
+        const fakeEvent = { target: { files: [file] } }
+        setIsUploading(true)
+        try {
+            const uploaded = await uploadService.uploadImg(fakeEvent)
+            onChange([...value, uploaded.url].slice(0, 3))
+        } catch (err) {
+            alert('Upload failed')
+        } finally {
+            setIsUploading(false)
+        }
+    }
+
+    const handleRemove = (idx) => {
+        const updated = [...value]
+        updated.splice(idx, 1)
+        onChange(updated)
+    }
+
+    const handleDragOver = (ev) => {
+        ev.preventDefault()
+        ev.stopPropagation()
+        setDragActive(true)
+    }
+
+    const handleDragLeave = () => setDragActive(false)
+
+    return (
+        <div className="gallery-upload-container">
+            <div className="gallery-header">
+                <h4>Images <span>(up to 3)</span></h4>
+                <p>Get noticed by the right buyers with visual examples of your services.</p>
+            </div>
+
+            <div
+                className={`gallery-grid ${dragActive ? 'drag-active' : ''}`}
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+            >
+                {value.map((imgUrl, idx) => (
+                    <div className="gallery-box preview" key={idx}>
+                        <a href={imgUrl} target="_blank" rel="noopener noreferrer">
+                            <img src={imgUrl} alt={`preview-${idx}`} />
+                        </a>
+                        <button type="button" onClick={() => handleRemove(idx)} className="remove-btn">✕</button>
+                    </div>
+                ))}
+
+                {value.length < 3 && (
+                    <div className="gallery-box uploader" onClick={handleFileInputClick}>
+                        {isUploading ? (
+                            <div className="loader-spinner"></div>
+                        ) : (
+                            <div className="upload-content">
+                                <img src={imageIcon} alt="upload icon" />
+                                <p>Drag & drop a Photo<br /><span className="browse">Browse</span></p>
+                            </div>
+                        )}
+                        <input
+                            type="file"
+                            ref={fileInputRef}
+                            accept="image/*"
+                            hidden
+                            onChange={handleFileChange}
+                        />
+                    </div>
+                )}
+            </div>
+
+            {error && <p className="error-text">{error}</p>}
         </div>
     )
 }

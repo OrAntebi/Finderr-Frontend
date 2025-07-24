@@ -1,5 +1,6 @@
+// AddGig.jsx
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { AddGigStepper } from '../cmps/AddGigStepper'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -11,25 +12,34 @@ import { gigService } from '../services/gig'
 
 export function AddGig() {
     const steps = ['Overview', 'Pricing', 'Requirements', 'Gallery', 'Summary']
-
-    const [activeStep, setActiveStep] = useState(() => loadFromStorage('activeStep') || 0)
-    const [maxStepReached, setMaxStepReached] = useState(() => loadFromStorage('maxStepReached') || 0)
-    const [gigToSave, setGigToSave] = useState(() => gigService.getEmptyGig())
-    const [errors, setErrors] = useState({})
-
+    const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
 
+    const initialStep = +searchParams.get('step') || loadFromStorage('activeStep') || 0
+    const [activeStep, setActiveStep] = useState(initialStep)
+    const [maxStepReached, setMaxStepReached] = useState(() => loadFromStorage('maxStepReached') || 0)
+    const [gigToSave, setGigToSave] = useState(() => loadFromStorage('gigToSave') || gigService.getEmptyGig())
+    const [errors, setErrors] = useState({})
+
     useEffect(() => {
-        // resetForm()
-    }, [])
+        saveToStorage('activeStep', activeStep)
+    }, [activeStep])
+
+    useEffect(() => {
+        saveToStorage('gigToSave', gigToSave)
+    }, [gigToSave])
+
 
     function resetForm() {
         setActiveStep(0)
         setMaxStepReached(0)
-        setGigToSave(gigService.getEmptyGig())
+        const emptyGig = gigService.getEmptyGig()
+        setGigToSave(emptyGig)
         setErrors({})
         saveToStorage('activeStep', 0)
         saveToStorage('maxStepReached', 0)
+        saveToStorage('gigToSave', emptyGig)
+        setSearchParams({ step: 0 })
     }
 
     function updateField(path, value) {
@@ -55,17 +65,23 @@ export function AddGig() {
         })
     }
 
+    function goToStep(step) {
+        setActiveStep(step)
+        setSearchParams({ step })
+        saveToStorage('activeStep', step)
+    }
+
     async function onPublishGig() {
-        console.log('Publishing gig:', gigToSave)
         try {
             const res = validateUpToStep(steps.length - 1, gigToSave)
             if (!res.ok) {
                 setErrors(res.errors)
-                setActiveStep(res.firstBadStep ?? 0)
+                goToStep(res.firstBadStep ?? 0)
                 return
             }
             await addGig(gigToSave)
             showSuccessMsg('Gig published successfully!')
+            resetForm()
             navigate('/categories')
         } catch (err) {
             console.error(err)
@@ -77,13 +93,12 @@ export function AddGig() {
         const res = validateUpToStep(activeStep, gigToSave)
         if (!res.ok) {
             setErrors(res.errors)
-            setActiveStep(res.firstBadStep ?? activeStep)
+            goToStep(res.firstBadStep ?? activeStep)
             return
         }
 
         const next = activeStep + 1
-        setActiveStep(next)
-        saveToStorage('activeStep', next)
+        goToStep(next)
         setMaxStepReached(prev => {
             const newMax = Math.max(prev, next)
             saveToStorage('maxStepReached', newMax)
@@ -93,8 +108,7 @@ export function AddGig() {
 
     function handleBack() {
         const prev = activeStep - 1
-        setActiveStep(prev)
-        saveToStorage('activeStep', prev)
+        goToStep(prev)
     }
 
     function handleStepClick(stepIdx) {
@@ -104,13 +118,12 @@ export function AddGig() {
             const res = validateUpToStep(activeStep, gigToSave)
             if (!res.ok) {
                 setErrors(res.errors)
-                setActiveStep(res.firstBadStep ?? activeStep)
+                goToStep(res.firstBadStep ?? activeStep)
                 return
             }
         }
 
-        setActiveStep(stepIdx)
-        saveToStorage('activeStep', stepIdx)
+        goToStep(stepIdx)
     }
 
     return (
@@ -135,27 +148,14 @@ export function AddGig() {
 
                 <section className="add-gig-stepper-btns flex align-center justify-end">
                     <Box sx={{ padding: 2, width: 'fit-content' }}>
-                        <Box
-                            sx={{
-                                p: 2,
-                                display: 'flex',
-                                justifyContent: 'center',
-                                gap: 2
-                            }}
-                        >
+                        <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', gap: 2 }}>
                             {activeStep > 0 && (
-                                <Button onClick={handleBack} sx={{ fontFamily: 'inherit' }}>
-                                    Back
-                                </Button>
+                                <Button onClick={handleBack} sx={{ fontFamily: 'inherit' }}>Back</Button>
                             )}
                             {activeStep === steps.length - 1 ? (
-                                <Button onClick={onPublishGig} sx={{ fontFamily: 'inherit' }}>
-                                    Publish Gig
-                                </Button>
+                                <Button onClick={onPublishGig} sx={{ fontFamily: 'inherit' }}>Publish Gig</Button>
                             ) : (
-                                <Button onClick={handleNext} sx={{ fontFamily: 'inherit' }}>
-                                    Save & Continue
-                                </Button>
+                                <Button onClick={handleNext} sx={{ fontFamily: 'inherit' }}>Save & Continue</Button>
                             )}
                         </Box>
                     </Box>
@@ -186,6 +186,9 @@ const STEP_RULES = {
     },
     2: {
         description: { type: 'htmlText', min: 30, msg: 'Description must be at least 30 characters' }
+    },
+    3: {
+        imgUrls: { type: 'array', min: 1, max: 3, msg: 'Please upload at least one image' }
     }
 }
 
