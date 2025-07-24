@@ -80,14 +80,11 @@ export function AddGig() {
                 return
             }
 
-            // נתחיל מעותק שלם מהאובייקט המקורי
             const gigToSubmit = structuredClone(gigToSave)
 
-            // 1. title: הוספת "I will" בצורה בטוחה
             const cleanTitle = gigToSubmit.title?.replace(/^I will\s*/i, '').trim()
             gigToSubmit.title = `I will ${cleanTitle}`
 
-            // 2. מחיר ו־ימים מהחבילה הכי פשוטה שקיימת
             const packages = gigToSubmit.packages || {}
             const priorityOrder = ['basic', 'standard', 'premium']
             for (const type of priorityOrder) {
