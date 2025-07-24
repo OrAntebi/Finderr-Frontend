@@ -79,7 +79,31 @@ export function AddGig() {
                 goToStep(res.firstBadStep ?? 0)
                 return
             }
-            await addGig(gigToSave)
+
+            // נתחיל מעותק שלם מהאובייקט המקורי
+            const gigToSubmit = structuredClone(gigToSave)
+
+            // 1. title: הוספת "I will" בצורה בטוחה
+            const cleanTitle = gigToSubmit.title?.replace(/^I will\s*/i, '').trim()
+            gigToSubmit.title = `I will ${cleanTitle}`
+
+            // 2. מחיר ו־ימים מהחבילה הכי פשוטה שקיימת
+            const packages = gigToSubmit.packages || {}
+            const priorityOrder = ['basic', 'standard', 'premium']
+            for (const type of priorityOrder) {
+                const pkg = packages[type]
+                if (
+                    pkg &&
+                    typeof pkg.packPrice !== 'undefined' &&
+                    typeof pkg.packDaysToMake !== 'undefined'
+                ) {
+                    gigToSubmit.price = +pkg.packPrice
+                    gigToSubmit.daysToMake = +pkg.packDaysToMake
+                    break
+                }
+            }
+
+            await addGig(gigToSubmit)
             showSuccessMsg('Gig published successfully!')
             resetForm()
             navigate('/categories')
@@ -88,6 +112,7 @@ export function AddGig() {
             showErrorMsg('Failed to publish gig')
         }
     }
+
 
     function handleNext() {
         const res = validateUpToStep(activeStep, gigToSave)
