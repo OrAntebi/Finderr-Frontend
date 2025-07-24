@@ -150,12 +150,12 @@ export function AddGig() {
                     <Box sx={{ padding: 2, width: 'fit-content' }}>
                         <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', gap: 2 }}>
                             {activeStep > 0 && (
-                                <Button onClick={handleBack} sx={{ fontFamily: 'inherit' }}>Back</Button>
+                                <Button onClick={handleBack} className='btn btn-back' sx={{ fontFamily: 'inherit' }}>Back</Button>
                             )}
                             {activeStep === steps.length - 1 ? (
-                                <Button onClick={onPublishGig} sx={{ fontFamily: 'inherit' }}>Publish Gig</Button>
+                                <Button onClick={onPublishGig} className='btn btn-continue' sx={{ fontFamily: 'inherit' }}>Publish Gig</Button>
                             ) : (
-                                <Button onClick={handleNext} sx={{ fontFamily: 'inherit' }}>Save & Continue</Button>
+                                <Button onClick={handleNext} className='btn btn-continue' sx={{ fontFamily: 'inherit' }}>Save & Continue</Button>
                             )}
                         </Box>
                     </Box>

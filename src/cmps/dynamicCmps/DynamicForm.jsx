@@ -99,11 +99,18 @@ export function DynamicForm({ activeStep, gigData, onChange, errors = {} }) {
                 </>
             )}
 
+            {activeStep === 4 && (
+                <>
+                    <section className="gig-preview-container flex column">
+                        <GigSummaryPreview gig={gigData} />
+                    </section>
+                </>
+            )}
         </form>
     )
 }
 
-export function GigTitleInput({ value, onChange, error }) {
+function GigTitleInput({ value, onChange, error }) {
     const PREFIX = 'I will '
     const MAX_LEN = 80
     const MIN_LEN = 15
@@ -205,7 +212,7 @@ export function GigTitleInput({ value, onChange, error }) {
     )
 }
 
-export function useValidation({
+function useValidation({
     value = '',
     minLen = 0,
     maxLen = 100,
@@ -248,7 +255,7 @@ export function useValidation({
     }
 }
 
-export function SelectCategory({ value, onChange, error }) {
+function SelectCategory({ value, onChange, error }) {
     const categoryList = gigService.getCategoryList()
 
     const { helperText, helperColor } = useValidation({
@@ -375,7 +382,7 @@ export function SelectCategory({ value, onChange, error }) {
     )
 }
 
-export function TagInput({ value = [], onChange, error }) {
+function TagInput({ value = [], onChange, error }) {
     const [input, setInput] = useState('')
     const [suggestedTags, setSuggestedTags] = useState([])
     const [loading, setLoading] = useState(false)
@@ -561,7 +568,7 @@ export function TagInput({ value = [], onChange, error }) {
     )
 }
 
-export function PricingPackages({ value = {}, onChange, error }) {
+function PricingPackages({ value = {}, onChange, error }) {
     const [activeTab, setActiveTab] = useState('basic')
     const [newFeature, setNewFeature] = useState('')
     const [localPackages, setLocalPackages] = useState(value)
@@ -729,7 +736,7 @@ export function PricingPackages({ value = {}, onChange, error }) {
     )
 }
 
-export function DescriptionEditor({ value, onChange, maxChars = 1200, error }) {
+function DescriptionEditor({ value, onChange, maxChars = 1200, error }) {
     const [charCount, setCharCount] = useState(() => {
         const tmp = document.createElement('div')
         tmp.innerHTML = value
@@ -802,7 +809,7 @@ export function DescriptionEditor({ value, onChange, maxChars = 1200, error }) {
     )
 }
 
-export function GalleryUploader({ value = [], onChange, error }) {
+function GalleryUploader({ value = [], onChange, error }) {
     const fileInputRef = useRef(null)
     const [isUploading, setIsUploading] = useState(false)
     const [dragActive, setDragActive] = useState(false)
@@ -902,3 +909,69 @@ export function GalleryUploader({ value = [], onChange, error }) {
         </div>
     )
 }
+
+function GigSummaryPreview({ gig }) {
+    return (
+        <div className="gig-summary flex column">
+            <h2 className="gig-summary-title">Gig Summary</h2>
+
+            <div className="gig-summary-field">
+                <h4>Title</h4>
+                <p>I will {gig.title}</p>
+            </div>
+
+            <div className="gig-summary-field">
+                <h4>Category</h4>
+                <p>{gigService.getCategoryList(gig.category)}</p>
+            </div>
+
+            <div className="gig-summary-field">
+                <h4>Tags</h4>
+                <ul>
+                    {gig.tags.map((tag, idx) => (
+                        <li key={idx} className="gig-tag">{tag}</li>
+                    ))}
+                </ul>
+            </div>
+
+            <div className="gig-summary-field">
+                <h4>Description</h4>
+                <div
+                    className="gig-description-html"
+                    dangerouslySetInnerHTML={{ __html: gig.description }}
+                />
+            </div>
+
+            <div className="gig-summary-field">
+                <h4>Packages</h4>
+                <div className="gig-packages-preview">
+                    {Object.entries(gig.packages).map(([key, pkg]) => (
+                        <div key={key} className="gig-package">
+                            <h5>{key.charAt(0).toUpperCase() + key.slice(1)} Package</h5>
+                            <p><strong>Price:</strong> ${pkg.packPrice}</p>
+                            <p><strong>Delivery:</strong> {pkg.packDaysToMake} days</p>
+                            <p><strong>Description:</strong> {pkg.desc}</p>
+                            <ul>
+                                {pkg.features.map((f, idx) => (
+                                    <li key={idx}>✓ {f}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="gig-summary-field">
+                <h4>Images</h4>
+                <div className="gig-summary-images">
+                    {gig.imgUrls.map((url, idx) => (
+                        <a href={url} key={idx} target="_blank" rel="noopener noreferrer">
+                            <img src={url} alt={`Gig preview ${idx + 1}`} />
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
