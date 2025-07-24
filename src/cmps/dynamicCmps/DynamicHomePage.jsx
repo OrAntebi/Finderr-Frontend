@@ -18,6 +18,8 @@ function MobileHomePage({ onSearch, categoriesCards }) {
                     <SearchInput placeholderText='Try "building mobile app"' onSearch={onSearch} />
                 </section>
             </section>
+
+            <CategoriesCards />
         </section>
     )
 }
@@ -86,7 +88,7 @@ function NormalHomePage({ onSearch }) {
                 </section>
             </section>
 
-            <CategoriesCards />
+            <CategoriesCards display="slider"/>
         </section>
     )
 }
