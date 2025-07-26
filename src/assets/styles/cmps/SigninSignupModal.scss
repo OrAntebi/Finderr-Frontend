@@ -1,0 +1,212 @@
+.signin-signup-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    height: 100vh;
+    width: 100vw;
+
+    color: #222325;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -48%);
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    overflow: hidden;
+    z-index: 1000;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    @include for-narrow-layout {
+        height: 645px;
+        width: 520px;
+
+        border-radius: rem(16px);
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: 1fr 1fr;
+        width: 900px;
+    }
+
+    .modal-content {
+        display: grid;
+        grid-template-rows: minmax(72px, auto) 1fr minmax(72px, auto);
+
+        width: 100%;
+
+        padding: 0 rem(24px) rem(24px);
+
+
+        @include for-narrow-layout {
+            padding: 0 rem(40px) rem(32px);
+        }
+
+        header {
+            .logo {
+                width: 110px;
+                filter: sepia(1) hue-rotate(80deg) saturate(200%) brightness(0.8);
+
+            }
+        }
+
+        main {
+            padding-block-start: rem(30px);
+
+            header {
+                row-gap: rem(8px);
+                padding-block-end: rem(40px);
+
+                .title {
+                    margin: 0;
+
+                    font-size: rem(32px);
+                    font-family: Macan-Medium, sans-serif;
+                    line-height: rem(38px);
+
+                    @include for-normal-layout {
+                        font-size: rem(24px);
+                    }
+
+                    span {
+                        color: #ff80ae;
+                    }
+                }
+
+                .subtitle {
+                    user-select: none;
+
+                    .link {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            main {
+                row-gap: rem(16px);
+
+                .btn {
+                    width: 100%;
+
+                    padding: rem(8px) rem(16px);
+
+                    color: #222325;
+                    font-family: Macan-Medium;
+                    font-size: rem(16px);
+                    line-height: rem(24px);
+                    border-radius: rem(8px);
+                    border: 1px solid #e4e5e7;
+                    user-select: none;
+
+                    img {
+                        width: 20px;
+                        aspect-ratio: 1;
+                    }
+
+                    p {
+                        width: 100%;
+                    }
+                }
+
+                .or-section {
+                    gap: rem(12px);
+                    text-transform: uppercase;
+
+                    .or {
+                        font-weight: 600;
+                        font-size: rem(12px);
+                        color: #b5b6ba;
+                        line-height: 18px;
+                        padding-block: 1px;
+                    }
+
+                    .divider {
+                        width: 100%;
+                        border-bottom: 0.8px solid #dadbdd;
+                    }
+                }
+
+                .apple-facebook-section {
+                    gap: rem(8px);
+                }
+            }
+        }
+
+        footer {
+            font-size: rem(12px);
+            line-height: rem(18px);
+            color: #74767e;
+
+            span {
+                color: #008a37;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .close-modal-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        margin: 16px 16px 0 0;
+
+        border-radius: rem(8px);
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+
+    .login-image-container {
+        width: 450px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.login-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(34, 35, 37, 0.55);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    z-index: 999;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}

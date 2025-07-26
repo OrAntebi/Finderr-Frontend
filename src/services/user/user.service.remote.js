@@ -6,6 +6,7 @@ export const userService = {
 	login,
 	logout,
 	signup,
+	googleLogin,
 	getUsers,
 	getById,
 	remove,
@@ -51,6 +52,11 @@ async function signup(userCred) {
 async function logout() {
 	sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 	return await httpService.post('auth/logout')
+}
+
+async function googleLogin(credential) {
+	const user = await httpService.post('auth/google-login', { credential })
+	if (user) return _saveLocalUser(user)
 }
 
 function getLoggedinUser() {

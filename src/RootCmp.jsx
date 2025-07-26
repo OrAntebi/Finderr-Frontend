@@ -4,6 +4,8 @@ import { gigService } from './services/gig'
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/GigIndex.jsx'
+import { useSelector } from 'react-redux'
+import { SigninSignupModal } from './cmps/SigninSignupModal.jsx'
 
 import { GigDetails } from './pages/GigDetails'
 import { UserIndex } from './pages/UserIndex'
@@ -25,6 +27,8 @@ import { AddReview } from './pages/AddReview.jsx'
 
 
 export function RootCmp() {
+    const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
+
     const currentPage = useLocation().pathname
     const currentPageClass = currentPageToClass(currentPage)
     const navigate = useNavigate()
@@ -65,7 +69,10 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
-            {currentPage.startsWith("/categories") && <Backdrop />}
+            
+            <Backdrop />
+            <SigninSignupModal />
+
             <AppFooter />
         </>
     )

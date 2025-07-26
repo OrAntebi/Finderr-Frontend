@@ -2,10 +2,13 @@ export const LOADING_START = 'LOADING_START'
 export const LOADING_DONE = 'LOADING_DONE'
 export const SHOW_BACKDROP = 'SHOW_BACKDROP'
 export const HIDE_BACKDROP = 'HIDE_BACKDROP'
+export const OPEN_LOGIN_MODAL = 'OPEN_LOGIN_MODAL'
+export const CLOSE_LOGIN_MODAL = 'CLOSE_LOGIN_MODAL'
 
 const initialState = {
     isLoading: false,
     isBackdropOpen: false,
+    isLoginModalOpen: false,
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -18,6 +21,10 @@ export function systemReducer(state = initialState, action = {}) {
             return { ...state, isBackdropOpen: true }
         case HIDE_BACKDROP:
             return { ...state, isBackdropOpen: false }
+        case OPEN_LOGIN_MODAL:
+            return { ...state, isLoginModalOpen: true}
+        case CLOSE_LOGIN_MODAL:
+            return { ...state, isLoginModalOpen: false }
         default:
             return state
     }
