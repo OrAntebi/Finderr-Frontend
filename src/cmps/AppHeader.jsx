@@ -24,10 +24,13 @@ export function AppHeader({ onSearch }) {
 
     async function onLogout() {
         try {
+            console.log('Starting logout...')
             await logout()
+            console.log('Logout successful, navigating to home')
             navigate('/')
             showSuccessMsg(`Logged out successfully`)
         } catch (err) {
+            console.error('Logout error:', err)
             showErrorMsg('Cannot logout')
         }
     }

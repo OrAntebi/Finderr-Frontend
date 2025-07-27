@@ -5,18 +5,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_LOGIN_MODAL, OPEN_LOGIN_MODAL } from '../store/system.reducer'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, loginWithGoogle, signup, loginWithFacebook } from '../store/user/user.actions'
+import { login, loginWithGoogle, signup, loginWithFacebook, loadQuickLoginUsers, quickLogin } from '../store/user/user.actions'
 
 import loginImage from '../assets/img/login-logup-modal.png'
 import siteLogo from '../assets/img/site-logo.svg'
 import xIcon from '../assets/img/x-icon.svg'
 import googleIcon from '../assets/img/google-icon.svg'
 import emailIcon from '../assets/img/email-icon.svg'
-import appleIcon from '../assets/img/apple-icon.svg'
 import facebookIcon from '../assets/img/facebook-v2-icon.svg'
 import arrowBackIcon from '../assets/img/arrow-back-icon.svg'
 import showPassIcon from '../assets/img/show-pass.svg'
 import hidePassIcon from '../assets/img/hide-pass.svg'
+import usersIcon from '../assets/img/users-icon.svg'
+import checkIcon from '../assets/img/check-icon-4.svg'
 
 export function SigninSignupModal() {
     const modalIsOpen = useSelector((state) => state.systemModule.loginModal.isOpen)
@@ -25,15 +26,17 @@ export function SigninSignupModal() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const [selectedUser, setSelectedUser] = useState('')
+    const [quickLoginUsers, setQuickLoginUsers] = useState([])
 
     const screenSize = useScreenSize()
     const isMobile = screenSize < 964
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     const isAuthFlow = modalContent === 'signin' || modalContent === 'signup'
     const isEmailSignin = modalContent === 'email-signin'
     const isEmailSignup = modalContent === 'email-signup'
+    const isFastSignin = modalContent === 'fast-signin'
 
     function openModalContent(content) {
         dispatch({ type: OPEN_LOGIN_MODAL, modalContent: content })
@@ -44,6 +47,7 @@ export function SigninSignupModal() {
             setUsername('')
             setPassword('')
             setShowPassword(false)
+            setSelectedUser('')
         }
     }, [modalIsOpen])
 
@@ -55,6 +59,22 @@ export function SigninSignupModal() {
             })
         }
     }, [])
+
+    useEffect(() => {
+        if (modalIsOpen && isFastSignin) {
+            loadQuickLoginUsersData()
+        }
+    }, [modalIsOpen, isFastSignin])
+
+    async function loadQuickLoginUsersData() {
+        try {
+            const quickUsers = await loadQuickLoginUsers()
+            setQuickLoginUsers(quickUsers)
+        } catch (err) {
+            console.error('Failed to load quick login users:', err)
+            setQuickLoginUsers([])
+        }
+    }
 
     useEffect(() => {
         function handleFacebookMessage(event) {
@@ -114,6 +134,19 @@ export function SigninSignupModal() {
         dispatch({ type: CLOSE_LOGIN_MODAL })
     }
 
+    async function handleFastSignin(selectedUsername) {
+        try {
+            const user = await quickLogin(selectedUsername)
+            const selectedUser = quickLoginUsers.find(u => u.username === selectedUsername)
+            const displayName = selectedUser?.fullname || user.fullname || selectedUsername
+            showSuccessMsg(`Welcome back ${capitalizeName(displayName)}!`)
+            // Modal will be closed by the quickLogin action
+        } catch (err) {
+            console.error('Fast signin error:', err)
+            showErrorMsg('Fast signin failed. Please try again.')
+        }
+    }
+
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -159,7 +192,7 @@ export function SigninSignupModal() {
             <article className={`signin-signup-modal ${modalIsOpen ? 'open' : ''} ${modalContent}`}>
                 <section className="modal-content">
                     <header className="flex align-center justify-between">
-                        {(isEmailSignin || isEmailSignup) && (
+                        {(isEmailSignin || isEmailSignup || isFastSignin) && (
                             <button className="back-btn flex align-center" onClick={() => openModalContent('signin')}>
                                 <img src={arrowBackIcon} alt="back" className="back-icon" />
                                 {!isMobile && <span>Back</span>}
@@ -188,6 +221,7 @@ export function SigninSignupModal() {
                                     {modalContent === 'signup' && 'Create a new account'}
                                     {modalContent === 'email-signin' && 'Continue with your email or username'}
                                     {modalContent === 'email-signup' && 'Continue with your email'}
+                                    {modalContent === 'fast-signin' && 'Continue with demo user'}
                                 </h2>
                             )}
 
@@ -210,9 +244,10 @@ export function SigninSignupModal() {
 
                         {isAuthFlow && (
                             <main className="login-options flex column">
-                                <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
-                                    <img src={googleIcon} alt="Google icon" />
-                                    <p>Continue with Google</p>
+                                <button className="users-btn btn flex align-center justify-between"
+                                    onClick={() => openModalContent('fast-signin')}>
+                                    <img src={usersIcon} alt="users icon" />
+                                    <p>Continue with demo user</p>
                                 </button>
 
                                 <button className="email-btn btn flex align-center justify-between"
@@ -227,10 +262,10 @@ export function SigninSignupModal() {
                                     <div className="divider"></div>
                                 </section>
 
-                                <section className="apple-facebook-section flex align-center justify-between">
-                                    <button className="apple-btn btn flex align-center justify-between">
-                                        <img src={appleIcon} alt="apple icon" />
-                                        <p>Apple</p>
+                                <section className="google-facebook-section flex align-center justify-between">
+                                    <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
+                                        <img src={googleIcon} alt="Google icon" />
+                                        <p>Google</p>
                                     </button>
 
                                     <button className="facebook-btn btn flex align-center justify-between" onClick={onFacebookLogin}>
@@ -283,6 +318,36 @@ export function SigninSignupModal() {
                                 </form>
                             </main>
                         )}
+
+                        {isFastSignin && (
+                            <main className="fast-signin-form flex column">
+                                <div className="select-user-section flex column">
+                                    <label className="users-label flex column">
+                                        <span>Select User for Quick Login</span>
+                                        <select
+                                            className="user-select"
+                                            value={selectedUser}
+                                            onChange={(ev) => setSelectedUser(ev.target.value)}
+                                        >
+                                            <option value={""}>Choose a user</option>
+                                            {quickLoginUsers.map(user => (
+                                                <option key={user._id} value={user.username}>
+                                                    {user.fullname}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+
+                                    <button
+                                        className="submit-btn"
+                                        disabled={!selectedUser}
+                                        onClick={() => handleFastSignin(selectedUser)}
+                                    >
+                                        Quick Login
+                                    </button>
+                                </div>
+                            </main>
+                        )}
                     </main>
 
                     <footer>
@@ -297,6 +362,23 @@ export function SigninSignupModal() {
                 {!isMobile && (
                     <div className="login-image-container">
                         <img src={loginImage} alt="login image" />
+                        <section className="login-image-text">
+                            <h2>Success starts here</h2>
+                            <ul>
+                                <li>
+                                    <span><img src={checkIcon} alt="check" /></span>
+                                    Over 700 categories
+                                </li>
+                                <li>
+                                    <span><img src={checkIcon} alt="check" /></span>
+                                    Quality work done faster
+                                </li>
+                                <li>
+                                    <span><img src={checkIcon} alt="check" /></span>
+                                    Access to talent and businesses across the globe
+                                </li>
+                            </ul>
+                        </section>
                     </div>
                 )}
             </article>

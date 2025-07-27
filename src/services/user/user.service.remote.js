@@ -6,6 +6,7 @@ export const userService = {
 	login,
 	logout,
 	signup,
+	quickLogin,
 	googleLogin,
 	facebookLogin,
 	getUsers,
@@ -45,6 +46,11 @@ async function login(userCred) {
 async function signup(userCred) {
 	const user = await httpService.post('auth/signup', userCred)
 	return _saveLocalUser(user)
+}
+
+async function quickLogin(username) {
+	const user = await httpService.post('auth/quick-login', { username })
+	if (user) return _saveLocalUser(user)
 }
 
 async function logout() {

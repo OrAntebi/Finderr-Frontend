@@ -18,6 +18,17 @@ export async function loadUsers() {
     }
 }
 
+export async function loadQuickLoginUsers() {
+    try {
+        const users = await userService.getUsers()
+        const quickLoginUsers = users.filter(user => user.quickLogin)
+        return quickLoginUsers
+    } catch (err) {
+        console.error('Failed to load quick login users:', err)
+        throw err
+    }
+}
+
 export async function removeUser(userId) {
     try {
         await userService.remove(userId)
@@ -124,6 +135,19 @@ export async function loginWithFacebook(accessToken) {
         return user
     } catch (err) {
         console.log('Facebook login failed', err)
+        throw err
+    }
+}
+
+export async function quickLogin(username) {
+    try {
+        const user = await userService.quickLogin(username)
+        store.dispatch({ type: SET_USER, user })
+        socketService.login(user._id)
+        store.dispatch({ type: CLOSE_LOGIN_MODAL })
+        return user
+    } catch (err) {
+        console.log('Quick login failed', err)
         throw err
     }
 }

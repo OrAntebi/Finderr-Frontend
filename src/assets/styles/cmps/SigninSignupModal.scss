@@ -174,11 +174,12 @@
                     }
                 }
 
-                .apple-facebook-section {
+                .google-facebook-section {
                     gap: rem(8px);
                 }
 
-                form {
+                form,
+                .select-user-section {
                     row-gap: rem(16px);
                     height: 100%;
 
@@ -187,9 +188,22 @@
                         color: inherit;
                         font-size: rem(16px);
                         font-weight: 600;
+
+                        &.users-label {
+                            gap: rem(12px);
+
+                            .user-select {
+                                cursor: pointer;
+
+                                select {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
                     }
 
                     .email-input,
+                    .user-select,
                     .password-input-container {
                         width: 100%;
                         height: rem(42px);
@@ -310,12 +324,65 @@
     }
 
     .login-image-container {
+        position: relative;
+
         width: 450px;
         height: inherit;
 
         img {
             width: 100%;
             height: 100%;
+        }
+
+        .login-image-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            padding: rem(56px) rem(40px);
+
+            color: #fff;
+
+            h2 {
+                font-size: rem(32px);
+                margin-block-end: rem(24px);
+            }
+
+            ul {
+                gap: rem(16px);
+
+                color: #fff;
+
+                li {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: rem(8px);
+
+                    margin-block-end: rem(16px);
+
+                    line-height: rem(26px);
+                    font-size: rem(18px);
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        
+                        margin-block-start: 4px;
+
+                        width: rem(20px);
+                        height: rem(20px);
+                        min-width: rem(20px);
+                        min-height: rem(20px);
+
+                        img {
+                            width: rem(12px);
+                            height: rem(12px);
+                        }
+                    }
+                }
+            }
         }
     }
 }
