@@ -27,7 +27,7 @@ function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
                 <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick} />
                 <SiteLogo />
                 {!user ?
-                    <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="join-link main-nav-link">Join</button>
+                    <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
                     : <div className="spacer"></div>}
             </section>
             {currentPage.startsWith('/categories') && <SearchInput submitBtn={false} placeholderText="Find services" onSearch={onSearch} backdropOnFocus={true} />}
@@ -64,7 +64,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                     ) : (
                         <>
                             <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="login-link main-nav-link">Sign in</button>
-                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="join-link main-nav-link">Join</button>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
                         </>
                     )}
                 </nav>
@@ -148,7 +148,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                     ) : (
                         <>
                             <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="login-link main-nav-link">Sign in</button>
-                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="join-link main-nav-link">Join</button>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
                         </>
                     )}
                 </nav>

@@ -27,8 +27,6 @@ import { AddReview } from './pages/AddReview.jsx'
 
 
 export function RootCmp() {
-    const isLoginModalOpen = useSelector(storeState => storeState.systemModule.isLoginModalOpen)
-
     const currentPage = useLocation().pathname
     const currentPageClass = currentPageToClass(currentPage)
     const navigate = useNavigate()

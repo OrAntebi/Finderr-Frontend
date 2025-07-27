@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useScreenSize } from '../customHooks/useScreenSize'
 
@@ -15,6 +15,7 @@ import { GigSlider } from '../cmps/GigSlider'
 import { PaymentModal } from '../cmps/PaymentModal'
 import { icons } from '../assets/icons/icons'
 import { ReviewIndex } from '../pages/ReviewIndex'
+import { OPEN_LOGIN_MODAL } from '../store/system.reducer'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -24,6 +25,7 @@ export function GigDetails() {
     const screenWidth = useScreenSize()
     const reviews = useSelector(storeState => storeState.reviewModule.reviews)
     const reviewsRef = useRef()
+    const dispatch = useDispatch()
 
     const [selectedPackage, setSelectedPackage] = useState('standard')
     const [isLoading, setIsLoading] = useState(true)
@@ -72,8 +74,8 @@ export function GigDetails() {
 
     async function onProceedToPayment() {
         if (!loggedUser || !loggedUser._id) {
-            showErrorMsg('You must be logged in to purchase services.')
-            navigate('/login')
+            setIsModalOpen(false)
+            dispatch({ type: OPEN_LOGIN_MODAL })
             return
         }
 

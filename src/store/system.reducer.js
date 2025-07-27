@@ -8,7 +8,7 @@ export const CLOSE_LOGIN_MODAL = 'CLOSE_LOGIN_MODAL'
 const initialState = {
     isLoading: false,
     isBackdropOpen: false,
-    isLoginModalOpen: false,
+    loginModal: { isOpen: false, content: 'signin' }
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -22,9 +22,9 @@ export function systemReducer(state = initialState, action = {}) {
         case HIDE_BACKDROP:
             return { ...state, isBackdropOpen: false }
         case OPEN_LOGIN_MODAL:
-            return { ...state, isLoginModalOpen: true}
+            return { ...state, loginModal: { isOpen: true, content: action.modalContent || 'signin' } }
         case CLOSE_LOGIN_MODAL:
-            return { ...state, isLoginModalOpen: false }
+            return { ...state, loginModal: { isOpen: false } }
         default:
             return state
     }

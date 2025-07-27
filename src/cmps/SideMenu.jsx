@@ -1,9 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import menu from '../assets/img/menu.svg'
 import UserAvatar from './UserAvatar.jsx'
+import { useDispatch } from "react-redux"
+import { OPEN_LOGIN_MODAL } from '../store/system.reducer'
 
 export default function SideMenu({ user, onLogout, onMenuClick }) {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     function handleUserClick(ev) {
         ev.stopPropagation()
@@ -32,14 +35,12 @@ export default function SideMenu({ user, onLogout, onMenuClick }) {
                     ) : (
                         <>
                             <li>
-                                <NavLink to="/login/signup" className="join-link main-nav-link" onClick={onMenuClick}>
+                                <button className="join-link main-nav-link" onClick={() => { onMenuClick(); dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' }) }}>
                                     Join Finderr
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink to="/login" className="login-link main-nav-link" onClick={onMenuClick}>
-                                    Sign in
-                                </NavLink>
+                                <button onClick={() => { onMenuClick(); dispatch({ type: OPEN_LOGIN_MODAL }) }}>Sign in</button>
                             </li>
                         </>
                     )}

@@ -15,8 +15,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translate(-50%, -48%);
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translate(-50%, -50%);
     overflow: hidden;
     z-index: 1000;
 
@@ -28,15 +27,36 @@
     }
 
     @include for-narrow-layout {
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
         height: 645px;
         width: 520px;
 
         border-radius: rem(16px);
+        transform: translate(-50%, -48%);
     }
 
     @include for-normal-layout {
         grid-template-columns: 1fr 1fr;
         width: 900px;
+    }
+
+    &.email-signin,
+    &.email-signup {
+        .modal-content>header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+
+            .logo {
+                place-self: center;
+            }
+
+        }
+
+        .modal-content>main {
+            .title {
+                font-size: rem(24px);
+            }
+        }
     }
 
     .modal-content {
@@ -53,19 +73,35 @@
         }
 
         header {
+            .back-btn {
+                column-gap: rem(8px);
+
+                width: fit-content;
+                line-height: rem(24px);
+
+                span {
+                    line-height: auto;
+                    color: #222325;
+                    font-size: rem(16px);
+                    font-family: Macan-Regular, sans-serif;
+                    font-weight: 550;
+                }
+            }
+
             .logo {
                 width: 110px;
                 filter: sepia(1) hue-rotate(80deg) saturate(200%) brightness(0.8);
-
             }
         }
 
         main {
-            padding-block-start: rem(30px);
-
             header {
                 row-gap: rem(8px);
-                padding-block-end: rem(40px);
+                padding-block: rem(32px) rem(40px);
+
+                @include for-normal-layout {
+                    padding-block: 0 rem(40px);
+                }
 
                 .title {
                     margin: 0;
@@ -94,6 +130,7 @@
             }
 
             main {
+                height: 100%;
                 row-gap: rem(16px);
 
                 .btn {
@@ -140,13 +177,108 @@
                 .apple-facebook-section {
                     gap: rem(8px);
                 }
+
+                form {
+                    row-gap: rem(16px);
+                    height: 100%;
+
+                    label {
+                        gap: rem(6px);
+                        color: inherit;
+                        font-size: rem(16px);
+                        font-weight: 600;
+                    }
+
+                    .email-input,
+                    .password-input-container {
+                        width: 100%;
+                        height: rem(42px);
+
+                        padding: rem(8px) rem(12px);
+                        border-radius: rem(8px);
+                        border: 1px solid #e4e5e7;
+
+                        font-family: inherit;
+                        font-size: rem(16px);
+                        color: #222325;
+
+                        &::placeholder {
+                            color: #b5b6ba;
+                            font-weight: 400;
+                        }
+
+                        &:hover {
+                            border-color: #000;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: #000;
+                        }
+                    }
+
+                    .password-input-container {
+                        gap: rem(8px);
+
+                        &:hover {
+                            cursor: text;
+                        }
+
+                        &:focus-within {
+                            border-color: #000;
+                        }
+
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            font-size: inherit;
+                            border: none;
+                            letter-spacing: 1px;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        .toggle-password-visibility {
+                            width: 24px;
+                            aspect-ratio: 1;
+
+                            border-radius: rem(6px);
+
+                            &:hover {
+                                background-color: #f5f5f5;
+                            }
+                        }
+                    }
+
+                    .submit-btn {
+                        padding: rem(8px) rem(16px);
+                        margin-block-start: auto;
+
+                        border-radius: rem(8px);
+                        font-family: inherit;
+                        font-size: rem(16px);
+                        font-weight: 600;
+                        background-color: #222325;
+                        color: #fff;
+
+                        &:disabled {
+                            color: #95979d;
+                            background-color: #efeff0;
+                            cursor: default;
+                        }
+                    }
+                }
             }
         }
 
         footer {
+            margin-block-start: auto;
+
+            color: #47484d;
             font-size: rem(12px);
             line-height: rem(18px);
-            color: #74767e;
 
             span {
                 color: #008a37;
@@ -179,6 +311,7 @@
 
     .login-image-container {
         width: 450px;
+        height: inherit;
 
         img {
             width: 100%;
@@ -201,12 +334,15 @@
     visibility: hidden;
     pointer-events: none;
 
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
     z-index: 999;
 
     &.open {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
+    }
+
+    @include for-narrow-layout {
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
     }
 }

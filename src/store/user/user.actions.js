@@ -3,7 +3,7 @@ import { socketService } from '../../services/socket.service'
 import { store } from '../store'
 
 import { showErrorMsg } from '../../services/event-bus.service'
-import { LOADING_DONE, LOADING_START } from '../system.reducer'
+import { CLOSE_LOGIN_MODAL, LOADING_DONE, LOADING_START } from '../system.reducer'
 import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from '../user/user.reducer'
 
 export async function loadUsers() {
@@ -101,3 +101,31 @@ export async function updateUser(user) {
         throw err
     }
 }
+
+export async function loginWithGoogle(credential) {
+    try {
+        const user = await userService.googleLogin(credential)
+        store.dispatch({ type: SET_USER, user })
+        socketService.login(user._id)
+        store.dispatch({ type: CLOSE_LOGIN_MODAL })
+        return user
+    } catch (err) {
+        console.log('Google login failed', err)
+        throw err
+    }
+}
+
+export async function loginWithFacebook(accessToken) {
+    try {
+        const user = await userService.facebookLogin(accessToken)
+        store.dispatch({ type: SET_USER, user })
+        socketService.login(user._id)
+        store.dispatch({ type: CLOSE_LOGIN_MODAL })
+        return user
+    } catch (err) {
+        console.log('Facebook login failed', err)
+        throw err
+    }
+}
+
+
