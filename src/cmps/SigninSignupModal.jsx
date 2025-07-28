@@ -244,16 +244,16 @@ export function SigninSignupModal() {
 
                         {isAuthFlow && (
                             <main className="login-options flex column">
-                                <button className="users-btn btn flex align-center justify-between"
-                                    onClick={() => openModalContent('fast-signin')}>
-                                    <img src={usersIcon} alt="users icon" />
-                                    <p>Continue with demo user</p>
-                                </button>
-
                                 <button className="email-btn btn flex align-center justify-between"
                                     onClick={() => openModalContent(modalContent === 'signin' ? 'email-signin' : 'email-signup')}>
                                     <img src={emailIcon} alt="email icon" />
                                     <p>Continue with email{modalContent === 'signin' ? '/username' : ''}</p>
+                                </button>
+
+                                <button className="users-btn btn flex align-center justify-between"
+                                    onClick={() => openModalContent('fast-signin')}>
+                                    <img src={usersIcon} alt="users icon" />
+                                    <p>Continue with demo user</p>
                                 </button>
 
                                 <section className="or-section flex align-center">

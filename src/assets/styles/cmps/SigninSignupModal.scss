@@ -6,8 +6,8 @@
     display: grid;
     grid-template-columns: 1fr;
 
-    height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
 
     color: #222325;
     background: #fff;
@@ -41,7 +41,8 @@
     }
 
     &.email-signin,
-    &.email-signup {
+    &.email-signup,
+    &.fast-signin {
         .modal-content>header {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
@@ -283,12 +284,14 @@
                             cursor: default;
                         }
                     }
+
                 }
             }
         }
 
         footer {
             margin-block-start: auto;
+            padding-block-start: rem(20px);
 
             color: #47484d;
             font-size: rem(12px);
@@ -368,7 +371,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        
+
                         margin-block-start: 4px;
 
                         width: rem(20px);
