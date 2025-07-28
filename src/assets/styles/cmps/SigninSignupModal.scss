@@ -80,12 +80,18 @@
                 width: fit-content;
                 line-height: rem(24px);
 
+                img {
+                    width: rem(18px);
+                    aspect-ratio: 1;
+                }
+
                 span {
-                    line-height: auto;
+                    padding-block-end: 2.5px;
+                    
                     color: #222325;
                     font-size: rem(16px);
                     font-family: Macan-Regular, sans-serif;
-                    font-weight: 550;
+                    font-weight: 600;
                 }
             }
 
@@ -207,7 +213,7 @@
                     .user-select,
                     .password-input-container {
                         width: 100%;
-                        height: rem(42px);
+                        height: rem(40px);
 
                         padding: rem(8px) rem(12px);
                         border-radius: rem(8px);
@@ -252,6 +258,10 @@
 
                             &:focus {
                                 outline: none;
+                            }
+
+                            &::placeholder {
+                                color: #b5b6ba;
                             }
                         }
 
