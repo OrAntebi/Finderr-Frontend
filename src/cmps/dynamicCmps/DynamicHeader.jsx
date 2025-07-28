@@ -18,11 +18,11 @@ export function DynamicHeader({ screenWidth, ...props }) {
     return <NormalHeader {...props} user={user} />
 }
 
-function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
+function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch, appHeaderRef }) {
     const dispatch = useDispatch()
 
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick} />
                 <SiteLogo />
@@ -35,11 +35,11 @@ function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
     )
 }
 
-function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage, onSearch }) {
+function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage, onSearch, appHeaderRef }) {
     const dispatch = useDispatch()
 
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <section className="flex align-center justify-between">
                     <SideMenu user={user} onMenuClick={onMenuClick} />
@@ -73,11 +73,11 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
     )
 }
 
-function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage, onSearch }) {
+function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage, onSearch, appHeaderRef }) {
     const dispatch = useDispatch()
     
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <SiteLogo />
                 {currentPage.startsWith('/categories') && <SearchInput onSearch={onSearch} backdropOnFocus={true} />}
