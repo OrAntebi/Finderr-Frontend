@@ -1,4 +1,3 @@
-// AddGig.jsx
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { AddGigStepper } from '../cmps/AddGigStepper'
@@ -15,10 +14,10 @@ export function AddGig() {
     const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
 
-    const initialStep = +searchParams.get('step') || loadFromStorage('activeStep') || 0
+    const initialStep = +searchParams.get('step') || loadSafeValue('activeStep', 0)
     const [activeStep, setActiveStep] = useState(initialStep)
-    const [maxStepReached, setMaxStepReached] = useState(() => loadFromStorage('maxStepReached') || 0)
-    const [gigToSave, setGigToSave] = useState(() => loadFromStorage('gigToSave') || gigService.getEmptyGig())
+    const [maxStepReached, setMaxStepReached] = useState(() => loadSafeValue('maxStepReached', 0))
+    const [gigToSave, setGigToSave] = useState(() => loadSafeGig())
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
@@ -28,7 +27,6 @@ export function AddGig() {
     useEffect(() => {
         saveToStorage('gigToSave', gigToSave)
     }, [gigToSave])
-
 
     function resetForm() {
         setActiveStep(0)
@@ -50,7 +48,10 @@ export function AddGig() {
                 updated[path] = value
             } else {
                 let curr = updated
-                for (let i = 0; i < keys.length - 1; i++) curr = curr[keys[i]]
+                for (let i = 0; i < keys.length - 1; i++) {
+                    if (!curr[keys[i]]) curr[keys[i]] = {}
+                    curr = curr[keys[i]]
+                }
                 curr[keys.at(-1)] = value
             }
             return updated
@@ -81,7 +82,6 @@ export function AddGig() {
             }
 
             const gigToSubmit = structuredClone(gigToSave)
-
             const cleanTitle = gigToSubmit.title?.replace(/^I will\s*/i, '').trim()
             gigToSubmit.title = `I will ${cleanTitle}`
 
@@ -109,7 +109,6 @@ export function AddGig() {
             showErrorMsg('Failed to publish gig')
         }
     }
-
 
     function handleNext() {
         const res = validateUpToStep(activeStep, gigToSave)
@@ -185,6 +184,25 @@ export function AddGig() {
             </section>
         </section>
     )
+}
+
+function loadSafeValue(key, fallback) {
+    try {
+        const val = loadFromStorage(key)
+        return typeof val === 'number' ? val : +val || fallback
+    } catch {
+        return fallback
+    }
+}
+
+function loadSafeGig() {
+    try {
+        const gig = loadFromStorage('gigToSave')
+        if (!gig || typeof gig !== 'object') throw new Error()
+        return gig
+    } catch {
+        return gigService.getEmptyGig()
+    }
 }
 
 function htmlToText(html = '') {
