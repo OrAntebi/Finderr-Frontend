@@ -126,19 +126,6 @@ export async function loginWithGoogle(credential) {
     }
 }
 
-export async function loginWithFacebook(accessToken) {
-    try {
-        const user = await userService.facebookLogin(accessToken)
-        store.dispatch({ type: SET_USER, user })
-        socketService.login(user._id)
-        store.dispatch({ type: CLOSE_LOGIN_MODAL })
-        return user
-    } catch (err) {
-        console.log('Facebook login failed', err)
-        throw err
-    }
-}
-
 export async function quickLogin(username) {
     try {
         const user = await userService.quickLogin(username)

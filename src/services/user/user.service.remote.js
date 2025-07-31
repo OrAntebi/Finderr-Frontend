@@ -8,7 +8,6 @@ export const userService = {
 	signup,
 	quickLogin,
 	googleLogin,
-	facebookLogin,
 	getUsers,
 	getById,
 	remove,
@@ -60,11 +59,6 @@ async function logout() {
 
 async function googleLogin(credential) {
 	const user = await httpService.post('auth/google-login', { credential })
-	if (user) return _saveLocalUser(user)
-}
-
-async function facebookLogin(accessToken) {
-	const user = await httpService.post('auth/facebook-login', { accessToken })
 	if (user) return _saveLocalUser(user)
 }
 

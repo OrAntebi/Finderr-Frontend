@@ -282,20 +282,6 @@ export function getFlagUrl(countryName) {
     : fallbackFlagUrl
 }
 
-
-export function getFacebookLoginUrl() {
-  const clientId = import.meta.env.VITE_FACEBOOK_APP_ID
-  const redirectUri = import.meta.env.VITE_FACEBOOK_REDIRECT_URI
-  const scope = 'email,public_profile'
-
-  if (!clientId || !redirectUri) {
-    throw new Error('Facebook login not configured properly')
-  }
-
-  return `https://www.facebook.com/v19.0/dialog/oauth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${encodeURIComponent(scope)}`
-}
-
-
 export function capitalizeName(name) {
   return name
     .split(' ')

@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { capitalizeName, getFacebookLoginUrl } from '../services/util.service'
+import { capitalizeName } from '../services/util.service'
 import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_LOGIN_MODAL, OPEN_LOGIN_MODAL } from '../store/system.reducer'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, loginWithGoogle, signup, loginWithFacebook, loadQuickLoginUsers, quickLogin } from '../store/user/user.actions'
+import { login, loginWithGoogle, signup, loadQuickLoginUsers, quickLogin } from '../store/user/user.actions'
 
 import loginImage from '../assets/img/login-logup-modal.png'
 import siteLogo from '../assets/img/site-logo.svg'
 import xIcon from '../assets/img/x-icon.svg'
 import googleIcon from '../assets/img/google-icon.svg'
 import emailIcon from '../assets/img/email-icon.svg'
-import facebookIcon from '../assets/img/facebook-v2-icon.svg'
 import arrowBackIcon from '../assets/img/arrow-back-icon.svg'
 import showPassIcon from '../assets/img/show-pass.svg'
 import hidePassIcon from '../assets/img/hide-pass.svg'
@@ -76,32 +74,6 @@ export function SigninSignupModal() {
         }
     }
 
-    useEffect(() => {
-        function handleFacebookMessage(event) {
-            if (event.origin !== window.location.origin) return
-            const { type, accessToken, error } = event.data
-
-            if (type === 'facebook-auth') {
-                if (error) {
-                    showErrorMsg('Facebook authentication failed')
-                } else if (accessToken) {
-                    loginWithFacebook(accessToken)
-                        .then((user) => {
-                            const displayName = user.fullname || user.username || 'User'
-                            showSuccessMsg(`Welcome ${displayName}`)
-                        })
-                        .catch(() => showErrorMsg('Facebook login failed'))
-                }
-            }
-        }
-
-        window.addEventListener('message', handleFacebookMessage)
-
-        return () => {
-            window.removeEventListener('message', handleFacebookMessage)
-        }
-    }, [])
-
     async function onGoogleLogin(response) {
         try {
             const user = await loginWithGoogle(response.credential)
@@ -109,24 +81,6 @@ export function SigninSignupModal() {
             showSuccessMsg(`Welcome ${displayName}`)
         } catch (err) {
             showErrorMsg('Google login failed')
-        }
-    }
-
-    function onFacebookLogin() {
-        try {
-            const fbLoginUrl = getFacebookLoginUrl()
-            const popup = window.open(
-                fbLoginUrl,
-                'facebook-login',
-                'width=600,height=600,scrollbars=yes,resizable=yes'
-            )
-            if (!popup) throw new Error('Popup blocked!')
-
-            const checkClosed = setInterval(() => {
-                if (popup.closed) clearInterval(checkClosed)
-            }, 1000)
-        } catch (err) {
-            alert(err.message)
         }
     }
 
@@ -139,8 +93,7 @@ export function SigninSignupModal() {
             const user = await quickLogin(selectedUsername)
             const selectedUser = quickLoginUsers.find(u => u.username === selectedUsername)
             const displayName = selectedUser?.fullname || user.fullname || selectedUsername
-            showSuccessMsg(`Welcome back ${capitalizeName(displayName)}!`)
-            // Modal will be closed by the quickLogin action
+            showSuccessMsg(`Welcome back ${capitalizeName(displayName)}`)
         } catch (err) {
             console.error('Fast signin error:', err)
             showErrorMsg('Fast signin failed. Please try again.')
@@ -160,12 +113,12 @@ export function SigninSignupModal() {
 
             if (isEmailSignin) {
                 const user = await login({ username, password })
-                showSuccessMsg(`Welcome back ${capitalizeName(user.fullname || fullname)}!`)
+                showSuccessMsg(`Welcome back ${capitalizeName(user.fullname || fullname)}`)
             }
 
             if (isEmailSignup) {
                 const user = await signup({ username, password, fullname })
-                showSuccessMsg(`Welcome ${capitalizeName(user.fullname || fullname)}!`)
+                showSuccessMsg(`Welcome ${capitalizeName(user.fullname || fullname)}`)
             }
 
             dispatch({ type: CLOSE_LOGIN_MODAL })
@@ -262,15 +215,10 @@ export function SigninSignupModal() {
                                     <div className="divider"></div>
                                 </section>
 
-                                <section className="google-facebook-section flex align-center justify-between">
+                                <section className="google-section flex align-center justify-between">
                                     <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
                                         <img src={googleIcon} alt="Google icon" />
                                         <p>Google</p>
-                                    </button>
-
-                                    <button className="facebook-btn btn flex align-center justify-between" onClick={onFacebookLogin}>
-                                        <img src={facebookIcon} alt="facebook icon" />
-                                        <p>Facebook</p>
                                     </button>
                                 </section>
                             </main>
