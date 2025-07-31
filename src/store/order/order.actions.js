@@ -4,9 +4,9 @@ import { store } from '../../store/store.js'
 import { SET_ORDERS, SET_ORDER, UPDATE_ORDER } from '../order/order.reducer.js';
 
 
-export async function loadOrders() {
+export async function loadOrders(filterBy = {}) {
     try {
-        let orders = await orderService.query()
+        let orders = await orderService.query(filterBy)
         store.dispatch({ type: SET_ORDERS, orders })
     } catch (err) {
         console.log('Cannot load orders', err)

@@ -51,17 +51,12 @@ export function UserIndex() {
             loadReviews({ userId: userIdFromParams }).catch(err => {
                 console.error('loadReviews failed:', err)
                 throw err
+            }),
+            loadOrders({ userId: userIdFromParams, role: 'seller' }).catch(err => {
+                console.error('loadOrders failed:', err)
+                throw err
             })
         ]
-
-        if (loggedInUser) {
-            promises.push(
-                loadOrders().catch(err => {
-                    console.error('loadOrders failed:', err)
-                    throw err
-                })
-            )
-        }
 
         Promise.all(promises)
             .catch(() => {

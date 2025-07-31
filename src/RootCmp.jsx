@@ -24,9 +24,26 @@ import { Checkout } from './pages/Checkout.jsx'
 import { Backdrop } from './cmps/Backdrop.jsx'
 import { AddGig } from './pages/AddGig.jsx'
 import { AddReview } from './pages/AddReview.jsx'
+import { socketService, SOCKET_EVENT_ORDER_RECEIVED } from './services/socket.service'
+import { showSuccessMsg } from './services/event-bus.service'
+import { useEffect } from 'react'
 
 
 export function RootCmp() {
+    const loggedInUser = useSelector(state => state.userModule.user)
+
+    useEffect(() => {
+        if (loggedInUser) {
+            socketService.emit('set-user-socket', loggedInUser._id)
+            socketService.on(SOCKET_EVENT_ORDER_RECEIVED, (data) => {
+                showSuccessMsg(data.message)
+            })
+        }
+
+        return () => {
+            socketService.off(SOCKET_EVENT_ORDER_RECEIVED)
+        }
+    }, [loggedInUser])
     const currentPage = useLocation().pathname
     const currentPageClass = currentPageToClass(currentPage)
     const navigate = useNavigate()

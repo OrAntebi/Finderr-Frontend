@@ -25,7 +25,7 @@ export function UserOrders() {
         }
 
         setIsLoading(true)
-        loadOrders()
+        loadOrders({ userId: loggedUser._id, role: 'buyer' })
             .finally(() => setIsLoading(false))
     }, [loggedUser, navigate])
 
@@ -33,9 +33,7 @@ export function UserOrders() {
 
     if (isLoading) return <Loader />
 
-    const sortedUserOrders = orders
-        .filter(order => order.buyer._id === loggedUser._id)
-        .sort((a, b) => b.createdAt - a.createdAt)
+    const sortedUserOrders = orders.sort((a, b) => b.createdAt - a.createdAt)
 
     function handleOrderClicked(order, ev) {
         ev.stopPropagation()

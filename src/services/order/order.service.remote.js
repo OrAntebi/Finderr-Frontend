@@ -8,8 +8,8 @@ export const orderService = {
     save,
 }
 
-async function query() {
-    return await httpService.get('order')
+async function query(filterBy = {}) {
+    return await httpService.get('order', filterBy)
 }
 
 async function getById(orderId) {
