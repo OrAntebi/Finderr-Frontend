@@ -6,6 +6,8 @@ export const userService = {
 	login,
 	logout,
 	signup,
+	quickLogin,
+	googleLogin,
 	getUsers,
 	getById,
 	remove,
@@ -41,16 +43,23 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-	if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-	userCred.score = 10000
-
 	const user = await httpService.post('auth/signup', userCred)
 	return _saveLocalUser(user)
+}
+
+async function quickLogin(username) {
+	const user = await httpService.post('auth/quick-login', { username })
+	if (user) return _saveLocalUser(user)
 }
 
 async function logout() {
 	sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 	return await httpService.post('auth/logout')
+}
+
+async function googleLogin(credential) {
+	const user = await httpService.post('auth/google-login', { credential })
+	if (user) return _saveLocalUser(user)
 }
 
 function getLoggedinUser() {

@@ -51,7 +51,8 @@
 
             li {
 
-                a {
+                a,
+                button {
                     display: flex;
                     justify-content: start;
                     align-items: center;
@@ -64,6 +65,8 @@
                     color: inherit;
                     border-radius: 8px;
                     cursor: pointer;
+                    font-size: inherit;
+                    font-family: inherit;
 
                     &:hover {
                         background-color: #f5f5f5;
@@ -133,9 +136,12 @@
         align-items: center;
         gap: rem(24px);
 
-        a {
+        a,
+        button {
             transition: color 0.2s ease-in-out;
             color: $nav-link-clr;
+            font-size: inherit;
+            font-family: inherit;
 
             &:hover {
                 color: $nav-link-clr-hover;
@@ -147,8 +153,6 @@
             }
 
             @include for-narrow-layout {
-                // padding-inline-end: em(24px);
-
                 &.join-link {
                     padding: em(6px) em(16px);
 
@@ -199,6 +203,11 @@
 
     .user-avatar {
         cursor: pointer;
+    }
+
+    button {
+        font-size: inherit;
+        font-family: inherit;
     }
 }
 

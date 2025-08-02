@@ -4,9 +4,8 @@ import { gigService } from './services/gig'
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/GigIndex.jsx'
-import { ReviewIndex } from './pages/ReviewIndex.jsx'
-import { ChatApp } from './pages/Chat.jsx'
-import { AdminIndex } from './pages/AdminIndex.jsx'
+import { useSelector } from 'react-redux'
+import { SigninSignupModal } from './cmps/SigninSignupModal.jsx'
 
 import { GigDetails } from './pages/GigDetails'
 import { UserIndex } from './pages/UserIndex'
@@ -25,9 +24,26 @@ import { Checkout } from './pages/Checkout.jsx'
 import { Backdrop } from './cmps/Backdrop.jsx'
 import { AddGig } from './pages/AddGig.jsx'
 import { AddReview } from './pages/AddReview.jsx'
+import { socketService, SOCKET_EVENT_ORDER_RECEIVED } from './services/socket.service'
+import { showSuccessMsg } from './services/event-bus.service'
+import { useEffect } from 'react'
 
 
 export function RootCmp() {
+    const loggedInUser = useSelector(state => state.userModule.user)
+
+    useEffect(() => {
+        if (loggedInUser) {
+            socketService.emit('set-user-socket', loggedInUser._id)
+            socketService.on(SOCKET_EVENT_ORDER_RECEIVED, (data) => {
+                showSuccessMsg(data.message)
+            })
+        }
+
+        return () => {
+            socketService.off(SOCKET_EVENT_ORDER_RECEIVED)
+        }
+    }, [loggedInUser])
     const currentPage = useLocation().pathname
     const currentPageClass = currentPageToClass(currentPage)
     const navigate = useNavigate()
@@ -54,31 +70,33 @@ export function RootCmp() {
                     <Route path="categories/:gigId" element={<GigDetails />} />
                     <Route path="checkout/:gigId/:packageType" element={<Checkout />} />
                     <Route path="user/:id" element={<UserIndex />} />
-                    <Route path="user/:id/newGig" element={<AddGig />} />
+                    <Route path="user/:id/addGig" element={
+                        <AuthGuard>
+                            <AddGig />
+                        </AuthGuard>
+                    }
+                    />
                     <Route path="user/orders" element={<UserOrders />} />
                     <Route path="review/:orderId" element={<AddReview />} />
-                    <Route path="chat" element={<ChatApp />} />
-                    <Route path="admin" element={
-                        <AuthGuard checkAdmin={true}>
-                            <AdminIndex />
-                        </AuthGuard>
-                    } />
                     <Route path="login" element={<LoginSignup />}>
                         <Route index element={<Login />} />
                         <Route path="signup" element={<Signup />} />
                     </Route>
                 </Routes>
             </main>
-            {currentPage.startsWith("/categories") && <Backdrop />}
+            
+            <Backdrop />
+            <SigninSignupModal />
+
             <AppFooter />
         </>
     )
 }
 
-function AuthGuard({ children, checkAdmin = false }) {
+function AuthGuard({ children }) {
     const user = userService.getLoggedinUser()
-    const isNotAllowed = !user || (checkAdmin && !user.isAdmin)
-    if (isNotAllowed) {
+
+    if (!user) {
         console.log('Not Authenticated!')
         return <Navigate to="/" />
     }
@@ -89,7 +107,7 @@ function AuthGuard({ children, checkAdmin = false }) {
 function currentPageToClass(pathname) {
     const rules = [
         { re: /^\/categories/, className: 'categories-page-shown' },
-        { re: /\/newGig$/, className: 'add-gig-page-shown' },
+        { re: /\/addGig$/, className: 'add-gig-page-shown' },
     ];
 
     const match = rules.find(({ re }) => re.test(pathname));

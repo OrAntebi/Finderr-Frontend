@@ -38,12 +38,27 @@ export function UserIndex() {
 
     useEffect(() => {
         setIsLoading(true)
-        Promise.all([
-            loadWatchedUser(userIdFromParams),
-            loadGigs({ userId: userIdFromParams }),
-            loadOrders(),
-            loadReviews({ userId: userIdFromParams })
-        ])
+        
+        const promises = [
+            loadWatchedUser(userIdFromParams).catch(err => {
+                console.error('loadWatchedUser failed:', err)
+                throw err
+            }),
+            loadGigs({ userId: userIdFromParams }).catch(err => {
+                console.error('loadGigs failed:', err)
+                throw err
+            }),
+            loadReviews({ userId: userIdFromParams }).catch(err => {
+                console.error('loadReviews failed:', err)
+                throw err
+            }),
+            loadOrders({ userId: userIdFromParams, role: 'seller' }).catch(err => {
+                console.error('loadOrders failed:', err)
+                throw err
+            })
+        ]
+
+        Promise.all(promises)
             .catch(() => {
                 showErrorMsg('Failed to load user data')
             })

@@ -24,6 +24,58 @@
     }
 
     .add-gig-stepper-btns {
-        
+        display: flex;
+        justify-self: flex-end;
+        margin-block-start: rem(28px);
+
+        .MuiBox-root.css-1cfv2nh {
+            padding: 0;
+
+            .MuiBox-root.css-1ohrtim {
+                flex-direction: column-reverse;
+                align-items: flex-end;
+                padding: 0;
+                gap: 12px;
+            }
+
+            .btn {
+                text-transform: capitalize;
+                font-family: Macan-Regular, sans-serif;
+            }
+
+            .btn-continue {
+                padding: rem(10px) rem(20px);
+
+                font-size: rem(16px);
+                font-weight: 600;
+                line-height: rem(24px);
+                color: #fff;
+                background: #222325;
+                border: 1px solid transparent;
+                border-radius: rem(8px);
+
+                &:hover {
+                    background: #404145;
+                }
+            }
+
+            .btn-back {
+                min-width: unset;
+
+                padding: rem(5px);
+
+                background: transparent;
+                color: #1DBF73;
+                font-size: rem(14px);
+                font-weight: 500;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 1px;
+                }
+            }
+        }
+
+
     }
 }

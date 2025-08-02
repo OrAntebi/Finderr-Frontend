@@ -281,3 +281,11 @@ export function getFlagUrl(countryName) {
     ? `https://flagcdn.com/w20/${code.toLowerCase()}.png`
     : fallbackFlagUrl
 }
+
+export function capitalizeName(name) {
+  return name
+    .split(' ')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ')
+}
+

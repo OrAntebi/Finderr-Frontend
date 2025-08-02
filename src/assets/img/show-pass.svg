@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 17">
+    <path stroke="#404145" stroke-linejoin="round" stroke-width="1.5"
+        d="M10.107 8.5a2.107 2.107 0 1 0-4.213 0 2.107 2.107 0 0 0 4.213 0Z"
+        vector-effect="non-scaling-stroke"></path>
+    <path stroke="#404145" stroke-linejoin="round" stroke-width="1.5"
+        d="M8 3.584c2.936 0 5.452 2.818 6.5 4.187a1.19 1.19 0 0 1 0 1.457c-1.048 1.369-3.564 4.187-6.5 4.187s-5.452-2.818-6.5-4.187a1.19 1.19 0 0 1 0-1.457C2.548 6.402 5.064 3.584 8 3.584Z"
+        vector-effect="non-scaling-stroke"></path>
+</svg>

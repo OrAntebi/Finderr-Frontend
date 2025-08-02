@@ -1,4 +1,6 @@
 .home-page {
+    grid-template-rows: max-content;
+
     .hero-container {
         position: relative;
         height: fit-content;

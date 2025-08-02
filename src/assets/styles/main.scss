@@ -24,7 +24,6 @@
 @import "pages/UserOrders";
 @import "pages/AdminIndex";
 @import "pages/TaskDetails";
-@import "pages/LoginSignup";
 @import "pages/Chat";
 @import "pages/Checkout";
 @import "pages/AddGig";
@@ -57,6 +56,8 @@
 @import "cmps/UserOrderPreview";
 @import "cmps/UserGigList";
 @import "cmps/UserGigPreview";
+@import "cmps/CategoriesCards";
+@import "cmps/SigninSignupModal";
 
 @import "cmps/Loader";
 @import "cmps/NoGigsFound";

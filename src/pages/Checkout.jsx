@@ -39,6 +39,7 @@ export function Checkout() {
 
     const serviceFee = useRef(getRandomIntInclusive(5, 15)).current;
     const VAT = useRef(getRandomIntInclusive(20, 35)).current;
+    console.log('packageDetails', packageDetails)
     const totalPrice = packageDetails?.packPrice + serviceFee + VAT
 
     useEffect(() => {

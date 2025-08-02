@@ -1,11 +1,21 @@
 import { Link } from 'react-router-dom'
 
-export function PricingPackages({ gig, screenWidth, icons, selectedPack, onSelectPackage, onContinueClick, getRevisionText }) {
+export function PricingPackages({
+    gig,
+    screenWidth,
+    icons,
+    selectedPack,
+    onSelectPackage,
+    onContinueClick,
+    getRevisionText
+}) {
     const { packages } = gig
-    const tabs = ['basic', 'standard', 'premium']
-    const currentPackage = packages[selectedPack.packageName]
 
-    // Generic normalisation: lowercase → strip numbers → naively singular‑ise words
+    const tabs = ['basic', 'standard', 'premium'].filter(tab => packages[tab])
+    const fallbackTab = tabs.includes(selectedPack.packageName) ? selectedPack.packageName : tabs[0]
+    const currentPackage = packages[fallbackTab]
+    const premiumFeatures = packages.premium?.features || []
+
     const normalize = (str = '') =>
         str
             .toLowerCase()
@@ -54,8 +64,8 @@ export function PricingPackages({ gig, screenWidth, icons, selectedPack, onSelec
                         <button
                             key={tab}
                             role="tab"
-                            aria-selected={selectedPack.packageName === tab}
-                            className={selectedPack.packageName === tab ? 'active' : ''}
+                            aria-selected={fallbackTab === tab}
+                            className={fallbackTab === tab ? 'active' : ''}
                             onClick={() => onSelectPackage(tab)}
                         >
                             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -68,7 +78,7 @@ export function PricingPackages({ gig, screenWidth, icons, selectedPack, onSelec
                         <span className="amount">${currentPackage.packPrice}</span>
                         <p className="discount">
                             Save up to{' '}
-                            {selectedPack.packageName === 'basic' ? '2%' : selectedPack.packageName === 'standard' ? '5%' : '10%'} with
+                            {fallbackTab === 'basic' ? '2%' : fallbackTab === 'standard' ? '5%' : '10%'} with
                             <Link to="/login"> Subscribe to Save</Link>
                         </p>
                     </div>
@@ -102,7 +112,7 @@ export function PricingPackages({ gig, screenWidth, icons, selectedPack, onSelec
                             </li>
                         )}
 
-                        {packages.premium.features?.map((feature, idx) => {
+                        {premiumFeatures.map((feature, idx) => {
                             const family = normalize(feature)
                             if (printed.has(family)) return null
                             printed.add(family)

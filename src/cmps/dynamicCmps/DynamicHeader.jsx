@@ -7,6 +7,8 @@ import DropdownMenu from "../DropdownMenu.jsx"
 import SiteLogo from "../SiteLogo.jsx"
 import SearchInput from "../SearchInput.jsx"
 import SideMenu from "../SideMenu.jsx"
+import { useDispatch } from "react-redux"
+import { OPEN_LOGIN_MODAL } from '../../store/system.reducer'
 
 export function DynamicHeader({ screenWidth, ...props }) {
     const { user } = props
@@ -16,22 +18,28 @@ export function DynamicHeader({ screenWidth, ...props }) {
     return <NormalHeader {...props} user={user} />
 }
 
-function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch }) {
+function MobileHeader({ user, onLogout, onMenuClick, currentPage, onSearch, appHeaderRef }) {
+    const dispatch = useDispatch()
+
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
-                <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick}/>
+                <SideMenu user={user} onLogout={onLogout} onMenuClick={onMenuClick} />
                 <SiteLogo />
-                {!user ? <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink> : <div className="spacer"></div>}
+                {!user ?
+                    <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
+                    : <div className="spacer"></div>}
             </section>
             {currentPage.startsWith('/categories') && <SearchInput submitBtn={false} placeholderText="Find services" onSearch={onSearch} backdropOnFocus={true} />}
         </header>
     )
 }
 
-function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage, onSearch }) {
+function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, onMenuClick, currentPage, onSearch, appHeaderRef }) {
+    const dispatch = useDispatch()
+
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <section className="flex align-center justify-between">
                     <SideMenu user={user} onMenuClick={onMenuClick} />
@@ -47,7 +55,7 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                 onClose={() => closeDropdown('avatar')}
                                 items={[
                                     { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
-                                    { type: 'link', to: `/user/${user._id}/newGig`, label: 'New gig' },
+                                    { type: 'link', to: `/user/${user._id}/addGig`, label: 'Add Gig' },
                                     { type: 'button', onClick: onLogout, label: 'Logout' }
                                 ]}
                                 className="avatar-menu"
@@ -55,8 +63,8 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                         </>
                     ) : (
                         <>
-                            <NavLink to="login" className="login-link main-nav-link">Sign in</NavLink>
-                            <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="login-link main-nav-link">Sign in</button>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
                         </>
                     )}
                 </nav>
@@ -65,9 +73,11 @@ function NarrowHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
     )
 }
 
-function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage, onSearch }) {
+function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropdown, currentPage, onSearch, appHeaderRef }) {
+    const dispatch = useDispatch()
+    
     return (
-        <header className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
+        <header ref={appHeaderRef} className={`app-header main-container full ${currentPage === "/" ? "home-page-shown" : ""}`}>
             <section className="app-header-container flex align-center justify-between">
                 <SiteLogo />
                 {currentPage.startsWith('/categories') && <SearchInput onSearch={onSearch} backdropOnFocus={true} />}
@@ -128,7 +138,7 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                                     onClose={() => closeDropdown('avatar')}
                                     items={[
                                         { type: 'link', to: `/user/${user._id}`, label: 'Profile' },
-                                        { type: 'link', to: `/user/${user._id}/newGig` , label: 'New gig' },
+                                        { type: 'link', to: `/user/${user._id}/addGig`, label: 'Add Gig' },
                                         { type: 'button', onClick: onLogout, label: 'Logout' }
                                     ]}
                                     className="avatar-menu"
@@ -137,8 +147,8 @@ function NormalHeader({ user, onLogout, dropdownOpen, toggleDropdown, closeDropd
                         </>
                     ) : (
                         <>
-                            <NavLink to="login" className="login-link main-nav-link">Sign in</NavLink>
-                            <NavLink to="login/signup" className="join-link main-nav-link">Join</NavLink>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL })} className="login-link main-nav-link">Sign in</button>
+                            <button onClick={() => dispatch({ type: OPEN_LOGIN_MODAL, modalContent: 'signup' })} className="join-link main-nav-link">Join</button>
                         </>
                     )}
                 </nav>

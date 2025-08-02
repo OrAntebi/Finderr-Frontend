@@ -10,14 +10,15 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_REMOVED = 'review-removed'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
+export const SOCKET_EVENT_ORDER_RECEIVED = 'order-received'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 // for debugging from console
 window.socketService = socketService
@@ -30,8 +31,14 @@ function createSocketService() {
     const socketService = {
         setup() {
             socket = io(baseUrl)
-            const user = userService.getLoggedinUser()
-            if (user) this.login(user._id)
+            socket.on('connect', () => {
+                console.log('Socket connected successfully')
+                const user = userService.getLoggedinUser()
+                if (user) this.login(user._id)
+            })
+            socket.on('connect_error', (error) => {
+                console.error('Socket connection error:', error)
+            })
         },
         on(eventName, cb) {
             socket.on(eventName, cb)

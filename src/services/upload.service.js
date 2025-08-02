@@ -2,7 +2,6 @@ export const uploadService = {
     uploadImg
 }
 
-
 async function uploadImg(ev) {
     //* Defining our variables
     const CLOUD_NAME = 'vanilla-test-images'

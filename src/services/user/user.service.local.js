@@ -57,7 +57,6 @@ async function login(userCred) {
 async function signup(userCred) {
     if (!userCred.imgUrl && !userCred.fullname) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
-    console.log('userCred: ', userCred)
     const user = await storageService.post(USER_KEY, userCred)
     return _saveLocalUser(user)
 }

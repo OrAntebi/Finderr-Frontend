@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
@@ -11,7 +11,6 @@ import { CategoriesList } from './CategoriesList.jsx'
 export function AppHeader({ onSearch }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const screenWidth = useScreenSize()
-    const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dropdownOpen, setDropdownOpen] = useState({
         notifications: false,
         messages: false,
@@ -21,6 +20,7 @@ export function AppHeader({ onSearch }) {
     })
     const currentPage = useLocation().pathname
     const navigate = useNavigate()
+    const appHeaderRef = useRef(null)
 
     async function onLogout() {
         try {
@@ -28,18 +28,23 @@ export function AppHeader({ onSearch }) {
             navigate('/')
             showSuccessMsg(`Logged out successfully`)
         } catch (err) {
+            console.error('Logout error:', err)
             showErrorMsg('Cannot logout')
         }
     }
 
     function onMenuClick() {
-        setMenuIsOpen(prev => !prev)
-        document.querySelector('.app-header').classList.toggle('menu-shown', !menuIsOpen)
+        if (!appHeaderRef.current) return
 
+        const el = appHeaderRef.current
+        const isOpen = el.classList.contains('menu-shown')
+
+        el.classList.toggle('menu-shown', !isOpen)
         setTimeout(() => {
-            document.querySelector('.app-header').classList.toggle('menu-shown', !menuIsOpen)
+            el.classList.toggle('menu-shown', !isOpen)
         }, 0)
     }
+
 
     function toggleDropdown(name) {
         setDropdownOpen(prev => ({ ...prev, [name]: !prev[name] }))
@@ -61,6 +66,7 @@ export function AppHeader({ onSearch }) {
                 dropdownOpen={dropdownOpen}
                 currentPage={currentPage}
                 onSearch={onSearch}
+                appHeaderRef={appHeaderRef}
             />
             <CategoriesList />
         </>
