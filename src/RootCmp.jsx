@@ -10,6 +10,7 @@ import { SigninSignupModal } from './cmps/SigninSignupModal.jsx'
 import { GigDetails } from './pages/GigDetails'
 import { UserIndex } from './pages/UserIndex'
 import { UserOrders } from './pages/UserOrders'
+import { PolicyAndTerms } from './pages/PolicyAndTerms.jsx'
 
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
@@ -82,9 +83,10 @@ export function RootCmp() {
                         <Route index element={<Login />} />
                         <Route path="signup" element={<Signup />} />
                     </Route>
+                    <Route path="policy" element={<PolicyAndTerms />} />
                 </Routes>
             </main>
-            
+
             <Backdrop />
             <SigninSignupModal />
 
