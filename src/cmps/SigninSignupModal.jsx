@@ -54,8 +54,13 @@ export function SigninSignupModal() {
             try {
                 window.google.accounts.id.initialize({
                     client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-                    callback: onGoogleLogin
+                    callback: onGoogleLogin,
+                    auto_select: false,
+                    cancel_on_tap_outside: true,
+                    use_fedcm_for_prompt: false
                 })
+
+                window.google.accounts.id.disableAutoSelect()
 
                 if (modalIsOpen && isAuthFlow) {
                     setTimeout(() => {
@@ -64,7 +69,7 @@ export function SigninSignupModal() {
                             window.google.accounts.id.renderButton(googleButtonContainer, {
                                 theme: 'outline',
                                 size: 'large',
-                                text: 'continue_with'
+                                type: 'standard'
                             })
                         }
                     }, 100)
