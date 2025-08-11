@@ -218,7 +218,7 @@ export function SigninSignupModal() {
                                 <section className="google-section flex align-center justify-between">
                                     <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
                                         <img src={googleIcon} alt="Google icon" />
-                                        <p>Google</p>
+                                        <p>Continue with Google</p>
                                     </button>
                                 </section>
                             </main>
