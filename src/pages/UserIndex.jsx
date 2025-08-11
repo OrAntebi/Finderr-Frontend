@@ -66,9 +66,8 @@ export function UserIndex() {
                 setIsLoading(false)
             })
 
-    }, [userIdFromParams])  // Only depend on userIdFromParams
+    }, [userIdFromParams])
 
-    // Separate effect for image updates - only when user is logged in
     useEffect(() => {
         if (isOwnProfile && loggedInUser?.imgUrl && watchedUser) {
             loadWatchedUser(userIdFromParams)
