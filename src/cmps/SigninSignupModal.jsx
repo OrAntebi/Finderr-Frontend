@@ -51,12 +51,29 @@ export function SigninSignupModal() {
 
     useEffect(() => {
         if (window.google) {
-            window.google.accounts.id.initialize({
-                client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-                callback: onGoogleLogin
-            })
+            try {
+                window.google.accounts.id.initialize({
+                    client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+                    callback: onGoogleLogin
+                })
+
+                if (modalIsOpen && isAuthFlow) {
+                    setTimeout(() => {
+                        const googleButtonContainer = document.getElementById('google-signin-button')
+                        if (googleButtonContainer) {
+                            window.google.accounts.id.renderButton(googleButtonContainer, {
+                                theme: 'outline',
+                                size: 'large',
+                                text: 'continue_with'
+                            })
+                        }
+                    }, 100)
+                }
+            } catch (error) {
+                console.error('Google Sign-In initialization failed:', error)
+            }
         }
-    }, [])
+    }, [modalIsOpen, isAuthFlow])
 
     useEffect(() => {
         if (modalIsOpen && isFastSignin) {
@@ -216,10 +233,7 @@ export function SigninSignupModal() {
                                 </section>
 
                                 <section className="google-section flex align-center justify-between">
-                                    <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
-                                        <img src={googleIcon} alt="Google icon" />
-                                        <p>Continue with Google</p>
-                                    </button>
+                                    <div id="google-signin-button" style={{ width: '100%' }}></div>
                                 </section>
                             </main>
                         )}
