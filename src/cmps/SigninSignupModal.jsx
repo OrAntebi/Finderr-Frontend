@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_LOGIN_MODAL, OPEN_LOGIN_MODAL } from '../store/system.reducer'
 import { useScreenSize } from '../customHooks/useScreenSize'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { login, loginWithGoogle, signup, loadQuickLoginUsers, quickLogin } from '../store/user/user.actions'
+import { login, signup, loadQuickLoginUsers, quickLogin } from '../store/user/user.actions'
 
 import loginImage from '../assets/img/login-logup-modal.png'
 import siteLogo from '../assets/img/site-logo.svg'
 import xIcon from '../assets/img/x-icon.svg'
-import googleIcon from '../assets/img/google-icon.svg'
 import emailIcon from '../assets/img/email-icon.svg'
 import arrowBackIcon from '../assets/img/arrow-back-icon.svg'
 import showPassIcon from '../assets/img/show-pass.svg'
@@ -50,15 +49,6 @@ export function SigninSignupModal() {
     }, [modalIsOpen])
 
     useEffect(() => {
-        if (window.google) {
-            window.google.accounts.id.initialize({
-                client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-                callback: onGoogleLogin
-            })
-        }
-    }, [])
-
-    useEffect(() => {
         if (modalIsOpen && isFastSignin) {
             loadQuickLoginUsersData()
         }
@@ -71,16 +61,6 @@ export function SigninSignupModal() {
         } catch (err) {
             console.error('Failed to load quick login users:', err)
             setQuickLoginUsers([])
-        }
-    }
-
-    async function onGoogleLogin(response) {
-        try {
-            const user = await loginWithGoogle(response.credential)
-            const displayName = user.fullname || user.username || 'User'
-            showSuccessMsg(`Welcome ${displayName}`)
-        } catch (err) {
-            showErrorMsg('Google login failed')
         }
     }
 
@@ -203,24 +183,17 @@ export function SigninSignupModal() {
                                     <p>Continue with email{modalContent === 'signin' ? '/username' : ''}</p>
                                 </button>
 
-                                <button className="users-btn btn flex align-center justify-between"
-                                    onClick={() => openModalContent('fast-signin')}>
-                                    <img src={usersIcon} alt="users icon" />
-                                    <p>Continue with demo user</p>
-                                </button>
-
                                 <section className="or-section flex align-center">
                                     <div className="divider"></div>
                                     <p className="or">or</p>
                                     <div className="divider"></div>
                                 </section>
 
-                                <section className="google-section flex align-center justify-between">
-                                    <button id="googleBtn" className="google-btn btn flex align-center justify-between" onClick={() => window.google?.accounts.id.prompt()}>
-                                        <img src={googleIcon} alt="Google icon" />
-                                        <p>Google</p>
-                                    </button>
-                                </section>
+                                <button className="users-btn btn flex align-center justify-between"
+                                    onClick={() => openModalContent('fast-signin')}>
+                                    <img src={usersIcon} alt="users icon" />
+                                    <p>Continue with demo user</p>
+                                </button>
                             </main>
                         )}
 
@@ -255,7 +228,7 @@ export function SigninSignupModal() {
                                                     setShowPassword(!showPassword)
                                                 }}
                                             >
-                                                <img src={showPassword ? showPassIcon : hidePassIcon} alt="toggle password visibility" />
+                                                <img src={showPassword ? showPassIcon : hidePassIcon} alt="toggle password visibility" title={showPassword ? 'Hide Pass' : 'Show Pass' }/>
                                             </button>
                                         </div>
                                     </label>
