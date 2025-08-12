@@ -66,7 +66,13 @@ export function UserIndex() {
                 setIsLoading(false)
             })
 
-    }, [userIdFromParams, loggedInUser?.imgUrl])
+    }, [userIdFromParams])
+
+    useEffect(() => {
+        if (isOwnProfile && loggedInUser?.imgUrl && watchedUser) {
+            loadWatchedUser(userIdFromParams)
+        }
+    }, [loggedInUser?.imgUrl])
 
     useEffect(() => {
         function handleClickOutside(ev) {
